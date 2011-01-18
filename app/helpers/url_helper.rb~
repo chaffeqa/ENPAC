@@ -1,5 +1,0 @@
-module UrlHelper
-  def with_subdomain(subdomain)
-
-  end
-end
