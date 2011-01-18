@@ -1,1 +1,32 @@
-<%= render :file => "#{RAILS_ROOT}/enpac/admin.html.erb" %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render 'partials/head' %>
+
+    <!-- Extra markup/scripting for admin pages -->
+    <%= javascript_include_tag 'admin.js'  %>
+    <%= stylesheet_link_tag 'admin' %>
+
+    <%= yield :head %>
+  </head>
+
+  <body id="adminPage" class="oneColumn">
+    <% if admin? %><%= render 'partials/page_admin' %><% end %>
+
+    <%= render 'partials/header' %>
+    <%= render 'partials/nav_menu' %>
+
+    <section id="content" class="cf">
+      <div id="wrapper">
+	<section id="mainColumn" class="cf contents">
+	  <div id="top"></div>
+	  <div id="inner">
+            <%= yield %>
+	  </div>
+	</section>
+      </div>
+    </section>
+
+    <%= render 'partials/footer' %>
+  </body>
+</html>

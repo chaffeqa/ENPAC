@@ -45,8 +45,6 @@ class ApplicationController < ActionController::Base
       redirect_to error_path(:message => 'Unauthorized Access')
     end
   end
-
-
   
   private
 

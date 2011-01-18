@@ -1,1 +1,16 @@
-<%= render :file => "#{RAILS_ROOT}/enpac/static.html.erb" %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render 'partials/head' %>
+    <%= yield :head %>
+  </head>
+
+  <body id="<%= content_for?(:body_id) ? yield(:body_id) : 'secPage' %>" 
+	class="<%= content_for?(:body_class) ? yield(:body_class) : 'twoColumn' %>">
+
+    <% if admin? %><%= render 'partials/page_admin' %><% end %>
+
+    <%= render :file => "#{Rails.root.to_s}/public/#{subdomain}/static.html.erb" %>
+
+  </body>
+</html>

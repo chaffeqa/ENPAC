@@ -1,1 +1,16 @@
-<%= render :file => "#{RAILS_ROOT}/enpac/dynamic.html.erb" %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render 'partials/head' %>
+    <%= yield :head %>
+  </head>
+
+  <body id="<%= content_for?(:body_id) ? yield(:body_id) : 'admin' %>"
+	class="<%= content_for?(:body_class) ? yield(:body_class) : 'oneColumn' %>">
+
+    <% if admin? %><%= render 'partials/page_admin' %><% end %>
+
+    <%= render :file => "#{Rails.root.to_s}/public/#{subdomain}/dynamic.html.erb" %>
+
+  </body>
+</html>

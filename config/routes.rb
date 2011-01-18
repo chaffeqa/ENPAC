@@ -54,9 +54,9 @@ KernCoinProject::Application.routes.draw do
 
   match "error" => 'shortcut#error', :as => :error
 
-  constraints(Subdomain) do
-    match '/' => 'sites#show'
-  end
+#  constraints(Subdomain) do
+#    match '/' => 'sites#show'
+#  end
 
   root :to => 'shortcut#home'
   

@@ -1,5 +1,10 @@
 module ApplicationHelper
 
+  def subdomain 
+    return request.subdomain.present? ? request.subdomain : "www"
+  end
+
+
   ################### Admin Helpers #####################
 
   # Anything passed into an <%= admin_area do %> ... <% end %> block in an .erb file will get surrounded by <div class="admin"></div>
