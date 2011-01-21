@@ -2,7 +2,7 @@ class InventoryController < ApplicationController
   helper_method :sort_column, :sort_direction
 
 
-  def list
+  def search
     @category = Category.find(params[:category_id]) unless params[:category_id].blank?
     
     @items = Item.get_for_sale.displayed
@@ -13,13 +13,7 @@ class InventoryController < ApplicationController
     @items = @items.paginate :page => params[:page]
 
     
-    @parameters = params
-    @parameters.delete('action')
-    @parameters.delete('controller')
-    @parameters.delete('utf8')
-    @parameters.delete('commit')
-    @parameters.delete('sort')
-    @parameters.delete('direction')
+    
   end
 
   private
@@ -43,6 +37,7 @@ class InventoryController < ApplicationController
     @max_price = params[:cost_range].split('-')[1] || 1000000000
     @max_price
   end
+
 
  
 end

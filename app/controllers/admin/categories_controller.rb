@@ -2,10 +2,9 @@ class Admin::CategoriesController < ApplicationController
   layout 'admin'
   before_filter :get_node, :except => [:new, :create, :index]
   before_filter :check_admin
-  before_filter :edit_inventory_node?, :only => [:new, :edit, :create, :update]
 
   def index
-    @inventory = Category.where(:title => 'Inventory').first
+    @categories = Category.order('title')
   end
 
   
@@ -38,16 +37,6 @@ class Admin::CategoriesController < ApplicationController
     @category.destroy
     redirect_to(admin_categories_url, :notice => 'Category was successfully destroyed.')
   end
-
-  def move_up
-    @category.node.move_higher
-    redirect_to admin_categories_path
-  end
-
-  def move_down
-    @category.node.move_lower
-    redirect_to admin_categories_path
-  end
   
   private
 
@@ -56,10 +45,6 @@ class Admin::CategoriesController < ApplicationController
     @category.build_node(:displayed => true) unless @category.node
     @node = @category.node
     super
-  end
-
-  def edit_inventory_node?
-    @editing_inventory = (@category == Category.get_inventory)
   end
 
 end

@@ -1,4 +1,4 @@
-KernCoinProject::Application.routes.draw do
+ENPAC::Application.routes.draw do
 
   devise_for :admins
   
@@ -44,8 +44,8 @@ KernCoinProject::Application.routes.draw do
 
 
 
+  match 'inventory' => 'inventory#search', :as => :inventory
   match ':shortcut(/:year(/:month))' => 'shortcut#route', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
-  match 'Inventory/item_list' => 'inventory#list', :as => :inventory_list
   
 #  match '/admin/:controller/:action(/:id)'
 #  match '/:controller/:action(/:id)'

@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%= render :partial => 'layouts/site_partials/head' %>
+    <%= render :partial => 'site_partials/head' %>
     <%= yield :head %>
   </head>
 
   <body id="<%= content_for?(:body_id) ? yield(:body_id) : 'secPage' %>" 
 	class="<%= content_for?(:body_class) ? yield(:body_class) : 'twoColumn' %>">
     
-    <% if admin? %><%= render :partial => 'layouts/site_partials/page_admin' %><% end %>
-    <%= render :partial => 'layouts/site_partials/header' %>
-    <%= render :partial => 'layouts/site_partials/nav_menu' %>
+    <% if admin? %><%= render :partial => 'site_partials/page_admin' %><% end %>
+    <%= render :partial => 'site_partials/header' %>
+    <%= render :partial => 'site_partials/nav_menu' %>
 
     <section id="content" class="clearfix">
       <div id="wrapper">
@@ -31,6 +31,6 @@
       </div>
     </section>
 
-    <%= render :partial => 'layouts/site_partials/footer' %>
+    <%= render :partial => 'site_partials/footer' %>
   </body>
 </html>

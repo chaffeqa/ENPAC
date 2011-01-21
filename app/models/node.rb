@@ -116,7 +116,7 @@ class Node < ActiveRecord::Base
   # Sets this node's shortcut to the desired shortcut or closest related shortcut that will be unique in the database.  If a conflict
   # occurs than a numeric increment will be appended as a prefix and the increment number will be returned.  If no conflict occured
   # than the method will return 0 (or the passed in increment if one was passed in)
-  def set_safe_shortcut(desired_shortcut, node_id, increment=0)
+  def set_safe_shortcut(desired_shortcut, node_id=0, increment=0)
     prefix = increment == 0 ? "" : increment.to_s + "-"
     while Node.where('nodes.shortcut = ? AND nodes.id != ?', prefix + desired_shortcut, node_id).exists?
       increment += 1

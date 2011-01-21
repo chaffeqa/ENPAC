@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-KernCoinProject::Application.load_tasks
+ENPAC::Application.load_tasks

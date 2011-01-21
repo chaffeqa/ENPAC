@@ -7,7 +7,7 @@
 <% end %>
 
 <article class="item">
-  <h1 class="title"><%= @node.parent.title %></h1>
+  <h1 class="title"><%= @node.title %></h1>
   <div class="product">
 
     <div class="left">
@@ -50,7 +50,7 @@
 
 <!-- Content_for components to insert into static_page -->
 <%= content_for :breadcrumb do %>
-  <%= render :partial => 'layouts/site_partials/breadcrumb' %>
+  <%= render :partial => 'site_partials/breadcrumb' %>
 <% end %>
 
 

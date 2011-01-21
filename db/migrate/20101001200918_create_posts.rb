@@ -4,6 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :title
       t.text :body
       t.belongs_to :blog
+      t.datetime :post_date
 
       t.timestamps
     end

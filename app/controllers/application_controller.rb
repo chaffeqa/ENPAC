@@ -1,9 +1,8 @@
 class ApplicationController < ActionController::Base
   include UrlHelper
-  protect_from_forgery
+#  protect_from_forgery TODO enable this
   helper :all
   helper_method :get_node, :categories_for_items, :get_home_node, :admin?
-  before_filter :side_panels
   layout 'static_page'
 
   def categories_for_items(items = Item.all)
@@ -56,11 +55,6 @@ class ApplicationController < ActionController::Base
   end
 
   
-
-  def side_panels
-    #    @popular_auctions = Auction.list_by_popularity.limit(5)
-    @time = Time.now
-  end
 
   
 end

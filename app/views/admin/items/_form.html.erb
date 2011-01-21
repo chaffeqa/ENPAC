@@ -11,16 +11,21 @@
     </div>
   <% end %>
 
+
+  <%= f.fields_for :node do |node_f| %>
+    <%= node_f.hidden_field :displayed, :value => true %>
+  <% end %>
+
   <fieldset>
     <div class="field"><span class="hint">Add This product to multiple Inventory Categories.</span>
       <label>Categorize</label><br />
     </div>
-    <% f.fields_for :nodes do |nodes_form| %>
-      <%= render :partial => 'node', :locals => { :f => nodes_form } %>
+    <% f.fields_for :item_categories do |ic_form| %>
+      <%= render :partial => 'item_category', :locals => { :f => ic_form } %>
     <% end %>
-    <%= new_child_fields_template(f, :nodes)%>
-    <div class="field"><label></label><%= add_child_link "Add Category", :nodes %></div>
-    
+    <%= new_child_fields_template(f, :item_categories)%>
+    <div class="field"><label></label><%= add_child_link "Add Category", :item_categories %></div>
+
     <hr />
 
     <div class="field"><span class="hint">Be sure to enter a unique item ID.</span>
