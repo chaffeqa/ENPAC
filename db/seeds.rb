@@ -8,5 +8,5 @@ inventory_node.save
 blogs_node = home_node.children.create(:menu_name => 'Blogs', :title => 'Blogs', :shortcut => 'blogs', :displayed => false)
 calendars_node = home_node.children.create(:menu_name => 'Calendars', :title => 'Calendars', :shortcut => 'calendars', :displayed => false)
 
-categories_node = inventory_node.children.create(:menu_name => 'Categories', :title => 'Categories', :shortcut => 'categories', :displayed => false)
-items_node = inventory_node.children.create(:menu_name => 'Items', :title => 'Items', :shortcut => 'items', :displayed => false)
+categories_node = inventory_node.children.create(:menu_name => 'Categories', :title => 'Categories', :shortcut => 'categories', :displayed => true, :page_type => 'Category')
+items_node = inventory_node.children.create(:menu_name => 'Items', :title => 'Items', :shortcut => 'items', :displayed => true)

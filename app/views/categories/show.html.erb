@@ -1,8 +1,7 @@
-<% @category = @node.page
-children = @node.children.displayed  %>
+<% children = @node.children.displayed  %>
 
-<h1><%= @category.title %></h1>
-<p><%= @category.description %></p>
+<h1><%= @node.page ? @node.page.title : 'Categories' %></h1>
+<p><%= @node.page ? @node.page.description : 'All The inventory categories.' %></p>
 <hr />
 
 <% if children %>
@@ -52,7 +51,7 @@ children = @node.children.displayed  %>
 <% end %>
 
 <%= content_for :breadcrumb do %>
-  <%= render :partial => 'layouts/site_partials/breadcrumb' %>
+  <%= render :partial => 'site_partials/breadcrumb' %>
 <% end %>
 
 

@@ -45,14 +45,14 @@ ENPAC::Application.routes.draw do
 
 
   match 'inventory' => 'inventory#search', :as => :inventory
+  match 'items' => 'inventory#search' # Since we don't want to allow /items to call item#show
+  match "error" => 'shortcut#error', :as => :error
   match ':shortcut(/:year(/:month))' => 'shortcut#route', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
   
 #  match '/admin/:controller/:action(/:id)'
 #  match '/:controller/:action(/:id)'
   match ':shortcut' => 'shortcut#route', :as => :shortcut
   match ':shortcut/:page_area/new_element' => 'dynamic_pages#new_element', :as => :new_element
-
-  match "error" => 'shortcut#error', :as => :error
 
   constraints(Subdomain) do
     match '/' => 'sites#show'

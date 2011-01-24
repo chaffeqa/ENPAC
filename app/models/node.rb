@@ -113,6 +113,16 @@ class Node < ActiveRecord::Base
     self.where(:title => 'Inventory').first
   end
 
+  # Returns the Categories Node
+  def self.categories_node
+    self.where(:title => 'Categories').first
+  end
+
+  # Returns the Items Node
+  def self.items_node
+    self.where(:title => 'Items').first
+  end
+
   # Sets this node's shortcut to the desired shortcut or closest related shortcut that will be unique in the database.  If a conflict
   # occurs than a numeric increment will be appended as a prefix and the increment number will be returned.  If no conflict occured
   # than the method will return 0 (or the passed in increment if one was passed in)

@@ -8,7 +8,7 @@ class ShortcutController < ApplicationController
     if @node.page_type == 'DynamicPage'
       render("#{@node.page_type.tableize.pluralize}/show", :layout => "dynamic")
     else
-      if @node and @node.page_type and @node.page
+      if @node and @node.page_type
         render("#{@node.page_type.tableize.pluralize}/show")
       else
         error_redirect
