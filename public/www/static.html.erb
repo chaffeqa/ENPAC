@@ -1,0 +1,25 @@
+
+<% if admin? %><%= render 'partials/page_admin' %><% end %>
+<%= render 'partials/header' %>
+<%= render 'partials/nav_menu' %>
+
+<section id="content" class="clearfix">
+  <div id="wrapper">
+    <section id="mainColumn" class="clearfix contents">
+      <div id="top"></div>
+      <div id="inner">
+        <%= yield :breadcrumb %>
+        <%= yield %>
+      </div>
+    </section>
+    
+    <section id="subColumn" class="clearfix contents">
+      <div id="top"></div>
+      <div id="inner">
+	<%= yield :subColumn %>
+      </div>
+    </section>
+  </div>
+</section>
+
+<%= render 'partials/footer' %>

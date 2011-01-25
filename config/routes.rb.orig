@@ -49,14 +49,22 @@ ENPAC::Application.routes.draw do
   match "error" => 'shortcut#error', :as => :error
   match ':shortcut(/:year(/:month))' => 'shortcut#route', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
   
-  #  match '/admin/:controller/:action(/:id)'
-  #  match '/:controller/:action(/:id)'
+#  match '/admin/:controller/:action(/:id)'
+#  match '/:controller/:action(/:id)'
   match ':shortcut' => 'shortcut#route', :as => :shortcut
   match ':shortcut/:page_area/new_element' => 'dynamic_pages#new_element', :as => :new_element
 
+<<<<<<< HEAD
   constraints(Subdomain) do
     match '/' => 'sites#show'
   end
+=======
+  match "error" => 'shortcut#error', :as => :error
+
+#  constraints(Subdomain) do
+#    match '/' => 'sites#show'
+#  end
+>>>>>>> 0ebfb0379a504dc4c85b8c214259c93b7c691e22
 
   root :to => 'shortcut#home'
   

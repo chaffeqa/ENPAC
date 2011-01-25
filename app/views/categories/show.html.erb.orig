@@ -51,7 +51,11 @@
 <% end %>
 
 <%= content_for :breadcrumb do %>
+<<<<<<< HEAD
+  <%= render :partial => 'site_partials/breadcrumb' %>
+=======
   <%= render :partial => 'partials/breadcrumb' %>
+>>>>>>> 0ebfb0379a504dc4c85b8c214259c93b7c691e22
 <% end %>
 
 
