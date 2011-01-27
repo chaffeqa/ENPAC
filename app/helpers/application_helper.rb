@@ -1,7 +1,8 @@
 module ApplicationHelper
 
   def subdomain 
-    return request.subdomain.present? ? request.subdomain : "www"
+#    return request.subdomain.present? ? request.subdomain : "www"
+    return "www"
   end
 
 

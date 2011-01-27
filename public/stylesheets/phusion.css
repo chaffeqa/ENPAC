@@ -5,6 +5,7 @@
     background: url(../images/adminBar-bg.png) repeat-x;
     -moz-box-shadow: 0 1px 3px #999; -webkit-box-shadow: 0 1px 3px #999;
     border-bottom: 1px solid #777;
+    font-family: Helvetica, arial, sans-serif;
 }
 #adminBar .btn { float: right; margin-right: 5px; }
 
@@ -128,7 +129,7 @@ div.admin article.admin:hover {margin: -6px -6px -1px;}
     padding: 5px 10px 6px;
     border: none;
     border-bottom: 1px solid #222;
-    color: #fff;
+    color: #fff !important;
     line-height: 1;
     text-decoration: none;
     font-weight: bold;
@@ -138,7 +139,7 @@ div.admin article.admin:hover {margin: -6px -6px -1px;}
     cursor: pointer;
 }
 .controls .control {float: right; margin: 0 2px -2px; font-size: 20px; line-height: 1em;}
-a.btn:hover {color: #AAA; text-decoration: none;
+a.btn:hover {color: #AAA !important; text-decoration: none;
 	     -moz-box-shadow: 0 2px 6px #999; -webkit-box-shadow: 0 2px 6px #999;}
 
 /* Sizes ---------- */
@@ -154,5 +155,5 @@ a.btn:hover {color: #AAA; text-decoration: none;
 .yellow.btn {background-color: #ffb515; border-bottom: 1px solid #de9e15;
 	     text-shadow: 0 -1px 1px #bb8207;
 }
-a.btn.yellow:hover {color: #fff;}
+a.btn.yellow:hover {color: #fff !important;}
 /******************************/

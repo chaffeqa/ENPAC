@@ -1,6 +1,65 @@
-<%= render 'partials/header' %>
-<%= render 'partials/nav_menu' %>
+<div id="body">
+  <div id="wrapper">
 
-<%= yield %>
-
-<%= render 'partials/footer' %>
+    <nav id="navigation">
+      <ul class="mainNav">
+	<li><a href="http://www.enpac.com/about-us">About Us</a></li>
+	<li><a href="http://www.enpaccatalog.com">Products</a>
+	  <ul class="level2">
+	    <li class="bOverpacksSalvageDrums image "><a class="bOverpacksSalvageDrums image" href="http://www.enpac.com/overpacks">Overpacks / Salvage Drums</a></li>
+	    <li class="bSpillPallets image "><a class="bSpillPallets image" href="http://www.enpac.com/spill-pallets">Spill Pallets</a></li>
+	    <li class="bPortableContainment image "><a class="bPortableContainment image" href="http://www.enpac.com/portable-containment">Portable Containment</a></li>
+	    <li class="bDispensing image "><a class="bDispensing image" href="http://www.enpac.com/dispensing">Dispensing</a></li>
+	    <li class="bStorage image "><a class="bStorage image" href="http://www.enpac.com/storage">Storage</a></li>
+	    <li class="bSpillKits image "><a class="bSpillKits image" href="http://www.enpac.com/spill-kits">Spill Kits</a></li>
+	    <li class="bSorbents image "><a class="bSorbents image" href="http://www.enpac.com/sorbents">Sorbents</a></li>
+	    <li class="bStormwater image "><a class="bStormwater image" href="http://www.enpac.com/stormwater">Stormwater</a></li>
+	    <li class="bFunnels image "><a class="bFunnels image" href="http://www.enpac.com/funnels">Funnels</a></li>
+	    <li class="bCylinderProducts image "><a class="bCylinderProducts image" href="http://www.enpac.com/cylinder-products">Cylinder Products</a></li>
+	    <li class="bOilSpillSupplies image "><a class="bOilSpillSupplies image" href="http://www.enpac.com/oil-spill-supplies">Oil Spill Supplies</a></li>
+	  </ul>
+	</li>
+	<li><a href="http://www.enpac.com/catalog">Catalog</a>
+	  <ul class="level2">
+	    <li><a href="http://www.enpaccatalog.com/flash/">View Catalog Online</a></li>
+	    <li><a href="http://enpac.publishpath.com/Websites/enpac/Images/catalog/ENPAC_2010_Low_Res.pdf">Download Low Resolution</a></li>
+	    <li><a href="http://enpac.publishpath.com/Websites/enpac/Images/catalog/ENPAC_2010_Hi_Res.pdf">Download High Resolution</a></li>
+	    <li><a href="http://www.enpac.com/request-a-catalog">Request a Catalog</a></li>
+	  </ul>
+	</li>
+	<li><a href="http://www.enpac.com/on-the-job">On The Job</a></li>
+	<li><a href="http://www.enpac.com/distributors">Distributors</a></li>
+	<li><a href="http://www.enpac.com/resources">Resources</a>
+	  <ul class="level2">
+	    <li class="bChemical"><a class="bChemical" href="http://www.enpac.com/chemical-compatibility-guide">Chemical Compatibility Guide</a></li>
+	    <li class="bRegulations"><a class="bRegulations" href="http://www.enpac.com/government-regulations">Government Regulations</a></li>
+	    <li class="bIndustry"><a class="bIndustry" href="http://www.enpac.com/industry-web-resources">Industry Web Resources</a></li>
+	    <li class="bChoosing"><a class="bChoosing" href="http://www.enpac.com/need-help-choosing-products">Need Help Choosing Products?</a></li>
+	    <li class="bInstructions"><a class="bInstructions" href="http://www.enpac.com/product-instructions">Product Instructions</a></li>
+	    <li class="bQualification"><a class="bQualification" href="http://www.enpac.com/qualification-notes">Qualification Notes</a></li>
+	  </ul>
+	</li>
+	<li><a href="http://www.enpac.com/partners">Partners</a></li>
+	<li><a href="http://www.enpac.com/contact-us">Contact us</a>
+	  <ul class="level2">
+	    <li><a href="http://www.enpac.com/contact-list">Contact List</a></li>
+	    <li><a href="http://www.enpac.com/idea">Product Ideas</a></li>
+	    <li><a href="http://www.enpac.com/due-diligence-form">Due Diligence Form</a></li>
+	    <li><a href="http://www.enpac.com/rma-questionnaire">RMA Questionnaire</a></li>
+	    <li><a href="http://www.enpac.com/become-a-distributor">Interested in Becoming a Distributor?</a></li>
+	    <li><a href="http://www.enpac.com/employment-application">Employment Application</a></li>
+	    <li><a href="http://www.enpac.com/terms">Terms Of Use</a></li>
+	    <li><a href="http://www.enpac.com/customize-berms">Berms Customization Form</a></li>
+	    <li><a href="http://www.enpac.com/freight-request-form">Freight Request Form</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </nav>
+    <%#= render 'partials/nav_menu' %>
+    <%= render 'partials/header' %>
+    
+    <%= yield %>
+    
+    <%= render 'partials/footer' %>
+  </div>
+</div>

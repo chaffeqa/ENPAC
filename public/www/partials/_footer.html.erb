@@ -1,19 +1,42 @@
-<footer class="clearfix">
-  <div id="wrapper">
-    <div id="footerNav"><%= render_navigation(:level => 1) %></div>
-
-    <p id="copyright">
-      &copy; Copyright 2010.<br />
-      Jonathan K. Kern Company.<br />
-      All Rights Reserved.
+<footer id="footer" class="cf">
+  <div id="copyright">
+    <img alt="enpac" src="/www/template/logo.png" />
+    <p>
+      &copy; Copyright 2011. ENPAC LLC.<br />
+      <a href="terms">Terms of Use</a>
     </p>
-
-    <ul class="legalNav">
-      <li><a href="<%= "/legal" %>">Legal</a></li>
-      <li><a href="<%= "/privacy-policy" %>">Privacy Policy</a></li>
-      <li><a href="<%= "/terms-of-use" %>">Terms of Use</a></li>
+  </div>
+  <div id="contactInformation">
+    <h5>Contact Information</h5>
+    <p>
+      Phone: 1-800-9ENPAC9 (800-936-7229)<br />
+      Fax: 1-800-99ENPAC (800-993-6722)<br />
+      E-mail: <a href="mailto:info@enpac.com">info@enpac.com</a>
+    </p>
+    <p>
+      34355 Vokes Drive<br />
+      Eastlake, OH 44095
+    </p>
+    <p>
+      Visit: <a href="http://maps.google.com/maps?hl=en&safe=off&q=34355+Vokes+Dr+Eastlake,+OH+44095&ie=UTF8&hq=&hnear=34355+Vokes+Dr,+Eastlake,+Lake,+Ohio+44095&gl=us&ei=RLx-S8zTJob9nAfvov1j&ved=0CAcQ8gEwAA&t=h&z=16" target="_blank">Driving Directions</a>
+    </p>
+  </div>
+  <div id="siteMap">
+    <h5>Site Map</h5>
+    <ul class="globalMenu footerNav">
+      <li class="selectedPage"><a class="selectedPage" href="/">Home</a></li>
+      <li><a href="/about-us">About Us</a></li>
+      <li><a href="/products">Products</a></li>
+      <li><a href="/catalog">Catalog</a></li>
+      <li><a href="/on-the-job">On The Job</a></li>
+      <li><a href="/distributors">Distributors</a></li>
+      <li><a href="/resources">Resources</a></li>
+      <li><a href="/partners">Partners</a></li>
+      <li><a href="/contact-us">Contact us</a></li>
     </ul>
-
-    <%= render 'partials/contact_info' %>
+  </div>
+  <div id="translationContainer">
+    <h5>Translate Our Web Site</h5>
+    <div id="google_translate_element"></div>
   </div>
 </footer>

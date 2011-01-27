@@ -19,10 +19,10 @@ module ENPAC
     puts " -- Pushing site paths --"
     paths.app.views.push("public/www")
     paths.app.views.unshift("public/www")
-    paths.app.views.push("public/kern")
-    paths.app.views.unshift("public/kern")
-    paths.app.views.push("public/enpac")
-    paths.app.views.unshift("public/enpac")
+#    paths.app.views.push("public/kern")
+#    paths.app.views.unshift("public/kern")
+#    paths.app.views.push("public/enpac")
+#    paths.app.views.unshift("public/enpac")
     puts paths.app.views.paths
     puts " -- Done --"
 

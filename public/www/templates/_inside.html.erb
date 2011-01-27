@@ -3,25 +3,32 @@
 <%= content_for :body_id do %>secPage<% end %>
 <%= content_for :body_class do %>twoColumn<% end %>
 
-<section id="content" class="clearfix">
-  <div id="wrapper">
-    <section id="mainColumn" class="clearfix contents">
-      <div id="top"></div>
-      <div id="inner">
-        <%= render :partial => 'layouts/site_partials/breadcrumb' %>
-        <%= render :partial => 'elements/page_area_elements', :locals => {:page_area => 1} %>
+    <section id="content" class="cf">
+      <div class="search">
+	<form>
+	  <label for="searchText">Search</label>
+	  <input type="text" name="searchText" id="searchText" maxlength="255" class="searchInput" />
+	  <input type="submit" name="searchSubmit" id="searchSubmit" value="GO" class="searchButton" />
+	</form>
       </div>
-    </section>
+      <div id="featuredColumn">
+      </div>
 
-    <section id="subColumn" class="clearfix contents">
-      <div id="top"></div>
-      <div id="inner">
-	<h3><%=  @node.title %></h3>
-	<div id="categoryList">
-	  <%= render_navigation(:level => 2..7) %>
-	</div>
-        <%= render :partial => 'elements/page_area_elements', :locals => {:page_area => 2} %>
+      <div id="topBorder"></div>
+      <div id="contentContainer" class="cf">
+        <section id="subColumn" class="contents">
+          <div id="subMenuTop"></div>
+          <div id="subMenu" class="cf">
+            <h2 class="secTitle"><%= @node.title %></h2>
+	    <%= render_navigation(:level => 2..7) %>
+          </div>
+          <div id="subMenuBot"></div>
+	  <%= yield :subColumn %>
+        </section>
+        <section id="mainColumn" class="contents">
+          <%= yield :breadcrumb %>
+          <%= yield %>
+        </section>
       </div>
+      <div id="bottomBorder"></div>
     </section>
-  </div>
-</section>
