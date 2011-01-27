@@ -1,0 +1,28 @@
+<!-- All dynamic_pages with the template_type = 'Inside' -->
+
+<%= content_for :body_id do %>secPage<% end %>
+<%= content_for :body_class do %>twoColumn<% end %>
+
+    <section id="content" class="cf">
+      <div class="search">
+	<form>
+	  <label for="searchText">Search</label>
+	  <input type="text" name="searchText" id="searchText" maxlength="255" class="searchInput" />
+	  <input type="submit" name="searchSubmit" id="searchSubmit" value="GO" class="searchButton" />
+	</form>
+      </div>
+      <div id="featuredColumn">
+      </div>
+
+      <div id="topBorder"></div>
+      <div id="contentContainer" class="cf">
+        <section id="subColumn" class="contents">
+	  <%= yield :subColumn %>
+        </section>
+        <section id="mainColumn" class="contents">
+          <%= yield :breadcrumb %>
+          <%= yield %>
+        </section>
+      </div>
+      <div id="bottomBorder"></div>
+    </section>
