@@ -1,3 +1,5 @@
+enpac_site = Site.create(:subdomain => 'www')
+
 home_page = DynamicPage.create(:template_name => 'Home', :node_attributes=>{:menu_name => 'Home', :title => 'Home', :shortcut => 'home', :displayed => true})
 home_node = home_page.node
 home_page.save

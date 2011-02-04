@@ -28,9 +28,10 @@ class Admin::ItemsController < ApplicationController
   end
 
   def create
+    build_dynamic_type
     @item = Item.new(params[:item])
     if @item.save
-      redirect_to(shortcut_path(@item.node.shortcut), :notice => 'Item was successfully created.')
+      redirect_to(admin_items_url(), :notice => 'Item was successfully created.')
     else
       render :action => "new"
     end
@@ -52,6 +53,20 @@ class Admin::ItemsController < ApplicationController
   end
 
   private
+
+  def build_dynamic_type
+    params[:item].delete(:adjustable_dimension_attributes) unless params[:item][:dimension_type] == 'Adjustable'
+    params[:item].delete(:circular_dimension_attributes) unless params[:item][:dimension_type] == 'Circular'
+    params[:item].delete(:cube_dimension_attributes) unless params[:item][:dimension_type] == 'Cube'
+    params[:item].delete(:drum_dimension_attributes) unless params[:item][:dimension_type] == 'Drum'
+    params[:item].delete(:flexible_dimension_attributes) unless params[:item][:dimension_type] == 'Flexible'
+    params[:item].delete(:funnel_dimension_attributes) unless params[:item][:dimension_type] == 'Funnel'
+    params[:item].delete(:pool_dimension_attributes) unless params[:item][:dimension_type] == 'Pool'
+    params[:item].delete(:sorbent_dimension_attributes) unless params[:item][:dimension_type] == 'Sorbent'
+    params[:item].delete(:standard_dimension_attributes) unless params[:item][:dimension_type] == 'Standard'
+
+    puts params[:item].keys
+  end
 
   def get_node
     super

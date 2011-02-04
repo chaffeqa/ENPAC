@@ -29,17 +29,17 @@
     <hr />
 
     <div class="field"><span class="hint">Be sure to enter a unique item ID.</span>
-      <%= f.label :name, "Item Details", :class => "req" %>
+      <%= f.label :name, "Item Name", :class => "req" %>
       <%= f.text_field :name, :title => "Item Name" %>
-      <% if f.object.new_record? %>
-        <%= f.text_field :item_id, :title => "Item ID", :style => "width: 100px;" %>
-      <% else %>
-        <%= f.text_field :item_id, :title => "Item ID", :disabled => true %>
-      <% end %>
+      <%= f.text_field :item_id, :title => "Part ID", :style => "width: 100px;" %>
     </div>
     <div class="field">
-      <%= f.label :details %>
-      <%= f.text_area :details %>
+      <%= f.label :short_description %>
+      <%= f.text_field :short_description, :title => "Short Description" %>
+    </div>
+    <div class="field">
+      <%= f.label :long_description %>
+      <%= f.text_area :long_description, :title => "Long Description" %>
     </div>
     <hr />
 
@@ -48,6 +48,39 @@
       <% val = (@item.cost > 0) ? @item.cost : "0.00"  %>
       $ <%= f.text_field :cost, :style => "width: 70px;", :title => val, :value => val %>
     </div>
+    <hr />
+
+    <div class="field"><span class="hint">Basic Item Attributes.</span>
+      <%= f.label :weight %>
+      <%= f.text_field :weight, :title => "Weight" %>
+    </div>
+    <div class="field">
+      <%= f.label :handling_capacity %>
+      <%= f.text_field :handling_capacity, :title => "Handling Capacity" %>
+    </div>
+    <div class="field">
+      <%= f.label :sump_capacity %>
+      <%= f.text_field :sump_capacity, :title => "Sump Capacity" %>
+    </div>
+    <div class="field">
+      <%= f.label :p_length, 'Length' %> x <%= f.label :p_width, 'Width' %> x <%= f.label :p_height, 'Height' %> <br/>
+      <%= f.text_field :p_length, :title => "Length" %> x <%= f.text_field :p_width, :title => "Width" %> x <%= f.text_field :p_height, :title => "Height" %>
+    </div>
+
+    <div class="field"><span class="hint">Specific Item Attributes.</span>
+      <%= f.select :dimension_type, options_for_select(Item.dimension_types, f.object.new_record? ? 'N/A' : f.object.dimension_type), :class => 'DynamicFieldsSelector' %>
+    </div>
+
+    <div class="AdjustableFields DynamicFields"><%= f.fields_for :adjustable_dimension, f.object.adjustable_dimension || f.object.build_adjustable_dimension do |dimension_f| %><%= render :partial => 'adjustable_dimension', :locals => { :f => dimension_f } %><% end %></div>
+    <div class="CircularFields DynamicFields"><%= f.fields_for :circular_dimension, f.object.circular_dimension || f.object.build_circular_dimension do |dimension_f| %><%= render :partial => 'circular_dimension', :locals => { :f => dimension_f } %><% end %></div>
+    <div class="CubeFields DynamicFields"><%= f.fields_for :cube_dimension, f.object.cube_dimension || f.object.build_cube_dimension do |dimension_f| %><%= render :partial => 'cube_dimension', :locals => { :f => dimension_f } %><% end %></div>
+    <div class="DrumFields DynamicFields"><%= f.fields_for :drum_dimension, f.object.drum_dimension || f.object.build_drum_dimension do |dimension_f| %><%= render :partial => 'drum_dimension', :locals => { :f => dimension_f } %><% end %></div>
+    <div class="FlexibleFields DynamicFields"><%= f.fields_for :flexible_dimension, f.object.flexible_dimension || f.object.build_flexible_dimension do |dimension_f| %><%= render :partial => 'flexible_dimension', :locals => { :f => dimension_f } %><% end %></div>
+    <div class="FunnelFields DynamicFields"><%= f.fields_for :funnel_dimension, f.object.funnel_dimension || f.object.build_funnel_dimension do |dimension_f| %><%= render :partial => 'funnel_dimension', :locals => { :f => dimension_f } %><% end %></div>
+    <div class="PoolFields DynamicFields"><%= f.fields_for :pool_dimension, f.object.pool_dimension || f.object.build_pool_dimension do |dimension_f| %><%= render :partial => 'pool_dimension', :locals => { :f => dimension_f } %><% end %></div>
+    <div class="StandardFields DynamicFields"><%= f.fields_for :standard_dimension, f.object.standard_dimension || f.object.build_standard_dimension do |dimension_f| %><%= render :partial => 'standard_dimension', :locals => { :f => dimension_f } %><% end %></div>
+    <div class="SorbentFields DynamicFields"><%= f.fields_for :sorbent_dimension, f.object.sorbent_dimension || f.object.build_sorbent_dimension do |dimension_f| %><%= render :partial => 'sorbent_dimension', :locals => { :f => dimension_f } %><% end %></div>
+
     <hr />
 
     <div class="field">

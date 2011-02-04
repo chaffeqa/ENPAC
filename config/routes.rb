@@ -55,7 +55,7 @@ ENPAC::Application.routes.draw do
   match ':shortcut/:page_area/new_element' => 'dynamic_pages#new_element', :as => :new_element
 
   constraints(Subdomain) do
-    match '/' => 'sites#show'
+    match '/' => 'shortcut#home' # TODO change back to sites#show
   end
 
   root :to => 'shortcut#home'
