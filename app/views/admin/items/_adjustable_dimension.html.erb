@@ -1,0 +1,44 @@
+
+  <div class="field"><span class="hint">Add the specific Adjustable Dimensions.</span>
+    <label>Adjustable Dimensions</label><br />
+  </div>
+  <!-- Round Dimensions -->
+  <div class="field">
+    <%= f.label :round_max_diameter, "Maximum Diameter" %>
+    <%= f.text_field :round_max_diameter, :title => "Maximum Diameter" %>
+  </div>
+  <div class="field">
+    <%= f.label :round_min_diameter, "Minimum Diameter" %>
+    <%= f.text_field :round_min_diameter, :title => "Minimum Diameter" %>
+  </div>
+
+  <!-- Rectangular Dimensions -->
+  <div class="field">
+    <%= f.label :rectangular_max_length, "Maximum Length" %>
+    <%= f.text_field :rectangular_max_length, :title => "Maximum Length" %>
+  </div>
+  <div class="field">
+    <%= f.label :rectangular_min_length, "Minimum Width" %>
+    <%= f.text_field :rectangular_min_length, :title => "Minimum Length" %>
+  </div>
+  <div class="field">
+    <%= f.label :rectangular_max_width, "Maximum Length" %>
+    <%= f.text_field :rectangular_max_width, :title => "Maximum Width" %>
+  </div>
+  <div class="field">
+    <%= f.label :rectangular_min_width, "Minimum Width" %>
+    <%= f.text_field :rectangular_min_width, :title => "Minimum Width" %>
+  </div>
+  <div class="field">
+    <%= f.label :overflow_rate %>
+    <%= f.text_field :overflow_rate, :title => "Overflow Rate" %>
+  </div>
+
+  <!-- Add Capabilities -->
+  <div class="field"><span class="hint">Add Multiple Capabilities.</span>
+  </div>
+  <% f.fields_for :adjustable_capabilities do |ac_form| %>
+    <%= render :partial => 'adjustable_capability', :locals => { :f => ac_form } %>
+  <% end %>
+  <%= new_child_fields_template(f, :adjustable_capabilities)%>
+  <div class="field"><label></label><%= add_child_link "Add Capability", :adjustable_capabilities %></div>

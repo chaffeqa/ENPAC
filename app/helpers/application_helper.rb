@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def subdomain 
-#    return request.subdomain.present? ? request.subdomain : "www"
+    #    return request.subdomain.present? ? request.subdomain : "www"
     return "www"
   end
 
@@ -164,6 +164,18 @@ module ApplicationHelper
     link_to title, {:sort => column, :direction => direction}.merge(addition_params), {:class => css_class}
   end
 
+
+  # Returns the HTML for displaying an Item column name
+  def item_tag_for( model_name, column_name, value=nil)
+    return '' if value.nil?
+    return content_tag(:p, :id => model_name + '-' + column_name) do
+      raw(
+        content_tag(:span, column_name.humanize.capitalize, :class => 'attr-title') +
+          content_tag(:span, value, :class => "attr-value" ) +
+          content_tag(:span, Item.measurement_prefix(column_name, @metric || true), :class => Item.measurement_class(column_name))
+      )
+    end
+  end
   
 
   #  ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|

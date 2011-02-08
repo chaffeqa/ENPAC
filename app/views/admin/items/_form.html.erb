@@ -29,9 +29,10 @@
     <hr />
 
     <div class="field"><span class="hint">Be sure to enter a unique item ID.</span>
-      <%= f.label :name, "Item Name", :class => "req" %>
-      <%= f.text_field :name, :title => "Item Name" %>
-      <%= f.text_field :item_id, :title => "Part ID", :style => "width: 100px;" %>
+      <%= f.label :item_id, "Item ID", :class => "req" %>
+      <%= f.text_field :item_id, :title => "Item ID" %>
+      <%= f.label :part_number, 'Part #', :class => "req" %>
+      <%= f.text_field :part_number, :title => 'Part #', :style => "width: 100px;" %>
     </div>
     <div class="field">
       <%= f.label :short_description %>
@@ -68,7 +69,7 @@
     </div>
 
     <div class="field"><span class="hint">Specific Item Attributes.</span>
-      <%= f.select :dimension_type, options_for_select(Item.dimension_types, f.object.new_record? ? 'N/A' : f.object.dimension_type), :class => 'DynamicFieldsSelector' %>
+      <%= f.select :dimension_type, options_for_select(Item.dimension_types, f.object.new_record? ? 'N/A' : f.object.dimension_type), {}, :class => 'DynamicFieldsSelector' %>
     </div>
 
     <div class="AdjustableFields DynamicFields"><%= f.fields_for :adjustable_dimension, f.object.adjustable_dimension || f.object.build_adjustable_dimension do |dimension_f| %><%= render :partial => 'adjustable_dimension', :locals => { :f => dimension_f } %><% end %></div>

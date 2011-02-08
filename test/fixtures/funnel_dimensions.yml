@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  item: 
+  top_external_diameter: 9.99
+  top_internal_diameter: 9.99
+  bottem_internal_diameter: 9.99
+  bottem_external_diameter: 9.99
+  internal_height: 9.99
+  external_height: 9.99
+
+two:
+  item: 
+  top_external_diameter: 9.99
+  top_internal_diameter: 9.99
+  bottem_internal_diameter: 9.99
+  bottem_external_diameter: 9.99
+  internal_height: 9.99
+  external_height: 9.99

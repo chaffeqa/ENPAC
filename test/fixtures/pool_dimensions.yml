@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  item: 
+  top_diameter: 9.99
+  bottem_diameter: 9.99
+  height: 9.99
+
+two:
+  item: 
+  top_diameter: 9.99
+  bottem_diameter: 9.99
+  height: 9.99

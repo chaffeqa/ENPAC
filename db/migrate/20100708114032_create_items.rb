@@ -2,17 +2,16 @@ class CreateItems < ActiveRecord::Migration
   def self.up
     create_table :items do |t|
       # Basic Item Attributes
-      t.string :name
+      t.string :item_id
       t.decimal :cost, :precision => 8, :scale => 2, :default => 0
       t.boolean :for_sale
       t.boolean :display
 
       # ENPAC Specific Item Attributes
       #############################
-      # has_many Regulations
+      # has_many Regulations  :through
       #
       #############################
-      t.string :item_id
       t.string :part_number
       t.string :short_description
       t.text :long_description

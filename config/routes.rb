@@ -17,7 +17,16 @@ ENPAC::Application.routes.draw do
     resources :menus, :only => [:index] do
       post :sort, :on => :collection
     end
-    resources :items
+    resources :items do
+      # Managing Regulations
+      get :manage_regulations, :on => :collection
+      post :manage_regulations, :on => :collection
+      delete :manage_regulations, :on => :collection
+      # Managing Capabilities
+      get :manage_capabilities, :on => :collection
+      post :manage_capabilities, :on => :collection
+      delete :manage_capabilities, :on => :collection
+    end
     resources :blogs, :except => [:show] do
       resources :posts, :except => [:index]
     end

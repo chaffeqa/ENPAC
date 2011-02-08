@@ -9,7 +9,7 @@ class Admin::ItemsController < ApplicationController
     @items = @items.scope_display(params[:displayed]) unless params[:displayed].blank?
     @items = @items.scope_for_sale(params[:for_sale]) unless params[:for_sale].blank?
     @items = @items.scope_category(params[:category]) unless params[:category].blank?
-    @items = @items.scope_name(params[:name]) unless params[:name].blank?
+    @items = @items.scope_part_number(params[:scope_part_number]) unless params[:scope_part_number].blank?
     @items = @items.scope_item_id(params[:item_id]) unless params[:item_id].blank?
     @items = @items.scope_max_price(params[:max_price]) unless params[:max_price].blank?
     @items = @items.scope_min_price(params[:min_price]) unless params[:min_price].blank?
@@ -52,6 +52,30 @@ class Admin::ItemsController < ApplicationController
     redirect_to(admin_items_url(), :notice => 'Item was successfully destroyed.' )
   end
 
+  # Page for managing Regulations, can be GET, POST, or DELETE
+  def manage_regulations
+    if request.delete? and Regulation.find(params[:regulation_id]).destroy
+      redirect_to(manage_regulations_admin_items_path(), :notice => 'Regulation was successfully destroyed.' )
+    end
+    @regulation = Regulation.new(params[:regulation])
+    if request.post? and @regulation.save
+      redirect_to(manage_regulations_admin_items_path(), :notice => 'Regulation successfully created.')
+    end
+    @regulations = Regulation.order(:name)
+  end
+
+  # Page for managing Capabilities, can be GET, POST, or DELETE
+  def manage_capabilities
+    if request.delete? and Capability.find(params[:capability_id]).destroy
+      redirect_to(manage_capabilities_admin_items_path(), :notice => 'Capability was successfully destroyed.' )
+    end
+    @capability = Capability.new(params[:capability])
+    if request.post? and @capability.save
+      redirect_to(manage_capabilities_admin_items_path(), :notice => 'Capability successfully created.')
+    end
+    @capabilities = Capability.order(:name)
+  end
+
   private
 
   def build_dynamic_type
@@ -74,7 +98,7 @@ class Admin::ItemsController < ApplicationController
 
   def sort_column
     @sort = @sort || params[:sort] || ''
-    Item.column_names.include?(@sort) ? @sort : "name"
+    Item.column_names.include?(@sort) ? @sort : "item_id"
   end
 
   def sort_direction

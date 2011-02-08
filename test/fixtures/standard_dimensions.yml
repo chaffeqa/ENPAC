@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  item: 
+  length: 9.99
+  width: 9.99
+  height: 9.99
+  with_handle_length: 9.99
+  with_handle_width: 9.99
+  with_handle_height: 9.99
+
+two:
+  item: 
+  length: 9.99
+  width: 9.99
+  height: 9.99
+  with_handle_length: 9.99
+  with_handle_width: 9.99
+  with_handle_height: 9.99
