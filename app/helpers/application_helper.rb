@@ -171,8 +171,7 @@ module ApplicationHelper
     return content_tag(:p, :id => model_name + '-' + column_name) do
       raw(
         content_tag(:span, column_name.humanize.capitalize, :class => 'attr-title') +
-          content_tag(:span, value, :class => "attr-value" ) +
-          content_tag(:span, Item.measurement_prefix(column_name, @metric || true), :class => Item.measurement_class(column_name))
+          content_tag(:span, value, :class => "attr-value" )
       )
     end
   end
