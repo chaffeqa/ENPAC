@@ -4,8 +4,6 @@
 
 <p>
   <%= link_to 'New Item', new_admin_item_path, :class => "btn large" %> <br/>
-  <%= link_to 'Manage Item Regulations', manage_regulations_admin_items_path, :class => "btn small" %> <br/>
-  <%= link_to 'Manage Item Capabilities', manage_capabilities_admin_items_path, :class => "btn small" %>
 </p>
 
 <table id="itemAdminTable">
@@ -23,7 +21,7 @@
 
   <tr class="sorters">
     <!--td></td-->
-    <td><%= sortable "item_id", "Item ID", parsed_params %></td>
+    <td><%= sortable "name", "Item Name", parsed_params %></td>
     <td><%= sortable "part_number", 'Part #', parsed_params %></td>
     <td><span>Categories</span></td>
     <td><%= sortable "cost", "Price", parsed_params %></td>
@@ -35,8 +33,8 @@
     even = !even %>
     <%= content_tag_for :tr, item, :class => (even ? "even" : "odd") do %>
                   <!--td class="itemThumb"> <%#= image_tag(item.thumbnail_image)  %> </td-->
+      <td class='<%= (params[:sort] == "name") ? "sorted" : "" %>'><%= item.node ? link_to(item.name, shortcut_path(item.node.shortcut)) : item.name %></td>
       <td class='<%= (params[:sort] == "part_number") ? "sorted" : "" %>'><%= item.part_number %></td>
-      <td class='<%= (params[:sort] == "item_id") ? "sorted" : "" %>'><%= item.node ? link_to(item.item_id, shortcut_path(item.node.shortcut)) : item.item_id %></td>
       <td><%=raw item.categories.collect {|cat| (link_to(cat.title, shortcut_path(cat.node.shortcut)) + (cat == item.categories.last ? raw('<br />') : raw(',<br />'))) } %></td>
       <td class='<%= (params[:sort] == "cost") ? "sorted" : "" %>'><%= number_to_currency(item.cost) %></td>
       <td class='<%= (params[:sort] == "display") ? "sorted" : "" %>'><%= item.display ? "Yes" : "No" %></td>

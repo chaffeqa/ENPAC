@@ -1,9 +1,9 @@
 class CreateFlexibleDimensions < ActiveRecord::Migration
   def self.up
     create_table :flexible_dimensions do |t|
-      t.decimal :length
-      t.decimal :width
-      t.decimal :height
+      t.string :length
+      t.string :width
+      t.string :height
       t.string :absorbs
       t.belongs_to :item
 

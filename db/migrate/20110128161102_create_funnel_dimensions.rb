@@ -2,12 +2,12 @@ class CreateFunnelDimensions < ActiveRecord::Migration
   def self.up
     create_table :funnel_dimensions do |t|
       t.belongs_to :item
-      t.decimal :top_external_diameter
-      t.decimal :top_internal_diameter
-      t.decimal :bottem_internal_diameter
-      t.decimal :bottem_external_diameter
-      t.decimal :internal_height
-      t.decimal :external_height
+      t.string :top_external_diameter
+      t.string :top_internal_diameter
+      t.string :bottem_internal_diameter
+      t.string :bottem_external_diameter
+      t.string :internal_height
+      t.string :external_height
 
       t.timestamps
     end

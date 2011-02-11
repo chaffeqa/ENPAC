@@ -97,10 +97,6 @@ class Item < ActiveRecord::Base
   has_one :standard_dimension, :dependent => :destroy
   accepts_nested_attributes_for :standard_dimension
 
-  # Other
-  has_many :item_regulations, :dependent => :destroy
-  has_many :regulations, :through => :item_regulations
-  accepts_nested_attributes_for :item_regulations, :allow_destroy => true, :reject_if => proc { |attr| attr['regualtion_id'].blank?}
 
 
   ####################################################################
@@ -108,7 +104,7 @@ class Item < ActiveRecord::Base
   ###########
 
   #Validations
-  validates_presence_of :item_id, :cost, :part_number
+  validates_presence_of :name, :cost, :part_number
   validates_numericality_of :cost
 
   #Callbacks
@@ -147,11 +143,11 @@ class Item < ActiveRecord::Base
   scope :displayed, where(:display => true)
   scope :scope_display, lambda {|display| where(:display => display)}
   scope :scope_for_sale, lambda {|for_sale| where(:for_sale => for_sale)}
-  scope :scope_item_id, lambda {|item_id| where('item_id LIKE ?', '%'+item_id+'%')}
+  scope :scope_name, lambda {|item_id| where('name LIKE ?', '%'+name+'%')}
   scope :scope_description, lambda {|desc| where('short_description LIKE ? OR long_description LIKE ?', "%"+desc+"%", "%"+desc+"%")}
   scope :scope_part_number, lambda {|part_number| where('part_number LIKE ?', "%"+part_number+"%")}
   scope :scope_category, lambda {|title| includes(:categories).where('categories.title LIKE ?', "%"+title+"%")}
-  scope :scope_text, lambda {|text| scope_item_id(text).scope_description(text)}
+  scope :scope_text, lambda {|text| scope_name(text).scope_description(text)}
   scope :scope_min_price, lambda {|price| where('cost >= ?', price)}
   scope :scope_max_price, lambda {|price| where('cost <= ?', price)}
 

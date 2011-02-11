@@ -2,7 +2,7 @@ class CreateItems < ActiveRecord::Migration
   def self.up
     create_table :items do |t|
       # Basic Item Attributes
-      t.string :item_id
+      t.string :name
       t.decimal :cost, :precision => 8, :scale => 2, :default => 0
       t.boolean :for_sale
       t.boolean :display
@@ -15,13 +15,14 @@ class CreateItems < ActiveRecord::Migration
       t.string :part_number
       t.string :short_description
       t.text :long_description
-      t.decimal :weight
-      t.decimal :handling_capacity
-      t.decimal :sump_capacity
-      t.decimal :p_length
-      t.decimal :p_height
-      t.decimal :p_width
+      t.string :weight
+      t.string :handling_capacity
+      t.string :sump_capacity
+      t.string :p_length
+      t.string :p_height
+      t.string :p_width
       t.string :dimension_type
+      t.string :regulations
 
       t.timestamps
     end

@@ -34,11 +34,9 @@
   <%= f.text_field :quantity, :title => "Quantity" %>
   </div>
 
-  <!-- Add Capabilities -->
-  <div class="field"><span class="hint">Add Multiple Capabilities.</span>
+
+  <!-- Capabilities -->
+  <div class="field">
+    <%= f.label :capabilities %>
+    <%= f.text_field :capabilities, :title => "Capabilities" %>
   </div>
-  <% f.fields_for :sorbent_capabilities do |ac_form| %>
-    <%= render :partial => 'sorbent_capability', :locals => { :f => ac_form } %>
-  <% end %>
-  <%= new_child_fields_template(f, :sorbent_capabilities)%>
-  <div class="field"><label></label><%= add_child_link "Add Capability", :sorbent_capabilities %></div>

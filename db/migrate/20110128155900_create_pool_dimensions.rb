@@ -2,9 +2,9 @@ class CreatePoolDimensions < ActiveRecord::Migration
   def self.up
     create_table :pool_dimensions do |t|
       t.belongs_to :item
-      t.decimal :top_diameter
-      t.decimal :bottem_diameter
-      t.decimal :height
+      t.string :top_diameter
+      t.string :bottem_diameter
+      t.string :height
 
       t.timestamps
     end

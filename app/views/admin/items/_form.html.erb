@@ -43,9 +43,9 @@
   </fieldset>
 
   <fieldset>
-    <div class="field"><span class="hint">Be sure to enter a unique item ID.</span>
-      <%= f.label :item_id, "Item ID", :class => "req" %>
-      <%= f.text_field :item_id, :title => "Item ID", :class => "twothirds" %>
+    <div class="field"><span class="hint">Be sure to enter a unique Item Name.</span>
+      <%= f.label :name, "Item Name", :class => "req" %>
+      <%= f.text_field :name, :title => "Item Name", :class => "twothirds" %>
       <%= f.text_field :part_number, :title => 'Part #', :class => "third" %>
     </div>
     <div class="field">
@@ -87,9 +87,13 @@
     </div>
     <div class="field">
       <%= f.label :p_length, 'Dimensions' %>
-      <%= f.text_field :p_length, :title => "Length", :class => "third" %> 
-      x <%= f.text_field :p_width, :title => "Width", :class => "third" %> 
+      <%= f.text_field :p_length, :title => "Length", :class => "third" %>
+      x <%= f.text_field :p_width, :title => "Width", :class => "third" %>
       x <%= f.text_field :p_height, :title => "Height", :class => "third" %>
+    </div>
+    <div class="field">
+      <%= f.label :regulations %>
+      <%= f.text_field :regulations, :title => "Regulations" %>
     </div>
   </fieldset>
 

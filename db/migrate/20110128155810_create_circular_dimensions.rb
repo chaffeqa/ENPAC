@@ -2,10 +2,10 @@ class CreateCircularDimensions < ActiveRecord::Migration
   def self.up
     create_table :circular_dimensions do |t|
       t.belongs_to :item
-      t.decimal :external_diameter
-      t.decimal :internal_diameter
-      t.decimal :external_height
-      t.decimal :internal_height
+      t.string :external_diameter
+      t.string :internal_diameter
+      t.string :external_height
+      t.string :internal_height
 
       t.timestamps
     end
