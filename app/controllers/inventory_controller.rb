@@ -1,9 +1,10 @@
 class InventoryController < ApplicationController
   helper_method :sort_column, :sort_direction
+  before_filter :get_node
 
 
   def search
-#    @category = Category.find(params[:category_id]) unless params[:category_id].blank?
+    #    @category = Category.find(params[:category_id]) unless params[:category_id].blank?
     
     @items = Item.get_for_sale.displayed
     @items = @items.scope_category(params[:category]) unless params[:category].blank?
@@ -33,6 +34,11 @@ class InventoryController < ApplicationController
   def high_cost
     @max_price = params[:cost_range].split('-')[1] || 1000000000
     @max_price
+  end
+
+  def get_node
+    @node = Node.inventory_node
+    super
   end
 
 

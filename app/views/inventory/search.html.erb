@@ -6,16 +6,16 @@
   <table>
     <tr>
       <th></th>
-      <th><%= sortable "item_id", "Item ID", inventory_search_parameters %></th>
-      <th><%= sortable "name", "Name", inventory_search_parameters %></th>
+      <th><%= sortable "name", "Item Name", inventory_search_parameters %></th>
+      <th><%= sortable "part_number", 'Part #', inventory_search_parameters %></th>
       <th><%= sortable "cost", "Price", inventory_search_parameters %></th>
     </tr>
     <% @items.each do |item| %>
       <% if item.node %>
         <tr>
           <td class="itemThumb"> <%= link_to(image_tag(item.thumbnail_image), shortcut_path(item.node.shortcut))  %> </td>
-          <td><%= item.item_id %></td>
-          <td><%= link_to item.name, shortcut_path(item.node.shortcut) %></td>
+          <td><%= item.name %></td>
+          <td><%= link_to item.part_number, shortcut_path(item.node.shortcut) %></td>
           <td><%= number_to_currency(item.cost) %></td>
         </tr>
       <% end %>
@@ -39,7 +39,7 @@
 <% end %>
 
 <%= content_for :breadcrumb do %>
-  <%= render 'site_partials/inventory_breadcrumb' %>
+  <%= render 'partials/inventory_breadcrumb' %>
 <% end %>
 
 <% content_for :page_title do %>
