@@ -1,18 +1,8 @@
-<% unless dimension.external_length.empty? %> <p id="cube-external-length" class="cm-in"><%= dimension.external_length%></p><% end %>
-<% unless dimension.internal_length.empty? %> <p id="cube-internal-length" class="cm-in"><%= dimension.internal_length%></p><% end %>
-<% unless dimension.external_width.empty? %> <p id="cube-external-width" class="cm-in"><%= dimension.external_width%></p><% end %>
-<% unless dimension.internal_width.empty? %> <p id="cube-internal-width" class="cm-in"><%= dimension.internal_width%></p><% end %>
-<% unless dimension.external_height.empty? %> <p id="cube-external-height" class="cm-in"><%= dimension.external_height%></p><% end %>
-<% unless dimension.internal_height.empty? %> <p id="cube-internal-height" class="cm-in"><%= dimension.external_diameter%></p><% end %>
-<% unless dimension.door_opening_width.empty? %> <p id="cube-door-opening-width" class="cm-in"><%= dimension.door_opening_width%></p><% end %>
-<% unless dimension.door_opening_height.empty? %> <p id="cube-door-opening-height" class="cm-in"><%= dimension.door_opening_height%></p><% end %>
-
-
-    t.decimal  "external_length"
-    t.decimal  "internal_length"
-    t.decimal  "external_width"
-    t.decimal  "internal_width"
-    t.decimal  "external_height"
-    t.decimal  "internal_height"
-    t.decimal  "door_opening_width"
-    t.decimal  "door_opening_height"
+<%= item_tag_for('cube_dimension','external_length',dimension.external_length) %>
+<%= item_tag_for('cube_dimension','internal_length',dimension.internal_length) %>
+<%= item_tag_for('cube_dimension','external_width',dimension.external_width) %>
+<%= item_tag_for('cube_dimension','internal_width',dimension.internal_width) %>
+<%= item_tag_for('cube_dimension','external_height',dimension.external_height) %>
+<%= item_tag_for('cube_dimension','internal_height',dimension.internal_height) %>
+<%= item_tag_for('cube_dimension','door_opening_width',dimension.door_opening_width) %>
+<%= item_tag_for('cube_dimension','door_opening_height',dimension.door_opening_height) %>

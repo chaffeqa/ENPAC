@@ -1,4 +1,4 @@
-<% unless dimension.external_diameter.empty? %> <p id="circular-external-diameter" class="cm-in"><%= dimension.external_diameter%></p><% end %>
-<% unless dimension.internal_diameter.empty? %> <p id="circular-internal-diameter" class="cm-in"><%= dimension.internal_diameter%></p><% end %>
-<% unless dimension.external_height.empty? %> <p id="circular-external-height" class="cm-in"><%= dimension.external_height%></p><% end %>
-<% unless dimension.internal_height.empty? %> <p id="circular-internal-height" class="cm-in"><%= dimension.internal_height%></p><% end %>
+<%= item_tag_for('circular_dimension','external_diameter',dimension.external_diameter) %>
+<%= item_tag_for('circular_dimension','internal_diameter',dimension.internal_diameter) %>
+<%= item_tag_for('circular_dimension','external_height',dimension.external_height) %>
+<%= item_tag_for('circular_dimension','internal_height',dimension.internal_height) %>

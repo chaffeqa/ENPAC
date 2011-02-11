@@ -43,6 +43,18 @@
         <%= item_tag_for('item','length',@item.p_length) %>
         <%= item_tag_for('item','height',@item.p_height) %>
         <%= item_tag_for('item','width',@item.p_width) %>
+
+        <!-- Specific Dimensions -->
+        <%= render :partial => 'items/adjustable_dimension', :locals => {:dimension => @item.adjustable_dimension} if @item.dimension_type == 'Adjustable' %>
+        <%= render :partial => 'items/circular_dimension', :locals => {:dimension => @item.circular_dimension} if @item.dimension_type == 'Circular' %>
+        <%= render :partial => 'items/cube_dimension', :locals => {:dimension => @item.cube_dimension} if @item.dimension_type == 'Cube' %>
+        <%= render :partial => 'items/drum_dimension', :locals => {:dimension => @item.drum_dimension} if @item.dimension_type == 'Drum' %>
+        <%= render :partial => 'items/flexible_dimension', :locals => {:dimension => @item.flexible_dimension} if @item.dimension_type == 'Flexible' %>
+        <%= render :partial => 'items/funnel_dimension', :locals => {:dimension => @item.funnel_dimension} if @item.dimension_type == 'Funnel' %>
+        <%= render :partial => 'items/pool_dimension', :locals => {:dimension => @item.pool_dimension} if @item.dimension_type == 'Pool' %>
+        <%= render :partial => 'items/sorbent_dimension', :locals => {:dimension => @item.sorbent_dimension} if @item.dimension_type == 'Sorbent' %>
+        <%= render :partial => 'items/standard_dimension', :locals => {:dimension => @item.standard_dimension} if @item.dimension_type == 'Standard' %>
+
       </div>
     </div>
 
