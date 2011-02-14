@@ -56,6 +56,14 @@
         <%= render :partial => 'items/standard_dimension', :locals => {:dimension => @item.standard_dimension} if @item.dimension_type == 'Standard' %>
 
       </div>
+
+      <div class="item-options">
+        <% @item.product_options.each do |product_option| %>
+          <%= content_tag_for :div, product_option do %>
+            <%= product_option.description || 'Item Option' %> (Part #: <%=link_to product_option.option_item.part_number, shortcut_path(product_option.option_item.node.shortcut) %>)
+          <% end %>
+        <% end %>
+      </div>
     </div>
 
   </div>

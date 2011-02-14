@@ -22,7 +22,7 @@ class CreateItems < ActiveRecord::Migration
       t.string :p_height
       t.string :p_width
       t.string :dimension_type
-      t.string :regulations
+      t.text :regulations
 
       t.timestamps
     end

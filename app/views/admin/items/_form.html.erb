@@ -93,7 +93,7 @@
     </div>
     <div class="field">
       <%= f.label :regulations %>
-      <%= f.text_field :regulations, :title => "Regulations" %>
+      <%= f.text_area :regulations, :title => "Regulations" %>
     </div>
   </fieldset>
 
@@ -155,6 +155,16 @@
         <%= render :partial => 'sorbent_dimension', :locals => { :f => dimension_f } %>
       <% end %>
     </div>
+  </fieldset>
+
+  <fieldset class="tab">
+    <legend>Product Options</legend>
+    <p>Optionally specify any products that are additional options.</p>
+    <% f.fields_for :product_options do |po_form| %>
+      <%= render :partial => 'product_option', :locals => { :f => po_form } %>
+    <% end %>
+    <%= new_child_fields_template(f, :product_options)%>
+    <div class="field"><label></label><%= add_child_link "Add Product Option", :product_options %></div>
   </fieldset>
 
 

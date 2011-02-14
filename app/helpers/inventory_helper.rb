@@ -9,6 +9,7 @@ module InventoryHelper
       @parameters.delete('commit')
       @parameters.delete('sort')
       @parameters.delete('direction')
+      @parameters.delete('searchSubmit')
     end
     @parameters
   end

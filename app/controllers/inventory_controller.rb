@@ -8,7 +8,7 @@ class InventoryController < ApplicationController
     
     @items = Item.get_for_sale.displayed
     @items = @items.scope_category(params[:category]) unless params[:category].blank?
-    @items = @items.scope_text(params[:search_text]) unless params[:search_text].blank?
+    @items = @items.scope_text(params[:searchText]) unless params[:searchText].blank?
     @items = @items.scope_min_price(low_cost).scope_max_price(high_cost) unless params[:cost_range].blank?
     @items = @items.order(sort_column + " " + sort_direction)
     @items = @items.paginate :page => params[:page]

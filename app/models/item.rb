@@ -70,6 +70,11 @@ class Item < ActiveRecord::Base
   has_one :main_image, :class_name => "ProductImage", :conditions => {:primary_image => true}, :dependent => :destroy
   accepts_nested_attributes_for :product_images, :allow_destroy => true, :reject_if => proc { |attributes| attributes['image'].blank? and attributes['id'].blank? }
 
+  # Product Options association.  NOTE - referenced by   this.option_items
+  has_many :product_options, :dependent => :destroy, :include => :option_item
+  has_many :option_items, :through => :product_options, :class_name => 'Item'
+  accepts_nested_attributes_for :product_options, :allow_destroy => true, :reject_if => proc { |attr| attr['option_item_id'].blank?}
+
   # Associated Node attributes
   has_many :item_categories, :dependent => :destroy
   has_many :categories, :through => :item_categories
@@ -147,7 +152,7 @@ class Item < ActiveRecord::Base
   scope :scope_description, lambda {|desc| where('short_description LIKE ? OR long_description LIKE ?', "%"+desc+"%", "%"+desc+"%")}
   scope :scope_part_number, lambda {|part_number| where('part_number LIKE ?', "%"+part_number+"%")}
   scope :scope_category, lambda {|title| includes(:categories).where('categories.title LIKE ?', "%"+title+"%")}
-  scope :scope_text, lambda {|text| scope_name(text).scope_description(text)}
+  scope :scope_text, lambda {|text| where('short_description LIKE ? OR long_description LIKE ? OR name LIKE ? OR part_number LIKE ?', "%"+text+"%", "%"+text+"%", "%"+text+"%", "%"+text+"%")}
   scope :scope_min_price, lambda {|price| where('cost >= ?', price)}
   scope :scope_max_price, lambda {|price| where('cost <= ?', price)}
 
