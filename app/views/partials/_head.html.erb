@@ -5,14 +5,22 @@
 <meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1.0"/>
 
 <%= javascript_include_tag "modernizr-1.6.min.js" %>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<!--[if lt IE 7 ]>
+  <script src="javascripts/dd_belatedpng.js"></script>
+  <script> DD_belatedPNG.fix('img, .png_bg'); //fix any <img> or .png_bg background-images </script>
+<![endif]-->
+<%= javascript_include_tag 'rails', 'jquery-ui.min', 'jquery.bgiframe.min', 'jquery.colorbox-min', 'jquery.json-2.2.min', 'application', :cache => 'app-js'  %>
+
+<%= javascript_include_tag :ckeditor %>
 
 <link rel="shortcut icon" href='/<%= subdomain %>/template/favicon.ico' />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 
-<%= stylesheet_link_tag("reset", "addons/colorbox", "event_calendar",
-                        "/#{subdomain}/stylesheets/contents",
-                        "/#{subdomain}/stylesheets/template",
-                        "phusion", :cache => "#{subdomain}-css") %>
+<%= stylesheet_link_tag("reset", "addons/colorbox",
+  "/#{subdomain}/stylesheets/contents",
+  "/#{subdomain}/stylesheets/template",
+  "phusion", :cache => "#{subdomain}-css") %>
 
 <%= csrf_meta_tag %>
 

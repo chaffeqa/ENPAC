@@ -115,12 +115,12 @@ class Node < ActiveRecord::Base
 
   # Returns the Categories Node
   def self.categories_node
-    self.where(:title => 'Categories').first
+    self.where(:title => 'Inventory').first
   end
 
   # Returns the Items Node
   def self.items_node
-    self.where(:title => 'Items').first
+    self.where(:title => 'Inventory').first
   end
 
   # Sets this node's shortcut to the desired shortcut or closest related shortcut that will be unique in the database.  If a conflict

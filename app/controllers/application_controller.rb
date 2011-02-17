@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
   private
 
   def create_home_node
-    @home_node = Node.create!(:menu_name => 'Inventory', :title => 'Inventory', :shortcut => 'inventory', :displayed => true, :controller => 'inventory', :action => 'search')
+    @home_node = Node.create!(:menu_name => 'Inventory', :title => 'Inventory', :shortcut => 'inventory', :displayed => true)
   end
 
   
