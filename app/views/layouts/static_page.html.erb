@@ -6,7 +6,7 @@
   </head>
 
   <body id="<%= content_for?(:body_id) ? yield(:body_id) : 'secPage' %>" 
-	class="<%= content_for?(:body_class) ? yield(:body_class) : 'twoColumn' %>">
+	class="<%= content_for?(:body_class) ? yield(:body_class) : 'oneColumn' %>">
 
     <% if admin? %><%= render 'partials/page_admin' %><% end %>
 

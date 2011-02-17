@@ -4,7 +4,7 @@ class ProductImage < ActiveRecord::Base
   has_attached_file :image,
     :url  => "/site_assets/items/:id/image_:style.:extension",
     :path => ":rails_root/public/site_assets/items/:id/image_:style.:extension",
-    :styles => {:full_size => ['315x315#', :gif], :preview => ['75x75#', :gif], :thumb => ['112x112#', :gif] }
+    :styles => {:full_size => ['315x315>', :gif], :preview => ['75x75>', :gif], :thumb => ['165x233>', :gif] }
 
   validates_attachment_size :image, :less_than => 2.megabytes
   validates_attachment_content_type :image, :content_type => [ 'image/jpeg', 'image/png', 'image/gif', 'image/x-png', 'image/pjpeg' ]

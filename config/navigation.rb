@@ -9,9 +9,9 @@ SimpleNavigation::Configuration.run do |navigation|
     menu_level_1.item @home_node.menu_name.to_sym, 'Products', @home_node.url do |menu_level_2|
       # Inventory > Category 1 > Item 1
       @home_node.children.displayed.categories.each do |category_node|
-        menu_level_2.item category_node.menu_name.to_sym, category_node.menu_name, category_node.url, :class => 'Category' do |menu_level_3|
+        menu_level_2.item category_node.title.downcase.gsub(/[^a-z0-9]+/i, '-'), category_node.menu_name, category_node.url, :class => 'category' do |menu_level_3|
           category_node.category.items.displayed.each do |item|
-            menu_level_3.item item.node.menu_name.to_sym, item.node.menu_name, item.node.url, :class => 'Item'
+            menu_level_3.item item.name.downcase.gsub(/[^a-z0-9]+/i, '-'), item.node.menu_name, item.node.url, :class => 'item'
           end
         end
       end

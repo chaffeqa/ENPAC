@@ -140,7 +140,9 @@ nav ul {
     width: 98%;
     margin: 0 auto;
 }
-
+.oneColumn #subColumn {
+    display: none;
+}
 
     /* Featured Column */
 #featuredColumn {
@@ -224,10 +226,16 @@ nav ul {
     text-decoration: underline;
 }
 
-.breadCrumb{
+#mainColumn .breadcrumb {
     padding-bottom: 10px;
 }
-
+    #mainColumn .breadcrumb a {
+	color: #000;
+	text-decoration: none;
+    }
+    #mainColumn .breadcrumb a:hover {
+	text-decoration: underline;
+    }
 /* Sub Column */
 #subColumn {
 }
@@ -304,6 +312,13 @@ nav ul {
     margin: 0 auto;
     float: none;
 }
+#secPage #products.bigger a {
+    display: block;
+    float: left;
+    margin: 8px;
+}
+
+
 #secPage #products .row {
     min-height: 200px;
     height: auto !important;
@@ -312,15 +327,39 @@ nav ul {
 #secPage #productMenu {
     float: left;
     width: 220px;
-    padding: 10px 0;
 }
-    #secPage #productMenu a.image {
+    #secPage #productMenu > ul {
+	padding: 0;
+	margin: 0;
+    }
+    #secPage #productMenu > ul > li {
+	padding: 0;
+	margin: 0;
+	background: none;
+    }
+#secPage #productMenu ul ul {
+    margin: 10px 0;
+}
+    #secPage #productMenu ul ul li {
+        background: url(../template/li-bullet-black.png) 5px 8px no-repeat;
+        padding-left: 12px;
+    }
+        #secPage #productMenu ul ul li a {
+            font-family: helvetica, arial, sans-serif;
+            text-decoration: none;
+            color: #000;
+            font-size: 12px;
+        }
+        #secPage #productMenu ul ul li.selected {
+            background-color: #f8bf0f;
+        }
+    #secPage #productMenu > ul > li > a {
         display: block;
         text-indent: -9999px;
         width: 201px;
         height: 36px;
     }
-        #secPage #productMenu a.bOverpacksSalvageDrums {
+        #secPage #productMenu #overpacks-salvage-drums > a {
             background: url(../template/overpacks-salvage-drums.gif) no-repeat;
         }
         #secPage #productMenu a.bDispensing {
@@ -329,7 +368,7 @@ nav ul {
         #secPage #productMenu a.bStorage {
             background: url(../template/storage.gif) no-repeat;
         }
-        #secPage #productMenu a.bSpillPallets {
+        #secPage #productMenu #spill-pallets > a {
             background: url(../template/spill-pallets.gif) no-repeat;
         }
         #secPage #productMenu a.bPortableContainment {
@@ -403,24 +442,7 @@ nav ul {
         }
 
 
-        
-#secPage #productMenu ul.level2 {
-    margin: 10px 0;
-}
-    #secPage #productMenu ul.level2 li {
-        background: url(../template/li-bullet-black.png) 5px 8px no-repeat;
-        padding-left: 12px;
-    }
-        #secPage #productMenu ul.level2 li a {
-            font-family: helvetica, arial, sans-serif;
-            text-decoration: none;
-            color: #000;
-            font-size: 12px;
-        }
-        #secPage #productMenu ul.level2 li.selectedPage {
-            background-color: #f8bf0f;
-        }
-
+       
 
 #secPage #product {
     float: left;

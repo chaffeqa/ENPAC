@@ -1,7 +1,20 @@
-<h1 class="title">Items</h1>
+<%= content_for :breadcrumb do %>
+  <%= render 'partials/inventory_breadcrumb' %>
+<% end %>
+<% content_for :body_class do %>oneColumn<% end %>
+<% content_for :page_title do %>Products<% end %>
 
+<h1 class="title">Products</h1>
 
+<div id="products" class="bigger">
+  <% @node.children.each do |child| %>
+  <% if child.page_type == "Category" %>
+    <%= link_to (image_tag child.category.thumbnail_image, :alt => child.title), child.shortcut %>
+  <% end %>
+  <% end %>
+</div>
 
+<!--
 <% unless @items.empty? %>
   <table>
     <tr>
@@ -27,22 +40,9 @@
 <% else %>
   <p>No items matched your search.</p>
 <% end %>
+-->
 
 <!-- Content_for components to insert into static_page -->
 <%= content_for :subColumn do %>
-  <h3>Your Search Parameters:</h3>
-  <ul>
-    <% unless params[:searchText].blank? %> <li><strong>Search Text:</strong><br/> "<%= params[:searchText] %>"</li> <% end %>
-    <% unless params[:category].blank? %> <li><strong>Under Category:</strong><br/> <%= params[:category] %></li> <% end %>
-    <% unless params[:cost_range].blank? %> <li><strong>Price Range:</strong><br/> $<%= params[:cost_range] %></li> <% end %>
-  </ul>
-<% end %>
-
-<%= content_for :breadcrumb do %>
-  <%= render 'partials/inventory_breadcrumb' %>
-<% end %>
-
-<% content_for :page_title do %>
-  Search Results
 <% end %>
 <!-- End -->

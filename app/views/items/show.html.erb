@@ -6,8 +6,18 @@
   <% end %>
 <% end %>
 
+<h1><%= @item.categories.first.title %></h1>
+<hr />
+
+<section id="productMenu">
+  <% if content_for?(:subMenu) %>
+    <% yield :subMenu %>
+  <% else %>
+    <%= render_navigation(:level => 2..7) %>
+  <% end %>
+</section>
+
 <article class="item">
-  <h1 class="title"><%= @node.title %></h1>
   <div class="product">
 
     <div class="left">
