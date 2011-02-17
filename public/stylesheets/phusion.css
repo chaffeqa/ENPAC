@@ -6,6 +6,8 @@
     -moz-box-shadow: 0 1px 3px #999; -webkit-box-shadow: 0 1px 3px #999;
     border-bottom: 1px solid #777;
     font-family: Helvetica, arial, sans-serif;
+    z-index: 999;
+    position: relative;
 }
 #adminBar .btn { float: right; margin-right: 5px; }
 
@@ -23,7 +25,7 @@
 
 /* second-level lists */
 /* Note: Use left instead of display to hide publicly visible menus because display: none isn't read by screen readers */
-#admin-menu li ul { position: absolute; margin: 0; width: 160px; left: -999em; display: none; line-height: 1.2em; }
+#admin-menu li ul { position: absolute; margin: 0; width: 160px; left: -999em; display: none; line-height: 1.2em;}
 
 /* third-and-above-level lists */
 #admin-menu li li ul { margin: -20px 0 0 80px; }

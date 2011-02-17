@@ -26,6 +26,9 @@ class ShortcutController < ApplicationController
       if @node and @node.page_type
         render("#{@node.page_type.tableize.pluralize}/show")
       else
+        if (!@node.controller.empty? and !@node.action.empty?)
+          render(@node.url)
+        end
         error_redirect
       end
     end

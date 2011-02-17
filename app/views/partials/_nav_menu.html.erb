@@ -1,1 +1,42 @@
-<nav id="mainNav"> <%= render_navigation(:level => 1) %> </nav>
+    <nav id="navigation">
+      <ul class="mainNav">
+	<li><a href="http://www.enpac.com/about-us">About Us</a></li>
+	<li><a href="/inventory">Products</a>
+	  <%= render_navigation(:level => 2) %>
+	</li>
+	<li><a href="http://www.enpac.com/catalog">Catalog</a>
+	  <ul class="level2">
+	    <li><a href="http://www.enpaccatalog.com/flash/">View Catalog Online</a></li>
+	    <li><a href="http://enpac.publishpath.com/Websites/enpac/Images/catalog/ENPAC_2010_Low_Res.pdf">Download Low Resolution</a></li>
+	    <li><a href="http://enpac.publishpath.com/Websites/enpac/Images/catalog/ENPAC_2010_Hi_Res.pdf">Download High Resolution</a></li>
+	    <li><a href="http://www.enpac.com/request-a-catalog">Request a Catalog</a></li>
+	  </ul>
+	</li>
+	<li><a href="http://www.enpac.com/on-the-job">On The Job</a></li>
+	<li><a href="http://www.enpac.com/distributors">Distributors</a></li>
+	<li><a href="http://www.enpac.com/resources">Resources</a>
+	  <ul class="level2">
+	    <li class="bChemical"><a class="bChemical" href="http://www.enpac.com/chemical-compatibility-guide">Chemical Compatibility Guide</a></li>
+	    <li class="bRegulations"><a class="bRegulations" href="http://www.enpac.com/government-regulations">Government Regulations</a></li>
+	    <li class="bIndustry"><a class="bIndustry" href="http://www.enpac.com/industry-web-resources">Industry Web Resources</a></li>
+	    <li class="bChoosing"><a class="bChoosing" href="http://www.enpac.com/need-help-choosing-products">Need Help Choosing Products?</a></li>
+	    <li class="bInstructions"><a class="bInstructions" href="http://www.enpac.com/product-instructions">Product Instructions</a></li>
+	    <li class="bQualification"><a class="bQualification" href="http://www.enpac.com/qualification-notes">Qualification Notes</a></li>
+	  </ul>
+	</li>
+	<li><a href="http://www.enpac.com/partners">Partners</a></li>
+	<li><a href="http://www.enpac.com/contact-us">Contact us</a>
+	  <ul class="level2">
+	    <li><a href="http://www.enpac.com/contact-list">Contact List</a></li>
+	    <li><a href="http://www.enpac.com/idea">Product Ideas</a></li>
+	    <li><a href="http://www.enpac.com/due-diligence-form">Due Diligence Form</a></li>
+	    <li><a href="http://www.enpac.com/rma-questionnaire">RMA Questionnaire</a></li>
+	    <li><a href="http://www.enpac.com/become-a-distributor">Interested in Becoming a Distributor?</a></li>
+	    <li><a href="http://www.enpac.com/employment-application">Employment Application</a></li>
+	    <li><a href="http://www.enpac.com/terms">Terms Of Use</a></li>
+	    <li><a href="http://www.enpac.com/customize-berms">Berms Customization Form</a></li>
+	    <li><a href="http://www.enpac.com/freight-request-form">Freight Request Form</a></li>
+	  </ul>
+	</li>
+      </ul>
+    </nav>

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   include UrlHelper
-#  protect_from_forgery TODO enable this
+  #  protect_from_forgery TODO enable this
   helper :all
   helper_method :get_node, :categories_for_items, :get_home_node, :admin?
   layout 'static_page'
@@ -26,11 +26,7 @@ class ApplicationController < ActionController::Base
   def get_node
     get_home_node
     @node = @node || (Node.where(:shortcut => params[:shortcut]).first if params[:shortcut])
-    if @node
-      @shortcut = @node.shortcut
-    else
-      redirect_to(error_path(:shortcut => params[:shortcut] ))
-    end
+    redirect_to(error_path(:shortcut => params[:shortcut] ))  unless @node
   end
 
   #TODO
@@ -48,8 +44,7 @@ class ApplicationController < ActionController::Base
   private
 
   def create_home_node
-    home_page = DynamicPage.create!(:template_name => 'Home')
-    @home_node = home_page.create_node(:menu_name => 'Home', :title => 'Home', :shortcut => 'home', :displayed => true)
+    @home_node = Node.create!(:menu_name => 'Inventory', :title => 'Inventory', :shortcut => 'inventory', :displayed => true, :controller => 'inventory', :action => 'search')
   end
 
   
