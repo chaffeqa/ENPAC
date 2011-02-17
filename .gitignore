@@ -3,8 +3,6 @@ db/*.sqlite3*
 db/schema.rb
 log/*.log
 tmp/**
-kern/ckeditor_assets
-kern/site_assets/**
-enpac/ckeditor_assets
-enpac/site_assets/**
+public/ckeditor_assets
+public/site_assets/**
 
