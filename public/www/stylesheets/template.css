@@ -359,40 +359,17 @@ nav ul {
         width: 201px;
         height: 36px;
     }
-        #secPage #productMenu #overpacks-salvage-drums > a {
-            background: url(../template/overpacks-salvage-drums.gif) no-repeat;
-        }
-        #secPage #productMenu a.bDispensing {
-            background: url(../template/dispensing.gif) no-repeat;
-        }
-        #secPage #productMenu a.bStorage {
-            background: url(../template/storage.gif) no-repeat;
-        }
-        #secPage #productMenu #spill-pallets > a {
-            background: url(../template/spill-pallets.gif) no-repeat;
-        }
-        #secPage #productMenu a.bPortableContainment {
-            background: url(../template/portable-containment.gif) no-repeat;
-        }
-        #secPage #productMenu a.bFunnels {
-            background: url(../template/funnels.gif) no-repeat;
-        }
-        #secPage #productMenu a.bStormwater {
-            background: url(../template/stormwater.gif) no-repeat;
-        }
-        #secPage #productMenu a.bSpillKits {
-            background: url(../template/spill-kits.gif) no-repeat;
-        }
-        #secPage #productMenu a.bSorbents {
-            background: url(../template/sorbents.gif) no-repeat;
-        }
-        #secPage #productMenu a.bCylinderProducts {
-            background: url(../template/cylinder-products.gif) no-repeat;
-      }
-        #secPage #productMenu a.bOilSpillSupplies {
-            background: url(../template/oilspillsupplies.gif) no-repeat;
-        }
-        #secPage #subMenu a.bChemical {
+        #secPage #productMenu #overpacks-salvage-drums > a { background: url(../template/overpacks-salvage-drums.gif) no-repeat; }
+        #secPage #productMenu #spill-pallets > a           { background: url(../template/spill-pallets.gif) no-repeat; }
+        #secPage #productMenu #dispensing > a              { background: url(../template/dispensing.gif) no-repeat; }
+        #secPage #productMenu #storage > a                 { background: url(../template/storage.gif) no-repeat; }
+        #secPage #productMenu #portable-containment > a    { background: url(../template/portable-containment.gif) no-repeat; }
+        #secPage #productMenu #funnels > a                 { background: url(../template/funnels.gif) no-repeat; }
+        #secPage #productMenu #stormwater > a              { background: url(../template/stormwater.gif) no-repeat; }
+        #secPage #productMenu #spill-kits > a              { background: url(../template/spill-kits.gif) no-repeat; }
+        #secPage #productMenu #sorbents > a                { background: url(../template/sorbents.gif) no-repeat; }
+        #secPage #productMenu #cylinder-products > a       { background: url(../template/cylinder-products.gif) no-repeat; }
+        #secPage #subMenu a.bChemical > a {
             display: block;
             text-indent: -9999px;
             margin-left: -15px;
