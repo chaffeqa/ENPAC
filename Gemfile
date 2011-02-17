@@ -26,3 +26,5 @@ gem 'jquery-rails'
 
 gem 'mail'#, :git => 'https://github.com/mikel/mail.git'
 
+gem 'fastercsv'
+

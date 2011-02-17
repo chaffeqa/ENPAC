@@ -41,6 +41,7 @@ GEM
       warden (~> 1.0.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    fastercsv (1.5.4)
     i18n (0.5.0)
     jquery-rails (0.2.6)
       rails (~> 3.0)
@@ -97,6 +98,7 @@ DEPENDENCIES
   carmen
   ckeditor (= 3.4.3.pre)
   devise
+  fastercsv
   jquery-rails
   mail
   mysql
