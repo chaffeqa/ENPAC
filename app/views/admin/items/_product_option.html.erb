@@ -11,6 +11,6 @@
   <% if f.object.new_record? %>
     <%= f.select :option_item_id, options_for_select( Item.order('name').collect {|item| [item.name, item.id] }, ''), {:prompt => true} %>
   <% else %>
-    <%= f.collection_select :option_item_id, Item.all, :id, :title, {:prompt => true}%>
+    <%= f.collection_select :option_item_id, Item.all, :id, :name, {:prompt => true}%>
   <% end %>
 </div>
