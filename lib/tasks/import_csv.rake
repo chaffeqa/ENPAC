@@ -226,7 +226,7 @@ namespace :db do
     is_first_line = true
     FasterCSV.foreach("db/csv_files/enpac_products.csv", :encoding => 'UTF-8') do |row|
       unless is_first_line
-        item_with_options = Item.where(:name => row[1].to_s).first
+        item_with_options = Item.where(:part_number => row[0].to_s).first
         item_with_options.option_items << Item.where(:part_number => row[14].to_s).first unless row[14].nil? or !Item.exists?(:part_number => row[14].to_s)
         item_with_options.option_items << Item.where(:part_number => row[15].to_s).first unless row[15].nil? or !Item.exists?(:part_number => row[15].to_s)
         item_with_options.option_items << Item.where(:part_number => row[16].to_s).first unless row[16].nil? or !Item.exists?(:part_number => row[16].to_s)
