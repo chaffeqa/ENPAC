@@ -13,7 +13,7 @@ class CreateItems < ActiveRecord::Migration
       #
       #############################
       t.string :part_number
-      t.string :short_description
+      t.text :short_description
       t.text :long_description
       t.string :weight
       t.string :handling_capacity
