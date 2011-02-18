@@ -26,4 +26,9 @@ gem 'jquery-rails'
 
 gem 'mail'#, :git => 'https://github.com/mikel/mail.git'
 
+<<<<<<< HEAD
 gem 'aws-s3'
+=======
+gem 'fastercsv'
+
+>>>>>>> c0e2f922d2ac3d2ab17e4130338ddb68f3648978
