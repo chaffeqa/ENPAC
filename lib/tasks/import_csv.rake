@@ -39,7 +39,7 @@ namespace :db do
 
     puts "Creating Circular Dimensions..."
     FasterCSV.foreach("db/csv_files/enpac_circulars.csv") do |row|
-      AdjustableDimension.create(
+      CircularDimension.create(
         :item_id =>Item.where(:name => row[0]).first,
         :external_diameter => "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm.",
         :internal_diameter => "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm.",
@@ -50,7 +50,7 @@ namespace :db do
 
     puts "Creating Cube Dimensions..."
     FasterCSV.foreach("db/csv_files/enpac_cubes.csv") do |row|
-      AdjustableDimension.create(
+      CubeDimension.create(
         :item_id =>Item.where(:name => row[0]).first,
         :external_length => "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm.",
         :internal_length => "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm.",
@@ -65,7 +65,7 @@ namespace :db do
 
     puts "Creating Drum Dimensions..."
     FasterCSV.foreach("db/csv_files/enpac_drums.csv") do |row|
-      AdjustableDimension.create(
+      DrumDimension.create(
         :item_id =>Item.where(:name => row[0]).first,
         :top_diameter_external => "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm.",
         :top_diameter_internal => "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm.",
@@ -78,7 +78,7 @@ namespace :db do
 
     puts "Creating Flexible Dimensions..."
     FasterCSV.foreach("db/csv_files/enpac_flexibles.csv") do |row|
-      AdjustableDimension.create(
+      FlexibleDimension.create(
         :item_id =>Item.where(:name => row[0]).first,
         :length => "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm.",
         :width => "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm.",
@@ -89,7 +89,7 @@ namespace :db do
 
     puts "Creating Funnel Dimensions"
     FasterCSV.foreach("db/csv_files/enpac_funnels.csv") do |row|
-      AdjustableDimension.create(
+      FunnelDimension.create(
         :item_id =>Item.where(:name => row[0]).first,
         :top_external_diameter => "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm.",
         :top_internal_diameter => "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm.",
@@ -102,7 +102,7 @@ namespace :db do
 
     puts "Creating Pool Dimensions..."
     FasterCSV.foreach("db/csv_files/enpac_pools.csv") do |row|
-      AdjustableDimension.create(
+      PoolDimension.create(
         :item_id =>Item.where(:name => row[0]).first,
         :top_diameter => "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm.",
         :bottem_diameter => "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm.",
@@ -112,7 +112,7 @@ namespace :db do
 
     puts "Creating Sorbent Dimensions..."
     FasterCSV.foreach("db/csv_files/enpac_sorbents.csv") do |row|
-      AdjustableDimension.create(
+      SorbentDimension.create(
         :item_id =>Item.where(:name => row[0]).first,
         :diameter => "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm.",
         :length => "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm.",
@@ -128,7 +128,7 @@ namespace :db do
 
     puts "Creating Standard Dimensions..."
     FasterCSV.foreach("db/csv_files/enpac_standards.csv") do |row|
-      AdjustableDimension.create(
+      StandardDimension.create(
         :item_id =>Item.where(:name => row[0]).first,
         :length => "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm.",
         :width => "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm.",
