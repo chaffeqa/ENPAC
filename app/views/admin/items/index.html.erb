@@ -23,7 +23,8 @@
     <!--td></td-->
     <td><%= sortable "name", "Item Name", parsed_params %></td>
     <td><%= sortable "part_number", 'Part #', parsed_params %></td>
-    <td><span>Categories</span></td>
+    <td><%= sortable "categories.title", "Categories", parsed_params %></td>
+    <!--<td><span>Categories</span></td>-->
     <td><%= sortable "cost", "Price", parsed_params %></td>
     <td><%= sortable "display", "Displayed", parsed_params %></td>
     <td colspan="2"><span>Options</span></td>
@@ -32,10 +33,10 @@
   @items.each do |item|
     even = !even %>
     <%= content_tag_for :tr, item, :class => (even ? "even" : "odd") do %>
-                  <!--td class="itemThumb"> <%#= image_tag(item.thumbnail_image)  %> </td-->
+                      <!--td class="itemThumb"> <%#= image_tag(item.thumbnail_image)  %> </td-->
       <td class='<%= (params[:sort] == "name") ? "sorted" : "" %>'><%= item.node ? link_to(item.name, shortcut_path(item.node.shortcut)) : item.name %></td>
       <td class='<%= (params[:sort] == "part_number") ? "sorted" : "" %>'><%= item.part_number %></td>
-      <td><%=raw item.categories.collect {|cat| (link_to(cat.title, shortcut_path(cat.node.shortcut)) + (cat == item.categories.last ? raw('<br />') : raw(',<br />'))) } %></td>
+      <td class='<%= (params[:sort] == "categories.title") ? "sorted" : "" %>'><%=raw item.categories.collect {|cat| (link_to(cat.title, shortcut_path(cat.node.shortcut)) + (cat == item.categories.last ? raw('<br />') : raw(',<br />'))) } %></td>
       <td class='<%= (params[:sort] == "cost") ? "sorted" : "" %>'><%= number_to_currency(item.cost) %></td>
       <td class='<%= (params[:sort] == "display") ? "sorted" : "" %>'><%= item.display ? "Yes" : "No" %></td>
       <td><%= link_to 'Edit', edit_admin_item_path(item), :class => "btn small" %></td>

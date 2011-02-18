@@ -5,7 +5,7 @@ class Admin::ItemsController < ApplicationController
   
   def index
     @per_page = params[:per_page] || 10
-    @items = Item.scoped
+    @items = Item.scoped.includes(:categories)
     @items = @items.scope_display(params[:displayed]) unless params[:displayed].blank?
     @items = @items.scope_for_sale(params[:for_sale]) unless params[:for_sale].blank?
     @items = @items.scope_category(params[:category]) unless params[:category].blank?
@@ -98,7 +98,7 @@ class Admin::ItemsController < ApplicationController
 
   def sort_column
     @sort = @sort || params[:sort] || ''
-    Item.column_names.include?(@sort) ? @sort : "name"
+    Item.column_names.include?(@sort) || @sort == 'categories.title' ? @sort : "name"
   end
 
   def sort_direction
