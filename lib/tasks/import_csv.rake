@@ -32,7 +32,7 @@ namespace :db do
 
     puts "Creating Adjustable Dimensions..."
     is_first_line = true
-    FasterCSV.foreach("db/csv_files/enpac_adjustables.csv", :encoding => 'UTF-8') do |row|
+    FasterCSV.foreach("db/csv_files/enpac_adjustables.csv") do |row|
       unless is_first_line
         rmax = "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm." unless row[1].blank?
         rmin = "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm." unless row[2].blank?
@@ -57,7 +57,7 @@ namespace :db do
 
     puts "Creating Circular Dimensions..."
     is_first_line = true
-    FasterCSV.foreach("db/csv_files/enpac_circulars.csv", :encoding => 'UTF-8') do |row|
+    FasterCSV.foreach("db/csv_files/enpac_circulars.csv") do |row|
       unless is_first_line
         ed = "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm." unless row[1].blank?
         id = "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm." unless row[2].blank?
@@ -76,7 +76,7 @@ namespace :db do
 
     puts "Creating Cube Dimensions..."
     is_first_line = true
-    FasterCSV.foreach("db/csv_files/enpac_cubes.csv", :encoding => 'UTF-8') do |row|
+    FasterCSV.foreach("db/csv_files/enpac_cubes.csv") do |row|
       unless is_first_line
         CubeDimension.create(
           :item_id => Item.where(:part_number => row[0].to_s).first.id,
@@ -95,7 +95,7 @@ namespace :db do
 
     puts "Creating Drum Dimensions..."
     is_first_line = true
-    FasterCSV.foreach("db/csv_files/enpac_drums.csv", :encoding => 'UTF-8') do |row|
+    FasterCSV.foreach("db/csv_files/enpac_drums.csv") do |row|
       unless is_first_line
         DrumDimension.create(
           :item_id => Item.where(:part_number => row[0].to_s).first.id,
@@ -112,7 +112,7 @@ namespace :db do
 
     puts "Creating Flexible Dimensions..."
     is_first_line = true
-    FasterCSV.foreach("db/csv_files/enpac_flexibles.csv", :encoding => 'UTF-8') do |row|
+    FasterCSV.foreach("db/csv_files/enpac_flexibles.csv") do |row|
       unless is_first_line
         FlexibleDimension.create(
           :item_id => Item.where(:part_number => row[0].to_s).first.id,
@@ -127,7 +127,7 @@ namespace :db do
 
     puts "Creating Funnel Dimensions"
     is_first_line = true
-    FasterCSV.foreach("db/csv_files/enpac_funnels.csv", :encoding => 'UTF-8') do |row|
+    FasterCSV.foreach("db/csv_files/enpac_funnels.csv") do |row|
       unless is_first_line
         ted = "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm." unless row[1].blank?
         tid = "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm." unless row[2].blank?
@@ -150,7 +150,7 @@ namespace :db do
 
     puts "Creating Pool Dimensions..."
     is_first_line = true
-    FasterCSV.foreach("db/csv_files/enpac_pools.csv", :encoding => 'UTF-8') do |row|
+    FasterCSV.foreach("db/csv_files/enpac_pools.csv") do |row|
       unless is_first_line
         PoolDimension.create(
           :item_id => Item.where(:part_number => row[0].to_s).first.id,
@@ -164,8 +164,8 @@ namespace :db do
 
     puts "Creating Sorbent Dimensions..."
     is_first_line = true
-    FasterCSV.foreach("db/csv_files/enpac_sorbents.csv", :encoding => 'UTF-8') do |row|
-      unless is_first_line
+    FasterCSV.foreach("db/csv_files/enpac_sorbents.csv") do |row|
+      unless is_first_line# or row[0].nil?
         d = "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm." unless row[1].blank?
         l = "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm." unless row[2].blank?
         w = "#{row[3].to_s.split('/')[0]} in. / #{row[3].to_s.split('/')[1]} cm." unless row[3].blank?
@@ -188,7 +188,7 @@ namespace :db do
 
     puts "Creating Standard Dimensions..."
     is_first_line = true
-    FasterCSV.foreach("db/csv_files/enpac_standards.csv", :encoding => 'UTF-8') do |row|
+    FasterCSV.foreach("db/csv_files/enpac_standards.csv") do |row|
       unless is_first_line
         l = "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm." unless row[1].blank?
         w = "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm." unless row[2].blank?
@@ -213,7 +213,7 @@ namespace :db do
 
     puts "Creating Categories if they dont exist..."
     is_first_line = true
-    FasterCSV.foreach("db/csv_files/enpac_items.csv", :encoding => 'UTF-8') do |row|
+    FasterCSV.foreach("db/csv_files/enpac_products.csv", :encoding => 'UTF-8') do |row|
       unless is_first_line
         unless Category.exists?(:title => row[3])
           Category.create(:title => row[3])
@@ -224,7 +224,7 @@ namespace :db do
 
     puts "Creating Product Options and Categories for Items..."
     is_first_line = true
-    FasterCSV.foreach("db/csv_files/enpac_items.csv", :encoding => 'UTF-8') do |row|
+    FasterCSV.foreach("db/csv_files/enpac_products.csv", :encoding => 'UTF-8') do |row|
       unless is_first_line
         item_with_options = Item.where(:name => row[1].to_s).first
         item_with_options.option_items << Item.where(:part_number => row[14].to_s).first unless row[14].nil? or !Item.exists?(:part_number => row[14].to_s)
