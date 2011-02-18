@@ -10,6 +10,9 @@ namespace :db do
     is_first_line = true
     FasterCSV.foreach("db/csv_files/enpac_items.csv") do |row|
       unless is_first_line
+        w = ("#{row[6].to_s.split('/')[0]} lbs. / #{row[6].to_s.split('/')[1]} kg.") unless row[6].blank?
+	h = ("#{row[7].to_s.split('/')[0]} lbs. / #{row[7].to_s.split('/')[1]} kg.") unless row[7].blank?
+	s = ("#{row[9].to_s.split('/')[0]} gal. / #{row[9].to_s.split('/')[1]} L") unless row[9].blank?
         Item.create(
           :name => row[1],
           :cost => 0.00,
@@ -18,9 +21,9 @@ namespace :db do
           :part_number => row[2],
           :short_description => row[4],
           :long_description => row[5],
-          :weight => "#{row[6].to_s.split('/')[0]} lbs. / #{row[6].to_s.split('/')[1]} kg.",
-          :handling_capacity => "#{row[7].to_s.split('/')[0]} lbs. / #{row[7].to_s.split('/')[1]} kg.",
-          :sump_capacity => "#{row[9].to_s.split('/')[0]} gal. / #{row[9].to_s.split('/')[1]} L",
+          :weight => w,
+          :handling_capacity => h,
+          :sump_capacity => s,
           :dimension_type => row[13],
           :regulations => row[8]
         )
@@ -32,14 +35,20 @@ namespace :db do
     is_first_line = true
     FasterCSV.foreach("db/csv_files/enpac_adjustables.csv") do |row|
       unless is_first_line
+        rmax = "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm." unless row[1].blank?
+        rmin = "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm." unless row[2].blank?
+        rmaxl = "#{row[3].to_s.split('/')[0]} in. / #{row[3].to_s.split('/')[1]} cm." unless row[3].blank?
+        rminl = "#{row[4].to_s.split('/')[0]} in. / #{row[4].to_s.split('/')[1]} cm." unless row[4].blank?
+        rmaxw = "#{row[5].to_s.split('/')[0]} in. / #{row[5].to_s.split('/')[1]} cm." unless row[5].blank?
+        rminw = "#{row[6].to_s.split('/')[0]} in. / #{row[6].to_s.split('/')[1]} cm." unless row[6].blank?
         AdjustableDimension.create(
-          :item_id =>Item.where(:name => row[0]).first,
-          :round_max_diameter => "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm.",
-          :round_min_diameter => "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm.",
-          :rectangular_max_length => "#{row[3].to_s.split('/')[0]} in. / #{row[3].to_s.split('/')[1]} cm.",
-          :rectangular_min_length => "#{row[4].to_s.split('/')[0]} in. / #{row[4].to_s.split('/')[1]} cm.",
-          :rectangular_max_width => "#{row[5].to_s.split('/')[0]} in. / #{row[5].to_s.split('/')[1]} cm.",
-          :rectangular_min_width => "#{row[6].to_s.split('/')[0]} in. / #{row[6].to_s.split('/')[1]} cm.",
+          :item_id => Item.where(:part_number => row[0].to_s).first,
+          :round_max_diameter => rmax,
+          :round_min_diameter => rmin,
+          :rectangular_max_length => rmaxl,
+          :rectangular_min_length => rminl,
+          :rectangular_max_width => rmaxw,
+          :rectangular_min_width => rminw,
           :overflow_rate => row[8],
           :capabilities => row[7]
         )
@@ -51,12 +60,16 @@ namespace :db do
     is_first_line = true
     FasterCSV.foreach("db/csv_files/enpac_circulars.csv") do |row|
       unless is_first_line
+        ed = "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm." unless row[1].blank?
+        id = "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm." unless row[2].blank?
+        eh = "#{row[3].to_s.split('/')[0]} in. / #{row[3].to_s.split('/')[1]} cm." unless row[3].blank?
+        ih = "#{row[4].to_s.split('/')[0]} in. / #{row[4].to_s.split('/')[1]} cm." unless row[4].blank?
         CircularDimension.create(
-          :item_id =>Item.where(:name => row[0]).first,
-          :external_diameter => "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm.",
-          :internal_diameter => "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm.",
-          :external_height => "#{row[3].to_s.split('/')[0]} in. / #{row[3].to_s.split('/')[1]} cm.",
-          :internal_height => "#{row[4].to_s.split('/')[0]} in. / #{row[4].to_s.split('/')[1]} cm."
+	  :item_id => Item.where(:part_number => row[0].to_s).first.id,
+          :external_diameter => ed,
+          :internal_diameter => id,
+          :external_height => eh,
+          :internal_height => ih
         )
       end
       is_first_line = false
@@ -67,7 +80,7 @@ namespace :db do
     FasterCSV.foreach("db/csv_files/enpac_cubes.csv") do |row|
       unless is_first_line
         CubeDimension.create(
-          :item_id =>Item.where(:name => row[0]).first,
+	  :item_id => Item.where(:part_number => row[0].to_s).first.id,
           :external_length => "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm.",
           :internal_length => "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm.",
           :external_width => "#{row[3].to_s.split('/')[0]} in. / #{row[3].to_s.split('/')[1]} cm.",
@@ -86,7 +99,7 @@ namespace :db do
     FasterCSV.foreach("db/csv_files/enpac_drums.csv") do |row|
       unless is_first_line
         DrumDimension.create(
-          :item_id =>Item.where(:name => row[0]).first,
+          :item_id => Item.where(:part_number => row[0].to_s).first.id,
           :top_diameter_external => "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm.",
           :top_diameter_internal => "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm.",
           :bottem_diameter_external => "#{row[3].to_s.split('/')[0]} in. / #{row[3].to_s.split('/')[1]} cm.",
@@ -103,7 +116,7 @@ namespace :db do
     FasterCSV.foreach("db/csv_files/enpac_flexibles.csv") do |row|
       unless is_first_line
         FlexibleDimension.create(
-          :item_id =>Item.where(:name => row[0]).first,
+          :item_id => Item.where(:part_number => row[0].to_s).first.id,
           :length => "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm.",
           :width => "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm.",
           :height => "#{row[3].to_s.split('/')[0]} in. / #{row[3].to_s.split('/')[1]} cm.",
@@ -117,14 +130,20 @@ namespace :db do
     is_first_line = true
     FasterCSV.foreach("db/csv_files/enpac_funnels.csv") do |row|
       unless is_first_line
+        ted = "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm." unless row[1].blank?
+        tid = "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm." unless row[2].blank?
+        bed = "#{row[3].to_s.split('/')[0]} in. / #{row[3].to_s.split('/')[1]} cm." unless row[3].blank?
+        bid = "#{row[4].to_s.split('/')[0]} in. / #{row[4].to_s.split('/')[1]} cm." unless row[4].blank?
+        ih = "#{row[5].to_s.split('/')[0]} in. / #{row[5].to_s.split('/')[1]} cm." unless row[5].blank?
+        eh = "#{row[6].to_s.split('/')[0]} in. / #{row[6].to_s.split('/')[1]} cm." unless row[6].blank?
         FunnelDimension.create(
-          :item_id =>Item.where(:name => row[0]).first,
-          :top_external_diameter => "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm.",
-          :top_internal_diameter => "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm.",
-          :bottem_internal_diameter => "#{row[3].to_s.split('/')[0]} in. / #{row[3].to_s.split('/')[1]} cm.",
-          :bottem_external_diameter => "#{row[4].to_s.split('/')[0]} in. / #{row[4].to_s.split('/')[1]} cm.",
-          :external_height => "#{row[6].to_s.split('/')[0]} in. / #{row[6].to_s.split('/')[1]} cm.",
-          :internal_height => "#{row[5].to_s.split('/')[0]} in. / #{row[5].to_s.split('/')[1]} cm."
+          :item_id => Item.where(:part_number => row[0].to_s).first.id,
+          :top_external_diameter => ted,
+          :top_internal_diameter => tid,
+          :bottem_external_diameter => bed,
+          :bottem_internal_diameter => bid,
+          :external_height => eh,
+          :internal_height => ih
         )
       end
       is_first_line = false
@@ -135,7 +154,7 @@ namespace :db do
     FasterCSV.foreach("db/csv_files/enpac_pools.csv") do |row|
       unless is_first_line
         PoolDimension.create(
-          :item_id =>Item.where(:name => row[0]).first,
+          :item_id => Item.where(:part_number => row[0].to_s).first.id,
           :top_diameter => "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm.",
           :bottem_diameter => "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm.",
           :height => "#{row[3].to_s.split('/')[0]} in. / #{row[3].to_s.split('/')[1]} cm."
@@ -148,12 +167,16 @@ namespace :db do
     is_first_line = true
     FasterCSV.foreach("db/csv_files/enpac_sorbents.csv") do |row|
       unless is_first_line
+        d = "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm." unless row[1].blank?
+        l = "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm." unless row[2].blank?
+        w = "#{row[3].to_s.split('/')[0]} in. / #{row[3].to_s.split('/')[1]} cm." unless row[3].blank?
+        h = "#{row[4].to_s.split('/')[0]} in. / #{row[4].to_s.split('/')[1]} cm." unless row[4].blank?
         SorbentDimension.create(
-          :item_id =>Item.where(:name => row[0]).first,
-          :diameter => "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm.",
-          :length => "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm.",
-          :width => "#{row[3].to_s.split('/')[0]} in. / #{row[3].to_s.split('/')[1]} cm.",
-          :height => "#{row[4].to_s.split('/')[0]} in. / #{row[4].to_s.split('/')[1]} cm.",
+          :item_id => Item.where(:part_number => row[0].to_s).first.id,
+          :diameter => d,
+          :length => l,
+          :width => w,
+          :height => h,
           :class_category => row[5],
           :type => row[6],
           :absorbs => row[8],
@@ -168,15 +191,22 @@ namespace :db do
     is_first_line = true
     FasterCSV.foreach("db/csv_files/enpac_standards.csv") do |row|
       unless is_first_line
+        l = "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm." unless row[1].blank?
+        w = "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm." unless row[2].blank?
+        h = "#{row[3].to_s.split('/')[0]} in. / #{row[3].to_s.split('/')[1]} cm." unless row[3].blank?
+        wl = "#{row[4].to_s.split('/')[0]} in. / #{row[4].to_s.split('/')[1]} cm." unless row[4].blank?
+        ww = "#{row[5].to_s.split('/')[0]} in. / #{row[5].to_s.split('/')[1]} cm." unless row[5].blank?
+        wh = "#{row[6].to_s.split('/')[0]} in. / #{row[6].to_s.split('/')[1]} cm." unless row[6].blank?
+	a = "#{row[7].to_s.split('/')[0]} g. / #{row[7].to_s.split('/')[1]} L." unless row[7].blank?
         StandardDimension.create(
-          :item_id =>Item.where(:name => row[0]).first,
-          :length => "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm.",
-          :width => "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm.",
-          :height => "#{row[3].to_s.split('/')[0]} in. / #{row[3].to_s.split('/')[1]} cm.",
-          :with_handle_length => "#{row[4].to_s.split('/')[0]} in. / #{row[4].to_s.split('/')[1]} cm.",
-          :with_handle_width => "#{row[5].to_s.split('/')[0]} in. / #{row[5].to_s.split('/')[1]} cm.",
-          :with_handle_height => "#{row[6].to_s.split('/')[0]} in. / #{row[6].to_s.split('/')[1]} cm.",
-          :absorbs => "#{row[7].to_s.split('/')[0]} g. / #{row[7].to_s.split('/')[1]} L."
+          :item_id => Item.where(:part_number => row[0].to_s).first.id,
+          :length => l,
+          :width => w,
+          :height => h,
+          :with_handle_length => wl,
+          :with_handle_width => ww,
+          :with_handle_height => wh,
+          :absorbs => a
         )
       end
       is_first_line = false
