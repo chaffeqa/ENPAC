@@ -29,11 +29,12 @@ class Category < ActiveRecord::Base
 
 
   def update_node
-    self.node.title =  self.title
-    self.node.menu_name =   self.title
-    self.node.shortcut = self.title.parameterize.html_safe
-    self.node.displayed = true
-    Node.categories_node.children << self.node
+    node = self.node ? self.node : self.build_node
+    node.title =  title
+    node.menu_name =   title
+    node.shortcut = title.parameterize.html_safe
+    node.displayed = true
+    Node.categories_node.children << node
   end
 
 
