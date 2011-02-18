@@ -1,4 +1,4 @@
-﻿ID,Name,Part Number,Category,Short Description,Long Description,Weight,Handling Capacity,Regulations,Sump Capacity,PLength,PWidth,PHeight,"Dimension Type (Drum, Pool, etc)",Product Option 1(Item_ID),Product Option 2(Item_ID),Product Option 3(Item_ID)
+ID,Name,Part Number,Category,Short Description,Long Description,Weight,Handling Capacity,Regulations,Sump Capacity,PLength,PWidth,PHeight,"Dimension Type (Drum, Pool, etc)",Product Option 1(Item_ID),Product Option 2(Item_ID),Product Option 3(Item_ID)
 1051-YE,Poly-Overpack 600,1051-YE,Salvage Drum/Overpacks,A Huge 600-Gallon Capacity.,"Designed specifically for the storage and transport of large transformers, the Poly-Overpack 600 offers an easy, cost-effective way to keep hazardous fluids under control.",225/102,5000/2268,"EPA 40 CFR 761.65, SPCC, NPDES",600/ 2271,,,,Drum,1230-YE,1299-YE,1295-YE
 1065-YE,Poly-Overpack® 65 Salvage Drum,1065-YE,Salvage Drum/Overpacks,"Just The Right Size For
 30-Gallon Drums.","Our Poly-Overpack 65 meets
@@ -33,7 +33,7 @@ EPA, SPCC and NPDES",103/390,,,,Drum,1237-YE,5200-YE,1299-YE
 1259-YE,Wheeled Overpack® 50 Salvage Drum,1259-YE,Salvage Drum/Overpacks,Wheeled Overpack® 50 Salvage Drum,ENPAC’s Wheeled Overpacks® are the first mobile one-piece overpack on wheels. A Salvage Drum and dolly in one! They completely eliminate the need for a separate dolly transportation. The 50-gallon polyethylene UN rated Salvage Drums have built-in handles and 6” Polyolefin wheels that allow for easy steering through doorways and around any obstacle. Ideal for mobile Spill Kits.,46.8/21.2,275/125,"UN 1H2/X125/S,
 DOT 49 CFR 173.3(c),
 EPA, SPCC and NPDES",50/189.3,,,,Drum,1299-YE,1237-YE,5200-YE
-1295-LK,Envirosalv™ Locking 95 Gallon Spill Kit,1295-LK,Salvage Drum/Overpacks,Envirosalv™ Locking 95 Gallon Spill Kit,"One of our most innovative design improvements for 2010 is the Lock Down Security Kit - which locks and secures the 1295-YE drum to its destination. Lock Down Kit (1295-LK) is available as an optional - lockable, serialized, identification security system when accountability matters most. Lock Down Kit adds an identification feature to account for hazardous material from point A to Z.",1/.45,,,,,,,Standard,1295-YE,,
+1295-LK,Envirosalv™ Locking 95 Gallon Spill Kit,1295-LK,Salvage Drum/Overpacks,Envirosalv™ Locking 95 Gallon Spill Kit,"One of our most innovative design improvements for 2010 is the Lock Down Security Kit - which locks and secures the 1295-YE drum to its destination. Lock Down Kit (1295-LK) is available as an optional - lockable, serialized, identification security system when accountability matters most. Lock Down Kit adds an identification feature to account for hazardous material from point A to Z.",1/.45,,,,,,,Standard,1295-YE
 1295-YE,Envirosalv™ Poly Salvage Drum Plus,1295-YE,Salvage Drum/Overpacks,Envirosalv™ Poly Salvage Drum Plus,"THE “LOCKING” OVERPACK SALVAGE DRUM OF THE FUTURE! ENPAC® has done it again! With years of research and development, ENPAC® introduces ENVIROSALV™ Poly-Salvage Drum Plus; an extension to ENPAC’s®global legacy of Salvage Drums. The ENVIROSALV line brings many new features and benefits to the Salvage Drum world. The ENVIROSALVTM safely contains a wide range of hazardous materials including: acids, corrosives and damaged drums. Our most innovative design improvement is the Lock Down Security Kit - which locks and secures the drums safely to it’s destination.
 
 Patent: US 2010/0288667",56/25.4,650/295,"UN 1H2/X75/S
@@ -713,47 +713,77 @@ Emergency Response Guide,
 Instruction Sheet and MSDS(s).",,650/295,"EPA, SPCC, NPDES",,,,,Standard,FD324-0901-00EP,13-LRK,1299-YE
 1393-YE,Envirosalv™ Locking 95 Gallon Spill Kit,1393-YE,Spill Kits,Envirosalv™ Locking 95 Gallon Spill Kit Universal,"Absorbs up to 62 gallons/235 liters
 
-Spill Kit includes:?
-ENVIROSALV 95 Gal. Locking Overpack Salvage Drum,?
-Lock Down Security Kit,?
-100 Pads,?
+Spill Kit includes:
+
+ENVIROSALV 95 Gal. Locking Overpack Salvage Drum,
+
+Lock Down Security Kit,
+
+100 Pads,
+
 10 - Large Socks, 
-16 - Small Socks,?
-1 pack Wipers,?
-1 Gallon ENSORB,?
-5 Disposal Bags and Ties,?
-2 pr Nitrile Gloves,?
-2 pr Goggles,?
+16 - Small Socks,
+
+1 pack Wipers,
+
+1 Gallon ENSORB,
+
+5 Disposal Bags and Ties,
+
+2 pr Nitrile Gloves,
+
+2 pr Goggles,
+
 Emergency Response Guide,
 Instruction Sheet and MSDS(s).",,650/295,"EPA, SPCC, NPDES",,,,,Standard,FD324-0901-00EP,13-LRK,5116-YE
 1394-YE,Envirosalv™ Locking 95 Gallon Spill Kit,1394-YE,Spill Kits,Envirosalv™ Locking 95 Gallon Spill Kit Aggressive,"Absorbs up to 62 gallons/235 liters
 
-Spill Kit includes:?
-ENVIROSALV 95 Gal. Locking Overpack Salvage Drum,?
-Lock Down Security Kit,?
-100 Pads,?
+Spill Kit includes:
+
+ENVIROSALV 95 Gal. Locking Overpack Salvage Drum,
+
+Lock Down Security Kit,
+
+100 Pads,
+
 10 - Large Socks, 
-16 - Small Socks,?
-1 pack Wipers,?
-1 Gallon ENSORB,?
-5 Disposal Bags and Ties,?
-2 pr Nitrile Gloves,?
-2 pr Goggles,?
+16 - Small Socks,
+
+1 pack Wipers,
+
+1 Gallon ENSORB,
+
+5 Disposal Bags and Ties,
+
+2 pr Nitrile Gloves,
+
+2 pr Goggles,
+
 Emergency Response Guide,
 Instruction Sheet and MSDS(s).",,650/295,"EPA, SPCC, NPDES",,,,,Standard,FD324-0901-00EP,13-LRK,5765-YE
 1395-YE,Envirosalv™ Locking 95 Gallon Spill Kit,1395-YE,Spill Kits,Envirosalv™ Locking 95 Gallon Spill Kit Oil Only,"Absorbs up to 62 gallons/235 liters
 
-Spill Kit includes:?
-ENVIROSALV 95 Gal. Locking Overpack Salvage Drum,?
-Lock Down Security Kit,?
-100 Pads,?
+Spill Kit includes:
+
+ENVIROSALV 95 Gal. Locking Overpack Salvage Drum,
+
+Lock Down Security Kit,
+
+100 Pads,
+
 10 - Large Socks, 
-16 - Small Socks,?
-1 pack Wipers,?
-1 Gallon ENSORB,?
-5 Disposal Bags and Ties,?
-2 pr Nitrile Gloves,?
-2 pr Goggles,?
+16 - Small Socks,
+
+1 pack Wipers,
+
+1 Gallon ENSORB,
+
+5 Disposal Bags and Ties,
+
+2 pr Nitrile Gloves,
+
+2 pr Goggles,
+
 Emergency Response Guide,
 Instruction Sheet and MSDS(s).",,650/295,"EPA, SPCC, NPDES",,,,,Standard,FD324-0901-00EP,13-LRK,5700-YE
 1397-RF,Replacement/ Refill Kits,1397-RF,Spill Kits,95 Gal Replacement Kit (Wheeled),"No need to buy the same spill kits over and over again. If the original container is still good (Salvage Drum, Bag, etc.) buy an ENPAC®Refill Kit to put in your container. Most ENPAC®Spill Kits have Refill Kits available. Call for more details.",,,"EPA, SPCC, NPDES",,,,,Standard,1397-YE,13-LRK,6000-YE
@@ -873,7 +903,7 @@ lid w/handles
 
 8” solid rubber wheels (Part #: 1511).
 
-Wheel kits available separately:  Part #: 1515 (4""), Part #: 1535 (8"").",77/35,500/227,,123/465.6,,,,Cube,1505-YE,1505-YE,
+Wheel kits available separately:  Part #: 1515 (4""), Part #: 1535 (8"").",77/35,500/227,,123/465.6,,,,Cube,1505-YE,1505-YE
 1525-YE,Extra Large Totes ,1525-YE,Storage,Extra Large Totes,"ENPAC Totes are the only stackable,
 nestable, forkliftable, water resistant,
 mobile totes on the market.
@@ -909,7 +939,7 @@ lid w/handles
 
 8” solid rubber wheels (Part #: 1511)
 
-Wheel kits available separately:  Part #: 1515 (4""), Part #: 1535 (8"")",100/45.2,500/227,,233/844,,,,Cube,1525-YE,1530-YE,
+Wheel kits available separately:  Part #: 1515 (4""), Part #: 1535 (8"")",100/45.2,500/227,,233/844,,,,Cube,1525-YE,1530-YE
 1601-BK,Poly-Edge™,1601-BK,Cylinder Products,Multi-Functional Storage Unit Offers Transportable Convenience.,"ThePoly-Edge can be used as a truck-mounted carrier spill response unit orwall-mounted unit in such applications as manufacturing facilities,laboratories and hospitals. The lockable, large capacity unit offersversatile storage for tools and absorbents as well as ENPAC’s StingerBerms and Prowler Pools.
 
 Will not rust or corrode.
@@ -936,10 +966,10 @@ liquids so you won’t need  to open
 he lids to see if there has been a leak.
 The Poly-Safetypack is easily
 handled by forklift or pallet jack
-from two sides. Optional drain.",103/46.7,1200/544,"EPA 40 CFR 264.175, SPCC, NPDES, UFC",130/492.1,,,,Cube,2038-YE-D,3200-BK,
+from two sides. Optional drain.",103/46.7,1200/544,"EPA 40 CFR 264.175, SPCC, NPDES, UFC",130/492.1,,,,Cube,2038-YE-D,3200-BK
 2077-YE,Poly-Safetypack Plus,2077-YE,Storage,Taller For Secure Pumping Stations.,"Poly-Safetypack Plus provides the same results as the Poly-Safetypack with the key advantage of a 54.25” inside height. This feature allows the lids to be closed with the pumps in place to create a versatile pumping station. Convenience meets functionality with its larger 270 gallon capacity. Optional drain.
 
-",137/62,1200/544,"EPA 40 CFR 264.175, SPCC, NPDES, UFC",264/999.3,,,,Cube,2077-YE-D,3200-BK,
+",137/62,1200/544,"EPA 40 CFR 264.175, SPCC, NPDES, UFC",264/999.3,,,,Cube,2077-YE-D,3200-BK
 3004-YE,Universal Poly-Drum™ Funnel,3004-YE,Funnels,Universal Poly-Drum™ Funnel,"Fits both closed-head and open-head 55-gallon drums, and other containers. Just set it and forget it. Exclusive features include patented scalloped design, high side wall, bung fitting holders and optional cover for added protection and value!
 ",3/1.4,,"EPA, SPCC, NPDES",,,,,Funnel,3005-YE,3005-YE,3004-YE-SF
 3004-YE-SF,Universal Poly-Drum™ Safety Funnel,3004-YE-SF,Funnels,Universal Poly-Drum™ Safety Funnel,"All the same features as the
@@ -955,7 +985,7 @@ Optional cover available. ",5/2.3,,"EPA, SPCC, NPDES",,,,,Funnel,3051-YE,3004-YE
 
 • Lift open-head or tight-head pails and drums
 • Slim design for loading drums into salvage drums
-• 1,000 lb. capacity",22/9.9,1000/453.7,,,,,,N/A,,,
+• 1,000 lb. capacity",22/9.9,1000/453.7,,,,,,N/A
 3200-BK,Drip Sentinel™ Drum Top Workstation™,3200-BK,Funnels,Pays For Itself With The First Drum Of Liquids Dispensed!,"The Drip Sentinel Drum-Top Workstation from ENPAC helps save liquids that are routinely lost during the dispensing process by catching and redirecting them to the drum fresh and free of debris.
 
 The Drip Sentinel Drum-Top Workstation is easy to install and use. It fits 55-gallon steel tight-head drums, and works with all types of rotary drum pumps.  Made of durable, non-corrosive and chemically resistant polyethylene, the Drip Sentinel Drum-Top Workstation helps to reduce waste removal costs and dangerous slip-and-fall incidents while saving time and money.  The Drip Sentinel Drum-Top Workstation pays for itsel fin one use by saving up to 4 gallons of liquid per drum!
@@ -971,18 +1001,18 @@ Security is no problem. The double doors provide easy access for up to four 55-g
 
 Door Opening 41.5"" W x 48.5"" H
 
-Massive sump has removable structural foam grates for easy cleaning.",269/121.8,4000/1814,"EPA 40 CFR 264.175, SPCC, NPDES, UFC",72/275.5,,,,Cube,4001-BK,,
+Massive sump has removable structural foam grates for easy cleaning.",269/121.8,4000/1814,"EPA 40 CFR 264.175, SPCC, NPDES, UFC",72/275.5,,,,Cube,4001-BK
 4001-BK,Hazard Hut Poly-Ramp,4001-BK,Storage,Hazard Hut Poly-Ramp,"Loading the Hazard Hut is easy with our Hazard Hut Poly-Ramp. With 5” polyolefin wheels, just roll up the ramp and roll in the barrels!
 
 Hazard Hut Poly-Ramp features:
 
 • Integrally-molded handles
-• 10? slope allows for easy loading
+• 10˚ slope allows for easy loading
 • Improved ribbed, non-skid surface
-• 100% polyethylene",154/69.9,1000/453.7,,,,,,Standard,4000-YE,,
+• 100% polyethylene",154/69.9,1000/453.7,,,,,,Standard,4000-YE
 4010-YE,Job Hut,4010-YE,Storage,Outdoor Storage Has Never Been So Practical...Or So Affordable!,"If easy access, cost efficiency and a large storage area are what you need, Job Hut is the answer.  An extra large storage area lets you store up to eight 55-gallon drums right on their pallets! Its low profile design allows for easy access. And it’s forkliftable from all sides for effortless handling. Tough polyethylene construction means it won’t rust or corrode while UV inhibitors make it extra durable for outdoor use. A large 75-gallon sump capacity eliminates the risk of spills or leaks. Structural foam grates also remove for easy cleaning. What’s more, molded-in vents reduce fumes and condensation inside, while heavy-duty hinges and lock keep contents secure. The Job Hut offers substantial savings when compared to similar metal or concrete storage buildings, while providing superior performance. The optional ramp facilitates loading your drums into the unit. Safe, secure, and cost-effective.
 
-Shown with optional Multi-Purpose Work Ramp (Part #: 5111-BK) and user installed tie-downs.",480.2/217.8,8000/3629,"EPA 40 CFR 264.175, SPCC, NPDES, UFC",72/272.5,,,,Cube,5111-BK,3004-YE,
+Shown with optional Multi-Purpose Work Ramp (Part #: 5111-BK) and user installed tie-downs.",480.2/217.8,8000/3629,"EPA 40 CFR 264.175, SPCC, NPDES, UFC",72/272.5,,,,Cube,5111-BK,3004-YE
 4062-YE,2-Drum Hardcover & Spillpallet,4062-YE,Spill Pallets,2-Drum Hardcover & Spillpallet,"Ideal for indoor/outdoor storage of up to two (2) 55-gallon drums. Roll-top design allows for use in limited space or next to buildings where swing-open doors could be a problem. Top or front/rear loadable with removable grates for easy cleaning. Lockable door! Used in conjunction with Poly-Spillpallet™ 2000 (Part #: 5253-YE). Shipped knocked down only, assembly required.
 
 Shown with optional Poly-Ramp (Part #: 5039-BK) and Ramp Extender (Part #: 5038-BK).
@@ -1167,10 +1197,10 @@ Options include:
 •Bazooka Trickle Fil",30/11,,"EPA, SPCC, NPDES",179/677,,,,Flexibles,4804-GP,4804-TM,5650-YE
 4804-GP,Ground Pad,4804-GP,Portable Containment,For Berm: 4'x6' ,"Protect berms from truck wheels or rough terrain, ENPAC offers the super-tough Ground Pad. Place under the berm directly on the ground, and it will prevent underside punctures from sharp objects.
 
-Call for more information.",,,,,,,,Flexibles (No Dimensions),4804-BK-SU,4804-TM,
+Call for more information.",,,,,,,,Flexibles (No Dimensions),4804-BK-SU,4804-TM
 4804-TM,Tracmat™,4804-TM,Portable Containment,For Berm: 4'x6' ,"Placed inside the berm, allowing trucks to drive in and out while protecting the berm from punctures and tears. Available in sizes/dimensions to match any style Stinger Berm.
 
-Call for more information.",,,,,,,,Flexibles,4804-BK-SU,4804-GP,
+Call for more information.",,,,,,,,Flexibles,4804-BK-SU,4804-GP
 4805-BK-SU,Stinger Berm,4805-BK-SU,Portable Containment,"The Worldwide Leader In Large, Aggressive And Immediate Spill Response.","ENPAC’s Stinger Berm leads the industry with its wide range of sizes and capacities for large-scale spill containment. Stinger Berms feature excellent rip, tear and puncture resistance for the most demanding application or terrain. Ground Pad and TrackMat provide additional protection.
 
 
@@ -1251,10 +1281,10 @@ Options include:
 •Bazooka Trickle Fil",33/15.5,,"EPA, SPCC, NPDES",269/1018,,,,Flexibles,48-BRK,4806-GP,4806-TM
 4806-GP,Ground Pad,4806-GP,Portable Containment,For Berm: 6'x6' ,"Protect berms from truck wheels or rough terrain, ENPAC offers the super-tough Ground Pad. Place under the berm directly on the ground, and it will prevent underside punctures from sharp objects.
 
-Call for more information.",,,,,,,,Flexibles (No Dimensions),4806-BK-SU,4806-TM,
+Call for more information.",,,,,,,,Flexibles (No Dimensions),4806-BK-SU,4806-TM
 4806-TM,Tracmat™,4806-TM,Portable Containment,For Berm: 6'x6' ,"Placed inside the berm, allowing trucks to drive in and out while protecting the berm from punctures and tears. Available in sizes/dimensions to match any style Stinger Berm.
 
-Call for more information.",,,,,,,,Flexibles,4806-BK-SU,4806-GP,
+Call for more information.",,,,,,,,Flexibles,4806-BK-SU,4806-GP
 4807-BK-SU,Stinger Berm,4807-BK-SU,Portable Containment,"The Worldwide Leader In Large, Aggressive And Immediate Spill Response.","ENPAC’s Stinger Berm leads the industry with its wide range of sizes and capacities for large-scale spill containment. Stinger Berms feature excellent rip, tear and puncture resistance for the most demanding application or terrain. Ground Pad and TrackMat provide additional protection.
 
 
@@ -1296,11 +1326,11 @@ Options include:
 •Bazooka Trickle Fil",35/16,,"EPA, SPCC, NPDES",319/1207,,,,Flexibles,48-BRK,4808-GP,4808-TM
 4808-GP,Ground Pad,4808-GP,Portable Containment,For Berm: 8'x10',"Protect berms from truck wheels or rough terrain, ENPAC offers the super-tough Ground Pad. Place under the berm directly on the ground, and it will prevent underside punctures from sharp objects.
 
-Call for more information.",,,,,,,,Flexibles (No Dimensions),4808-BK-SU,4808-TM,
+Call for more information.",,,,,,,,Flexibles (No Dimensions),4808-BK-SU,4808-TM
 4808-TM,Tracmat™,4808-TM,Portable Containment,For Berm: 8'x10',"Placed inside the berm, allowing trucks to drive in and out while protecting the berm from punctures and tears. Available in sizes/dimensions to match any style Stinger Berm.
 
-Call for more information.",,,,,,,,Flexibles,4808-BK-SU,4808-GP,
-4810-BAG,Storage and Transport Bag,4810-BAG,Portable Containment,For: 4810-BK-SU,Heavy duty chemically resistant bag for ease in maneuverability and storage. ,,,,,,,,Flexibles (No Dimensions),4810-BK-SU,,
+Call for more information.",,,,,,,,Flexibles,4808-BK-SU,4808-GP
+4810-BAG,Storage and Transport Bag,4810-BAG,Portable Containment,For: 4810-BK-SU,Heavy duty chemically resistant bag for ease in maneuverability and storage. ,,,,,,,,Flexibles (No Dimensions),4810-BK-SU
 4810-BK-SU,Stinger Berm,4810-BK-SU,Portable Containment,"The Worldwide Leader In Large, Aggressive And Immediate Spill Response.","ENPAC’s Stinger Berm leads the industry with its wide range of sizes and capacities for large-scale spill containment. Stinger Berms feature excellent rip, tear and puncture resistance for the most demanding application or terrain. Ground Pad and TrackMat provide additional protection.
 
 
@@ -1387,11 +1417,11 @@ Options include:
 •Bazooka Trickle Fil",80/36.3,,"EPA, SPCC, NPDES",1077/4084,,,,Flexibles,48-BRK,4812-GP,4812-TM
 4812-GP,Ground Pad,4812-GP,Portable Containment,For Berm: 12'x12',"Protect berms from truck wheels or rough terrain, ENPAC offers the super-tough Ground Pad. Place under the berm directly on the ground, and it will prevent underside punctures from sharp objects.
 
-Call for more information.",,,,,,,,Flexibles (No Dimensions),4812-BK-SU,4812-TM,
+Call for more information.",,,,,,,,Flexibles (No Dimensions),4812-BK-SU,4812-TM
 4812-TM,Tracmat™,4812-TM,Portable Containment,For Berm: 12'x12',"Placed inside the berm, allowing trucks to drive in and out while protecting the berm from punctures and tears. Available in sizes/dimensions to match any style Stinger Berm.
 
-Call for more information.",,,,,,,,Flexibles,4812-BK-SU,4812-GP,
-4816-BAG,Storage and Transport Bag,4816-BAG,Portable Containment,For: 4816-BK-SU,Heavy duty chemically resistant bag for ease in maneuverability and storage. ,,,,,,,,Flexibles (No Dimensions),4816-BK-SU,,
+Call for more information.",,,,,,,,Flexibles,4812-BK-SU,4812-GP
+4816-BAG,Storage and Transport Bag,4816-BAG,Portable Containment,For: 4816-BK-SU,Heavy duty chemically resistant bag for ease in maneuverability and storage. ,,,,,,,,Flexibles (No Dimensions),4816-BK-SU
 4816-BK-SU,Stinger Berm,4816-BK-SU,Portable Containment,"The Worldwide Leader In Large, Aggressive And Immediate Spill Response.","ENPAC’s Stinger Berm leads the industry with its wide range of sizes and capacities for large-scale spill containment. Stinger Berms feature excellent rip, tear and puncture resistance for the most demanding application or terrain. Ground Pad and TrackMat provide additional protection.
 
 
@@ -1437,7 +1467,7 @@ Call for more information.",,,,,,,,Flexibles (No Dimensions),4816-BK-SU,4816-TM,
 4816-TM,Tracmat™,4816-TM,Portable Containment,For Berm: 16'x16',"Placed inside the berm, allowing trucks to drive in and out while protecting the berm from punctures and tears. Available in sizes/dimensions to match any style Stinger Berm.
 
 Call for more information.",,,,,,,,Flexibles,4816-BK-SU,4816-GP,4816-BAG
-4820-BAG,Storage and Transport Bag,4820-BAG,Portable Containment,For: 4820-BK-SU or SF,Heavy duty chemically resistant bag for ease in maneuverability and storage. ,,,,,,,,Flexibles (No Dimensions),4820-BK-SU,4820-BK-SF,
+4820-BAG,Storage and Transport Bag,4820-BAG,Portable Containment,For: 4820-BK-SU or SF,Heavy duty chemically resistant bag for ease in maneuverability and storage. ,,,,,,,,Flexibles (No Dimensions),4820-BK-SU,4820-BK-SF
 4820-BK-SF,Stinger Snap-Foam Berm™,4820-BK-SF,Portable Containment,"True Drive In/Drive Out
 Capability","The ENPAC Snap-Foam Berm allows for one-time setup and continual drive in and out without ever having to set down the end sidewalls. The end sidewall design incorporates high strength connectors and a two-way air-relief system that facilitates automatic entry/exit without assistance. The foam logs utilize this system so tankers may move at will. The Snap-Foam Berm is manufactured and tested to ASTM-D751, D1117, D2136, D1204, D4833, D1149, D543, G-26. It is made of rugged and resistant fabric material. Custom sizes available, standard color is black.
 
@@ -1494,7 +1524,7 @@ Call for more information.",,,,,,,,Flexibles (No Dimensions),4820-BK-SU,4820-TM,
 4820-TM,Tracmat™,4820-TM,Portable Containment,For Berm: 10'x26',"Placed inside the berm, allowing trucks to drive in and out while protecting the berm from punctures and tears. Available in sizes/dimensions to match any style Stinger Berm.
 
 Call for more information.",,,,,,,,Flexibles,4820-BK-SU,4820-GP,4820-BAG
-4836-BAG,Storage and Transport Bag,4836-BAG,Portable Containment,For: 4836-BK-SU or SF,Heavy duty chemically resistant bag for ease in maneuverability and storage. ,,,,,,,,Flexibles (No Dimensions),4836-BK-SU,4836-BK-SF,
+4836-BAG,Storage and Transport Bag,4836-BAG,Portable Containment,For: 4836-BK-SU or SF,Heavy duty chemically resistant bag for ease in maneuverability and storage. ,,,,,,,,Flexibles (No Dimensions),4836-BK-SU,4836-BK-SF
 4836-BK-SF,Stinger Snap-Foam Berm™,4836-BK-SF,Portable Containment,"True Drive In/Drive Out
 Capability","The ENPAC Snap-Foam Berm allows for one-time setup and continual drive in and out without ever having to set down the end sidewalls. The end sidewall design incorporates high strength connectors and a two-way air-relief system that facilitates automatic entry/exit without assistance. The foam logs utilize this system so tankers may move at will. The Snap-Foam Berm is manufactured and tested to ASTM-D751, D1117, D2136, D1204, D4833, D1149, D543, G-26. It is made of rugged and resistant fabric material. Custom sizes available, standard color is black.
 
@@ -1592,11 +1622,11 @@ Options include:
 •Bazooka Trickle Fil",259/113.5,,"EPA, SPCC, NPDES",5610/21236,,,,Flexibles,48-BRK,4850-GP,4850-TM
 4850-GP,Ground Pad,4850-GP,Portable Containment,For Berm: 15'x50',"Protect berms from truck wheels or rough terrain, ENPAC offers the super-tough Ground Pad. Place under the berm directly on the ground, and it will prevent underside punctures from sharp objects.
 
-Call for more information.",,,,,,,,Flexibles (No Dimensions),4850-BK-SU,4850-TM,
+Call for more information.",,,,,,,,Flexibles (No Dimensions),4850-BK-SU,4850-TM
 4850-TM,Tracmat™,4850-TM,Portable Containment,For Berm: 15'x50',"Placed inside the berm, allowing trucks to drive in and out while protecting the berm from punctures and tears. Available in sizes/dimensions to match any style Stinger Berm.
 
-Call for more information.",,,,,,,,Flexibles,4850-BK-SU,4850-GP,
-4854-BAG,Storage and Transport Bag,4854-BAG,Portable Containment,For: 4854-BK-SU or SF,Heavy duty chemically resistant bag for ease in maneuverability and storage. ,,,,,,,,Flexibles (No Dimensions),4854-BK-SU,4854-BK-SF,
+Call for more information.",,,,,,,,Flexibles,4850-BK-SU,4850-GP
+4854-BAG,Storage and Transport Bag,4854-BAG,Portable Containment,For: 4854-BK-SU or SF,Heavy duty chemically resistant bag for ease in maneuverability and storage. ,,,,,,,,Flexibles (No Dimensions),4854-BK-SU,4854-BK-SF
 4854-BK-SF,Stinger Snap-Foam Berm™,4854-BK-SF,Portable Containment,"True Drive In/Drive Out
 Capability","The ENPAC Snap-Foam Berm allows for one-time setup and continual drive in and out without ever having to set down the end sidewalls. The end sidewall design incorporates high strength connectors and a two-way air-relief system that facilitates automatic entry/exit without assistance. The foam logs utilize this system so tankers may move at will. The Snap-Foam Berm is manufactured and tested to ASTM-D751, D1117, D2136, D1204, D4833, D1149, D543, G-26. It is made of rugged and resistant fabric material. Custom sizes available, standard color is black.
 
@@ -1705,10 +1735,10 @@ Options include:
 •Bazooka Trickle Fil",225/102,,"EPA, SPCC, NPDES",5385/20384,,,,Flexibles,48-BRK,4860-GP,4860-TM
 4860-GP,Ground Pad,4860-GP,Portable Containment,For Berm: 12'x60',"Protect berms from truck wheels or rough terrain, ENPAC offers the super-tough Ground Pad. Place under the berm directly on the ground, and it will prevent underside punctures from sharp objects.
 
-Call for more information.",,,,,,,,Flexibles (No Dimensions),4860-BK-SU,4860-TM,
+Call for more information.",,,,,,,,Flexibles (No Dimensions),4860-BK-SU,4860-TM
 4860-TM,Tracmat™,4860-TM,Portable Containment,For Berm: 12'x60',"Placed inside the berm, allowing trucks to drive in and out while protecting the berm from punctures and tears. Available in sizes/dimensions to match any style Stinger Berm.
 
-Call for more information.",,,,,,,,Flexibles,4860-BK-SU,4860-GP,
+Call for more information.",,,,,,,,Flexibles,4860-BK-SU,4860-GP
 4866-BK-SU,Stinger Berm,4866-BK-SU,Portable Containment,"The Worldwide Leader In Large, Aggressive And Immediate Spill Response.","ENPAC’s Stinger Berm leads the industry with its wide range of sizes and capacities for large-scale spill containment. Stinger Berms feature excellent rip, tear and puncture resistance for the most demanding application or terrain. Ground Pad and TrackMat provide additional protection.
 
 
@@ -1750,11 +1780,11 @@ Options include:
 •Bazooka Trickle Fil",359/163,,"EPA, SPCC, NPDES",6911/26160,,,,Flexibles,5670-YE,4866-GP,4866-TM
 4866-GP,Ground Pad,4866-GP,Portable Containment,For Berm: 14'x66',"Protect berms from truck wheels or rough terrain, ENPAC offers the super-tough Ground Pad. Place under the berm directly on the ground, and it will prevent underside punctures from sharp objects.
 
-Call for more information.",,,,,,,,Flexibles (No Dimensions),4866-BK-SU,4866-TM,
+Call for more information.",,,,,,,,Flexibles (No Dimensions),4866-BK-SU,4866-TM
 4866-TM,Tracmat™,4866-TM,Portable Containment,For Berm: 14'x66',"Placed inside the berm, allowing trucks to drive in and out while protecting the berm from punctures and tears. Available in sizes/dimensions to match any style Stinger Berm.
 
-Call for more information.",,,,,,,,Flexibles,4866-BK-SU,4866-GP,
-4885-BAG,Storage and Transport Bag,4885-BAG,Portable Containment,For: 4885-BK-SU or SF,Heavy duty chemically resistant bag for ease in maneuverability and storage. ,,,,,,,,Flexibles (No Dimensions),4885-BK-SU,4885-BK-SU,
+Call for more information.",,,,,,,,Flexibles,4866-BK-SU,4866-GP
+4885-BAG,Storage and Transport Bag,4885-BAG,Portable Containment,For: 4885-BK-SU or SF,Heavy duty chemically resistant bag for ease in maneuverability and storage. ,,,,,,,,Flexibles (No Dimensions),4885-BK-SU,4885-BK-SU
 4885-BK-SF,Stinger Snap-Foam Berm™,4885-BK-SF,Portable Containment,"True Drive In/Drive Out
 Capability","The ENPAC Snap-Foam Berm allows for one-time setup and continual drive in and out without ever having to set down the end sidewalls. The end sidewall design incorporates high strength connectors and a two-way air-relief system that facilitates automatic entry/exit without assistance. The foam logs utilize this system so tankers may move at will. The Snap-Foam Berm is manufactured and tested to ASTM-D751, D1117, D2136, D1204, D4833, D1149, D543, G-26. It is made of rugged and resistant fabric material. Custom sizes available, standard color is black.
 
@@ -1831,15 +1861,15 @@ Contents:
 This lightweight containment pad is designed to provide a temporary bermed containment area around the valves below a rail tank car during loading/unloading operations. Only 80 lbs, it can beeasily lifted into place by two operators!
 
 The berm provides a 4’ x 4’ x 12” H berm area that sits in the void between the tracks directly under thevalves. Should a large release occur,captured product would begin to fill,this berm; the spilled product would then be directed over the outside rail to a side compartment 4’ x 18” x 12” H. This outside compartment is fitted with two 2” drains that includes a male CAM-LOC fitting for quick coupling of system to hoses that can transport the spilled materials to a nearby catchment area.",40/18.1,,"EPA, SPCC, NPDES",120/455,,,,Flexibles,48-BRK,48-BRK-DLX-12,48-BRK-DLX-8
-5001-TARP,Poly-Spillpallet™ 6000 TARP,5001-TARP,Spill Pallets,Poly-Spillpallet™ 6000 TARP,,7/3.2,,,,,,,Flexibles,5001-YE,,
+5001-TARP,Poly-Spillpallet™ 6000 TARP,5001-TARP,Spill Pallets,Poly-Spillpallet™ 6000 TARP,,7/3.2,,,,,,,Flexibles,5001-YE
 5001-YE,Poly-Spillpallet™ 6000,5001-YE,Spill Pallets,Designed To Hold The Heavy Load.,"Rated at 6,000 lbs. UDL weight with a 83-gallon sump capacity that meets EPA 40 CFR 264.175.
 Square 50” x 50” footprint saves space yet easily holds four 55-gallon drums. Includes the same rugged features as the 2000. Optional drain. 
 
 •  Two (2) removable grates
 •  Forkliftable from all sides ",88/40,6000/2722,"EPA 40 CFR 264.175,
-SPCC and NPDES",83/314.1,,,,Standard,5001-YE-D,5001-TARP,
-5002-BK,Econo Spill Shell™,5002-BK,Spill Pallets,Econo Spill Shell™,ECONOMICAL SPILL CONTAINMENT,16.5/7.5,,"EPA, SPCC and NPDES",21.5/81.4,,,,Standard,5004-BK,,
-5004-BK,Econo Spill Shell™,5004-BK,Spill Pallets,Econo Spill Shell™,ECONOMICAL SPILL CONTAINMENT,19/8.7,,"EPA, SPCC and NPDES",36/132.4,,,,Standard,5002-BK,,
+SPCC and NPDES",83/314.1,,,,Standard,5001-YE-D,5001-TARP
+5002-BK,Econo Spill Shell™,5002-BK,Spill Pallets,Econo Spill Shell™,ECONOMICAL SPILL CONTAINMENT,16.5/7.5,,"EPA, SPCC and NPDES",21.5/81.4,,,,Standard,5004-BK
+5004-BK,Econo Spill Shell™,5004-BK,Spill Pallets,Econo Spill Shell™,ECONOMICAL SPILL CONTAINMENT,19/8.7,,"EPA, SPCC and NPDES",36/132.4,,,,Standard,5002-BK
 5038-BK,Ramp Extender,5038-BK,Spill Pallets,Ramp Extender,Works with the ENPAC Poly-Ramp to accommodate 17” high pallets and ENPAC 2-Drum Hardcover. No more relying on expensive and obtrusive metal ramps. Simply retrofit your existing ENPAC Poly-Ramp (Product No. 5039-BK) with our new Ramp Extender,6/2.7,1000/453.6,,,,,,Standard,5038-BK,4062-YE,5102-YE
 5039-BK,Poly Ramp,5039-BK,Spill Pallets,Walk Up To Real Value.,"Get big performance at a great
 price with our Poly Ramp.
@@ -1855,7 +1885,7 @@ for safe walk-ups and traction loading. Holds up to
   with Part #: 5102-YE and
   5400-YE.
 ",65/29.25,1000/453.6,,,,,,Standard,5039-BK,4062-YE,5400-YE
-5102-TARP,Poly-Spillpallet™ 3000 TARP,5102-TARP,Spill Pallets,Poly-Spillpallet™ 3000 TARP,,9/4,,,,,,,Flexibles,5102-YE,,
+5102-TARP,Poly-Spillpallet™ 3000 TARP,5102-TARP,Spill Pallets,Poly-Spillpallet™ 3000 TARP,,9/4,,,,,,,Flexibles,5102-YE
 5102-YE,Poly-Spillpallet™ 3000,5102-YE,Spill Pallets,Where No Drum Storage Has Gone Before. ,"Storing drums in-line near the wall, between columns, and in all those spaces you thought were unusable. Optional drain.
 
 •  Holds four 55-gallon drums
@@ -1867,7 +1897,7 @@ for safe walk-ups and traction loading. Holds up to
 •  66-gallon sump capacity meets
    EPA 40 CFR 264.175 
 •  100% polyethylene",83.7/37.9,3000/1361,"EPA 40 CFR 264.175,
-SPCC and NPDES",66/249.8,,,,Standard,5102-TARP,5102-YE-D,
+SPCC and NPDES",66/249.8,,,,Standard,5102-TARP,5102-YE-D
 5110-YE,8-Drum Workstation,5110-YE,Spill Pallets,There’s no need to worry about incidental spills on your factory floor. ENPAC’s Workstations are the easiest to load with a low profile design and optional ramp. Each Workstation is designed for stand alone use or can connect with other Workstations for a customized work area.  ,"There’s no need to worry about incidental spills on your factory floor. ENPAC’s Workstations are the easiest to load with a low profile design and optional ramp. Each Workstation is designed for stand alone use or can connect with other Workstations for a customized work area.  
 
 •  Tough, one-piece polyethylene
@@ -1893,7 +1923,7 @@ any of our Workstations. The work
 ramp is small enough to stay out of
 your way. 
 
-Note: Workstation units are not designed to be used with a forklift.",29.8/13.5,1000/454,,,,,,Standard,4010-YE,,
+Note: Workstation units are not designed to be used with a forklift.",29.8/13.5,1000/454,,,,,,Standard,4010-YE
 5112-BK,Link-Lock,5112-BK,Spill Pallets,"Securely Hooks Multiple Workstations Together.
  
 ","Link and lock multiple Workstations
@@ -1920,7 +1950,7 @@ configurations. Sold in pairs.
    resist cracking and warpage.
 
 Note: Workstations are forklift-ready while empty.",101.6/46,7000/3175,"EPA 40 CFR 264.175, SPCC, NPDES",61/230.9,,,,Standard,5115-YE-D,5112-BK,5111-BK
-5116-TARP,6-Drum Workstation TARP,5116-TARP,Spill Pallets,6-Drum Workstation TARP,,7/3.2,,,,,,,Flexibles,5116-YE,,
+5116-TARP,6-Drum Workstation TARP,5116-TARP,Spill Pallets,6-Drum Workstation TARP,,7/3.2,,,,,,,Flexibles,5116-YE
 5116-YE,4-Drum Workstation,5116-YE,Spill Pallets,There’s no need to worry about incidental spills on your factory floor. ENPAC’s Workstations are the easiest to load with a low profile design and optional ramp. Each Workstation is designed for stand alone use or can connect with other Workstations for a customized work area.  ,"There’s no need to worry about incidental spills on your factory floor. ENPAC’s Workstations are the easiest to load with a low profile design and optional ramp. Each Workstation is designed for stand alone use or can connect with other Workstations for a customized work area.  
 
 •  Tough, one-piece polyethylene
@@ -1941,7 +1971,7 @@ Note: Workstations are forklift-ready while empty.",101.6/46,7000/3175,"EPA 40 C
    resist cracking and warpage.
 
 Note: Workstations are forklift-ready while empty.",70.5/32,6000/2722,"EPA, SPCC, NPDES",41./151.4,,,,Standard,5116-YE-D,5112-BK,5111-BK
-5117-TARP,2-Drum Workstation TARP,5117-TARP,Spill Pallets,2-Drum Workstation TARP,,5/2.4,,,,,,,Flexibles,5117-YE,,
+5117-TARP,2-Drum Workstation TARP,5117-TARP,Spill Pallets,2-Drum Workstation TARP,,5/2.4,,,,,,,Flexibles,5117-YE
 5117-YE,2-Drum Workstation,5117-YE,Spill Pallets,There’s no need to worry about incidental spills on your factory floor. ENPAC’s Workstations are the easiest to load with a low profile design and optional ramp. Each Workstation is designed for stand alone use or can connect with other Workstations for a customized work area.  ,"There’s no need to worry about incidental spills on your factory floor. ENPAC’s Workstations are the easiest to load with a low profile design and optional ramp. Each Workstation is designed for stand alone use or can connect with other Workstations for a customized work area.  
 
 •  Tough, one-piece polyethylene
@@ -1972,7 +2002,7 @@ A tray for tool storage keeps tools
 clean and handy. The structural
 foam grate removes for easy
 cleaning while the drain plug lets
-you drain the sump without effort.",132/60,500/227,"EPA 40 CFR 264.175, SPCC, NPDES",57/215.7,,,,Standard,5200-YE-A,,
+you drain the sump without effort.",132/60,500/227,"EPA 40 CFR 264.175, SPCC, NPDES",57/215.7,,,,Standard,5200-YE-A
 5200-YE-A,Poly-Spillcart ATC,5200-YE-A,Dispensing,Get On The Move!,"Transporting 55-gallon drums, 5-gallon pails, paint cans and other materials around your plant has never been easier. Poly-Spillcart eliminates the risk of spills during transport with its 57-gallon sump capacity.
 
 Poly-Spillcart’s caster wheels let
@@ -1983,8 +2013,8 @@ A tray for tool storage keeps tools
 clean and handy. The structural
 foam grate removes for easy
 cleaning while the drain plug lets
-you drain the sump without effort.",125/57,500/227,"EPA 40 CFR 264.175, SPCC, NPDES",57/215.7,,,,Standard,5200-YE,,
-5205-YE,Spill Scooter™,5205-YE,Dispensing,Spill Scooter™,"The?ORIGINAL Mobile Dispensing Scooter.
+you drain the sump without effort.",125/57,500/227,"EPA 40 CFR 264.175, SPCC, NPDES",57/215.7,,,,Standard,5200-YE
+5205-YE,Spill Scooter™,5205-YE,Dispensing,Spill Scooter™,"The ORIGINAL Mobile Dispensing Scooter.
 
 Dispensing drums while transporting them around the plant is no longer a problem thanks to our Spill Scooter. The Spill Scooter  provides secondary containment  or incidental spills and drips which often occur during vertical dispensing applications.
 
@@ -1992,25 +2022,25 @@ Incidental spills and drips are contained in the well with a spout for easy drai
 
 Features a built-in bung fitting holder.
 ",22/9.9,500/227,"EPA, SPCC and NPDES",11/41.6,,,,Circular,QVAC,3004-YE,1065-YE
-5206-BK,Spill Scooter™ Handle,5206-BK,Dispensing,Optional metal T-Handle (Product No. 5206-BK) available.,,4/1.8,,,,,,,Standard,5205-YE,,
+5206-BK,Spill Scooter™ Handle,5206-BK,Dispensing,Optional metal T-Handle (Product No. 5206-BK) available.,,4/1.8,,,,,,,Standard,5205-YE
 5248-YE,Poly-Labtray™,5248-YE,Spill Pallets,Brings Spill Protection To The Laboratory Bench.,"Poly-Labtrayreduces spills and overflows of liquid and free-flowing powderchemicals during transfer of material in the laboratory. Its largesurface holds four 1-gallon bottles (up to 40 lbs. static load weight)and the unit features up to 2.5 gallon sump capacity. This makes it perfect for mixing small containers at production sites. There are no metal parts to rust or corrode.
 
 Low-profile unit is only 3” high
-Small 25” x 21.5” footprint",3.8/1.7,40/18,"EPA, SPCC and NPDES",2.5/9.4,,,,Standard,5750-YE,5002-BK,
-5253-TARP,Poly-Spillpallet™ 2000 TARP,5253-TARP,Spill Pallets,Poly-Spillpallet™ 2000 TARP,,5/2.4,,,,,,,Flexibles,5253-YE,,
+Small 25” x 21.5” footprint",3.8/1.7,40/18,"EPA, SPCC and NPDES",2.5/9.4,,,,Standard,5750-YE,5002-BK
+5253-TARP,Poly-Spillpallet™ 2000 TARP,5253-TARP,Spill Pallets,Poly-Spillpallet™ 2000 TARP,,5/2.4,,,,,,,Flexibles,5253-YE
 5253-YE,Poly-Spillpallet™ 2000,5253-YE,Spill Pallets,Poly-Spillpallet™ 2000,"This secondary containment system is engineered to meet the rigors of today’s regulatory environment. With 100% polyethylene, it provides excellent chemical resistance. Optional drain with plug.
 
 • Meets EPA 40 CFR 264.175
 • Holds up to 2,000 lbs UDL
 • Forkliftable
 • Removable grates for easy cleaning",55.5/25.1,2000/907,"EPA 40 CFR 264.175,
-SPCC and NPDES",58/219.5,,,,Standard,5253-YE-D,5253-TARP,
+SPCC and NPDES",58/219.5,,,,Standard,5253-YE-D,5253-TARP
 5275-BK,Poly-Tank® Containment Unit 275™,5275-BK,Dispensing,Keep Hazardous Liquid Stored Safely Above The Ground.,"Designed for the widely used 275-gallon obround tank, the Poly-Tank Containment Unit/275 will help protect against hazardous and costly spills. It boasts a large 275-gallon sump which saves space an provides easy access to the tank and pumps. The Poly-Tank Containment Unit/275 prevents harmful oil spills from contaminating your yard. Optional bulkhead fittings make pumping and draining simple (Part #: 5276). Tarp (Part #: 5275-TARP) and trickle filter also available.
 
-",98/41.4,,"EPA 40 CFR 264.175, SPCC and NPDES",275/1040.9,,,,Cube,5275-TARP,5275-BK-D,
-5275-TARP,Poly-Tank® Containment Unit 275™ TARP,5275-TARP,Dispensing,Poly-Tank® Containment Unit 275™ TARP,,10/4.5,,,,,,,Flexibles,5275-BK,,
-5276-, Bulkhead Fitting,5276-,Dispensing, Bulkhead Fitting,,1/.5,,,,,,,Circular,5275-BK,,
-5300-TARP,Poly-Dolly® TARP,5300-TARP,Dispensing,Poly-Dolly® TARP,,4/1.8,,,,,,,Flexibles,5300-YE,,
+",98/41.4,,"EPA 40 CFR 264.175, SPCC and NPDES",275/1040.9,,,,Cube,5275-TARP,5275-BK-D
+5275-TARP,Poly-Tank® Containment Unit 275™ TARP,5275-TARP,Dispensing,Poly-Tank® Containment Unit 275™ TARP,,10/4.5,,,,,,,Flexibles,5275-BK
+5276-, Bulkhead Fitting,5276,Dispensing, Bulkhead Fitting,,1/.5,,,,,,,Circular,5275-BK
+5300-TARP,Poly-Dolly® TARP,5300-TARP,Dispensing,Poly-Dolly® TARP,,4/1.8,,,,,,,Flexibles,5300-YE
 5300-YE,Poly-Dolly®,5300-YE,Dispensing,Poly-Dolly®,"A U-shaped barrel platform and double looped strap make for easy loading. A lightweight design, kick plate, and rolled-grip handles make for easy tipping. Large 10” wheels and ergonomic design make transport easy and trouble free.
 
 The common dolly has been rattling around industrial plants for 200 years virtually unchanged in design and function. It has been a good tool, but not efficient enough. Poly-Dolly, the multi-functional two wheel dispensing station, takes the dolly out of the Industrial Revolution and into the 21st Century.
@@ -2019,16 +2049,16 @@ With Poly-Dolly, mobile dispensing is no longer a cumbersome, risky business. It
 
 Made of long-lasting tough polyethylene, Poly-Dolly is strong enough to withstand daily bumps and scuffs and will not rust or corrode. That is why companies are saying: “Goodbye dolly. Hello Poly-Dolly.”
 ",94.4/43,600/272,"EPA 40 CFR 264.175,
-SPCC and NPDES",70/265,,,,Standard,5300-YE-A,5300-TARP,
+SPCC and NPDES",70/265,,,,Standard,5300-YE-A,5300-TARP
 5300-YE-A,Poly-Dolly® ATD,5300-YE-A,Dispensing,Poly-Dolly® ATD,Need an even more rugged dolly for outdoor terrain? Poly-Dolly is available as an All-Terrain Dolly or can easily be converted into one with our Poly-Dolly Conversion Kit.,102.35/46,600/272,"EPA 40 CFR 264.175,
-SPCC and NPDES",70/265,,,,Standard,5300-TARP,,
-5311-BK,Poly-Dolly® Conversion Kit,5311-BK,Dispensing,Poly-Dolly® Conversion Kit,"Sold separately, the Conversion Kit comes complete with rugged solid rubber wheels and washers. Everything you need to convert the Poly-Dolly into an ATD in just a few simple steps",7.2/3.2,,,,,,,Standard,5300-YE,5300-YE-A,
-5400-TARP,Poly-Slim-Line™ 6000 TARP,5400-TARP,Spill Pallets,Poly-Slim-Line™ 6000 TARP,,7/5.5,,,,,,,Flexibles,5400-YE,,
+SPCC and NPDES",70/265,,,,Standard,5300-TARP
+5311-BK,Poly-Dolly® Conversion Kit,5311-BK,Dispensing,Poly-Dolly® Conversion Kit,"Sold separately, the Conversion Kit comes complete with rugged solid rubber wheels and washers. Everything you need to convert the Poly-Dolly into an ATD in just a few simple steps",7.2/3.2,,,,,,,Standard,5300-YE,5300-YE-A
+5400-TARP,Poly-Slim-Line™ 6000 TARP,5400-TARP,Spill Pallets,Poly-Slim-Line™ 6000 TARP,,7/5.5,,,,,,,Flexibles,5400-YE
 5400-YE,Poly-Slim-Line™ 6000,5400-YE,Spill Pallets,Slim is in. ,"Poly-Slim-Line 6000 offers all of the same advantages as our Poly-SpillPallet 6000... and more! This addition to our pallet family features a low, 12” profile and a handling capacity of 6000 lbs. Optional drain.
 
 ",88.2/40,6000/2722,"EPA 40 CFR 264.175,
 SPCC and NPDES",66/249.8,,,,Standard,5400-YE-D,5400-TARP,5001-YE
-5469-TARP,IBC 2000i™ TARP,5469-TARP,Storage,IBC 2000i™ TARP,,14.6/6.6,,,,,,,Flexibles,5469-TARP,,
+5469-TARP,IBC 2000i™ TARP,5469-TARP,Storage,IBC 2000i™ TARP,,14.6/6.6,,,,,,,Flexibles,5469-TARP
 5469-YE,IBC 2000i™,5469-YE,Storage,Intermediate Bulk Containment Made Easy.,"ENPAC Corporation’s integrated IBC 2000i gives intermediate bulk container users more versatile spill containment. It fits more than 99% of all IBC dispensing units and features a large sump capacity of 385 gallons, more than exceeding EPA 40 CFR 264.175  regulations. The unit also comes with an integrated 5-gallon pail holder for quick and easy dispensing. 
 
 The IBC 2000i is the only one-piece, lightweight, 100% polyethylene IBC spill containment unit that is forkliftable and nestable for convenient shipment and storage,
@@ -2036,12 +2066,12 @@ and reduces shipping costs.
 The polyethylene construction will not rust or corrode or have adverse reactions with chemicals.
 
 Optional Drain.",291.2/132,8000/3629,"EPA 40 CFR 264.175,
-SPCC and NPDES",385./1457.3,,,,Cube,5469-YE-D,5469-TARP,
+SPCC and NPDES",385./1457.3,,,,Cube,5469-YE-D,5469-TARP
 5480-YE,Poly-Tank,5480-YE,Dispensing,Keep Hazardous Liquid Stored Safely Above The Ground.,"Designed for the widely used 275-gallon obround tank, the Poly-Tank Containment Unit/275 will help protect against hazardous and costly spills. It boasts a large 275-gallon sump which saves space an provides easy access to the tank and pumps. The Poly-Tank Containment Unit/275 prevents harmful oil spills from contaminating your yard. Optional bulkhead fittings make pumping and draining simple (Part #: 5276). Tarp (Part #: 5275-TARP) and trickle filter also available.
 
-",405.6/184,8000/3629,"EPA 40 CFR 264.175, SPCC and NPDES",550/2082,,,,Cube,5275-TARP,5275-BK-D,
-5550-BK,Poly-Tank® Containment Unit 550™,5550-BK,Dispensing,Keep Hazardous Liquid Stored Safely Above The Ground.,"Designed for the widely used 550 gallon skid tank (also 150 gallon, 300 gallon skid and elevated tanks). Safely protects against hazardous liquid discharge into the ground. Roomy interior leaves space for tools and related equipment. Ideal for marine and farm use. Optional fitted tarp (Part #: 5550-TARP) and trickle filter.",165/74.8,8000/3629,"EPA 40 CFR 264.175, SPCC and NPDES",550/2082,,,,Standard,5550-TARP,5550-BK-D,
-5550-TARP,Poly-Tank® Containment Unit 550™ TARP,5550-TARP,Dispensing,Poly-Tank® Containment Unit 550™ TARP,,12/5.5,,,,,,,Flexibles,5550-BK,,
+",405.6/184,8000/3629,"EPA 40 CFR 264.175, SPCC and NPDES",550/2082,,,,Cube,5275-TARP,5275-BK-D
+5550-BK,Poly-Tank® Containment Unit 550™,5550-BK,Dispensing,Keep Hazardous Liquid Stored Safely Above The Ground.,"Designed for the widely used 550 gallon skid tank (also 150 gallon, 300 gallon skid and elevated tanks). Safely protects against hazardous liquid discharge into the ground. Roomy interior leaves space for tools and related equipment. Ideal for marine and farm use. Optional fitted tarp (Part #: 5550-TARP) and trickle filter.",165/74.8,8000/3629,"EPA 40 CFR 264.175, SPCC and NPDES",550/2082,,,,Standard,5550-TARP,5550-BK-D
+5550-TARP,Poly-Tank® Containment Unit 550™ TARP,5550-TARP,Dispensing,Poly-Tank® Containment Unit 550™ TARP,,12/5.5,,,,,,,Flexibles,5550-BK
 5600-YE,Poly-Spillpad™,5600-YE,Spill Pallets,Poly-Spillpad™ Small,"Keep your floor clean with Poly-Spillpad! Handles spent batteries, 5-gallon pails, 16-gallon drums and your messiest of “smaller” jobs. Sturdy inner polyethylene grate provides protection while vinyl bermkeeps incidental spills contained. Poly-Spillpad is lightweight andeasily moved. Great on your plant floor or travels with you to prevent incidental spills on the go! The large sump area allows for an extended response time.
 
 * Three (3) sizes available
@@ -2131,32 +2161,32 @@ Optional Grates available (Part #: 7006-BK).",7/3.2,,"EPA, SPCC, NPDES",45/170,,
 5775-YE,8-Drum Spillpal™,5775-YE,Spill Pallets,"The Most Affordable, The Most Convenient Temporary Storage.","The flexible-sidewall SpillPal line is the easiest to use and the most affordable hazardous material storage product on the market today. SpillPal provides incidental spill control during temporary storage of drums, machine parts, tanks and generators. It can also be used as a washdown pad or pumping station. An alternative to hard plastic pallets that need to be moved by a forklift and are always in the way, ENPAC’s SpillPal features 3” foam sidewalls that easily spring back into place after any type of pressure is applied. With six configurations, SpillPal almost eliminates the need for bulky, hard plastic pallets. Custom sizes available.
 
 Optional Grates available (Part #: 7006-BK).",9/4.1,,"EPA, SPCC, NPDES",60/227,,,,Flexibles,5775-YE-G,7006-BK,5750-YE
-5900-YE,Prowler™ Pools,5900-YE,Portable Containment,"The Easiest, Lightest Spill Containment Pool Available.","Prowler Pop-up Pools offer excellent resistance to the widest range of chemicals, acids, fuels and other hazardous materials. They are also resistant to temperatures as low as -65?F, abrasion, punctures and UV rays. The Prowler is half the weight of comparably sized PVC pools while offering twice the strength. Fits easily into spill response kits. 
+5900-YE,Prowler™ Pools,5900-YE,Portable Containment,"The Easiest, Lightest Spill Containment Pool Available.","Prowler Pop-up Pools offer excellent resistance to the widest range of chemicals, acids, fuels and other hazardous materials. They are also resistant to temperatures as low as -65˚F, abrasion, punctures and UV rays. The Prowler is half the weight of comparably sized PVC pools while offering twice the strength. Fits easily into spill response kits. 
 
 Compact, lightweight and portable. Excellent for immediate spill response.",5/2.3,,"EPA, SPCC, NPDES",110/378,,,,Pools,5950-YE,5920-YE,5966-YE
 5901-YE,HazMat Pool™,5901-YE,Portable Containment,"Set-Up Of The Hazmat Pool
 Takes Seconds.","The Hazmat Pool is an inexpensive, quick deployment pool, that is small enough to be stored on any truck
 or emergency response vehicle. Decontaminate for reuse, or discard according to regulations.
 
-Hazmat Pool has excellent puncture, abrasion and chemical resistance along with a -65?F cold crack. With resistance to the widest range of chemicals, and just seconds to set up, ENPAC’s Hazmat Pool is your answer to decontamination.
+Hazmat Pool has excellent puncture, abrasion and chemical resistance along with a -65˚F cold crack. With resistance to the widest range of chemicals, and just seconds to set up, ENPAC’s Hazmat Pool is your answer to decontamination.
 
 Optional drain available.",,,,100/378,,,,Pools,5901-YE-D,5900-YE,5680-YE
-5920-YE,Prowler™ Pools,5920-YE,Portable Containment,"The Easiest, Lightest Spill Containment Pool Available.","Prowler Pop-up Pools offer excellent resistance to the widest range of chemicals, acids, fuels and other hazardous materials. They are also resistant to temperatures as low as -65?F, abrasion, punctures and UV rays. The Prowler is half the weight of comparably sized PVC pools while offering twice the strength. Fits easily into spill response kits. 
+5920-YE,Prowler™ Pools,5920-YE,Portable Containment,"The Easiest, Lightest Spill Containment Pool Available.","Prowler Pop-up Pools offer excellent resistance to the widest range of chemicals, acids, fuels and other hazardous materials. They are also resistant to temperatures as low as -65˚F, abrasion, punctures and UV rays. The Prowler is half the weight of comparably sized PVC pools while offering twice the strength. Fits easily into spill response kits. 
 
 Compact, lightweight and portable. Excellent for immediate spill response.",2/1,,"EPA, SPCC, NPDES",20/75.7,,,,Pools,5966-YE,5900-YE,5950-YE
-5950-YE,Prowler™ Pools,5950-YE,Portable Containment,"The Easiest, Lightest Spill Containment Pool Available.","Prowler Pop-up Pools offer excellent resistance to the widest range of chemicals, acids, fuels and other hazardous materials. They are also resistant to temperatures as low as -65?F, abrasion, punctures and UV rays. The Prowler is half the weight of comparably sized PVC pools while offering twice the strength. Fits easily into spill response kits. 
+5950-YE,Prowler™ Pools,5950-YE,Portable Containment,"The Easiest, Lightest Spill Containment Pool Available.","Prowler Pop-up Pools offer excellent resistance to the widest range of chemicals, acids, fuels and other hazardous materials. They are also resistant to temperatures as low as -65˚F, abrasion, punctures and UV rays. The Prowler is half the weight of comparably sized PVC pools while offering twice the strength. Fits easily into spill response kits. 
 
 Compact, lightweight and portable. Excellent for immediate spill response.",5/2.3,,"EPA, SPCC, NPDES",150/567,,,,Pools,5920-YE,5966-YE,5900-YE
-5966-YE,Prowler™ Pools,5966-YE,Portable Containment,"The Easiest, Lightest Spill Containment Pool Available.","Prowler Pop-up Pools offer excellent resistance to the widest range of chemicals, acids, fuels and other hazardous materials. They are also resistant to temperatures as low as -65?F, abrasion, punctures and UV rays. The Prowler is half the weight of comparably sized PVC pools while offering twice the strength. Fits easily into spill response kits. 
+5966-YE,Prowler™ Pools,5966-YE,Portable Containment,"The Easiest, Lightest Spill Containment Pool Available.","Prowler Pop-up Pools offer excellent resistance to the widest range of chemicals, acids, fuels and other hazardous materials. They are also resistant to temperatures as low as -65˚F, abrasion, punctures and UV rays. The Prowler is half the weight of comparably sized PVC pools while offering twice the strength. Fits easily into spill response kits. 
 
 Compact, lightweight and portable. Excellent for immediate spill response.",3/1.4,,"EPA, SPCC, NPDES",66/249,,,,Pools,5900-YE,5950-YE,5920-YE
-6000-YE,Poly-Racker™,6000-YE,Dispensing,Poly-Racker™,"The centerpiece of the Poly-Rack System is the Poly-Racker,  a unique one-piece polyethylene rack that holds two 55-gallon drums securely in place. A massive 100-plus gallon containment sump ensures spill safety even in worst-case drum leaks. The deep dispensing well easily holds 5-gallon pails while containing incidental spills and splashes in a ribbed bottom without contaminating the sump. Dispensing wells have a scalloped edge so pails can be easily removed. Poly-Rackers can be transported by forklift as separate pieces and contain two (2) standard drain plugs. ",121.5/55,3000/1361,"EPA 40 CFR 264.175, SPCC, NPDES",103/386.1,,,,Standard,6002-YE,6003-YE,
+6000-YE,Poly-Racker™,6000-YE,Dispensing,Poly-Racker™,"The centerpiece of the Poly-Rack System is the Poly-Racker,  a unique one-piece polyethylene rack that holds two 55-gallon drums securely in place. A massive 100-plus gallon containment sump ensures spill safety even in worst-case drum leaks. The deep dispensing well easily holds 5-gallon pails while containing incidental spills and splashes in a ribbed bottom without contaminating the sump. Dispensing wells have a scalloped edge so pails can be easily removed. Poly-Rackers can be transported by forklift as separate pieces and contain two (2) standard drain plugs. ",121.5/55,3000/1361,"EPA 40 CFR 264.175, SPCC, NPDES",103/386.1,,,,Standard,6002-YE,6003-YE
 6002-YE,Poly-Stacker™,6002-YE,Dispensing,Poly-Stacker™,"Combine a single Poly-Stacker with a Poly-Racker to stack up
 to four (4) drums. Add another Poly-Stacker and you have a storage system that holds six (6) drums. Rated with a 3,000 lbs handling capacity. 
 
-Each Poly-Stacker holds two 55-gallon drums and can quickly be stacked with a forklift. Any spills from the second and third levels fall into the dispensing well for containment and easy clean-up. Combined, Poly-Racker and Poly-Stacker create the most efficient drum storage and dispensing system money can buy.",60/25.3,2400/1088.6,,,,,,Standard,6000-YE,6003-YE,
-6003-YE,Poly-Shelf™,6003-YE,Dispensing,Poly-Shelf™,Save money and prevent spills! Increase safety and productivity when you add the Poly-Shelf to your Poly-Rack System. It easily attaches to a Poly-Stacker and allows simultaneous dispensing from all drums. Spills? A hole in the bottom of the Poly-Shelf drains into the dispensing well in the Poly-Racker.,10/4.5,60/27.2,,,,,,Standard,6000-YE,6002-YE,
-6004-YE,Multi-Purpose Racker Stacker ,6004-YE,Dispensing,Rack'em and Stack'em!,Maximize floor space with the Multi-Purpose Racker/Stacker. One Multi-Purpose Racker/Stacker holds up to two 55-gallon drums. The stackable unit allows you to double your efficiency and store up to four 55-gallon drums. The Racker-Stacker can be placed on the floor (no sump) or on the Poly-Slim Line 6000 pallet (Product No. 5400-YE). Use with the Poly-Shelf (Product No. 6003-YE as seen above) for easy dispensing into 5 or 6-gallon pails. Forkliftable!,87.7/39.9,2400/1088.6,EPA 40 CFR 264.175,,,,,Standard,5400-YE,,
+Each Poly-Stacker holds two 55-gallon drums and can quickly be stacked with a forklift. Any spills from the second and third levels fall into the dispensing well for containment and easy clean-up. Combined, Poly-Racker and Poly-Stacker create the most efficient drum storage and dispensing system money can buy.",60/25.3,2400/1088.6,,,,,,Standard,6000-YE,6003-YE
+6003-YE,Poly-Shelf™,6003-YE,Dispensing,Poly-Shelf™,Save money and prevent spills! Increase safety and productivity when you add the Poly-Shelf to your Poly-Rack System. It easily attaches to a Poly-Stacker and allows simultaneous dispensing from all drums. Spills? A hole in the bottom of the Poly-Shelf drains into the dispensing well in the Poly-Racker.,10/4.5,60/27.2,,,,,,Standard,6000-YE,6002-YE
+6004-YE,Multi-Purpose Racker Stacker ,6004-YE,Dispensing,Rack'em and Stack'em!,Maximize floor space with the Multi-Purpose Racker/Stacker. One Multi-Purpose Racker/Stacker holds up to two 55-gallon drums. The stackable unit allows you to double your efficiency and store up to four 55-gallon drums. The Racker-Stacker can be placed on the floor (no sump) or on the Poly-Slim Line 6000 pallet (Product No. 5400-YE). Use with the Poly-Shelf (Product No. 6003-YE as seen above) for easy dispensing into 5 or 6-gallon pails. Forkliftable!,87.7/39.9,2400/1088.6,EPA 40 CFR 264.175,,,,,Standard,5400-YE
 6005-BK,Universal® Well Liner,6005-BK,Dispensing,Universal® Well Liner,"The Universal Well Liner
 provides extra spill protection.
 To reclaim spilled material,
@@ -2189,36 +2219,36 @@ the Poly-Racker features
 6010-YE,Mini-Racker™,6010-YE,Dispensing,Mini-Racker™,"The NEW Mini Racker-Stacker™ System is ideal for storage and dispensing of small containers with built-in spill protection and patented enclosed sump. The system has a mobility option to make movement in the plant environment safe and easy too.  The Mini Racker-Stacker™ System helps save liquids that are routinely lost during the dispensing process and helps protect worker safety by keeping the dispensing area neat and clean.
 
 The Mini Racker Stacker™ System consists of the base Racker that will hold two (2) 5-6.5 US gallon metal or plastic lidded pails or cans, or two (2) 5 US gallon or smaller metal or plastic “jerry cans”. The Racker module is available in two (2) versions:  'Place and Use' (6010-YE) and  'Mobile' (6011-YE-M) which includes wheels and handle. The Stacker module can be used in conjunction with the Racker to add an extra level of storage, or separately with another containment solution to mix-and-match the user’s specific need.",25.25/11,200/91,"EPA 40 CFR 264.175,
-SPCC and NPDES",8/30.2,,,,Standard,6011-YE-M,6012-YE,
-6011-YE-M,Mini-Racker™ Mobile Unit,6011-YE-M,Dispensing,Mini-Racker™ Mobile Unit,"Its wheels and handle make the 
+SPCC and NPDES",8/30.2,,,,Standard,6011-YE-M,6012-YE
+6011-YE-M,Mini-Racker™ Mobile Unit,6011-YE-M,Dispensing,Mini-Racker™ Mobile Unit,"Its wheels and handle make the
 Mini Racker-Stacker™ Mobile Unit portable throughout the plant. 
 It easily fits through standard doorway openings.
 
 Handle flips up on the Mobile Unit for compact storage.",31/14.1,200/91,"EPA 40 CFR 264.175,
-SPCC and NPDES",8/30.2,,,,Standard,6010-YE,6012-YE,
-6012-YE,Mini-Stacker™,6012-YE,Dispensing,Mini-Stacker™,"Made of highly durable and chemically compatible polyethylene, ENPAC’s Mini Racker-Stacker™ System is equipped with patented enclosed sump so that spills are truly portable, and the user isn’t “stuck” when a spill occurs like with other larger competitive products.",15.1/7,100/45,,,,,,Standard,6011-YE-M,6010-YE,
+SPCC and NPDES",8/30.2,,,,Standard,6010-YE,6012-YE
+6012-YE,Mini-Stacker™,6012-YE,Dispensing,Mini-Stacker™,"Made of highly durable and chemically compatible polyethylene, ENPAC’s Mini Racker-Stacker™ System is equipped with patented enclosed sump so that spills are truly portable, and the user isn’t “stuck” when a spill occurs like with other larger competitive products.",15.1/7,100/45,,,,,,Standard,6011-YE-M,6010-YE
 7006-BK,Grates,7006-BK,Storage,Grates,New grates are available for when contamination occurs or for replacement.  Call ENPAC customer service for details.,18/8.2,2000/907,,,,,,Standard,5110-YE,5750-YE,5469-YE
 7202-YE,6-Pack Cylinder Rack™,7202-YE,Cylinder Products,6-Pack Cylinder Rack™,"Maximize floor space while eliminating clutter and safety hazards by properly storing your industrial cylinders. Efficiently sized to easily move through standard doorways and is forkliftable! (Do not forklift while loaded) Handles cylinders 3” to 10” diameter. Add optional lower strap to bottom for extra security (Part #: 7205-BK).
 
 Shown with optional Ramp (Part #:. 7203--BK).
-",51.8/23.5,1200/544,OSHA 29 CFR.1910.253,,,,,Standard,7203-BK,,
+",51.8/23.5,1200/544,OSHA 29 CFR.1910.253,,,,,Standard,7203-BK
 7203-BK,6-Pack Ramp,7203-BK,Cylinder Products,6-Pack Ramp,,20.5/9.3,1000/454,,,,,,Standard,7202-YE,7204-BK,7216-YE
-7204-BK,Caster Frame,7204-BK,Cylinder Products,Caster Frame,Gives the 6-Pack Cylinder Rack mobility to go anywhere! ,49.5/22.4,1200/543,,,,,,Standard,7202-YE,7203-BK,
-7205-BK,Cylinder Strap,7205-BK,Cylinder Products,Cylinder Strap,Hold it in!,1/.5,,OSHA 29 CFR.1910,,,,,N/A,7212-YE,7213-YE,
-7210-YE,Poly-Cylinder Bumper Bracket™/Double,7210-YE,Cylinder Products,Poly-Cylinder Bumper Bracket™/Double,"For modular flexibility, design your own configuration to hold one, two or three cylinders. Attaches to any wall securely and easily. Accommodates cylinders from 3” to 10”? in diameter. Saves on wall space. ",2/.9,,OSHA 29 CFR.1910,,,,,Standard,7301-BK,7203-BK,7216-YE
+7204-BK,Caster Frame,7204-BK,Cylinder Products,Caster Frame,Gives the 6-Pack Cylinder Rack mobility to go anywhere! ,49.5/22.4,1200/543,,,,,,Standard,7202-YE,7203-BK
+7205-BK,Cylinder Strap,7205-BK,Cylinder Products,Cylinder Strap,Hold it in!,1/.5,,OSHA 29 CFR.1910,,,,,N/A,7212-YE,7213-YE
+7210-YE,Poly-Cylinder Bumper Bracket™/Double,7210-YE,Cylinder Products,Poly-Cylinder Bumper Bracket™/Double,"For modular flexibility, design your own configuration to hold one, two or three cylinders. Attaches to any wall securely and easily. Accommodates cylinders from 3” to 10”  in diameter. Saves on wall space. ",2/.9,,OSHA 29 CFR.1910,,,,,Standard,7301-BK,7203-BK,7216-YE
 7212-YE,2-Cylinder Poly-Stand™ HD,7212-YE,Cylinder Products,2-Cylinder Poly-Stand™ HD,"Ideal for inexpensive wall-mounted
 storage. Accommodates two
-cylinders with diameters of 3” to 12-3/8”.",17.5/8,400/180,OSHA 29 CFR.1910.253,,,,,Standard,7213-YE,,
-7213-YE,4-Cylinder Poly- Stand™,7213-YE,Cylinder Products,4-Cylinder Poly- Stand™,The 4-Pack Cylinder Stand is floor mountable. Holds four cylinders up to 12-3/8” in diameter. Add optional lower strap to bottom for extra security (Part #: 7205-BK).,56.05/25,800/364,OSHA 29 CFR.1910.253,,,,,Standard,7205-BK,7212-YE,
+cylinders with diameters of 3” to 12-3/8”.",17.5/8,400/180,OSHA 29 CFR.1910.253,,,,,Standard,7213-YE
+7213-YE,4-Cylinder Poly- Stand™,7213-YE,Cylinder Products,4-Cylinder Poly- Stand™,The 4-Pack Cylinder Stand is floor mountable. Holds four cylinders up to 12-3/8” in diameter. Add optional lower strap to bottom for extra security (Part #: 7205-BK).,56.05/25,800/364,OSHA 29 CFR.1910.253,,,,,Standard,7205-BK,7212-YE
 7214-YE,Poly-Cylinder Modular Bumper Brackets,7214-YE,Cylinder Products,"Poly-Cylinder Modular Bumper Brackets END CAP
-","For modular flexibility, design your own configuration to hold one, two or three cylinders. Attaches to any wall securely and easily. Accommodates cylinders from 3"" to 10"" in diameter and saves space on any wall.",1.5/.7,,OSHA 29 CFR.1910,,,,,Standard,7215-YE,,
+","For modular flexibility, design your own configuration to hold one, two or three cylinders. Attaches to any wall securely and easily. Accommodates cylinders from 3"" to 10"" in diameter and saves space on any wall.",1.5/.7,,OSHA 29 CFR.1910,,,,,Standard,7215-YE
 7215-YE,Poly-Cylinder Modular Bumper Brackets,7215-YE,Cylinder Products,"Poly-Cylinder Modular Bumper Brackets CENTER SECTION-
-","For modular flexibility, design your own configuration to hold one, two or three cylinders. Attaches to any wall securely and easily. Accommodates cylinders from 3"" to 10"" in diameter and saves space on any wall.",1.5/.7,,OSHA 29 CFR.1910,,,,,Standard,7214-YE,,
-7216-YE,Poly-Cylinder Bumper Bracket™,7216-YE,Cylinder Products,Poly-Cylinder Bumper Bracket™,Bumper brackets easily and securely attach to any wall. Both models accommodate cylinders with diameters 3” to 10”. ,1 lb/.5,,OSHA 29 CFR.1910,,,,,Standard,7215-YE,7204-YE,
-7301-BK,Single Cylinder Dolly™ HD,7301-BK,Cylinder Products,Single Cylinder Dolly™ HD,"Just as durable and half the size. The Single Cylinder Dolly HD is designed for demanding industrial facilities or tough outdoor applications in which transport of a single cylinder is required. Accommodates one cylinder, up to 12” in diameter, including class 300 SCF industrial gas cylinders and No. 5 acetylene cylinders.
+","For modular flexibility, design your own configuration to hold one, two or three cylinders. Attaches to any wall securely and easily. Accommodates cylinders from 3"" to 10"" in diameter and saves space on any wall.",1.5/.7,,OSHA 29 CFR.1910,,,,,Standard,7214-YE
+7216-YE,Poly-Cylinder Bumper Bracket™,7216-YE,Cylinder Products,Poly-Cylinder Bumper Bracket™,Bumper brackets easily and securely attach to any wall. Both models accommodate cylinders with diameters 3” to 10”. ,1 lb/.5,,OSHA 29 CFR.1910,,,,,Standard,7215-YE,7204-YE
+7301-BK,Single Cylinder Dolly™ HD,7301-YE,Cylinder Products,Single Cylinder Dolly™ HD,"Just as durable and half the size. The Single Cylinder Dolly HD is designed for demanding industrial facilities or tough outdoor applications in which transport of a single cylinder is required. Accommodates one cylinder, up to 12” in diameter, including class 300 SCF industrial gas cylinders and No. 5 acetylene cylinders.
 
 Rugged, solid wheels come standard on Part #: 7301-BK-A to maximize maneuverability over rough terrain.",26.8/12.2,250/113.4,OSHA 29 CFR.1910.253,,,,,Standard,7302-BK,7301-BK-A,7216-YE
-7301-BK-ATD,Single Cylinder Dolly™ ATD,7301-BK-ATD,Cylinder Products,Single Cylinder Dolly™ ATD,"Just as durable and half the size. The Single Cylinder Dolly HD is designed for demanding industrial facilities or tough outdoor applications in which transport of a single cylinder is required. Accommodates one cylinder, up to 12” in diameter, including class 300 SCF industrial gas cylinders and No. 5 acetylene cylinders.",39/17.7,250/113.4,OSHA 29 CFR.1910.253,,,,,Standard,7302-BK,7216-YE,
+7301-BK-ATD,Single Cylinder Dolly™ ATD,7301-YE-ATD,Cylinder Products,Single Cylinder Dolly™ ATD,"Just as durable and half the size. The Single Cylinder Dolly HD is designed for demanding industrial facilities or tough outdoor applications in which transport of a single cylinder is required. Accommodates one cylinder, up to 12” in diameter, including class 300 SCF industrial gas cylinders and No. 5 acetylene cylinders.",39/17.7,250/113.4,OSHA 29 CFR.1910.253,,,,,Standard,7302-BK,7216-YE
 7302-BK,Dual Cylinder Dolly™,7302-BK,Cylinder Products,"Easier cylinder loading, better maneuverability and large tray for tools.","The Dual Cylinder Dolly is
 designed to be a more functional, maneuverable and better balanced transporter for gas cylinders than conventional dollies or forklifts.
 Ideal for industrial or construction operations, the Dual Cylinder Dolly accommodates any two cylinders, each up to 12” in diameter,
@@ -2232,30 +2262,30 @@ Unlike metal cylinder carts, the Dual Cylinder Dolly is spark-resistant and the 
 8001-YE,Poly-Collector 66 (Poly Drum),8001-YE,Storage,Get Your Waste Collection On The Move.,"The Poly-Collector™ Portable Hazardous Materials Collection Systems put mobility into containment so you can go where
 the waste is. These caster-mounted containers are built tough from UV-stabilized polyethylene for excellent chemical resistance to a broad range of industrial materials. 
 
-Model is equipped with the unique Poly Drum Funnel™ 55 to prevent over-spills while allowing multiple oil filters, pails, and cans to drain at once. Both products are ideal for collecting waste oil, antifreeze and chemicals. The Poly-Collector 110 outer shell holds 105 gallons, with an inner drum that holds 55 gallons. A twist-on lid on the Poly-Collector 110 unit ensures safe and easy closure. The Poly-Collector 66 poly outer shell holds 66 gallons while the inner drum holds 55 gallons.",81.15/36.8,600/272,"EPA 40 CFR 264.175, SPCC, NPDES",70/264.9,,,,Drum,8050-BU,3004-YE,
+Model is equipped with the unique Poly Drum Funnel™ 55 to prevent over-spills while allowing multiple oil filters, pails, and cans to drain at once. Both products are ideal for collecting waste oil, antifreeze and chemicals. The Poly-Collector 110 outer shell holds 105 gallons, with an inner drum that holds 55 gallons. A twist-on lid on the Poly-Collector 110 unit ensures safe and easy closure. The Poly-Collector 66 poly outer shell holds 66 gallons while the inner drum holds 55 gallons.",81.15/36.8,600/272,"EPA 40 CFR 264.175, SPCC, NPDES",70/264.9,,,,Drum,8050-BU,3004-YE
 8002-YE,Poly-Collector 66 (Poly Drum),8002-YE,Storage,Get Your Waste Collection On The Move.,"The Poly-Collector™ Portable Hazardous Materials Collection Systems put mobility into containment so you can go where
 the waste is. These caster-mounted containers are built tough from UV-stabilized polyethylene for excellent chemical resistance to a broad range of industrial materials. 
 
-Model is equipped with the unique Poly Drum Funnel™ 55 to prevent over-spills while allowing multiple oil filters, pails, and cans to drain at once. Both products are ideal for collecting waste oil, antifreeze and chemicals. The Poly-Collector 110 outer shell holds 105 gallons, with an inner drum that holds 55 gallons. A twist-on lid on the Poly-Collector 110 unit ensures safe and easy closure. The Poly-Collector 66 poly outer shell holds 66 gallons while the inner drum holds 55 gallons.",66.5/30,600/272,"EPA 40 CFR 264.175, SPCC, NPDES",70/264.9,,,,Drum,8050-BU,3004-YE,
+Model is equipped with the unique Poly Drum Funnel™ 55 to prevent over-spills while allowing multiple oil filters, pails, and cans to drain at once. Both products are ideal for collecting waste oil, antifreeze and chemicals. The Poly-Collector 110 outer shell holds 105 gallons, with an inner drum that holds 55 gallons. A twist-on lid on the Poly-Collector 110 unit ensures safe and easy closure. The Poly-Collector 66 poly outer shell holds 66 gallons while the inner drum holds 55 gallons.",66.5/30,600/272,"EPA 40 CFR 264.175, SPCC, NPDES",70/264.9,,,,Drum,8050-BU,3004-YE
 8050-BU,Drum Dolly,8050-BU,Storage,Drum Dolly,Get on the move!,19/8.6,,,,,,,Drum,8080-YE,8001-YE,3004-YE
 8075-YE,Poly-Collector 66 (Shell Only),8075-YE,Storage,Get Your Waste Collection On The Move.,"The Poly-Collector™ Portable Hazardous Materials Collection Systems put mobility into containment so you can go where
 the waste is. These caster-mounted containers are built tough from UV-stabilized polyethylene for excellent chemical resistance to a broad range of industrial materials. 
 
-Model is equipped with the unique Poly Drum Funnel™ 55 to prevent over-spills while allowing multiple oil filters, pails, and cans to drain at once. Both products are ideal for collecting waste oil, antifreeze and chemicals. The Poly-Collector 110 outer shell holds 105 gallons, with an inner drum that holds 55 gallons. A twist-on lid on the Poly-Collector 110 unit ensures safe and easy closure. The Poly-Collector 66 poly outer shell holds 66 gallons while the inner drum holds 55 gallons.",25.4/11.5,600/272,"EPA 40 CFR 264.175, SPCC, NPDES",70/264.9,,,,Drum,8050-BU,3004-YE,
+Model is equipped with the unique Poly Drum Funnel™ 55 to prevent over-spills while allowing multiple oil filters, pails, and cans to drain at once. Both products are ideal for collecting waste oil, antifreeze and chemicals. The Poly-Collector 110 outer shell holds 105 gallons, with an inner drum that holds 55 gallons. A twist-on lid on the Poly-Collector 110 unit ensures safe and easy closure. The Poly-Collector 66 poly outer shell holds 66 gallons while the inner drum holds 55 gallons.",25.4/11.5,600/272,"EPA 40 CFR 264.175, SPCC, NPDES",70/264.9,,,,Drum,8050-BU,3004-YE
 8080-YE,Poly-Collector 110 (Poly Drum),8080-YE,Storage,Get Your Waste Collection On The Move.,"The Poly-Collector™ Portable Hazardous Materials Collection Systems put mobility into containment so you can go where
 the waste is. These caster-mounted containers are built tough from UV-stabilized polyethylene for excellent chemical resistance to a broad range of industrial materials. 
 
-Model is equipped with the unique Poly Drum Funnel™ 55 to prevent over-spills while allowing multiple oil filters, pails, and cans to drain at once. Both products are ideal for collecting waste oil, antifreeze and chemicals. The Poly-Collector 110 outer shell holds 105 gallons, with an inner drum that holds 55 gallons. A twist-on lid on the Poly-Collector 110 unit ensures safe and easy closure. The Poly-Collector 66 poly outer shell holds 66 gallons while the inner drum holds 55 gallons.",92.3/41.9,600/272,"EPA 40 CFR 264.175, SPCC, NPDES",103/389.9,,,,Drum,8050-BU,3004-YE,
+Model is equipped with the unique Poly Drum Funnel™ 55 to prevent over-spills while allowing multiple oil filters, pails, and cans to drain at once. Both products are ideal for collecting waste oil, antifreeze and chemicals. The Poly-Collector 110 outer shell holds 105 gallons, with an inner drum that holds 55 gallons. A twist-on lid on the Poly-Collector 110 unit ensures safe and easy closure. The Poly-Collector 66 poly outer shell holds 66 gallons while the inner drum holds 55 gallons.",92.3/41.9,600/272,"EPA 40 CFR 264.175, SPCC, NPDES",103/389.9,,,,Drum,8050-BU,3004-YE
 8081-YE,Poly-Collector 110 (Poly Drum),8081-YE,Storage,Get Your Waste Collection On The Move.,"The Poly-Collector™ Portable Hazardous Materials Collection Systems put mobility into containment so you can go where
 the waste is. These caster-mounted containers are built tough from UV-stabilized polyethylene for excellent chemical resistance to a broad range of industrial materials. 
 
-Model is equipped with the unique Poly Drum Funnel™ 55 to prevent over-spills while allowing multiple oil filters, pails, and cans to drain at once. Both products are ideal for collecting waste oil, antifreeze and chemicals. The Poly-Collector 110 outer shell holds 105 gallons, with an inner drum that holds 55 gallons. A twist-on lid on the Poly-Collector 110 unit ensures safe and easy closure. The Poly-Collector 66 poly outer shell holds 66 gallons while the inner drum holds 55 gallons.",107/48.5,600/272,"EPA 40 CFR 264.175, SPCC, NPDES",103/389.9,,,,Drum,8050-BU,3004-YE,
+Model is equipped with the unique Poly Drum Funnel™ 55 to prevent over-spills while allowing multiple oil filters, pails, and cans to drain at once. Both products are ideal for collecting waste oil, antifreeze and chemicals. The Poly-Collector 110 outer shell holds 105 gallons, with an inner drum that holds 55 gallons. A twist-on lid on the Poly-Collector 110 unit ensures safe and easy closure. The Poly-Collector 66 poly outer shell holds 66 gallons while the inner drum holds 55 gallons.",107/48.5,600/272,"EPA 40 CFR 264.175, SPCC, NPDES",103/389.9,,,,Drum,8050-BU,3004-YE
 8091-YE,Drums-Up™,8091-YE,Dispensing,The Incidental Spill Solution.,"Need temporary protection against incidental barrel spills? Our Drums-Up and Drums-Up Jr. let you control nuisance spills from drums sized up to 55 gallons. A 19.5-gallon sump capacity catches liquid before it reaches your floor, reducing the risk of slip and fall injuries.
 
-Ideal for use as a drum pumping station. ",5.95/2.7,,"EPA, SPCC and NPDES",20/75.7,,,,Drum,8200-YE,3004-YE,
+Ideal for use as a drum pumping station. ",5.95/2.7,,"EPA, SPCC and NPDES",20/75.7,,,,Drum,8200-YE,3004-YE
 8200-YE,Drums-Up Jr.™,8200-YE,Dispensing,Drums-Up Jr.™,"Inexpensive Containment For 16-Gallon Drums And 5-Gallon Pails. 
 
-Shown with 5-Gallon Pail Funnel (Part #: 3005-YE)",4/1.8,,"EPA, SPCC and NPDES",7.5/28.3,,,,Circular,8091-YE,3004-YE,
+Shown with 5-Gallon Pail Funnel (Part #: 3005-YE)",4/1.8,,"EPA, SPCC and NPDES",7.5/28.3,,,,Circular,8091-YE,3004-YE
 BAZOOKA,Bazooka™,BAZOOKA,Portable Containment,Trickle Filter w/Automatic Shutoff,"Introducing an exciting new product from ENPAC, The Imbiber Bead® Bazooka™! It is an automated shut off system which allows water drainage of containment berm applications. It also utilizes an innovative system for detection of Class I & II organics such as diesel fuel. Water will continually drain through the filter, but in case of a spill within the berm (when an organic substance is detected)  the Imbiber Bead® technology takes over and the flow is completely shut off. It is a virtually maintenance free design with very simple upkeep.",8/3.6,,"EPA, SPCC, NPDES",,,,,Circular,BAZOOKA-12KIT,5550-BK,5700-YE
 BAZOOKA-12KIT,Bazooka™ Installation Kit,BAZOOKA-12KIT,Portable Containment,Bazooka™ Installation Kit,"The kit contains all you need for
 an easy field installation of the
@@ -2624,7 +2654,7 @@ The elimination of free liquids means up to 99% vapor reduction and up to 600% r
 Organic liquids diffuse into the solid matrix of the Beads which causes them to “Swell” and pick up many times their own volume in liquid. They maintain their structure even in excess liquid. No special permits are required for use, unlike solidification agents.
 
 Imbiber Beads® are the only color change indicating product on the market. They change from white to pink to red as the concentration of organic liquid increases. And they're unaffected by water!!   See how it works.",20/9.1,,,,,,,Sorbents,ENP-IE0077,ENP-IE2135,ENP-IE0742
-FA024-1000-00EP,ChemKlenz™ Immediate Spill Response,FA024-1000-00EP,Sorbents,1?KG PRESSURIZED CYLINDER,"ChemKlenz is a proprietary formulation of non-toxic, environmentally safe metal oxides for neutralizing a wide range of toxic chemicals. The ChemKlenz formulation is non-flammable, non-corrosive and significantly reduces both liquid and vapor hazards. Since the dry powder neutralizes threats upon contact, on-site incident management and clean up times are reduced.
+FA024-1000-00EP,ChemKlenz™ Immediate Spill Response,FA024-1000-00EP,Sorbents,1‐KG PRESSURIZED CYLINDER,"ChemKlenz is a proprietary formulation of non-toxic, environmentally safe metal oxides for neutralizing a wide range of toxic chemicals. The ChemKlenz formulation is non-flammable, non-corrosive and significantly reduces both liquid and vapor hazards. Since the dry powder neutralizes threats upon contact, on-site incident management and clean up times are reduced.
 
 ChemKlenz works quickly to significantly reduce hazards associated with common industrial chemicals including: acids, acidic/caustic gases, organic compounds, phosphorus and sulfur compounds, and many industrial solvents. By the nature of ChemKlenz’s innovative chemistry, hazards are chemically bound to the surface of the powder minimizing off-gassing.
 
@@ -2633,7 +2663,7 @@ ChemKlenz is offered in pressurized cylinders capable of addressing both liquid 
 ChemKlenz™ provides PROTECTION for individuals and property from chemicals in the form of a SIMPLE solution that provides IMMEDIATE response to a BROAD array of chemical hazards. ChemKlenz can be INTEGRATED easily into existing response plans and safety programs, but best of all it is easy to TRAIN, MAINTAIN, and USE.
 
 Send Technical Questions to: ChemKlenz@enpac.com",,,,,,,,Sorbents,ENP OP100H,FD324-0901-00EP,ENP URB30150
-FA024-2000-00EP,ChemKlenz™ Immediate Spill Response,FA024-2000-00EP,Sorbents,2?KG PRESSURIZED CYLINDER,"ChemKlenz is a proprietary formulation of non-toxic, environmentally safe metal oxides for neutralizing a wide range of toxic chemicals. The ChemKlenz formulation is non-flammable, non-corrosive and significantly reduces both liquid and vapor hazards. Since the dry powder neutralizes threats upon contact, on-site incident management and clean up times are reduced.
+FA024-2000-00EP,ChemKlenz™ Immediate Spill Response,FA024-2000-00EP,Sorbents,2‐KG PRESSURIZED CYLINDER,"ChemKlenz is a proprietary formulation of non-toxic, environmentally safe metal oxides for neutralizing a wide range of toxic chemicals. The ChemKlenz formulation is non-flammable, non-corrosive and significantly reduces both liquid and vapor hazards. Since the dry powder neutralizes threats upon contact, on-site incident management and clean up times are reduced.
 
 ChemKlenz works quickly to significantly reduce hazards associated with common industrial chemicals including: acids, acidic/caustic gases, organic compounds, phosphorus and sulfur compounds, and many industrial solvents. By the nature of ChemKlenz’s innovative chemistry, hazards are chemically bound to the surface of the powder minimizing off-gassing.
 
@@ -2642,7 +2672,7 @@ ChemKlenz is offered in pressurized cylinders capable of addressing both liquid 
 ChemKlenz™ provides PROTECTION for individuals and property from chemicals in the form of a SIMPLE solution that provides IMMEDIATE response to a BROAD array of chemical hazards. ChemKlenz can be INTEGRATED easily into existing response plans and safety programs, but best of all it is easy to TRAIN, MAINTAIN, and USE.
 
 Send Technical Questions to: ChemKlenz@enpac.com",,,,,,,,Sorbents,ENP HPB100M,FD015-4903-00NS,ENP ORB15150
-FA024-4000-00EP,ChemKlenz™ Immediate Spill Response,FA024-4000-00EP,Sorbents,4?KG PRESSURIZED CYLINDER,"ChemKlenz is a proprietary formulation of non-toxic, environmentally safe metal oxides for neutralizing a wide range of toxic chemicals. The ChemKlenz formulation is non-flammable, non-corrosive and significantly reduces both liquid and vapor hazards. Since the dry powder neutralizes threats upon contact, on-site incident management and clean up times are reduced.
+FA024-4000-00EP,ChemKlenz™ Immediate Spill Response,FA024-4000-00EP,Sorbents,4‐KG PRESSURIZED CYLINDER,"ChemKlenz is a proprietary formulation of non-toxic, environmentally safe metal oxides for neutralizing a wide range of toxic chemicals. The ChemKlenz formulation is non-flammable, non-corrosive and significantly reduces both liquid and vapor hazards. Since the dry powder neutralizes threats upon contact, on-site incident management and clean up times are reduced.
 
 ChemKlenz works quickly to significantly reduce hazards associated with common industrial chemicals including: acids, acidic/caustic gases, organic compounds, phosphorus and sulfur compounds, and many industrial solvents. By the nature of ChemKlenz’s innovative chemistry, hazards are chemically bound to the surface of the powder minimizing off-gassing.
 
@@ -2696,7 +2726,7 @@ ChemKlenz is offered in pressurized cylinders capable of addressing both liquid 
 ChemKlenz™ provides PROTECTION for individuals and property from chemicals in the form of a SIMPLE solution that provides IMMEDIATE response to a BROAD array of chemical hazards. ChemKlenz can be INTEGRATED easily into existing response plans and safety programs, but best of all it is easy to TRAIN, MAINTAIN, and USE.
 
 Send Technical Questions to: ChemKlenz@enpac.com",,,,,,,,Sorbents,ENP OP200S,FD015-2901-00NS,ENP URB30150
-FD015-1901-00NS,ChemKlenz™ Immediate Spill Response,FD015-1901-00NS,Sorbents,1?KG WALL MOUNT,"ChemKlenz is a proprietary formulation of non-toxic, environmentally safe metal oxides for neutralizing a wide range of toxic chemicals. The ChemKlenz formulation is non-flammable, non-corrosive and significantly reduces both liquid and vapor hazards. Since the dry powder neutralizes threats upon contact, on-site incident management and clean up times are reduced.
+FD015-1901-00NS,ChemKlenz™ Immediate Spill Response,FD015-1901-00NS,Sorbents,1‐KG WALL MOUNT,"ChemKlenz is a proprietary formulation of non-toxic, environmentally safe metal oxides for neutralizing a wide range of toxic chemicals. The ChemKlenz formulation is non-flammable, non-corrosive and significantly reduces both liquid and vapor hazards. Since the dry powder neutralizes threats upon contact, on-site incident management and clean up times are reduced.
 
 ChemKlenz works quickly to significantly reduce hazards associated with common industrial chemicals including: acids, acidic/caustic gases, organic compounds, phosphorus and sulfur compounds, and many industrial solvents. By the nature of ChemKlenz’s innovative chemistry, hazards are chemically bound to the surface of the powder minimizing off-gassing.
 
@@ -2705,7 +2735,7 @@ ChemKlenz is offered in pressurized cylinders capable of addressing both liquid 
 ChemKlenz™ provides PROTECTION for individuals and property from chemicals in the form of a SIMPLE solution that provides IMMEDIATE response to a BROAD array of chemical hazards. ChemKlenz can be INTEGRATED easily into existing response plans and safety programs, but best of all it is easy to TRAIN, MAINTAIN, and USE.
 
 Send Technical Questions to: ChemKlenz@enpac.com",,,,,,,,Sorbents,ENP UPB100H,FA324-0501-00EP,ENP HRB15150
-FD015-1902-00NS,ChemKlenz™ Immediate Spill Response,FD015-1902-00NS,Sorbents,1?KG VEHICLE MOUNT,"ChemKlenz is a proprietary formulation of non-toxic, environmentally safe metal oxides for neutralizing a wide range of toxic chemicals. The ChemKlenz formulation is non-flammable, non-corrosive and significantly reduces both liquid and vapor hazards. Since the dry powder neutralizes threats upon contact, on-site incident management and clean up times are reduced.
+FD015-1902-00NS,ChemKlenz™ Immediate Spill Response,FD015-1902-00NS,Sorbents,1‐KG VEHICLE MOUNT,"ChemKlenz is a proprietary formulation of non-toxic, environmentally safe metal oxides for neutralizing a wide range of toxic chemicals. The ChemKlenz formulation is non-flammable, non-corrosive and significantly reduces both liquid and vapor hazards. Since the dry powder neutralizes threats upon contact, on-site incident management and clean up times are reduced.
 
 ChemKlenz works quickly to significantly reduce hazards associated with common industrial chemicals including: acids, acidic/caustic gases, organic compounds, phosphorus and sulfur compounds, and many industrial solvents. By the nature of ChemKlenz’s innovative chemistry, hazards are chemically bound to the surface of the powder minimizing off-gassing.
 
@@ -2714,7 +2744,7 @@ ChemKlenz is offered in pressurized cylinders capable of addressing both liquid 
 ChemKlenz™ provides PROTECTION for individuals and property from chemicals in the form of a SIMPLE solution that provides IMMEDIATE response to a BROAD array of chemical hazards. ChemKlenz can be INTEGRATED easily into existing response plans and safety programs, but best of all it is easy to TRAIN, MAINTAIN, and USE.
 
 Send Technical Questions to: ChemKlenz@enpac.com",,,,,,,,Sorbents,ENP HPB100H,FA024-4000-00EP,ENP URB30150
-FD015-2901-00NS,ChemKlenz™ Immediate Spill Response,FD015-2901-00NS,Sorbents,2?KG WALL MOUNT,"ChemKlenz is a proprietary formulation of non-toxic, environmentally safe metal oxides for neutralizing a wide range of toxic chemicals. The ChemKlenz formulation is non-flammable, non-corrosive and significantly reduces both liquid and vapor hazards. Since the dry powder neutralizes threats upon contact, on-site incident management and clean up times are reduced.
+FD015-2901-00NS,ChemKlenz™ Immediate Spill Response,FD015-2901-00NS,Sorbents,2‐KG WALL MOUNT,"ChemKlenz is a proprietary formulation of non-toxic, environmentally safe metal oxides for neutralizing a wide range of toxic chemicals. The ChemKlenz formulation is non-flammable, non-corrosive and significantly reduces both liquid and vapor hazards. Since the dry powder neutralizes threats upon contact, on-site incident management and clean up times are reduced.
 
 ChemKlenz works quickly to significantly reduce hazards associated with common industrial chemicals including: acids, acidic/caustic gases, organic compounds, phosphorus and sulfur compounds, and many industrial solvents. By the nature of ChemKlenz’s innovative chemistry, hazards are chemically bound to the surface of the powder minimizing off-gassing.
 
@@ -2723,7 +2753,7 @@ ChemKlenz is offered in pressurized cylinders capable of addressing both liquid 
 ChemKlenz™ provides PROTECTION for individuals and property from chemicals in the form of a SIMPLE solution that provides IMMEDIATE response to a BROAD array of chemical hazards. ChemKlenz can be INTEGRATED easily into existing response plans and safety programs, but best of all it is easy to TRAIN, MAINTAIN, and USE.
 
 Send Technical Questions to: ChemKlenz@enpac.com",,,,,,,,Sorbents,ENP OP200S,FA-CKWK,ENP HRB30150
-FD015-2902-00NS,ChemKlenz™ Immediate Spill Response,FD015-2902-00NS,Sorbents,"2?KG VEHICLE MOUNT
+FD015-2902-00NS,ChemKlenz™ Immediate Spill Response,FD015-2902-00NS,Sorbents,"2‐KG VEHICLE MOUNT
 
 ","ChemKlenz is a proprietary formulation of non-toxic, environmentally safe metal oxides for neutralizing a wide range of toxic chemicals. The ChemKlenz formulation is non-flammable, non-corrosive and significantly reduces both liquid and vapor hazards. Since the dry powder neutralizes threats upon contact, on-site incident management and clean up times are reduced.
 
@@ -2734,7 +2764,7 @@ ChemKlenz is offered in pressurized cylinders capable of addressing both liquid 
 ChemKlenz™ provides PROTECTION for individuals and property from chemicals in the form of a SIMPLE solution that provides IMMEDIATE response to a BROAD array of chemical hazards. ChemKlenz can be INTEGRATED easily into existing response plans and safety programs, but best of all it is easy to TRAIN, MAINTAIN, and USE.
 
 Send Technical Questions to: ChemKlenz@enpac.com",,,,,,,,Sorbents,ENP UPB200S,FA324-5000-00EP,ENP ORB15150
-FD015-4901-00NS,ChemKlenz™ Immediate Spill Response,FD015-4901-00NS,Sorbents,4?KG WALL MOUNT,"ChemKlenz is a proprietary formulation of non-toxic, environmentally safe metal oxides for neutralizing a wide range of toxic chemicals. The ChemKlenz formulation is non-flammable, non-corrosive and significantly reduces both liquid and vapor hazards. Since the dry powder neutralizes threats upon contact, on-site incident management and clean up times are reduced.
+FD015-4901-00NS,ChemKlenz™ Immediate Spill Response,FD015-4901-00NS,Sorbents,4‐KG WALL MOUNT,"ChemKlenz is a proprietary formulation of non-toxic, environmentally safe metal oxides for neutralizing a wide range of toxic chemicals. The ChemKlenz formulation is non-flammable, non-corrosive and significantly reduces both liquid and vapor hazards. Since the dry powder neutralizes threats upon contact, on-site incident management and clean up times are reduced.
 
 ChemKlenz works quickly to significantly reduce hazards associated with common industrial chemicals including: acids, acidic/caustic gases, organic compounds, phosphorus and sulfur compounds, and many industrial solvents. By the nature of ChemKlenz’s innovative chemistry, hazards are chemically bound to the surface of the powder minimizing off-gassing.
 
@@ -2743,7 +2773,7 @@ ChemKlenz is offered in pressurized cylinders capable of addressing both liquid 
 ChemKlenz™ provides PROTECTION for individuals and property from chemicals in the form of a SIMPLE solution that provides IMMEDIATE response to a BROAD array of chemical hazards. ChemKlenz can be INTEGRATED easily into existing response plans and safety programs, but best of all it is easy to TRAIN, MAINTAIN, and USE.
 
 Send Technical Questions to: ChemKlenz@enpac.com",,,,,,,,Sorbents,ENP OP100M,FA324-0750-00EP,ENP URB15150
-FD015-4902-00NS,ChemKlenz™ Immediate Spill Response,FD015-4902-00NS,Sorbents,4?KG VEHICLE MOUNT,"ChemKlenz is a proprietary formulation of non-toxic, environmentally safe metal oxides for neutralizing a wide range of toxic chemicals. The ChemKlenz formulation is non-flammable, non-corrosive and significantly reduces both liquid and vapor hazards. Since the dry powder neutralizes threats upon contact, on-site incident management and clean up times are reduced.
+FD015-4902-00NS,ChemKlenz™ Immediate Spill Response,FD015-4902-00NS,Sorbents,4‐KG VEHICLE MOUNT,"ChemKlenz is a proprietary formulation of non-toxic, environmentally safe metal oxides for neutralizing a wide range of toxic chemicals. The ChemKlenz formulation is non-flammable, non-corrosive and significantly reduces both liquid and vapor hazards. Since the dry powder neutralizes threats upon contact, on-site incident management and clean up times are reduced.
 
 ChemKlenz works quickly to significantly reduce hazards associated with common industrial chemicals including: acids, acidic/caustic gases, organic compounds, phosphorus and sulfur compounds, and many industrial solvents. By the nature of ChemKlenz’s innovative chemistry, hazards are chemically bound to the surface of the powder minimizing off-gassing.
 
@@ -2752,7 +2782,7 @@ ChemKlenz is offered in pressurized cylinders capable of addressing both liquid 
 ChemKlenz™ provides PROTECTION for individuals and property from chemicals in the form of a SIMPLE solution that provides IMMEDIATE response to a BROAD array of chemical hazards. ChemKlenz can be INTEGRATED easily into existing response plans and safety programs, but best of all it is easy to TRAIN, MAINTAIN, and USE.
 
 Send Technical Questions to: ChemKlenz@enpac.com",,,,,,,,Sorbents,ENP UPB100M,FA324-5001-00EP,ENP ORB30150
-FD015-4903-00NS,ChemKlenz™ Immediate Spill Response,FD015-4903-00NS,Sorbents,4?KG APPLICATOR WAND,"ChemKlenz is a proprietary formulation of non-toxic, environmentally safe metal oxides for neutralizing a wide range of toxic chemicals. The ChemKlenz formulation is non-flammable, non-corrosive and significantly reduces both liquid and vapor hazards. Since the dry powder neutralizes threats upon contact, on-site incident management and clean up times are reduced.
+FD015-4903-00NS,ChemKlenz™ Immediate Spill Response,FD015-4903-00NS,Sorbents,4‐KG APPLICATOR WAND,"ChemKlenz is a proprietary formulation of non-toxic, environmentally safe metal oxides for neutralizing a wide range of toxic chemicals. The ChemKlenz formulation is non-flammable, non-corrosive and significantly reduces both liquid and vapor hazards. Since the dry powder neutralizes threats upon contact, on-site incident management and clean up times are reduced.
 
 ChemKlenz works quickly to significantly reduce hazards associated with common industrial chemicals including: acids, acidic/caustic gases, organic compounds, phosphorus and sulfur compounds, and many industrial solvents. By the nature of ChemKlenz’s innovative chemistry, hazards are chemically bound to the surface of the powder minimizing off-gassing.
 
