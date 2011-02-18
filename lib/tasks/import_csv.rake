@@ -165,7 +165,6 @@ namespace :db do
     puts "Creating Sorbent Dimensions..."
     is_first_line = true
     FasterCSV.foreach("db/csv_files/enpac_sorbents.csv") do |row|
-      puts row[0]
       unless is_first_line# or row[0].nil?
         d = "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm." unless row[1].blank?
         l = "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm." unless row[2].blank?
@@ -190,7 +189,6 @@ namespace :db do
     puts "Creating Standard Dimensions..."
     is_first_line = true
     FasterCSV.foreach("db/csv_files/enpac_standards.csv") do |row|
-      puts row[0]
       unless is_first_line
         l = "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm." unless row[1].blank?
         w = "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm." unless row[2].blank?
