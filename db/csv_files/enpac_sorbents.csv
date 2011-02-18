@@ -1,0 +1,96 @@
+Item ID,Diameter,Length,Width,Height,Class,Type,Capabilities,Absorbs,Quantity
+ENP FGM-001624,,16/41,24/61,,Heavy,,,18/68,25/case
+ENP FGM-003272,,32/81,72/183,,,,,8/30.3,25/case
+ENP FGI-101630,,16/41,18/46,,Heavy,,,18.5/70,100/bale
+ENP FGI-101610,,16/41,18/46,,Single,,,10.6/40,200/bale
+ENP FGI-61450,4/10,60/152,,,Heavy,,,8/30,18/box
+ENP FGI-101750,,11/28,12/30,,Heavy,,,2/7.6,250/case
+1315-RD,,,,,,,,13/49,1
+1314-RD,,,,,,,,5/19,1
+ENP-IE0077,,7/18,7/18,,,Vapor Bag Packets,,,30/case
+ENP-IE0742,7/18,42/105,,,,Mini Boom,,,5/case
+ENP-IE1421,,14/35,21/53,,,Pillows,,,5/case
+ENP-IE2135,,21/53,35/88,,,Blanket,,,2/case
+ENP-IEBS505000,,,,,,Imbiber Beads/Sand,,,1
+ENP D225,,,,,,1.5 Cubic Ft. \Bag,,,1.5 Cubic Ft.
+ENP D503,,,,,,1 Gallon Jug Dispenser ,,,1 Gal/3.8L
+ENP D503CS,,,,,,1 Gallon Jug Dispenser ,,,6/case
+ENPD208CS,,,,,,1 Quart Zip Seal Bag,,,12/case
+ENP D312CS,,,,,,1 Gallon Bottles,,,4/case
+ENP D355SP,,,,,,55-Gallon Drum,,,1
+4720-BK,,144/366,36/122,120 mil/.3cm,,,Universal,6/23,1
+4725-BK,,144/366,72/183,120 mil/.3cm,,,Universal,7/27,1
+4730-BK,,144/366,108/244,120 mil/.3cm,,,Universal,8/30,1
+4735-BK,,144/366,144/366,120 mil/.3cm,,,Universal,9/34,1
+4701-YE,.75in fitting,2.5/6 Max Opening,,,,,,8oz/237ML,1
+4701-YE-BX,.75in fitting,2.5/6 Max Opening,,,,,,8oz/237ML,5/box
+FD324-0901-00EP,,,,,,Shaker Wallmount Station,Granules,,1
+FA324-0750-00EP,,,,,,Shaker (750 Gram Granules),Granules,,1
+FA-CKWK,,,,,,Wallmount & Shaker,Granules,,1
+FA324-0501-00EP,,,,,,500 Gram Granules Bag,Granules,,1
+FA324-5001-00EP,,,,,,5kg Granules Bag,Granules,,1
+FA324-5000-00EP,,,,,,5kg Pail Granules,Granules,,1
+FA024-4000-00EP,,,,,,4?KG PRESSURIZED CYLINDER,Granules,,1
+FA024-2000-00EP,,,,,,2?KG PRESSURIZED CYLINDER,Granules,,1
+FA024-1000-00EP,,,,,,1?KG PRESSURIZED CYLINDER,Granules,,1
+FD015-4901-00NS,,,,,,4?KG WALL MOUNT,Granules,,1
+FD015-2901-00NS,,,,,,2?KG WALL MOUNT,Granules,,1
+FD015-1901-00NS,,,,,,1?KG WALL MOUNT,Granules,,1
+FD015-4902-00NS,,,,,,4?KG VEHICLE MOUNT,Granules,,1
+FD015-2902-00NS,,,,,,"2?KG VEHICLE MOUNT
+
+",Granules,,1
+FD015-1902-00NS,,,,,,1?KG VEHICLE MOUNT,Granules,,1
+FD015-4903-00NS,,,,,,4?KG APPLICATOR WAND,Granules,,4/pkg
+ENP OP100H,,270/689 Squared,,,Heavy,,Oil-Only,25x Their Weight,100/case 30/cases per pallet
+ENP OP100M,,270/689 Squared,,,Medium,,Oil-Only,25x Their Weight,100/case 36/cases per pallet
+ENP OP200S,,270/689 Squared,,,Single ,,Oil-Only,25x Their Weight,200/case 30/cases per pallet
+ENP UPB100H,,270/689 Squared,,,Heavy,Bonded,Universal,25x Their Weight,100/case 30/cases per pallet
+ENP UPB100M,,270/689 Squared,,,Medium,Bonded,Universal,25x Their Weight,100/case 36/cases per pallet
+ENP UPB200S,,270/689 Squared,,,Single ,Bonded,Universal,25x Their Weight,200/case 30/cases per pallet
+ENP HPB100H,,270/689 Squared,,,Heavy,Bonded,Aggressive,25x Their Weight,100/case 30/cases per pallet
+ENP HPB100M,,270/689 Squared,,,Medium,Bonded,Aggressive,25x Their Weight,100/case 36/cases per pallet
+ENP ORB30150,,30/76,150ft/46m,,Heavy,Bonded,Oil-Only,25x Their Weight,"1 Roll, 1/case 18/cases per pallet"
+ENP ORB15150,,15/38,150ft/46m,,Heavy,Bonded,Oil-Only,25x Their Weight,"1 Roll, Split 2/case 18/cases per pallet"
+ENP URB30150,,30/76,150ft/46m,,Heavy,Bonded,Universal,25x Their Weight,"1 Roll, 1/case 18/cases per pallet"
+ENP URB15150,,15/38,150ft/46m,,Heavy,Bonded,Universal,25x Their Weight,"1 Roll, Split 2/case 18/cases per pallet"
+ENP HRB30150,,30/76,150ft/46m,,Heavy,Bonded,Aggressive,25x Their Weight,"1 Roll, 1/case 18/cases per pallet"
+ENP HRB15150,,15/38,150ft/46m,,Heavy,Bonded,Aggressive,25x Their Weight,"1 Roll, Split 2/case 18/cases per pallet"
+ENP 40 OS34,3in/8cm,4ft/1m,,,,,Oil-Only,,40/case 20/cases per pallet
+ENP 20 OS38,3in/8cm,8ft/2m,,,,,Oil-Only,,20/case 20/cases per pallet
+ENP 40 US34,3in/8cm,4ft/1m,,,,,Universal,,40/case 20/cases per pallet
+ENP 20US38,3in/8cm,8ft/2m,,,,,Universal,,20/case 20/cases per pallet
+ENP 40HS34,3in/8cm,4ft/1m,,,,,Aggressive,,40/case 20/cases per pallet
+ENP 20HS38,3in/8cm,8ft/2m,,,,,Aggressive,,20/case 20/cases per pallet
+ENP 40 OPIL1010,,10/25,10/25,,,,Oil-Only,,40/case 20/cases per pallet
+ENP 16 OPIL1818,,18/46,18/46,,,,Oil-Only,,16/case 20/cases per pallet
+ENP 40 UPIL1010,,10/25,10/25,,,,Universal,,40/case 20/cases per pallet
+ENP 16 UPIL1818,,18/46,18/46,,,,Universal,,16/case 20/cases per pallet
+ENP 40 HPIL1010,,10/25,10/25,,,,Aggressive,,40/case 20/cases per pallet
+ENP 16 HPIL1818,,18/46,18/46,,,,Aggressive,,16/case 20/cases per pallet
+ENP OB510,5in/13cm,10ft/3m,,,,,Oil-Only,,4/case 20/cases per pallet
+ENP OB810,8in/20cm,10ft/3m,,,,,Oil-Only,,4/case 12/cases per pallet
+ENP 25 UDT,Fit 55-gallon drum,,,,Heavy,Sonic-Bonded,Universal,25x Their Weight,25/case 44/cases per pallet
+ENP 25 ODT,Fit 55-gallon drum,,,,Heavy,Sonic-Bonded,Oil-Only,25x Their Weight,25/case 44/cases per pallet
+ENP NOPB 100H,,270/689 Squared,,,Heavy,Bonded,Oil-Only,,100/bale
+ENP NOPB 100M,,270/689 Squared,,,Medium,Bonded,Oil-Only,,100/bale
+ENP NOPB 200S,,270/689 Squared,,,Single,Bonded,Oil-Only,,100/bale
+ENP NOPL 100H,,270/689 Squared,,,Heavy,Laminated,Oil-Only,,100/bale
+ENP NOPL 100M,,270/689 Squared,,,Medium,Laminated,Oil-Only,,100/bale
+ENP NUPB 100H,,270/689 Squared,,,Heavy,Bonded,Universal,,100/bale
+ENP NUPB 100M,,270/689 Squared,,,Medium,Bonded,Universal,,100/bale
+ENP NUPB 200S,,270/689 Squared,,,Single,Bonded,Universal,,100/bale
+ENP NORB 30150,,150ft/46m,28/71,,Heavy,Bonded,Oil-Only,,1/case
+ENP NURB 30150,,150ft/46m,28/71,,Heavy,Bonded,Universal,,1/case
+ENP NORB 15150,,150ft/46m,14/35.5,,Heavy,Bonded,Oil-Only,,1/case
+ENP NURB 15150,,150ft/46m,14/35.5,,Heavy,Bonded,Universal,,1/case
+ENP 20 NOPIL817,,8/20,17/43,,,,Oil-Only,,20/case
+ENP 20 NUPIL817,,8/20,17/43,,,,Universal,,20/case
+ENP 10 NOPIL1717,,17/46,17/46,,,,Oil-Only,,10/case
+ENP 10 NUPIL1717,,17/46,17/46,,,,Universal,,10/case
+ENP 40NOS34,3/8,4ft/1m,,,,,Oil-Only Sock,,40/case
+ENP 5NOS38,4/10,10ft/3m,,,,,Oil Only Sock Boom,,5/case
+ENP 40 NUS34,3/8,4ft/1m,,,,,Universal Sock,,40/case
+ENP 10 NUS38,3/8,8ft/2m,,,,,Universal Sock,,
+ENP 40 NHS34,3/8,4ft/1m,,,,,Aggressive Sock,,40/case
+ENP 10 NHS38,3/8,8ft/2m,,,,,Aggressive Sock,,10/case

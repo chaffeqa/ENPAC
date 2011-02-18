@@ -118,6 +118,7 @@ class Item < ActiveRecord::Base
 
   # updates the attributes for each node for this item
   def update_node
+    node = self.node ? self.node : self.build_node
     node.title =  self.name
     node.menu_name =  self.name
     (node.new_record? ? node.set_safe_shortcut(self.name.parameterize.html_safe, 0, 0) : node.set_safe_shortcut(self.name.parameterize.html_safe, node.id, 0))
