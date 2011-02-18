@@ -1,0 +1,14 @@
+development:
+  bucket: enpac-dev
+  access_key_id: AKIAIU7TWQD2RRIS4X6A
+  secret_access_key: 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
+
+test:
+  bucket: enpac-test
+  access_key_id: AKIAIU7TWQD2RRIS4X6A
+  secret_access_key: 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
+
+production:
+  bucket: enpac
+  access_key_id: AKIAIU7TWQD2RRIS4X6A
+  secret_access_key: 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

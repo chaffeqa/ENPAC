@@ -2,8 +2,9 @@ class ProductImage < ActiveRecord::Base
   belongs_to :item
 
   has_attached_file :image,
-    :url  => "/site_assets/items/:id/image_:style.:extension",
-    :path => ":rails_root/public/site_assets/items/:id/image_:style.:extension",
+    :storage => :s3,
+    :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+    :path => "/items/:id/image_:style.:extension",
     :styles => {:full_size => ['315x315>', :gif], :preview => ['75x75>', :gif], :thumb => ['165x233>', :gif] }
 
   validates_attachment_size :image, :less_than => 2.megabytes

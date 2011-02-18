@@ -12,8 +12,9 @@ class Category < ActiveRecord::Base
   accepts_nested_attributes_for :node
   
   has_attached_file :image,
-    :url  => "/site_assets/categories/:id/image_:style.:extension",
-    :path => ":rails_root/public/site_assets/categories/:id/image_:style.:extension",
+    :storage => :s3,
+    :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+    :path => "/categories/:id/image_:style.:extension",
     :styles => { :thumb => ['154x169>', :png] }
 
 #  has_attached_file :menuimage,
