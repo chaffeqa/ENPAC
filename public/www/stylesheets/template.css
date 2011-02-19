@@ -422,41 +422,31 @@ nav ul {
        
 
 #secPage #product {
-    float: left;
+    float: right;
     width: 697px;
+    font-family: helvetica, arial, sans-serif;
+    font-size: .9em;
 }
-    #secPage #product #image {
-        padding: 10px 0 10px 10px;
+    #secPage #product .left {
+        padding: 0 10px 10px;
         float: left;
-        width: 300px;
+        width: 310px;
     }
-    #secPage #product h2 {
-        font-family: helvetica, arial, sans-serif;
+    #secPage #product h3 {
         color: #000;
         font-size: 18px;
     }
-    #secPage #product #info {
-        padding: 10px;
-        float: right;
-        width: 325px;
+    #secPage #product h4 {
+        border: none;
+        font-size: 14px;
+        color: #000;
+        font-weight: bold;
     }
-        #secPage #product #info h1 {
-            border: none;
-            font-size: 14px;
-            color: #000;
-            font-family: helvetica, arial, sans-serif;
-            font-weight: bold;
-        }
-        #secPage #product #info p {
-            font-size: 12px;
-            font-family: helvetica, arial, sans-serif;
-        }
-    #secPage #product #documents {
-        padding: 10px;
-        clear: left;
-        float: left;
-        width: 300px;
+    #secPage #product #item-part-number {
+	font-weight: bold;
     }
+    #secPage #product .item-dimensions .attr-title { font-weight: bold; padding-right: 5px; display: block;}
+    #secPage #product .item-dimensions .attr-title:after { font-weight: bold; padding-right: 5px; content: ":";}
         #secPage #product #documents #top {
             height: 14px;
             background: url(../template/right-bg-top.png) no-repeat;

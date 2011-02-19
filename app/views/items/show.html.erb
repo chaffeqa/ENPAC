@@ -18,7 +18,8 @@
 </section>
 
 <article class="item">
-  <div class="product">
+  <div id="product">
+    <h3 id="item-name"><%= @item.name %></h3>
 
     <div class="left">
       <%= link_to image_tag(@item.main_image ? @item.main_image.full_size_image : "no_image_full_size.gif"), shortcut_path(@node.shortcut) %>
@@ -33,14 +34,11 @@
       <% end %>
     </div>
 
-    <div class="right">
-      <h3 id="item-name"><%= @item.name %></h3>
-      <p id="item-short-description"><%=raw @item.short_description %></p>
-      <p id="item-long-description"><%=raw @item.long_description %></p>
-      <p id="item-cost"><%= number_to_currency(@item.cost) %></p>
-      <p id="item-regulations"><%= @item.part_number%></p>
-      <p id="item-part-number"><%= @item.regulations%></p>
-      <% if @item.for_sale %>
+    <h4 id="item-short-description"><%=raw @item.short_description %></h4>
+    <p id="item-long-description"><%=raw @item.long_description %></p>
+    <p id="item-part-number">Part #: <%= @item.part_number%></p>
+    <p id="item-regulations"><%= @item.regulations%></p>
+    <% if @item.for_sale %>
   <%#= link_to 'Add To Cart', "https://KERN-Coin.foxycart.com/cart?quantity_max=1&name=#{@item.name}&price=#{@item.cost}&item-id=#{@item.name}", :class => 'foxycart add-to-cart btn large yellow' %>
         <p><strong>To order, call (859)-269-1614</strong></p>
       <% else %>
@@ -74,7 +72,6 @@
           <% end %>
         <% end %>
       </div>
-    </div>
 
   </div>
 </article>
