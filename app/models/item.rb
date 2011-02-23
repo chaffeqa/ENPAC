@@ -138,8 +138,8 @@ class Item < ActiveRecord::Base
     self.sorbent_dimension.destroy if sorbent_dimension and dimension_type != 'Sorbent'
     self.standard_dimension.destroy if standard_dimension and dimension_type != 'Standard'
   end
-  
-  
+
+
 
 
   ####################################################################
@@ -149,7 +149,7 @@ class Item < ActiveRecord::Base
   scope :displayed, where(:display => true)
   scope :scope_display, lambda {|display| where(:display => display)}
   scope :scope_for_sale, lambda {|for_sale| where(:for_sale => for_sale)}
-  scope :scope_name, lambda {|item_id| where('name LIKE ?', '%'+name+'%')}
+  scope :scope_name, lambda {|name| where('name LIKE ?', '%'+name+'%')}
   scope :scope_description, lambda {|desc| where('short_description LIKE ? OR long_description LIKE ?', "%"+desc+"%", "%"+desc+"%")}
   scope :scope_part_number, lambda {|part_number| where('part_number LIKE ?', "%"+part_number+"%")}
   scope :scope_category, lambda {|title| includes(:categories).where('categories.title LIKE ?', "%"+title+"%")}
@@ -184,6 +184,7 @@ class Item < ActiveRecord::Base
     return (MEASUREMENT_PAIRS[column_name].split('-')[0]) if metric
     MEASUREMENT_PAIRS[column_name].split('-')[1]
   end
-  
+
 
 end
+

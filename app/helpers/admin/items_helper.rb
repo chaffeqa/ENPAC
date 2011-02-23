@@ -2,7 +2,7 @@ module Admin::ItemsHelper
   def parsed_params
     new_params = {}
     new_params[:name]=params[:name] unless params[:name].blank?
-    new_params[:item_id]=params[:item_id] unless params[:item_id].blank?
+    new_params[:part_number]=params[:part_number] unless params[:part_number].blank?
     new_params[:displayed]=params[:displayed] unless params[:displayed].blank?
     new_params[:for_sale]=params[:for_sale] unless params[:for_sale].blank?
     new_params[:min_price]=params[:min_price] unless params[:min_price].blank?
@@ -15,7 +15,7 @@ module Admin::ItemsHelper
   def full_params
     new_params = {}
     new_params[:name]=params[:name] unless params[:name].blank?
-    new_params[:item_id]=params[:item_id] unless params[:item_id].blank?
+    new_params[:part_number]=params[:part_number] unless params[:part_number].blank?
     new_params[:displayed]=params[:displayed] unless params[:displayed].blank?
     new_params[:for_sale]=params[:for_sale] unless params[:for_sale].blank?
     new_params[:min_price]=params[:min_price] unless params[:min_price].blank?
@@ -27,3 +27,4 @@ module Admin::ItemsHelper
     new_params
   end
 end
+
