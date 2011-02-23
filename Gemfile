@@ -11,7 +11,7 @@ gem 'ckeditor', '3.4.3.pre'
 gem 'paperclip'
 
 gem 'simple-navigation'#, :git => 'git://github.com/andi/simple-navigation.git'
-  
+
 gem 'devise'
 
 gem 'acts_as_tree'#, :git => 'git://github.com/parasew/acts_as_tree.git'
@@ -29,3 +29,4 @@ gem 'mail'#, :git => 'https://github.com/mikel/mail.git'
 gem 'aws-s3'
 
 gem 'fastercsv'
+

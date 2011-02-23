@@ -2,14 +2,14 @@ class Admin::ItemsController < ApplicationController
   helper_method :sort_column, :sort_direction
   layout 'admin'
   before_filter :check_admin
-  
+
   def index
     @per_page = params[:per_page] || 10
     @items = Item.scoped.includes(:categories)
     @items = @items.scope_display(params[:displayed]) unless params[:displayed].blank?
     @items = @items.scope_for_sale(params[:for_sale]) unless params[:for_sale].blank?
     @items = @items.scope_category(params[:category]) unless params[:category].blank?
-    @items = @items.scope_part_number(params[:scope_part_number]) unless params[:scope_part_number].blank?
+    @items = @items.scope_part_number(params[:part_number]) unless params[:part_number].blank?
     @items = @items.scope_name(params[:name]) unless params[:name].blank?
     @items = @items.scope_max_price(params[:max_price]) unless params[:max_price].blank?
     @items = @items.scope_min_price(params[:min_price]) unless params[:min_price].blank?
@@ -40,7 +40,7 @@ class Admin::ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update_attributes(params[:item])
-      redirect_to(shortcut_path(@item.node.shortcut), :notice => 'Item was successfully updated.')
+      redirect_to(admin_items_url(), :notice => 'Item was successfully updated.')
     else
       render :action => "edit"
     end
@@ -107,3 +107,4 @@ class Admin::ItemsController < ApplicationController
   end
 
 end
+
