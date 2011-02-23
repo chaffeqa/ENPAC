@@ -167,7 +167,7 @@ module ApplicationHelper
 
   # Returns the HTML for displaying an Item column name
   def item_tag_for( model_name, column_name, value=nil)
-    return '' if value.nil?
+    return '' if value.blank?
     return content_tag(:p, :id => model_name + '-' + column_name) do
       raw(
         content_tag(:span, column_name.humanize.capitalize, :class => 'attr-title') +

@@ -295,7 +295,8 @@ nav ul {
     text-transform: uppercase;
 }
 
-#secPage #products .product {
+#secPage #products ul.itemList li {
+    background: none;
     padding: 8px;
     float: left;
     width: 154px;
@@ -318,12 +319,6 @@ nav ul {
     margin: 8px;
 }
 
-
-#secPage #products .row {
-    min-height: 200px;
-    height: auto !important;
-    height: 200px;
-}
 #secPage #productMenu {
     float: left;
     width: 220px;
