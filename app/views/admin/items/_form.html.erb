@@ -58,8 +58,8 @@
     </div>
     <div class="field">
       <%= f.label :cost, "Price" %>
-      <% val = (@item.cost > 0) ? @item.cost : "0.00"  %>
-      $ <%= f.text_field :cost, :class => "third", :title => val, :value => val %>
+      <% val = (!@item.cost.nil? and @item.cost > 0) ? @item.cost : "0.00"  %>
+      $ <%= f.text_field :cost, :class => "third", :value => val  %>
     </div>
     <div class="field">
       <%= f.label :for_sale, "Item Options" %>
@@ -172,3 +172,4 @@
     <%= render :partial => 'admin/submit', :locals => {:f => f, :type => 'Item'} %>
   </fieldset>
 <% end %>
+
