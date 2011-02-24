@@ -300,9 +300,7 @@ nav ul {
     padding: 8px;
     float: left;
     width: 154px;
-    min-height: 200px;
-    height: auto !important;
-    height: 200px;
+    height: 300px;
 }
 #secPage #products {
     width: 700px;
