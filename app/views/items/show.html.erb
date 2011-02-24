@@ -45,9 +45,9 @@
 
     <div class="item-details">
       <h4 id="item-short-description"><%=raw @item.short_description %></h4>
-      <p id="item-long-description"><%=raw @item.long_description.gsub("\r\n","<br/>") %></p>
+      <p id="item-long-description"><%=raw @item.long_description.blank? ? "" : @item.long_description.gsub("\r\n","<br/>") %></p>
       <p id="item-part-number">Part #: <%= @item.part_number%></p>
-      <p id="item-regulations"><strong>Regulations:</strong><br /><%=raw @item.regulations.gsub("\r\n","<br/>") %></p>
+      <p id="item-regulations"><strong>Regulations:</strong><br /><%=raw @item.regulations.blank? ? "" : @item.regulations.gsub("\r\n","<br/>") %></p>
 
       <strong>Product Options:</strong>
       <% @item.product_options.each do |product_option| %>
