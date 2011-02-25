@@ -297,11 +297,12 @@ nav ul {
 
 #secPage #products ul.itemList li {
     background: none;
-    padding: 8px;
+    padding: 16px;
     float: left;
     width: 154px;
     height: 300px;
 }
+
 #secPage #products {
     width: 700px;
     float: right;
