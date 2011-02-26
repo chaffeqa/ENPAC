@@ -24,6 +24,20 @@ namespace :db do
       is_first_line =  false
     end
 
+
+    puts "WARNING! - Fixing Flexibles Dimensions..."
+    sorbents = FlexibleDimension.all
+    puts sorbents.count
+    sorbents.each do |sorbent|
+      sorbent.item.update_attribute('dimension_type', 'Flexible')
+    end
+
+    puts "...Renaming 'Flexibles (No Dimensions) to N/A'"
+    to_rename = Item.where(:dimension_type => 'Flexibles (No Dimensions)')
+    to_rename.each do |item|
+      item.update_attribute('dimension_type', 'N/A')
+    end
+
     puts "Finished Script!"
   end
 end

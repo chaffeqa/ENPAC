@@ -22,6 +22,14 @@ namespace :db do
       is_first_line =  false
     end
 
+
+    puts "WARNING! - Fixing Pool Dimensions..."
+    sorbents = PoolDimension.all
+    puts sorbents.count
+    sorbents.each do |sorbent|
+      sorbent.item.update_attribute('dimension_type', 'Pool')
+    end
+
     puts "Finished Script!"
   end
 end

@@ -33,6 +33,14 @@ namespace :db do
       is_first_line =  false
     end
 
+
+    puts "WARNING! - Fixing Adjustable Dimensions..."
+    sorbents = AdjustableDimension.all
+    puts sorbents.count
+    sorbents.each do |sorbent|
+      sorbent.item.update_attribute('dimension_type', 'Adjustable')
+    end
+
     puts "Finished Script!"
   end
 end
