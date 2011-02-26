@@ -42,7 +42,7 @@ class Category < ActiveRecord::Base
   # Scopes
   ###########
 
-  scope :title_like, lambda {|title| where(' UPPER(title) = UPPER(?)', title)}
+  scope :title_like, lambda {|title| where('UPPER(title) LIKE UPPER(?)', title)}
 
   # Returns true if this category has an item
   def has_items?
