@@ -103,11 +103,11 @@ class Item < ActiveRecord::Base
   scope :displayed, where(:display => true)
   scope :scope_display, lambda {|display| where(:display => display)}
   scope :scope_for_sale, lambda {|for_sale| where(:for_sale => for_sale)}
-  scope :scope_name, lambda {|name| where('name LIKE ?', '%'+name+'%')}
-  scope :scope_description, lambda {|desc| where('short_description LIKE ? OR long_description LIKE ?', "%"+desc+"%", "%"+desc+"%")}
-  scope :scope_part_number, lambda {|part_number| where('part_number LIKE ?', "%"+part_number+"%")}
-  scope :scope_category, lambda {|title| includes(:categories).where('categories.title LIKE ?', "%"+title+"%")}
-  scope :scope_text, lambda {|text| where('short_description LIKE ? OR long_description LIKE ? OR name LIKE ? OR part_number LIKE ?', "%"+text+"%", "%"+text+"%", "%"+text+"%", "%"+text+"%")}
+  scope :scope_name, lambda {|name| where(' UPPER(name) = UPPER(?)', '%'+name+'%')}
+  scope :scope_description, lambda {|desc| where('UPPER(short_description ) = UPPER(?) OR UPPER(long_description ) = UPPER(?)', "%"+desc+"%", "%"+desc+"%")}
+  scope :scope_part_number, lambda {|part_number| where('UPPER(part_number ) = UPPER(?)', "%"+part_number+"%")}
+  scope :scope_category, lambda {|title| includes(:categories).where('UPPER(categories.title ) = UPPER(?)', "%"+title+"%")}
+  scope :scope_text, lambda {|text| where('UPPER(short_description ) = UPPER(?) OR UPPER(long_description ) = UPPER(?) OR UPPER(name ) = UPPER(?) OR UPPER(part_number ) = UPPER(?)', "%"+text+"%", "%"+text+"%", "%"+text+"%", "%"+text+"%")}
   scope :scope_min_price, lambda {|price| where('cost >= ?', price)}
   scope :scope_max_price, lambda {|price| where('cost <= ?', price)}
 

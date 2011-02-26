@@ -12,7 +12,6 @@ namespace :db do
     is_first_line = true
     FasterCSV.foreach("db/csv_files/enpac_sorbents.csv", :encoding => 'UTF-8') do |row|
       unless is_first_line or row.to_s.blank?
-        puts row.to_s
         d = row[1].to_s[/^[.\d]*\/[.\d]*$/].blank? ? row[1].to_s : "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm."
         l = row[2].to_s[/^[.\d]*\/[.\d]*$/].blank? ? row[2].to_s : "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm."
         w = row[3].to_s[/^[.\d]*\/[.\d]*$/].blank? ? row[3].to_s : "#{row[3].to_s.split('/')[0]} in. / #{row[3].to_s.split('/')[1]} cm."
