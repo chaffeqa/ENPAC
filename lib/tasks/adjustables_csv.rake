@@ -4,6 +4,10 @@ namespace :db do
   task :load_adjustables_data  => :environment do
     require 'fastercsv'
 
+    puts "Deleting old Adjustable Dimensions..."
+    ad = AdjustableDimension.all
+    ad.each {|a| a.destroy }
+
     puts "Creating Adjustable Dimensions..."
     is_first_line = true
     FasterCSV.foreach("db/csv_files/enpac_adjustables.csv") do |row|

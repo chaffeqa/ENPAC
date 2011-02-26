@@ -4,6 +4,10 @@ namespace :db do
   task :load_standards_data  => :environment do
     require 'fastercsv'
 
+    puts "Deleting old Standard Dimensions..."
+    ad = StandardDimension.all
+    ad.each {|a| a.destroy }
+
     puts "Creating Standard Dimensions..."
     is_first_line = true
     FasterCSV.foreach("db/csv_files/enpac_standards.csv") do |row|

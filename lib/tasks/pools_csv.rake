@@ -4,6 +4,10 @@ namespace :db do
   task :load_pools_data  => :environment do
     require 'fastercsv'
 
+    puts "Deleting old Pool Dimensions..."
+    ad = PoolDimension.all
+    ad.each {|a| a.destroy }
+
     puts "Creating Pool Dimensions..."
     is_first_line = true
     FasterCSV.foreach("db/csv_files/enpac_pools.csv") do |row|
