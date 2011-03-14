@@ -34,7 +34,7 @@ def for_all_attachments
   puts " Done."
 end
 
-namespace :paperclip do
+namespace :paperclip_fixed do
   desc "Refreshes both metadata and thumbnails."
   task :refresh => ["paperclip:refresh:metadata", "paperclip:refresh:thumbnails"]
 
@@ -78,3 +78,4 @@ namespace :paperclip do
     end
   end
 end
+
