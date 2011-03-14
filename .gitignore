@@ -5,4 +5,5 @@ log/*.log
 tmp/**
 public/ckeditor_assets
 public/site_assets/**
+nbproject
 
