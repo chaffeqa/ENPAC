@@ -5,7 +5,7 @@ class ProductImage < ActiveRecord::Base
     :storage => :s3,
     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
     :path => "/items/:id/image_:style.:extension",
-    :styles => {:full_size => ['315x315>', :gif], :preview => ['75x75>', :gif], :thumb => ['165x233>', :gif] }
+    :styles => {:full_size => ['315x315>', :png], :preview => ['75x75>', :png], :thumb => ['165x233>', :png] }
 
   validates_attachment_size :image, :less_than => 2.megabytes
   validates_attachment_content_type :image, :content_type => [ 'image/jpeg', 'image/png', 'image/gif', 'image/x-png', 'image/pjpeg' ]
@@ -33,3 +33,4 @@ class ProductImage < ActiveRecord::Base
 
 
 end
+
