@@ -1,7 +1,7 @@
 ENPAC::Application.routes.draw do
 
   devise_for :admins
-  
+
 #  resources :elements, :only => [:destroy] do
 #    post :move_up, :on => :member
 #    post :move_down, :on => :member
@@ -44,20 +44,22 @@ ENPAC::Application.routes.draw do
 
 
 
-  match 'inventory' => 'inventory#search', :as => :inventory
-  match 'items' => 'inventory#search' # Since we don't want to allow /items to call item#show
+  match 'inventory' => 'inventory#categories', :as => :inventory
+  match 'inventory/search' => 'inventory#search', :as => :search
+  match 'items' => 'inventory#categories' # Since we don't want to allow /items to call item#show
   match "error" => 'shortcut#error', :as => :error
 #  match ':shortcut(/:year(/:month))' => 'shortcut#route', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
-  
+
   #  match '/admin/:controller/:action(/:id)'
   #  match '/:controller/:action(/:id)'
   match ':shortcut' => 'shortcut#route', :as => :shortcut
-  match ':shortcut/:page_area/new_element' => 'dynamic_pages#new_element', :as => :new_element
+#  match ':shortcut/:page_area/new_element' => 'dynamic_pages#new_element', :as => :new_element
 
   constraints(Subdomain) do
-    match '/' => 'inventory#search' # TODO change back to sites#show
+    match '/' => 'inventory#categories' # TODO change back to sites#show
   end
 
-  root :to => 'inventory#search'
-  
+  root :to => 'inventory#categories'
+
 end
+

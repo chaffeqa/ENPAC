@@ -2,16 +2,27 @@ class InventoryController < ApplicationController
   helper_method :sort_column, :sort_direction
   before_filter :get_node
 
+  def categories
+  end
+
 
   def search
     #    @category = Category.find(params[:category_id]) unless params[:category_id].blank?
-    
-    @items = Item.get_for_sale.displayed
-    @items = @items.scope_category(params[:category]) unless params[:category].blank?
-    @items = @items.scope_text(params[:searchText]) unless params[:searchText].blank?
-    @items = @items.scope_min_price(low_cost).scope_max_price(high_cost) unless params[:cost_range].blank?
-    @items = @items.order(sort_column + " " + sort_direction)
-    @items = @items.paginate :page => params[:page]
+
+    # NOTE: old search
+#    @items = Item.get_for_sale.displayed
+#    @items = @items.scope_category(params[:category]) unless params[:category].blank?
+#    @items = @items.scope_text(params[:searchText]) unless params[:searchText].blank?
+#    @items = @items.scope_min_price(low_cost).scope_max_price(high_cost) unless params[:cost_range].blank?
+#    @items = @items.order(sort_column + " " + sort_direction)
+#    @items = @items.paginate :page => params[:page]
+
+    # New Hotness
+    @items_search = Sunspot.search(Item) do
+      keywords params['searchText']
+      paginate(:page => params[:page], :per_page => params[:per_page] || 10)
+    end
+
   end
 
   private
@@ -42,5 +53,6 @@ class InventoryController < ApplicationController
   end
 
 
- 
+
 end
+

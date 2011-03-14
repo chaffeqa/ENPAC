@@ -1,5 +1,18 @@
 class Item < ActiveRecord::Base
 
+  ####################################################################
+  # Search Keywords for Sunspot
+  ###########
+
+  searchable do
+    text :name, :default_boost => 2
+    text :part_number, :default_boost => 2
+    text :short_description
+    text :long_description
+    text :regulations
+  end
+
+
   DIMENSION_TYPES = [
     'Adjustable',
     'Circular',

@@ -1,0 +1,21 @@
+<%= content_for :breadcrumb do %>
+  <%= render 'partials/breadcrumb' %>
+<% end %>
+<% content_for :body_class do %>oneColumn<% end %>
+<% content_for :page_title do %>Products<% end %>
+
+<h1 class="title">Products</h1>
+<div id="products" class="bigger">
+  <% @node.children.each do |child| %>
+    <% if child.page_type == "Category" %>
+      <%= link_to (image_tag child.category.thumbnail_image, :alt => child.title), child.shortcut %>
+    <% end %>
+  <% end %>
+</div>
+
+
+<!-- Content_for components to insert into static_page -->
+<%= content_for :subColumn do %>
+<% end %>
+<!-- End -->
+
