@@ -36,7 +36,7 @@ end
 
 namespace :paperclip_fixed do
   desc "Refreshes both metadata and thumbnails."
-  task :refresh => ["paperclip:refresh:metadata", "paperclip:refresh:thumbnails"]
+  task :refresh => ["paperclip_fixed:refresh:metadata", "paperclip_fixed:refresh:thumbnails"]
 
   namespace :refresh do
     desc "Regenerates thumbnails for a given CLASS (and optional ATTACHMENT)."
