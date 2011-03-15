@@ -5,12 +5,12 @@ class Category < ActiveRecord::Base
   ###########
   has_many :item_categories, :dependent => :destroy
   has_many :items, :through => :item_categories
-  
-  
+
+
   # Associated Node attributes
   has_one :node, :as => :page, :dependent => :destroy
   accepts_nested_attributes_for :node
-  
+
   has_attached_file :image,
     :storage => :s3,
     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
@@ -42,7 +42,7 @@ class Category < ActiveRecord::Base
   # Scopes
   ###########
 
-  scope :title_like, lambda {|title| where('title LIKE ?', title)}
+  scope :title_like, lambda {|title| where('UPPER(title) LIKE UPPER(?)', title)}
 
   # Returns true if this category has an item
   def has_items?
@@ -63,3 +63,4 @@ class Category < ActiveRecord::Base
   end
 
 end
+

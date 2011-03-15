@@ -4,6 +4,10 @@ namespace :db do
   task :load_circulars_data  => :environment do
     require 'fastercsv'
 
+    puts "Deleting old Circular Dimensions..."
+    ad = CircularDimension.all
+    ad.each {|a| a.destroy }
+
     puts "Creating Circular Dimensions..."
     is_first_line = true
     FasterCSV.foreach("db/csv_files/enpac_circulars.csv") do |row|

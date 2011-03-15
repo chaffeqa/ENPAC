@@ -34,24 +34,44 @@
       <% end %>
     </div>
 
-    <h4 id="item-short-description"><%=raw @item.short_description %></h4>
-    <p id="item-long-description"><%=raw @item.long_description %></p>
-    <p id="item-part-number">Part #: <%= @item.part_number%></p>
-    <p id="item-regulations"><%= @item.regulations%></p>
-    <% if @item.for_sale %>
-  <%#= link_to 'Add To Cart', "https://KERN-Coin.foxycart.com/cart?quantity_max=1&name=#{@item.name}&price=#{@item.cost}&item-id=#{@item.name}", :class => 'foxycart add-to-cart btn large yellow' %>
-        <p><strong>To order, call (859)-269-1614</strong></p>
-      <% else %>
-        <p><strong>Out of stock</strong></p>
-      <% end %>
-      <div class="item-dimensions">
-        <%= item_tag_for('item','weight',@item.weight) %>
-        <%= item_tag_for('item','handling_capacity',@item.handling_capacity) %>
-        <%= item_tag_for('item','sump_capacity',@item.sump_capacity) %>
-        <%= item_tag_for('item','length',@item.p_length) %>
-        <%= item_tag_for('item','height',@item.p_height) %>
-        <%= item_tag_for('item','width',@item.p_width) %>
+<!--
+    <%# if @item.for_sale %>
+      <%#= link_to 'Add To Cart', "https://KERN-Coin.foxycart.com/cart?quantity_max=1&name=#{@item.name}&price=#{@item.cost}&item-id=#{@item.name}", :class => 'foxycart add-to-cart btn large yellow' %>
+      <p><strong>To order, call (859)-269-1614</strong></p>
+    <%# else %>
+      <p><strong>Out of stock</strong></p>
+    <%# end %>
+-->
 
+    <div class="item-details">
+      <h4 id="item-short-description"><%=raw @item.short_description %></h4>
+      <p id="item-long-description"><%=raw @item.long_description.blank? ? "" : @item.long_description.gsub("\r\n","<br/>") %></p>
+      <p id="item-part-number">Part #: <%= @item.part_number%></p>
+      <p id="item-regulations"><strong>Regulations:</strong><br /><%=raw @item.regulations.blank? ? "" : @item.regulations.gsub("\r\n","<br/>") %></p>
+
+      <strong>Product Options:</strong>
+      <% @item.product_options.each do |product_option| %>
+        <%= content_tag_for :div, product_option do %>
+          <p>
+	    <%= link_to product_option.option_item.name, shortcut_path(product_option.option_item.node.shortcut) %><br />
+            <%= product_option.description %>
+	  </p>
+        <% end %>
+      <% end %>
+    </div>
+
+    <hr />
+
+    <div class="item-dimensions">
+      <%= item_tag_for('item','weight',@item.weight) %>
+      <%= item_tag_for('item','handling_capacity',@item.handling_capacity) %>
+      <%= item_tag_for('item','sump_capacity',@item.sump_capacity) %>
+      <%= item_tag_for('item','length',@item.p_length) %>
+      <%= item_tag_for('item','height',@item.p_height) %>
+      <%= item_tag_for('item','width',@item.p_width) %>
+    </div>
+
+      <div class="specific-dimensions">
         <!-- Specific Dimensions -->
         <%= render :partial => 'items/adjustable_dimension', :locals => {:dimension => @item.adjustable_dimension} if @item.dimension_type == 'Adjustable' %>
         <%= render :partial => 'items/circular_dimension', :locals => {:dimension => @item.circular_dimension} if @item.dimension_type == 'Circular' %>
@@ -62,15 +82,6 @@
         <%= render :partial => 'items/pool_dimension', :locals => {:dimension => @item.pool_dimension} if @item.dimension_type == 'Pool' %>
         <%= render :partial => 'items/sorbent_dimension', :locals => {:dimension => @item.sorbent_dimension} if @item.dimension_type == 'Sorbent' %>
         <%= render :partial => 'items/standard_dimension', :locals => {:dimension => @item.standard_dimension} if @item.dimension_type == 'Standard' %>
-
-      </div>
-
-      <div class="item-options">
-        <% @item.product_options.each do |product_option| %>
-          <%= content_tag_for :div, product_option do %>
-            <%= product_option.description || 'Item Option' %> (Part #: <%=link_to product_option.option_item.part_number, shortcut_path(product_option.option_item.node.shortcut) %>)
-          <% end %>
-        <% end %>
       </div>
 
   </div>

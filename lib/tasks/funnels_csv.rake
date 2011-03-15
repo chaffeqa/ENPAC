@@ -4,6 +4,10 @@ namespace :db do
   task :load_funnels_data  => :environment do
     require 'fastercsv'
 
+    puts "Deleting old Funnel Dimensions..."
+    ad = FunnelDimension.all
+    ad.each {|a| a.destroy }
+
     puts "Creating Funnel Dimensions"
     is_first_line = true
     FasterCSV.foreach("db/csv_files/enpac_funnels.csv") do |row|
@@ -25,6 +29,14 @@ namespace :db do
         )
       end
       is_first_line =  false
+    end
+
+
+    puts "WARNING! - Fixing Funnels Dimensions..."
+    sorbents = FunnelDimension.all
+    puts sorbents.count
+    sorbents.each do |sorbent|
+      sorbent.item.update_attribute('dimension_type', 'Funnel')
     end
 
     puts "Finished Script!"

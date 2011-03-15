@@ -13,52 +13,6 @@ class Item < ActiveRecord::Base
     'N/A'
   ]
 
-  MEASUREMENT_PAIRS = {
-     "weight" => "kg-lbs",
-     "handling_capacity" => "kg-lbs",
-     "sump_capacity" => "l-gal",
-     "p_length" => "cm-in",
-     "p_height" => "cm-in",
-     "p_width" => "cm-in",
-     "round_max_diameter" => "cm-in",
-     "round_min_diameter" => "cm-in",
-     "rectangular_max_length" => "cm-in",
-     "rectangular_min_length" => "cm-in",
-     "rectangular_max_width" => "cm-in",
-     "rectangular_min_width" => "cm-in",
-     "overflow_rate" => "lpm-gpm",
-     "external_diameter" => "cm-in",
-     "internal_diameter" => "cm-in",
-     "external_height" => "cm-in",
-     "internal_height" => "cm-in",
-     "external_width" => "cm-in",
-     "internal_width" => "cm-in",
-     "external_length" => "cm-in",
-     "internal_length" => "cm-in",
-     "door_opening_width" => "cm-in",
-     "door_opening_height" => "cm-in",
-     "top_diameter_external" => "cm-in",
-     "top_diameter_internal" => "cm-in",
-     "bottem_diameter_external" => "cm-in",
-     "bottem_diameter_internal" => "cm-in",
-     "height_internal" => "cm-in",
-     "height_external" => "cm-in",
-     "top_external_diameter" => "cm-in",
-     "top_internal_diameter" => "cm-in",
-     "bottem_internal_diameter" => "cm-in",
-     "bottem_external_diameter" => "cm-in",
-     "top_diameter" => "cm-in",
-     "bottem_diameter" => "cm-in",
-     "height" => "cm-in",
-     "diameter" => "cm-in",
-     "length" => "cm-in",
-     "width" => "cm-in",
-     "absorbs" => "l-gal",
-     "with_handle_length" => "cm-in",
-     "with_handle_width" => "cm-in",
-     "with_handle_height" => "cm-in"
-  }
-
 
 
 
@@ -149,11 +103,11 @@ class Item < ActiveRecord::Base
   scope :displayed, where(:display => true)
   scope :scope_display, lambda {|display| where(:display => display)}
   scope :scope_for_sale, lambda {|for_sale| where(:for_sale => for_sale)}
-  scope :scope_name, lambda {|name| where('name LIKE ?', '%'+name+'%')}
-  scope :scope_description, lambda {|desc| where('short_description LIKE ? OR long_description LIKE ?', "%"+desc+"%", "%"+desc+"%")}
-  scope :scope_part_number, lambda {|part_number| where('part_number LIKE ?', "%"+part_number+"%")}
-  scope :scope_category, lambda {|title| includes(:categories).where('categories.title LIKE ?', "%"+title+"%")}
-  scope :scope_text, lambda {|text| where('short_description LIKE ? OR long_description LIKE ? OR name LIKE ? OR part_number LIKE ?', "%"+text+"%", "%"+text+"%", "%"+text+"%", "%"+text+"%")}
+  scope :scope_name, lambda {|name| where('UPPER(name) LIKE UPPER(?)', '%'+name+'%')}
+  scope :scope_description, lambda {|desc| where('UPPER(short_description) LIKE UPPER(?) OR UPPER(long_description) LIKE UPPER(?)', "%"+desc+"%", "%"+desc+"%")}
+  scope :scope_part_number, lambda {|part_number| where('UPPER(part_number) LIKE UPPER(?)', "%"+part_number+"%")}
+  scope :scope_category, lambda {|title| includes(:categories).where('UPPER(categories.title) LIKE UPPER(?)', "%"+title+"%")}
+  scope :scope_text, lambda {|text| where('UPPER(short_description) LIKE UPPER(?) OR UPPER(long_description) LIKE UPPER(?) OR UPPER(name) LIKE UPPER(?) OR UPPER(part_number) LIKE UPPER(?)', "%"+text+"%", "%"+text+"%", "%"+text+"%", "%"+text+"%")}
   scope :scope_min_price, lambda {|price| where('cost >= ?', price)}
   scope :scope_max_price, lambda {|price| where('cost <= ?', price)}
 
@@ -184,6 +138,55 @@ class Item < ActiveRecord::Base
     return (MEASUREMENT_PAIRS[column_name].split('-')[0]) if metric
     MEASUREMENT_PAIRS[column_name].split('-')[1]
   end
+
+
+
+
+  MEASUREMENT_PAIRS = {
+     "weight" => "kg-lbs",
+     "handling_capacity" => "kg-lbs",
+     "sump_capacity" => "l-gal",
+     "p_length" => "cm-in",
+     "p_height" => "cm-in",
+     "p_width" => "cm-in",
+     "round_max_diameter" => "cm-in",
+     "round_min_diameter" => "cm-in",
+     "rectangular_max_length" => "cm-in",
+     "rectangular_min_length" => "cm-in",
+     "rectangular_max_width" => "cm-in",
+     "rectangular_min_width" => "cm-in",
+     "overflow_rate" => "lpm-gpm",
+     "external_diameter" => "cm-in",
+     "internal_diameter" => "cm-in",
+     "external_height" => "cm-in",
+     "internal_height" => "cm-in",
+     "external_width" => "cm-in",
+     "internal_width" => "cm-in",
+     "external_length" => "cm-in",
+     "internal_length" => "cm-in",
+     "door_opening_width" => "cm-in",
+     "door_opening_height" => "cm-in",
+     "top_diameter_external" => "cm-in",
+     "top_diameter_internal" => "cm-in",
+     "bottem_diameter_external" => "cm-in",
+     "bottem_diameter_internal" => "cm-in",
+     "height_internal" => "cm-in",
+     "height_external" => "cm-in",
+     "top_external_diameter" => "cm-in",
+     "top_internal_diameter" => "cm-in",
+     "bottem_internal_diameter" => "cm-in",
+     "bottem_external_diameter" => "cm-in",
+     "top_diameter" => "cm-in",
+     "bottem_diameter" => "cm-in",
+     "height" => "cm-in",
+     "diameter" => "cm-in",
+     "length" => "cm-in",
+     "width" => "cm-in",
+     "absorbs" => "l-gal",
+     "with_handle_length" => "cm-in",
+     "with_handle_width" => "cm-in",
+     "with_handle_height" => "cm-in"
+  }
 
 
 end

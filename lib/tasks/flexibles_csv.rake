@@ -4,6 +4,10 @@ namespace :db do
   task :load_flexibles_data  => :environment do
     require 'fastercsv'
 
+    puts "Deleting old Flexible Dimensions..."
+    ad = FlexibleDimension.all
+    ad.each {|a| a.destroy }
+
     puts "Creating Flexible Dimensions..."
     is_first_line = true
     FasterCSV.foreach("db/csv_files/enpac_flexibles.csv") do |row|
@@ -18,6 +22,20 @@ namespace :db do
         )
       end
       is_first_line =  false
+    end
+
+
+    puts "WARNING! - Fixing Flexibles Dimensions..."
+    sorbents = FlexibleDimension.all
+    puts sorbents.count
+    sorbents.each do |sorbent|
+      sorbent.item.update_attribute('dimension_type', 'Flexible')
+    end
+
+    puts "...Renaming 'Flexibles (No Dimensions) to N/A'"
+    to_rename = Item.where(:dimension_type => 'Flexibles (No Dimensions)')
+    to_rename.each do |item|
+      item.update_attribute('dimension_type', 'N/A')
     end
 
     puts "Finished Script!"

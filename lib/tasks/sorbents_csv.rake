@@ -4,11 +4,14 @@ namespace :db do
   task :load_sorbents_data  => :environment do
     require 'fastercsv'
 
+    puts "Deleting old Sorbent Dimensions..."
+    ad = SorbentDimension.all
+    ad.each {|a| a.destroy }
+
     puts "Creating Sorbent Dimensions..."
     is_first_line = true
-    FasterCSV.foreach("db/csv_files/enpac_sorbents.csv") do |row|
+    FasterCSV.foreach("db/csv_files/enpac_sorbents.csv", :encoding => 'UTF-8') do |row|
       unless is_first_line or row.to_s.blank?
-#        puts "creating sorbent dimension..."
         d = row[1].to_s[/^[.\d]*\/[.\d]*$/].blank? ? row[1].to_s : "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm."
         l = row[2].to_s[/^[.\d]*\/[.\d]*$/].blank? ? row[2].to_s : "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm."
         w = row[3].to_s[/^[.\d]*\/[.\d]*$/].blank? ? row[3].to_s : "#{row[3].to_s.split('/')[0]} in. / #{row[3].to_s.split('/')[1]} cm."
@@ -34,7 +37,7 @@ namespace :db do
     sorbents = SorbentDimension.all
     puts sorbents.count
     sorbents.each do |sorbent|
-      sorbent.item.update_attribute('dimension_type', 'Sorbents')
+      sorbent.item.update_attribute('dimension_type', 'Sorbent')
     end
 
     puts "Finished Script!"

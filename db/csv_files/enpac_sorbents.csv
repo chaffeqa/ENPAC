@@ -12,7 +12,7 @@ ENP-IE0742,7/18,42/105,,,,Mini Boom,,,5/case
 ENP-IE1421,,14/35,21/53,,,Pillows,,,5/case
 ENP-IE2135,,21/53,35/88,,,Blanket,,,2/case
 ENP-IEBS505000,,,,,,Imbiber Beads/Sand,,,1
-ENP D225,,,,,,1.5 Cubic Ft./Bag,,,1.5 Cubic Ft.
+ENP D225,,,,,,1.5 Cubic Ft. \Bag,,,1.5 Cubic Ft.
 ENP D503,,,,,,1 Gallon Jug Dispenser ,,,1 Gal/3.8L
 ENP D503CS,,,,,,1 Gallon Jug Dispenser ,,,6/case
 ENPD208CS,,,,,,1 Quart Zip Seal Bag,,,12/case
@@ -30,16 +30,16 @@ FA-CKWK,,,,,,Wallmount & Shaker,Granules,,1
 FA324-0501-00EP,,,,,,500 Gram Granules Bag,Granules,,1
 FA324-5001-00EP,,,,,,5kg Granules Bag,Granules,,1
 FA324-5000-00EP,,,,,,5kg Pail Granules,Granules,,1
-FA024-4000-00EP,,,,,,4?KG PRESSURIZED CYLINDER,Granules,,1
-FA024-2000-00EP,,,,,,2?KG PRESSURIZED CYLINDER,Granules,,1
-FA024-1000-00EP,,,,,,1?KG PRESSURIZED CYLINDER,Granules,,1
-FD015-4901-00NS,,,,,,4?KG WALL MOUNT,Granules,,1
-FD015-2901-00NS,,,,,,2?KG WALL MOUNT,Granules,,1
-FD015-1901-00NS,,,,,,1?KG WALL MOUNT,Granules,,1
-FD015-4902-00NS,,,,,,4?KG VEHICLE MOUNT,Granules,,1
-FD015-2902-00NS,,,,,,2?KG VEHICLE MOUNT,Granules,,1
-FD015-1902-00NS,,,,,,1?KG VEHICLE MOUNT,Granules,,1
-FD015-4903-00NS,,,,,,4?KG APPLICATOR WAND,Granules,,4/pkg
+FA024-4000-00EP,,,,,,4‐KG PRESSURIZED CYLINDER,Granules,,1
+FA024-2000-00EP,,,,,,2‐KG PRESSURIZED CYLINDER,Granules,,1
+FA024-1000-00EP,,,,,,1‐KG PRESSURIZED CYLINDER,Granules,,1
+FD015-4901-00NS,,,,,,4‐KG WALL MOUNT,Granules,,1
+FD015-2901-00NS,,,,,,2‐KG WALL MOUNT,Granules,,1
+FD015-1901-00NS,,,,,,1‐KG WALL MOUNT,Granules,,1
+FD015-4902-00NS,,,,,,4‐KG VEHICLE MOUNT,Granules,,1
+FD015-2902-00NS,,,,,,"2‐KG VEHICLE MOUNT",Granules,,1
+FD015-1902-00NS,,,,,,1‐KG VEHICLE MOUNT,Granules,,1
+FD015-4903-00NS,,,,,,4‐KG APPLICATOR WAND,Granules,,4/pkg
 ENP OP100H,,270/689 Squared,,,Heavy,,Oil-Only,25x Their Weight,100/case 30/cases per pallet
 ENP OP100M,,270/689 Squared,,,Medium,,Oil-Only,25x Their Weight,100/case 36/cases per pallet
 ENP OP200S,,270/689 Squared,,,Single ,,Oil-Only,25x Their Weight,200/case 30/cases per pallet
@@ -89,7 +89,7 @@ ENP 10 NUPIL1717,,17/46,17/46,,,,Universal,,10/case
 ENP 40NOS34,3/8,4ft/1m,,,,,Oil-Only Sock,,40/case
 ENP 5NOS38,4/10,10ft/3m,,,,,Oil Only Sock Boom,,5/case
 ENP 40 NUS34,3/8,4ft/1m,,,,,Universal Sock,,40/case
-ENP 10 NUS38,3/8,8ft/2m,,,,,Universal Sock,,
+ENP 10 NUS38,3/8,8ft/2m,,,,,Universal Sock
 ENP 40 NHS34,3/8,4ft/1m,,,,,Aggressive Sock,,40/case
 ENP 10 NHS38,3/8,8ft/2m,,,,,Aggressive Sock,,10/case
 

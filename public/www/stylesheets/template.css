@@ -297,13 +297,12 @@ nav ul {
 
 #secPage #products ul.itemList li {
     background: none;
-    padding: 8px;
+    padding: 16px;
     float: left;
     width: 154px;
-    min-height: 200px;
-    height: auto !important;
-    height: 200px;
+    height: 300px;
 }
+
 #secPage #products {
     width: 700px;
     float: right;
@@ -440,8 +439,28 @@ nav ul {
     #secPage #product #item-part-number {
 	font-weight: bold;
     }
+    #secPage #product .item-dimensions {
+	clear: right;
+	float: right;
+	width: 367px;
+    }
+    #secPage #product .specific-dimensions {
+	clear: left;
+	float: left;
+	width: 310px;
+    }
+    #secPage #product .item-details {
+	padding: 0 0 1em;
+	clear: right;
+	float: right;
+	width: 367px;
+    }
     #secPage #product .item-dimensions .attr-title { font-weight: bold; padding-right: 5px; display: block;}
     #secPage #product .item-dimensions .attr-title:after { font-weight: bold; padding-right: 5px; content: ":";}
+
+    #secPage #product .specific-dimensions .attr-title { font-weight: bold; padding-right: 5px; display: block;}
+    #secPage #product .specific-dimensions .attr-title:after { font-weight: bold; padding-right: 5px; content: ":";}
+
         #secPage #product #documents #top {
             height: 14px;
             background: url(../template/right-bg-top.png) no-repeat;
