@@ -34,11 +34,8 @@ module SearchHelper
       @search_params.delete('controller')
       @search_params.delete('utf8')
       @search_params.delete('commit')
-      @search_params.delete('sort')
-      @search_params.delete('direction')
       @search_params.delete('authenticity_token')
-      @search_params.delete('page')
-      @search_params.delete('per_page')
+      @search_params.delete('searchSubmit')
       @search_params.delete_if {|k,v| v.blank? or v.class != String or k =~ /_input$/ }
     end
   end
@@ -49,7 +46,7 @@ module SearchHelper
   def sortable(column, title, addition_params=@search_params)
     css_class = (column == sort_column) ? "current #{sort_direction}" : nil
     direction = (column == sort_column && sort_direction == "ASC") ? "DESC" : "ASC"
-    link_to title, {:sort => column, :direction => direction}.merge(addition_params), {:class => css_class}
+    link_to title, (addition_params).merge({:sort => column, :direction => direction}), {:class => css_class}
   end
 end
 

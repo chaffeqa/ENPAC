@@ -7,15 +7,15 @@
 <h1 class="title">Products</h1>
 
 
-<% unless @items_search.hits.empty? %>
+<% unless @items.nil? or @items.empty? %>
   <table>
     <tr>
       <th></th>
-      <th><%= sortable "name", "Item Name", inventory_search_parameters %></th>
-      <th><%= sortable "part_number", 'Part #', inventory_search_parameters %></th>
-      <th><%= sortable "cost", "Price", inventory_search_parameters %></th>
+      <th><%= sortable "name", "Item Name" %></th>
+      <th><%= sortable "part_number", 'Part #' %></th>
+      <th><%= sortable "cost", "Price" %></th>
     </tr>
-    <% @items_search.each_hit_with_result do |hit, item| %>
+    <% @items.each do |item| %>
       <% if item.node %>
         <tr>
           <td class="itemThumb"> <%= link_to(image_tag(item.thumbnail_image), shortcut_path(item.node.shortcut))  %> </td>
@@ -27,7 +27,7 @@
     <% end %>
   </table>
   <hr/>
-  <div class="pagination"><%= will_paginate @items_search.hits %></div>
+  <%= render :partial => 'partials/pagination', :locals => {:resource => @items} %>
 
 
 <% else %>
