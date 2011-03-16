@@ -32,6 +32,6 @@ gem 'aws-s3'
 
 gem 'fastercsv'
 
-gem 'sunspot_rails', '1.2'
-gem 'nokogiri' # Required for sunspot
+#gem 'sunspot_rails', '1.2'
+#gem 'nokogiri' # Required for sunspot
 

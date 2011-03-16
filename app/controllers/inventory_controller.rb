@@ -7,43 +7,34 @@ class InventoryController < ApplicationController
 
 
   def search
-    #    @category = Category.find(params[:category_id]) unless params[:category_id].blank?
+    #    @category = Category.find(@search_params[:category_id]) unless @search_params[:category_id].blank?
 
     # NOTE: old search
-#    @items = Item.get_for_sale.displayed
-#    @items = @items.scope_category(params[:category]) unless params[:category].blank?
-#    @items = @items.scope_text(params[:searchText]) unless params[:searchText].blank?
-#    @items = @items.scope_min_price(low_cost).scope_max_price(high_cost) unless params[:cost_range].blank?
-#    @items = @items.order(sort_column + " " + sort_direction)
-#    @items = @items.paginate :page => params[:page]
+    @items = Item.get_for_sale.displayed
+    @items = @items.scope_category(@search_params[:category])
+    @items = @items.scope_text(@search_params[:searchText])
+    @items = @items.scope_min_price(low_cost).scope_max_price(high_cost)
+    @items = @items.paginate :page => @page, :per_page => @per_page, :order => (sort_column + " " + sort_direction))
 
     # New Hotness
-    @items_search = Sunspot.search(Item) do
-      keywords params['searchText']
-      paginate(:page => params[:page], :per_page => params[:per_page] || 10)
-    end
+#    @items_search = Sunspot.search(Item) do
+#      keywords @search_params['searchText']
+#      paginate(:page => @search_params[:page], :per_page => @search_params[:per_page] || 10)
+#    end
 
   end
 
   private
 
-  def sort_column
-    @sort = @sort || params[:sort] || ''
-    Item.column_names.include?(@sort) ? @sort : "name"
-  end
 
-  def sort_direction
-    @direction = @direction || params[:direction] || ''
-    "ASC DESC".include?(@direction) ? @direction : "ASC"
-  end
 
   def low_cost
-    @min_price = params[:cost_range].split('-')[0] || 0
+    @min_price = @search_params[:cost_range].split('-')[0] || 0
     @min_price
   end
 
   def high_cost
-    @max_price = params[:cost_range].split('-')[1] || 1000000000
+    @max_price = @search_params[:cost_range].split('-')[1] || 1000000000
     @max_price
   end
 

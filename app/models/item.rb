@@ -4,13 +4,13 @@ class Item < ActiveRecord::Base
   # Search Keywords for Sunspot
   ###########
 
-  searchable do
-    text :name, :default_boost => 2
-    text :part_number, :default_boost => 2
-    text :short_description
-    text :long_description
-    text :regulations
-  end
+#  searchable do
+#    text :name, :default_boost => 2
+#    text :part_number, :default_boost => 2
+#    text :short_description
+#    text :long_description
+#    text :regulations
+#  end
 
 
   DIMENSION_TYPES = [
@@ -115,14 +115,14 @@ class Item < ActiveRecord::Base
   scope :get_for_sale, where(:for_sale => true)
   scope :displayed, where(:display => true)
   scope :scope_display, lambda {|display| where(:display => display)}
-  scope :scope_for_sale, lambda {|for_sale| where(:for_sale => for_sale)}
-  scope :scope_name, lambda {|name| where('UPPER(name) LIKE UPPER(?)', '%'+name+'%')}
-  scope :scope_description, lambda {|desc| where('UPPER(short_description) LIKE UPPER(?) OR UPPER(long_description) LIKE UPPER(?)', "%"+desc+"%", "%"+desc+"%")}
-  scope :scope_part_number, lambda {|part_number| where('UPPER(part_number) LIKE UPPER(?)', "%"+part_number+"%")}
-  scope :scope_category, lambda {|title| includes(:categories).where('UPPER(categories.title) LIKE UPPER(?)', "%"+title+"%")}
-  scope :scope_text, lambda {|text| where('UPPER(short_description) LIKE UPPER(?) OR UPPER(long_description) LIKE UPPER(?) OR UPPER(name) LIKE UPPER(?) OR UPPER(part_number) LIKE UPPER(?)', "%"+text+"%", "%"+text+"%", "%"+text+"%", "%"+text+"%")}
-  scope :scope_min_price, lambda {|price| where('cost >= ?', price)}
-  scope :scope_max_price, lambda {|price| where('cost <= ?', price)}
+  scope :scope_for_sale, lambda {|for_sale| where(:for_sale => for_sale) unless for_sale.blank?}
+  scope :scope_name, lambda {|name| where('UPPER(name) LIKE UPPER(?)', '%'+name+'%') unless name.blank?}
+  scope :scope_description, lambda {|desc| where('UPPER(short_description) LIKE UPPER(?) OR UPPER(long_description) LIKE UPPER(?)', "%"+desc+"%", "%"+desc+"%") unless desc.blank?}
+  scope :scope_part_number, lambda {|part_number| where('UPPER(part_number) LIKE UPPER(?)', "%"+part_number+"%") unless part_number.blank?}
+  scope :scope_category, lambda {|title| includes(:categories).where('UPPER(categories.title) LIKE UPPER(?)', "%"+title+"%") unless title.blank?}
+  scope :scope_text, lambda {|text| where('UPPER(short_description) LIKE UPPER(?) OR UPPER(long_description) LIKE UPPER(?) OR UPPER(name) LIKE UPPER(?) OR UPPER(part_number) LIKE UPPER(?)', "%"+text+"%", "%"+text+"%", "%"+text+"%", "%"+text+"%") unless text.blank?}
+  scope :scope_min_price, lambda {|price| where('cost >= ?', price) unless price.blank?}
+  scope :scope_max_price, lambda {|price| where('cost <= ?', price) unless price.blank?}
 
 
   ####################################################################
