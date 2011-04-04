@@ -172,7 +172,7 @@ module ApplicationHelper
     return content_tag(:p, :id => model_name + '-' + column_name) do
       raw(
         content_tag(:span, humanized_column_name, :class => 'attr-title') +
-          content_tag(:span, value, :class => "attr-value" )
+          content_tag(:span, value.gsub(/Absorbs /, '').capitalize, :class => "attr-value" )
       )
     end
   end
