@@ -4,7 +4,7 @@ class Category < ActiveRecord::Base
   # Associations
   ###########
   has_many :item_categories, :dependent => :destroy
-  has_many :items, :through => :item_categories
+  has_many :items, :through => :item_categories, :order => 'items.name'
 
 
   # Associated Node attributes
