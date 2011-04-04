@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-  def subdomain 
+  def subdomain
     #    return request.subdomain.present? ? request.subdomain : "www"
     return "www"
   end
@@ -59,7 +59,7 @@ module ApplicationHelper
     end
   end
 
-  
+
 
   def display_children_nodes(nodes )
     ret = "<ul>"
@@ -157,7 +157,7 @@ module ApplicationHelper
     end
     @image_assets
   end
-  
+
   def sortable(column, title, addition_params={})
     css_class = (column == sort_column) ? "current #{sort_direction}" : nil
     direction = (column == sort_column && sort_direction == "ASC") ? "DESC" : "ASC"
@@ -168,14 +168,15 @@ module ApplicationHelper
   # Returns the HTML for displaying an Item column name
   def item_tag_for( model_name, column_name, value=nil)
     return '' if value.blank?
+    humanized_column_name = column_name.humanize.split(' ').collect {|word| word.capitalize }.join(' ')
     return content_tag(:p, :id => model_name + '-' + column_name) do
       raw(
-        content_tag(:span, column_name.humanize.capitalize, :class => 'attr-title') +
+        content_tag(:span, humanized_column_name, :class => 'attr-title') +
           content_tag(:span, value, :class => "attr-value" )
       )
     end
   end
-  
+
 
   #  ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
   #    if instance.error_message.kind_of?(Array)
@@ -185,3 +186,4 @@ module ApplicationHelper
   #    end
   #  end
 end
+
