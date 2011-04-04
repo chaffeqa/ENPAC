@@ -44,21 +44,23 @@
 -->
 
     <div class="item-details">
-      <h4 id="item-short-description"><%=raw @item.short_description %></h4>
-      <p id="item-long-description"><%=raw @item.long_description.blank? ? "" : @item.long_description.gsub("\r\n","<br/>") %></p>
-      <p id="item-part-number">Part #: <%= @item.part_number%></p>
-      <p id="item-regulations"><strong>Regulations:</strong><br /><%=raw @item.regulations.blank? ? "" : @item.regulations.gsub("\r\n","<br/>") %></p>
+      <% unless @item.short_description.blank? %><h4 id="item-short-description"><%=raw @item.short_description %></h4><% end %>
+      <% unless @item.long_description.blank? %><p id="item-long-description"><%=raw  @item.long_description.gsub("\r\n","<br/>") %></p><% end %>
+      <% unless @item.part_number.blank? %><p id="item-part-number">Part #: <%= @item.part_number%></p><% end %>
+      <% unless @item.regulations.blank? %><p id="item-regulations"><strong>Regulations:</strong><br /><%=raw @item.regulations.gsub("\r\n","<br/>") %></p><% end %>
 
-      <strong>Product Options:</strong>
-      <% @item.product_options.each do |product_option| %>
-        <%= content_tag_for :div, product_option do %>
-          <p>
-	    <%= link_to product_option.option_item.name, shortcut_path(product_option.option_item.node.shortcut) %><br />
-            <%= product_option.description %>
-	  </p>
-        <% end %>
-      <% end %>
-    </div>
+    <% unless @item.product_options.empty? %>
+          <strong>Product Options:</strong>
+          <% @item.product_options.each do |product_option| %>
+            <%= content_tag_for :div, product_option do %>
+              <p>
+	              <%= link_to product_option.option_item.name, shortcut_path(product_option.option_item.node.shortcut) %><br />
+                <%= product_option.description %>
+	            </p>
+            <% end %>
+          <% end %>
+        </div>
+    <% end %>
 
     <hr />
 
@@ -106,3 +108,4 @@
   <%= @node.title %>
 <% end %>
 <!-- End -->
+
