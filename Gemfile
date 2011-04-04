@@ -2,9 +2,11 @@ source 'http://rubygems.org'
 
 gem 'rails'#, :git => "git://github.com/rails/rails.git"
 
-gem 'sqlite3-ruby', :require => 'sqlite3', :group => [:development, :test]
 
-gem 'mysql', :group => :production
+
+#gem 'sqlite3-ruby', :require => 'sqlite3', :group => [:development, :test]
+
+gem 'mysql', :group => [:development, :test]
 
 gem 'ckeditor', '3.4.3.pre'
 
@@ -29,4 +31,7 @@ gem 'mail'#, :git => 'https://github.com/mikel/mail.git'
 gem 'aws-s3'
 
 gem 'fastercsv'
+
+#gem 'sunspot_rails', '1.2'
+#gem 'nokogiri' # Required for sunspot
 

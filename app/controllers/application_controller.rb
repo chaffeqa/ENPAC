@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   #  protect_from_forgery TODO enable this
   helper :all
   helper_method :get_node, :categories_for_items, :get_home_node, :admin?
+  include SearchHelper
+  before_filter :parse_filter_params
   layout 'static_page'
 
   def categories_for_items(items = Item.all)
@@ -40,14 +42,19 @@ class ApplicationController < ActionController::Base
       redirect_to error_path(:message => 'Unauthorized Access')
     end
   end
-  
+
   private
 
   def create_home_node
     @home_node = Node.create!(:menu_name => 'Inventory', :title => 'Inventory', :shortcut => 'inventory', :displayed => true)
   end
 
-  
+  def parse_filter_params
+    parse_search_params(params)
+  end
 
-  
+
+
+
 end
+

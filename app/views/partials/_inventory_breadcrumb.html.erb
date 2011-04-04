@@ -1,3 +1,6 @@
 <div class="breadcrumb">
-  <a href="http://www.enpac.com">Home</a> &gt; <%=link_to 'Products', inventory_path() %> <%=raw( inventory_search_breadcrumbs) %>
+  <a href="http://www.enpac.com">Home</a>
+   &gt; <%=link_to 'Products', inventory_path() %>
+  <%= raw( (@search_words_array.collect {|word| " &gt; <a href='#'>'#{html_escape(word)}'</a>"}).to_s) %>
 </div>
+

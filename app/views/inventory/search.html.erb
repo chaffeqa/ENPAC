@@ -6,22 +6,14 @@
 
 <h1 class="title">Products</h1>
 
-<div id="products" class="bigger">
-  <% @node.children.each do |child| %>
-  <% if child.page_type == "Category" %>
-    <%= link_to (image_tag child.category.thumbnail_image, :alt => child.title), child.shortcut %>
-  <% end %>
-  <% end %>
-</div>
 
-<!--
-<% unless @items.empty? %>
+<% unless @items.nil? or @items.empty? %>
   <table>
     <tr>
       <th></th>
-      <th><%= sortable "name", "Item Name", inventory_search_parameters %></th>
-      <th><%= sortable "part_number", 'Part #', inventory_search_parameters %></th>
-      <th><%= sortable "cost", "Price", inventory_search_parameters %></th>
+      <th><%= sortable "name", "Item Name" %></th>
+      <th><%= sortable "part_number", 'Part #' %></th>
+      <th><%= sortable "cost", "Price" %></th>
     </tr>
     <% @items.each do |item| %>
       <% if item.node %>
@@ -35,14 +27,16 @@
     <% end %>
   </table>
   <hr/>
-  <div class="pagination"><%= will_paginate @items %></div>
+  <%= render :partial => 'partials/pagination', :locals => {:resource => @items} %>
+
 
 <% else %>
   <p>No items matched your search.</p>
 <% end %>
--->
+
 
 <!-- Content_for components to insert into static_page -->
 <%= content_for :subColumn do %>
 <% end %>
 <!-- End -->
+

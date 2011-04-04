@@ -2,7 +2,7 @@ module InventoryHelper
   # Collects and Returns all the parameters for the URL that are not Rails specific and saves them in @parameters
   def inventory_search_parameters
     unless @parameters
-      @parameters = params
+      @parameters = params.clone()
       @parameters.delete('action')
       @parameters.delete('controller')
       @parameters.delete('utf8')
@@ -27,3 +27,4 @@ module InventoryHelper
     params_array.values
   end
 end
+
