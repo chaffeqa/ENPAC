@@ -11,32 +11,27 @@ class ApplicationController < ActionController::Base
     (items.collect {|item| item.categories }).uniq.compact
   end
 
+  # Instantiates the @home_node
   def get_home_node
-    unless @home_node
-      @home_node = Node.root
-      if @home_node.nil?
-        create_home_node
-      end
-    end
-    @home_node
+    @home_node ||= Node.home
   rescue ActiveRecord::RecordNotFound
-    create_home_node
-    return @home_node
+    redirect_to error_path(:message => 'Site error.  Appropriate personal will be notified.')
   end
 
-
+  # Instantiates the current @node and the @home_node
   def get_node
     get_home_node
     @node = @node || (Node.where(:shortcut => params[:shortcut]).first if params[:shortcut])
-    redirect_to(error_path(:shortcut => params[:shortcut] ))  unless @node
+    check_node_validity
   end
 
-  #TODO
+  #TODO Returns true or false if user is admin
   def admin?
     true
     #    admin_signed_in?
   end
 
+  # Checks if User is an admin; Redirects if not
   def check_admin
     unless admin?
       redirect_to error_path(:message => 'Unauthorized Access')
@@ -45,15 +40,20 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def create_home_node
-    @home_node = Node.create!(:menu_name => 'Inventory', :title => 'Inventory', :shortcut => 'inventory', :displayed => true)
-  end
-
+  # Method for instantiating the search filter params
   def parse_filter_params
     parse_search_params(params)
   end
 
-
+  # Checks the validity of the current node as well as the basic access rights
+  def check_node_validity
+    # Node isn't valid
+    redirect_to(error_path(:shortcut => params[:shortcut] ))  unless @node
+    # Page not displayed and not admin
+    if not @node.displayed and not admin?
+      error_redirect(:message => 'We are sorry, the Item or Page you are trying to view is no longer publicly listed.')
+    end
+  end
 
 
 end

@@ -1,4 +1,6 @@
-<% @item = @node.page %>
+<% @item = @node.page_type == 'ItemCategory' ? @node.page.item : @node.page
+@parent_category = (@node.page_type == 'ItemCategory' ? @node.page.category : (@item.categories.empty? ? nil : @item.categories.first)) %>
+
 <% if admin? %>
   <% content_for :page_admin_bar do %>
     <%= link_to 'Delete Item', admin_item_path(@item) , :confirm => "Are you sure?", :method => :delete, :class => 'btn large' %>
@@ -6,15 +8,15 @@
   <% end %>
 <% end %>
 
-<h1><%= @item.categories.first.title %></h1>
+<h1><%= @parent_category.nil? ? 'Products' : @parent_category.title %></h1>
 <hr />
 
 <section id="productMenu">
-  <% if content_for?(:subMenu) %>
-    <% yield :subMenu %>
-  <% else %>
+  <%# if content_for?(:subMenu) %>
+    <%# yield :subMenu %>
+  <%# else %>
     <%= render_navigation(:level => 2..7) %>
-  <% end %>
+  <%# end %>
 </section>
 
 <article class="item">
@@ -62,6 +64,7 @@
         </div>
     <% end %>
 
+
     <hr />
 
     <div class="item-dimensions">
@@ -85,6 +88,26 @@
         <%= render :partial => 'items/sorbent_dimension', :locals => {:dimension => @item.sorbent_dimension} if @item.dimension_type == 'Sorbent' %>
         <%= render :partial => 'items/standard_dimension', :locals => {:dimension => @item.standard_dimension} if @item.dimension_type == 'Standard' %>
       </div>
+
+
+    <% unless @item.item_group.nil? or @item.item_group.items.empty? %>
+        <div class="group-items item-dimensions">
+          <strong>Alternate Products:</strong>
+          <% @item.item_group.items.each do |link| %>
+            <% unless link.part_number.blank? %><div>
+            <strong><%= link_to link.part_number, shortcut_path(link.node.shortcut) %></strong>
+            <%= content_tag_for :div, link do %>
+              <%= item_tag_for('item','weight',link.weight) %>
+              <%= item_tag_for('item','handling_capacity',link.handling_capacity) %>
+              <%= item_tag_for('item','sump_capacity',link.sump_capacity) %>
+              <%= item_tag_for('item','length',link.p_length) %>
+              <%= item_tag_for('item','height',link.p_height) %>
+              <%= item_tag_for('item','width',link.p_width) %>
+            <% end %>
+            </div><% end %>
+          <% end %>
+        </div>
+    <% end %>
 
   </div>
 </article>

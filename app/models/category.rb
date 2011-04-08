@@ -5,10 +5,11 @@ class Category < ActiveRecord::Base
   ###########
   has_many :item_categories, :dependent => :destroy
   has_many :items, :through => :item_categories, :order => 'items.name'
-
+  has_many :sub_categories, :class_name => 'Category', :foreign_key => 'parent_category_id', :dependent => :nullify
+  belongs_to :parent_category, :class_name => 'Category'
 
   # Associated Node attributes
-  has_one :node, :as => :page, :dependent => :destroy
+  has_one :node, :as => :page, :dependent => :destroy, :autosave => true
   accepts_nested_attributes_for :node
 
   has_attached_file :image,
@@ -34,7 +35,11 @@ class Category < ActiveRecord::Base
     node.menu_name =   title
     node.shortcut = title.parameterize.html_safe
     node.displayed = true
-    Node.categories_node.children << node
+    if parent_category and parent_category_id != 0    #is a subnode
+      parent_category.node.children << node
+    else                                              #is a child of root node
+      Node.categories_node.children << node
+    end
   end
 
 

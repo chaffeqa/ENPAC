@@ -11,6 +11,14 @@
     </div>
   <% end %>
 
+  <% field_set_tag '' do %>
+    <div class="field"><span class="hint">Select 'Products' unless this is a sub-category.</span>
+      <%= f.label :parent_category_id, 'Parent Category' %>
+      <%= f.select :parent_category_id, options_for_select([['Products',0]] + Category.all.collect {|c| [c.title, c.id]}, @category.new_record? || @category.parent_category_id.nil? ? 0 : @category.parent_category_id) %>
+    </div>
+    <hr />
+  <% end %>
+
   <fieldset>
     <%= f.fields_for :node do |node_f| %>
       <%= node_f.hidden_field :displayed, :value => true %>
@@ -38,3 +46,4 @@
     <%= render :partial => 'admin/submit', :locals => {:f => f, :type => 'Category'} %>
   </fieldset>
 <% end %>
+

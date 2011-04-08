@@ -20,7 +20,7 @@ class Node < ActiveRecord::Base
   validate :shortcut_html_safe?
   validate :check_unique_shortcut?
   #  validate :ensure_unique_root_node
-  
+
   #Callbacks
   before_validation :fill_missing_fields
 
@@ -37,13 +37,9 @@ class Node < ActiveRecord::Base
     end
   end
 
-  def ensure_unique_root_node
-    root_nodes = Node.where(:parent_id => nil)
-    if root_nodes.count > 1
-      problem_nodes = root_nodes - (Node.where(:parent_id => nil).where(:title => 'Home') )
-      problem_nodes.each {|node| node.update_attributes(:displayed => false, :parent_id => ' ') }
-    end
-    true
+  # TODO
+  def log_problem_node(node)
+    false
   end
 
   # Checks the database to ensure the Shortcut is not already taken
@@ -62,7 +58,7 @@ class Node < ActiveRecord::Base
     errors.add(:shortcut, "Shortcut cannot contain slashes") if shortcut.include? "/"
     errors.add(:shortcut, "Shortcut cannot contain '?'") if shortcut.include? "?"
   end
-  
+
 
   ####################################################################
   # Scopes
@@ -74,28 +70,46 @@ class Node < ActiveRecord::Base
   scope :calendars, where(:page_type => 'Calendar')
   scope :items, where(:page_type => 'Item')
   scope :no_items, where("page_type != 'Item' OR page_type IS NULL")
-  
-  def self.home
-    self.where('shortcut LIKE ?', 'Home').count == 1 ? self.root.where('shortcut LIKE ?', 'Home') : nil
-  end
+
+
+
+
 
 
   ####################################################################
-  # Helpers
+  # Site specific methods
   ###########
 
+  # Returns the string name for the home node shortcut
+  def self.home_shortcut
+    'inventory'
+  end
+
   # Returns the URL of this node.
-  def url
-    if self.controller and self.action and self.page_id
-      return "/#{self.controller}/#{self.action}/#{self.page_id}"
+  def url(params={})
+    url_params = params == {} ? '' : "?"+params.collect {|key,val| "#{key.to_s}=#{val.to_s}"}.join('&')
+    if page
+      return page.send(:better_url) + url_params
+    else
+      if !controller.blank? and !action.blank?
+        if page_id.blank?
+          return "/#{self.controller}/#{self.action}" + url_params
+        else
+          return "/#{self.controller}/#{self.action}/#{self.page_id}" + url_params
+        end
+      end
     end
-    if self.controller and self.action
-      return "/#{self.controller}/#{self.action}"
+    return "/#{self.shortcut}" + url_params
+  rescue
+    return "/#{self.shortcut}" + url_params
+  end
+
+  # Returns this page's layout type string
+  def layout
+    if page_type == 'DynamicPage'
+      return 'dynamic'
     end
-    if self.controller
-      return "/#{self.controller}"
-    end
-    return "/#{self.shortcut}"
+    return "static_page"
   end
 
   # Returns the Blog node
@@ -120,7 +134,33 @@ class Node < ActiveRecord::Base
 
   # Returns the Items Node
   def self.items_node
-    self.where(:title => 'Inventory').first
+    self.where(:title => 'Items').first
+  end
+
+
+
+
+
+
+
+  ####################################################################
+  # Helpers
+  ###########
+
+  # Called if no home node or multiple home nodes exists.  Destroys all such
+  # existing nodes and creates a fresh home node.
+  def self.create_home_node
+    self.where(:shortcut => home_shortcut).each {|node| node.destroy }
+    self.create(:menu_name => home_shortcut.capitalize, :title => home_shortcut.capitalize, :shortcut => home_shortcut, :displayed => true)
+  end
+
+  # Finds and returns the home node
+  def self.home
+    self.where(:shortcut => home_shortcut).count == 1 ? self.where(:shortcut => home_shortcut).first : nil
+  end
+
+  def has_page?
+    !page_type.blank? and !page.nil?
   end
 
   # Sets this node's shortcut to the desired shortcut or closest related shortcut that will be unique in the database.  If a conflict
@@ -145,7 +185,7 @@ class Node < ActiveRecord::Base
   private
   # Actual behind the scenes ordering of the Node tree
   def self.order_helper( json, position = 0, parent_id = nil)
-    json.each do |hash|  
+    json.each do |hash|
       node_id = hash['attr']['id'].delete('node_')
       Node.update_all(['position = ?, parent_id = ?', position, parent_id], ['id = ?', node_id])
       position += 1
@@ -157,3 +197,4 @@ class Node < ActiveRecord::Base
   end
 
 end
+

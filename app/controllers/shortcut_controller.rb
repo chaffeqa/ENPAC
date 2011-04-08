@@ -1,21 +1,27 @@
 class ShortcutController < ApplicationController
   before_filter :get_node, :only => :route
-  
+  #caches_action :route , :unless => Proc.new { |c| admin? }, :cache_path => Proc.new { |c|c.send(:shortcut_path, @node.id)}
+
+  # Routing method for all shortcut_path routes, looks for a Node for the current
+  # request and renders or redirects appropriatly
   def route
-    if not @node.displayed and not admin?
-      error_redirect(:message => 'We are sorry, the Item or Page you are trying to view is no longer publicly listed.')
-    end
-    if @node.page_type == 'DynamicPage'
-      render("#{@node.page_type.tableize.pluralize}/show", :layout => "dynamic")
-    else
-      if @node and @node.page_type
-        render("#{@node.page_type.tableize.pluralize}/show")
+      # Page exists?
+      if @node and @node.has_page?
+        # Redirect to This Item's first category listing if it exists. To ensure the menus display correctly
+        if @node.page_type=='Item' and @node.page.has_better_url?
+          redirect_to shortcut_path(:shortcut => @node.page.better_url, :layout => @node.layout)
+        else
+          page_type = (@node.page_type == 'ItemCategory' ? 'Item' : @node.page_type)
+          render("#{page_type.tableize.pluralize}/show", :layout => @node.layout)
+        end
       else
         error_redirect
       end
     end
   end
 
+  # Action for the root_path route.  Sets the current node (@node) = @home_node so
+  # the current sites home page is displayed
   def home
     get_home_node
     @node = @home_node
@@ -52,3 +58,4 @@ class ShortcutController < ApplicationController
   end
 
 end
+

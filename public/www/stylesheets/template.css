@@ -295,6 +295,14 @@ nav ul {
     text-transform: uppercase;
 }
 
+#secPage #products ul.categoryList li {
+    background: none;
+    padding: 16px;
+    float: left;
+    width: 154px;
+    height: 300px;
+}
+
 #secPage #products ul.itemList li {
     background: none;
     padding: 16px;
@@ -344,8 +352,8 @@ nav ul {
             color: #000;
             font-size: 12px;
         }
-        #secPage #productMenu ul ul li.selected {
-            background-color: #f8bf0f;
+        #secPage #productMenu ul ul li.selected > a {
+            background-color: #A4B8A2; /*f8bf0f */
         }
     #secPage #productMenu > ul > li > a {
         display: block;
@@ -413,7 +421,7 @@ nav ul {
         }
 
 
-       
+
 
 #secPage #product {
     float: right;
@@ -552,3 +560,4 @@ nav ul {
             border: 3px solid #EEE;
             padding: 5px;
         }
+

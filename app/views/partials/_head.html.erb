@@ -4,6 +4,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 <meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1.0"/>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<!--[if lt IE 7 ]>
+  <script src="javascripts/dd_belatedpng.js"></script>
+  <script> DD_belatedPNG.fix('img, .png_bg'); //fix any <img> or .png_bg background-images </script>
+<![endif]-->
+<%= javascript_include_tag 'rails', 'jquery-ui.min', 'jquery.bgiframe.min', 'jquery.colorbox-min', 'jquery.json-2.2.min', 'application', 'jquery.jstree'  %>
+<%= javascript_include_tag :ckeditor %>
+<% if admin? %>
+  <!-- Extra scripting for admin pages -->
+  <%= javascript_include_tag 'admin.js'  %>
+<% end %>
+
+
 <%= javascript_include_tag "modernizr-1.6.min.js" %>
 
 <link rel="shortcut icon" href='/<%= subdomain %>/template/favicon.ico' />
@@ -20,3 +33,4 @@
 <%#*<script src="http://cdn.foxycart.com/KERN-Coin/foxybox.js"></script>%>
 <%#*<link rel="stylesheet" href="http://KERN-Coin.foxycart.com/files/foxybox.css" type="text/css" media="screen" charset="utf-8" />%>
 <%#*<link rel="stylesheet" href="http://KERN-Coin.foxycart.com/themes/standard/theme.foxybox.css" type="text/css" media="screen" charset="utf-8" />%>
+

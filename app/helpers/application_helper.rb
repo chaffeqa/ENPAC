@@ -61,19 +61,32 @@ module ApplicationHelper
 
 
 
+
   def display_children_nodes(nodes )
     ret = "<ul>"
     for node in nodes
-      ret << display_node_list(node)
+      ret <<  display_node_list(node)
     end
     ret << "</ul>"
+  end
+
+  def display_inventory_list(inventory_node)
+    ret = "<li id='node_#{h(node.id)}'>"
+    #    ret << link_to( node.menu_name , '#' )
+    ret << "<a href='#'>#{h(node.menu_name)}</a>"
+    ret << display_children_nodes(node.children.categories.displayed) if node.children.categories.displayed.any?
+    ret << "</li>"
   end
 
   def display_node_list(node)
     ret = "<li id='node_#{h(node.id)}'>"
     #    ret << link_to( node.menu_name , '#' )
     ret << "<a href='#'>#{h(node.menu_name)}</a>"
-    ret << display_children_nodes(node.children.displayed) if node.children.displayed.any?
+    if node == Node.inventory_node
+      ret << display_children_nodes(node.children.categories.displayed) if node.children.categories.displayed.any?
+    else
+      ret << display_children_nodes(node.children.displayed) if node.children.displayed.any?
+    end
     ret << "</li>"
   end
 

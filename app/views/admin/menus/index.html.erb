@@ -1,6 +1,5 @@
 <%= content_for :head do %>
   <%= stylesheet_link_tag '/javascripts/themes/classic/style' %>
-  <%= javascript_include_tag 'jquery.jstree', 'jquery.cookie', 'jquery.hotkeys' %>
 <% end %>
 
 <h1 class="title">Manage Site Heirarchy</h1>
@@ -16,7 +15,7 @@
 <script>
   $(function () {
     $("#sortable-menu").jstree({
-      "core" : { 
+      "core" : {
         "initially_open" : [ "<%= 'node_' + @home_node.id.to_s %>" ],
         "animation" : 200
       },
@@ -39,7 +38,7 @@
       data:  $.toJSON($('#sortable-menu').jstree("get_json", -1)),
       contentType: 'application/json; charset=utf-8'
     });
-  
+
   })
 </script>
 

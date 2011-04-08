@@ -15,16 +15,30 @@
 
 
 <section id="products">
-<p><%= @category ? @category.description : 'All The inventory categories.' %></p>
-<% if @category and not @category.items.displayed.empty? %>
-  <% items = @category.items.displayed %>
+<p><%= @category ? @category.description : '' %></p>
 
+
+<% if @category and not @category.sub_categories.empty? %>
+  <ul class="categoryList">
+    <% @category.sub_categories.each do |category|%>
+      <%= content_tag_for :li, category do %>
+        <p class="title"><%= link_to category.title, shortcut_path(category.node.shortcut) %></p>
+        <div class="thumbnail"> <%= link_to image_tag(category.thumbnail_image ? category.thumbnail_image : "no_image_thumb.gif"), shortcut_path(category.node.shortcut) %> </div>
+      <% end %>
+    <% end %>
+  </ul>
+  <hr/>
+<% end %>
+
+<% if @category and not @category.items.displayed.empty? %>
   <ul class="itemList">
-    <% items.each do |item|%>
-      <%= content_tag_for :li, item do %>
-        <p class="title"><%= link_to item.name, shortcut_path(item.node.shortcut) %></p>
-        <div class="thumbnail"> <%= link_to image_tag(item.thumbnail_image ? item.thumbnail_image : "no_image_thumb.gif"), shortcut_path(item.node.shortcut) %> </div>
-        <!--p class="cost"><%= number_to_currency(item.cost) %></p-->
+    <% @category.item_categories.each do |item_category|%>
+      <% if item_category.item.display %>
+        <%= content_tag_for :li, item_category.item do %>
+          <p class="title"><%= link_to item_category.item.name, shortcut_path(item_category.node.shortcut) %></p>
+          <div class="thumbnail"> <%= link_to image_tag(item_category.item.thumbnail_image ? item_category.item.thumbnail_image : "no_image_thumb.gif"), shortcut_path(item_category.node.shortcut) %> </div>
+          <!--p class="cost"><%= number_to_currency(item_category.item.cost) %></p-->
+        <% end %>
       <% end %>
     <% end %>
   </ul>
@@ -44,3 +58,4 @@
   <%= @node.title %>
 <% end %>
 <!-- End -->
+
