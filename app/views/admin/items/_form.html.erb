@@ -54,7 +54,7 @@
     </div>
     <div class="field">
       <%= f.label :long_description %>
-      <%= f.text_area :long_description, :title => "Long Description" %>
+      <%= f.cktext_area :long_description, :title => "Long Description" %>
     </div>
     <div class="field">
       <%= f.label :cost, "Price" %>
@@ -167,16 +167,16 @@
     <div class="field"><label></label><%= add_child_link "Add Product Option", :product_options %></div>
   </fieldset>
 
-  <fieldset class="tab">
+  <!--fieldset class="tab">
     <legend>Similar Products</legend>
     <p>Optionally specify any products that are similar to this product, only varying in dimension.<br/>
     Select 'Omit' if you wish to just display the similar product's name.</p>
-    <% f.fields_for :similar_items do |si_form| %>
-      <%= render :partial => 'similar_item', :locals => { :f => si_form } %>
-    <% end %>
-    <%= new_child_fields_template(f, :similar_items)%>
-    <div class="field"><label></label><%= add_child_link "Add Similar Product", :similar_items %></div>
-  </fieldset>
+    <%# f.fields_for :similar_items do |si_form| %>
+      <%#= render :partial => 'similar_item', :locals => { :f => si_form } %>
+    <%# end %>
+    <%#= new_child_fields_template(f, :similar_items)%>
+    <div class="field"><label></label><%#= add_child_link "Add Similar Product", :similar_items %></div>
+  </fieldset-->
 
 
   <fieldset>

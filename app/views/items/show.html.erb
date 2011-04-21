@@ -74,6 +74,22 @@
       <%= item_tag_for('item','length',@item.p_length) %>
       <%= item_tag_for('item','height',@item.p_height) %>
       <%= item_tag_for('item','width',@item.p_width) %>
+      <strong>Alternate Products:</strong>
+        <div class='item-group'>
+          <% @item.item_group.items.each do |link| %>
+            <% unless link.part_number.blank? %>
+              <%= content_tag_for :div, link, :class => 'tab' do %>
+                <h5 class="title"><%= link_to link.part_number, shortcut_path(link.node.shortcut) %></h5>
+                <%= item_tag_for('item','weight',link.weight) %>
+                <%= item_tag_for('item','handling_capacity',link.handling_capacity) %>
+                <%= item_tag_for('item','sump_capacity',link.sump_capacity) %>
+                <%= item_tag_for('item','length',link.p_length) %>
+                <%= item_tag_for('item','height',link.p_height) %>
+                <%= item_tag_for('item','width',link.p_width) %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
     </div>
 
       <div class="specific-dimensions">
@@ -92,20 +108,7 @@
 
     <% unless @item.item_group.nil? or @item.item_group.items.empty? %>
         <div class="group-items item-dimensions">
-          <strong>Alternate Products:</strong>
-          <% @item.item_group.items.each do |link| %>
-            <% unless link.part_number.blank? %><div>
-            <strong><%= link_to link.part_number, shortcut_path(link.node.shortcut) %></strong>
-            <%= content_tag_for :div, link do %>
-              <%= item_tag_for('item','weight',link.weight) %>
-              <%= item_tag_for('item','handling_capacity',link.handling_capacity) %>
-              <%= item_tag_for('item','sump_capacity',link.sump_capacity) %>
-              <%= item_tag_for('item','length',link.p_length) %>
-              <%= item_tag_for('item','height',link.p_height) %>
-              <%= item_tag_for('item','width',link.p_width) %>
-            <% end %>
-            </div><% end %>
-          <% end %>
+
         </div>
     <% end %>
 

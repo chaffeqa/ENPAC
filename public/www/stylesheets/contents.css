@@ -102,7 +102,6 @@ p {margin-bottom: 1.143em;}
 	clear: both;
 	visibility: hidden;
 }
-
 /* want good looking horizontal rules */
 hr {
 	border: 1px solid #ece8fc;
@@ -111,6 +110,15 @@ hr {
 	clear: both;
 	margin: 10px 0;
 }
+/* want nice tab class */
+.tab {
+    padding-left: 10px;
+    font-size: .8em;
+}
+    .tab > h5 { margin-top: 5px; margin-bottom: 0.5em }
+    .tab > p { margin-bottom: 0.3em; padding-left: 4px; }
+    .tab > p > span { display: inline !important; }
+
 
 /* Tables */
 table {margin: .5em auto 1.5em auto; width: 98%;}
@@ -199,8 +207,8 @@ table.defined {margin-bottom: 1.4em; width:100%;}
         font-size: 14px;
         border: none;
     }
-	
-	
+
+
 /* BLOG ITEM */
 h3.commentsHead {
 	background: #fcf8ef !important;
@@ -261,3 +269,4 @@ h3.commentsHead {
 	padding: 0 0 0 22px;
 	background: url(../template/icon_rss.png) no-repeat;
 }
+

@@ -26,5 +26,20 @@ module InventoryHelper
     params_array = inventory_search_parameters
     params_array.values
   end
+
+  # Returns an array describing the items in a FasterCSV format
+  def render_item_csv(items)
+    csv_string = FasterCSV.generate(:col_sep => ";", :row_sep => "\r\n") do |csv|
+      csv << ["id", "cost", "for_sale", "displayed", "part_number", "short_description",
+                "long_description", "weight", "handling_capacity", "sump_capacity", "p_length",
+                "p_height", "p_width", "dimension_type", "regulations", "item_group_id"]
+      items.each do |item|
+        csv << [item.id, item.cost, item.for_sale, item.display, item.part_number, item.short_description,
+                item.long_description, item.weight, item.handling_capacity, item.sump_capacity, item.p_length,
+                item.p_height, item.p_width, item.dimension_type, item.regulations, item.item_group_id]
+      end
+    end
+    csv_string
+  end
 end
 

@@ -5,18 +5,17 @@ class ShortcutController < ApplicationController
   # Routing method for all shortcut_path routes, looks for a Node for the current
   # request and renders or redirects appropriatly
   def route
-      # Page exists?
-      if @node and @node.has_page?
-        # Redirect to This Item's first category listing if it exists. To ensure the menus display correctly
-        if @node.page_type=='Item' and @node.page.has_better_url?
-          redirect_to shortcut_path(:shortcut => @node.page.better_url, :layout => @node.layout)
-        else
-          page_type = (@node.page_type == 'ItemCategory' ? 'Item' : @node.page_type)
-          render("#{page_type.tableize.pluralize}/show", :layout => @node.layout)
-        end
+    # Page exists?
+    if @node and @node.has_page?
+      # Redirect to This Item's first category listing if it exists. To ensure the menus display correctly
+      if @node.page_type=='Item' and @node.page.has_better_url?
+        redirect_to shortcut_path(:shortcut => @node.page.better_url, :layout => @node.layout)
       else
-        error_redirect
+        page_type = (@node.page_type == 'ItemCategory' ? 'Item' : @node.page_type)
+        render("#{page_type.tableize.pluralize}/show", :layout => @node.layout)
       end
+    else
+      error_redirect
     end
   end
 

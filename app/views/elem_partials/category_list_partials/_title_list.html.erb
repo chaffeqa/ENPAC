@@ -1,6 +1,25 @@
-<%#
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-%>
+<% if category and not category.sub_categories.empty? %>
+  <ul class="categoryTitleList">
+    <% category.sub_categories.each do |category|%>
+      <%= content_tag_for :li, category do %>
+        <p class="title"><%= link_to category.title, shortcut_path(category.node.shortcut) %></p>
+        <% end %>
+    <% end %>
+  </ul>
+  <hr/>
+<% end %>
 
-<%= "_title_list" %>
+<% if category and not category.items.displayed.empty? %>
+  <ul class="itemTitleList">
+    <% category.item_categories.each do |item_category|%>
+      <% if item_category.item.display %>
+        <%= content_tag_for :li, item_category.item do %>
+          <p class="title"><%= link_to item_category.item.name, shortcut_path(item_category.node.shortcut) %></p>
+          <!--p class="cost"><%= number_to_currency(item_category.item.cost) %></p-->
+        <% end %>
+      <% end %>
+    <% end %>
+  </ul>
+  <hr/>
+<% end %>
+

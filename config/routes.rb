@@ -17,7 +17,9 @@ ENPAC::Application.routes.draw do
     resources :menus, :only => [:index] do
       post :sort, :on => :collection
     end
-    resources :items
+    resources :items do
+      get 'export_items', :on => :collection
+    end
 #    resources :blogs, :except => [:show] do
 #      resources :posts, :except => [:index]
 #    end
