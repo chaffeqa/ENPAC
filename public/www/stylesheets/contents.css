@@ -115,7 +115,7 @@ hr {
     padding-left: 10px;
     font-size: .8em;
 }
-    .tab > h5 { margin-top: 5px; margin-bottom: 0.5em }
+    .tab > h5 { margin-top: 5px; margin-bottom: 0.5em; }
     .tab > p { margin-bottom: 0.3em; padding-left: 4px; }
     .tab > p > span { display: inline !important; }
 
