@@ -1,4 +1,4 @@
-<% @item = @node.page_type == 'ItemCategory' ? @node.page.item : @node.page
+<% @item ||= @node.page_type == 'ItemCategory' ? @node.page.item : @node.page
 @parent_category = (@node.page_type == 'ItemCategory' ? @node.page.category : (@item.categories.empty? ? nil : @item.categories.first)) %>
 
 <% if admin? %>
