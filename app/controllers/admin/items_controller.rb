@@ -214,8 +214,8 @@ class Admin::ItemsController < ApplicationController
     csv_string
   end
 
-  def csv_safe(str)
-    '"' + str.to_s.gsub(/"/,'').gsub("\r\n",'<br/>') + '"'
+  def csv_safe(str="")
+    str.blank? ? '' : '"' + str.to_s.gsub(/"/,"'") + '"' #.gsub("\r\n",'<br/>').to_s.gsub(/"/,"&quote;")
   end
 
 end
