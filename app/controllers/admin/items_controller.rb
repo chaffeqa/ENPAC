@@ -121,7 +121,7 @@ class Admin::ItemsController < ApplicationController
 
   # Returns an array describing the items in a FasterCSV format
   def item_csv_string
-    csv_string = FasterCSV.generate(:col_sep => ";", :row_sep => "\r\n") do |csv|
+    csv_string = FasterCSV.generate(:col_sep => ",", :row_sep => "\r\n") do |csv|
       csv << ["Items"]
       csv << ["id", "cost", "for_sale", "displayed", "part_number", "short_description",
                 "long_description", "weight", "handling_capacity", "sump_capacity", "p_length",
@@ -215,7 +215,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def csv_safe(str)
-    str.to_s.gsub(/;/,',').gsub("\r\n",'<br/>')
+    '"' + str.to_s.gsub(/"/,'').gsub("\r\n",'<br/>') + '"'
   end
 
 end
