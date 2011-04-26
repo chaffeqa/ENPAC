@@ -67,5 +67,8 @@ class Category < ActiveRecord::Base
     self.image? ? self.image.url : 'no_image_full_size.gif'
   end
 
+
+
+
 end
 

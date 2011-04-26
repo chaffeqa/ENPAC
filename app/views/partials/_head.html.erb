@@ -10,7 +10,7 @@
   <script> DD_belatedPNG.fix('img, .png_bg'); //fix any <img> or .png_bg background-images </script>
 <![endif]-->
 <%= javascript_include_tag 'rails', 'jquery-ui.min', 'jquery.bgiframe.min', 'jquery.colorbox-min', 'jquery.json-2.2.min', 'application', 'jquery.jstree'  %>
-<%= javascript_include_tag :ckeditor %>
+<%#= javascript_include_tag :ckeditor %>
 <% if admin? %>
   <!-- Extra scripting for admin pages -->
   <%= javascript_include_tag 'admin.js'  %>

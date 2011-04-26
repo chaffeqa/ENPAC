@@ -30,5 +30,17 @@ module Admin::ItemsHelper
   def categories_select
     Category.order('title').collect {|category| [category.title, category.id] }
   end
+
+  def csv_headers
+    headers_array = Item.column_names + ["category_title"] + ["product_option_1", "product_option_2", "product_option_3"]
+    headers_array = headers_array + AdjustableDimension.column_names + CircularDimension.column_names + CubeDimension.column_names
+    headers_array = headers_array + DrumDimension.column_names + FlexibleDimension.column_names + FunnelDimension.column_names
+    headers_array = headers_array + PoolDimension.column_names + SorbentDimension.column_names + StandardDimension.column_names
+    headers_array
+  end
+
+
+
+
 end
 

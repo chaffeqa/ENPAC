@@ -98,17 +98,6 @@ class Item < ActiveRecord::Base
     Node.items_node.children << self.node
   end
 
-  # updates the attributes for each node for this item
-  # NOTE: used for the version without item_groups
-#  def update_node
-#    node = self.node ? self.node : self.build_node
-#    node.title =  self.name
-#    node.menu_name =  self.name
-#    (node.new_record? ? node.set_safe_shortcut(self.name.parameterize.html_safe, 0, 0) : node.set_safe_shortcut(self.name.parameterize.html_safe, node.id, 0))
-#    node.displayed = self.display
-#    category.node.children << self.node
-#  end
-
   # Sets this item's group to it's appropriate group, either already existing or new
   def find_group
     self.item_group ||= ItemGroup.exists?(:name => self.name) ? ItemGroup.where(:name => self.name).first : ItemGroup.create(:name => self.name)
@@ -242,6 +231,36 @@ class Item < ActiveRecord::Base
      "with_handle_height" => "cm-in"
   }
 
+#protected
+
+  ####################################################################
+  # CSV construction
+  ###########
+
+  def self.get_csv_headers
+    self.csv_columns + self.csv_special_columns
+  end
+
+  def get_csv_row
+   row = Item.csv_columns.collect {|column| csv_safe(self.try(column.to_sym)) }
+   row = row << csv_safe((self.categories.collect {|c| c.title }).join(" - "))
+   row = row + self.option_items.limit(3).collect {|item| csv_safe(item.part_number)}
+   row
+  end
+
+
+private
+  def self.csv_columns
+    (self.column_names.delete_if {|c| ['updated_at','created_at'].include?(c) })
+  end
+
+  def self.csv_special_columns
+     ["category_title", "product_option_1", "product_option_2", "product_option_3"]
+  end
+
+  def csv_safe(str="")
+    str.blank? ? '' : '"' + str.to_s.gsub(/"/,"'") + '"' #.gsub("\r\n",'<br/>').to_s.gsub(/"/,"&quote;")
+  end
 
 end
 
