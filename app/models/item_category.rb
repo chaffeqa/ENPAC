@@ -1,7 +1,7 @@
 class ItemCategory < ActiveRecord::Base
   belongs_to :item
   belongs_to :category
-  has_one :node, :as => :page, :dependent => :destroy
+  has_one :node, :as => :page, :dependent => :destroy, :autosave => true
 
   before_save :update_node
 
