@@ -26,5 +26,9 @@ module Admin::ItemsHelper
     new_params[:per_page]=@per_page || 10
     new_params
   end
+
+  def categories_select
+    Category.order('title').collect {|category| [category.title, category.id] }
+  end
 end
 

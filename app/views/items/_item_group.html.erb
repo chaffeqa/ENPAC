@@ -1,0 +1,17 @@
+<strong>Alternate Products:</strong>
+<div class='item-group'>
+  <% @item.item_group.items.each do |link| %>
+    <% unless link.part_number.blank? or link.id == @item.id %>
+      <%= content_tag_for :div, link, :class => 'tab' do %>
+        <h5 class="title"><%= raw(link.short_description[0..60]) %> (<%= link_to link.part_number, shortcut_path(link.node.shortcut) %>)</h5>
+        <%= item_tag_for('item','weight',link.weight) %>
+        <%= item_tag_for('item','handling_capacity',link.handling_capacity) %>
+        <%= item_tag_for('item','sump_capacity',link.sump_capacity) %>
+        <%= item_tag_for('item','length',link.p_length) %>
+        <%= item_tag_for('item','height',link.p_height) %>
+        <%= item_tag_for('item','width',link.p_width) %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+

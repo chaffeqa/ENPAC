@@ -24,10 +24,11 @@ namespace :db do
       oil.save; spill_kits.save; aggr.save; ensorb.save; chem.save
     end
     puts "ending count: #{spill_kits.items.count}"
+    puts "Sub-category count: #{universal.items.count + oil.items.count + aggr.items.count + ensorb.items.count + chem.items.count}"
   end
 
 
-  desc "Sets all the Item nodes to point to the Item Node"
+  desc "Sets all the Item.nodes to point to the Item Node"
   task :clean_item_tree => :environment do
     puts 'Creating Item node...'
     Node.home.children.create(:title => 'Items', :menu_name => 'Items', :displayed => false, :shortcut => 'items') if Node.items_node.nil?
@@ -40,59 +41,7 @@ namespace :db do
   end
 
 
-  desc "Checks through the items and creates or updates item groups"
-  task :old_check_item_groups => :environment do
-    puts 'Creating Item node...'
-    items = Item.all
-    already_updated_items = []
-    items.each do |item|
-      unless already_updated_items.include?(item.id.to_s)
-        similar_items = Item.where(:name => item.name)
-        puts "item: #{item.id}, similar items: #{similar_items.collect {|t| t.id }.join(',')}"
-        if similar_items.count > 1 and item.item_group_id.nil?
-          group = ItemGroup.create
-          similar_items.each {|i|
-            group.items << i
-            unless i.id == item.id
-              i.item_categories.clear
-            end
-            puts "item: #{i.id}, count: #{i.item_categories.count}, group: #{group.id}, should keep category? #{(i.id == item.id).to_s}"
-            i.save;
-            already_updated_items << i.id.to_s
-          }
-        end
-      else
-        puts "item: #{item.id} already updated..."
-      end
-    end
-  end
 
-  desc "Checks through the items and creates or updates item groups"
-  task :check_item_links => :environment do
-    puts 'Creating Item node...'
-    items = Item.all
-    already_updated_items = []
-    items.each do |item|
-      unless already_updated_items.include?(item.id.to_s)
-        similar_items = Item.where(:name => item.name)
-        puts "item: #{item.id}, similar items: #{similar_items.collect {|t| t.id }.join(',')}"
-        if similar_items.count > 1 and item.item_group_id.nil?
-          group = ItemGroup.create
-          similar_items.each {|i|
-            group.items << i
-            unless i.id == item.id
-              i.item_categories.clear
-            end
-            puts "item: #{i.id}, count: #{i.item_categories.count}, group: #{group.id}, should keep category? #{(i.id == item.id).to_s}"
-            i.save;
-            already_updated_items << i.id.to_s
-          }
-        end
-      else
-        puts "item: #{item.id} already updated..."
-      end
-    end
-  end
 
 
   desc "Sets all the Item nodes to point to the Item Node"
@@ -118,5 +67,19 @@ namespace :db do
     puts "ending count: #{pc.items.count}"
     puts "Sub-category count: #{snap.items.count + foam.items.count + spill.items.count + acc.items.count}"
   end
+
+  desc "Reverts the item group changes to menu display"
+  task :revert_uniq_item_group_nodes => :environment do
+    ItemGroup.all.each do |group|
+      group.items.each do |item|
+        group.group_category_ids(item.id).each do |cat_id|
+          unless cat_id.blank?
+            item.item_categories.create!(:category_id => cat_id)
+          end
+        end
+      end
+    end
+  end
+
 end
 

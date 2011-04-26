@@ -47,7 +47,7 @@ class Item < ActiveRecord::Base
 
   # Associated Node attributes
   has_many :item_categories, :dependent => :destroy
-  has_many :categories, :through => :item_categories
+  has_many :categories, :through => :item_categories, :uniq => true
   accepts_nested_attributes_for :item_categories, :allow_destroy => true, :reject_if => proc { |attr| attr['category_id'].blank?}
   has_one :node, :as => :page, :dependent => :destroy, :autosave => true
   accepts_nested_attributes_for :node
@@ -85,7 +85,7 @@ class Item < ActiveRecord::Base
   #Callbacks
   before_validation :update_node
   before_validation :find_group
-  after_save        :remove_duplicate_group_links
+#  after_save        :remove_duplicate_group_links  # NOTE: for item group
   after_save        :cleanup_assoc_dimensions
 
   # updates the attributes for each node for this item
@@ -98,6 +98,17 @@ class Item < ActiveRecord::Base
     Node.items_node.children << self.node
   end
 
+  # updates the attributes for each node for this item
+  # NOTE: used for the version without item_groups
+#  def update_node
+#    node = self.node ? self.node : self.build_node
+#    node.title =  self.name
+#    node.menu_name =  self.name
+#    (node.new_record? ? node.set_safe_shortcut(self.name.parameterize.html_safe, 0, 0) : node.set_safe_shortcut(self.name.parameterize.html_safe, node.id, 0))
+#    node.displayed = self.display
+#    category.node.children << self.node
+#  end
+
   # Sets this item's group to it's appropriate group, either already existing or new
   def find_group
     self.item_group ||= ItemGroup.exists?(:name => self.name) ? ItemGroup.where(:name => self.name).first : ItemGroup.create(:name => self.name)
@@ -106,7 +117,7 @@ class Item < ActiveRecord::Base
   # Since every item group should only have 1 link underneath a category per group, this method
   # checks and deletes this item's categories that already exist in it's item group
   def remove_duplicate_group_links
-    group_categories = self.item_group.items.collect {|item| item.categories.collect {|cat| cat.id } unless item.id == self.id }.flatten
+    group_categories = self.item_group.group_category_ids(self.id)
     self.item_categories.where(:category_id => group_categories).each {|c| c.destroy }
   end
 
@@ -148,12 +159,14 @@ class Item < ActiveRecord::Base
 
   # Returns true if a better menu heirarchy url for this item exists
   def has_better_url?
-    not Node.where(:page_type => 'ItemCategory', :title => self.name).empty?
+#    not self.item_group.item_categories.empty?    # NOTE: for item_groups
+    not self.item_categories.empty?
   end
 
   # Returns the best menu heirarchy url for this item
   def better_url
-    self.has_better_url? ? Node.where(:page_type => 'ItemCategory', :title => self.name).first.shortcut : self.node.shortcut
+#    self.has_better_url? ? self.item_group.item_categories.first.node.shortcut : self.node.shortcut    # NOTE: for item_groups
+    self.has_better_url? ? self.item_categories.first.node.shortcut : self.node.shortcut
   end
 
   def thumbnail_image
