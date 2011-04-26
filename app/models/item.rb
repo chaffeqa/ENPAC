@@ -46,7 +46,7 @@ class Item < ActiveRecord::Base
   belongs_to :item_group
 
   # Associated Node attributes
-  has_many :item_categories, :dependent => :destroy
+  has_many :item_categories, :dependent => :destroy, :autosave => true
   has_many :categories, :through => :item_categories, :uniq => true
   accepts_nested_attributes_for :item_categories, :allow_destroy => true, :reject_if => proc { |attr| attr['category_id'].blank?}
   has_one :node, :as => :page, :dependent => :destroy, :autosave => true

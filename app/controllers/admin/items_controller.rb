@@ -123,11 +123,11 @@ class Admin::ItemsController < ApplicationController
   def item_csv_string
     csv_string = FasterCSV.generate(:col_sep => ",", :row_sep => "\r\n") do |csv|
       csv << ["Items"]
-      csv << ["id", "cost", "for_sale", "displayed", "part_number", "short_description",
+      csv << ["id", "category", "cost", "for_sale", "displayed", "part_number", "short_description",
                 "long_description", "weight", "handling_capacity", "sump_capacity", "p_length",
                 "p_height", "p_width", "dimension_type", "regulations", "item_group_id"]
       Item.order(:part_number).each do |item|
-        csv << [csv_safe(item.id), csv_safe(item.cost), csv_safe(item.for_sale), csv_safe(item.display), csv_safe(item.part_number), csv_safe(item.short_description),
+        csv << [csv_safe(item.id), csv_safe((item.categories.collect {|c| c.title }).join(" - ")), csv_safe(item.cost), csv_safe(item.for_sale), csv_safe(item.display), csv_safe(item.part_number), csv_safe(item.short_description),
                 csv_safe(item.long_description), csv_safe(item.weight), csv_safe(item.handling_capacity), csv_safe(item.sump_capacity), csv_safe(item.p_length),
                 csv_safe(item.p_height), csv_safe(item.p_width), csv_safe(item.dimension_type), csv_safe(item.regulations), csv_safe(item.item_group_id)]
       end
