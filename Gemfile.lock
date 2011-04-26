@@ -28,7 +28,6 @@ GEM
       activemodel (= 3.0.4)
       activesupport (= 3.0.4)
     activesupport (3.0.4)
-    acts_as_list (0.1.2)
     acts_as_tree (1.2.3)
     arel (2.0.8)
     aws-s3 (0.6.2)
@@ -106,7 +105,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts_as_list
   acts_as_tree
   aws-s3
   carmen

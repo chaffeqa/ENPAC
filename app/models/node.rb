@@ -68,8 +68,8 @@ class Node < ActiveRecord::Base
   scope :dynamic_pages, where(:page_type => 'DynamicPage')
   scope :categories, where(:page_type => 'Category')
   scope :calendars, where(:page_type => 'Calendar')
-  scope :items, where(:page_type => 'Item')
-  scope :no_items, where("page_type != 'Item' OR page_type IS NULL")
+  scope :items, where("nodes.page_type = 'Item' OR nodes.page_type = 'ItemCategory'")
+  scope :no_items, where("nodes.page_type != 'Item' OR nodes.page_type = 'ItemCategory' OR nodes.page_type IS NULL")
 
 
 

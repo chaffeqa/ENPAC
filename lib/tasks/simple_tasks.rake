@@ -126,5 +126,17 @@ namespace :db do
     universal.destroy; oil.destroy; aggr.destroy; ensorb.destroy; chem.destroy; spill_kits.save
   end
 
+  desc "Orders each categorie's items by name"
+  task :order_category_items => :environment do
+    Category.all.each do |cat|
+      child_nodes = cat.node.children.items.collect {|n| n }
+      child_nodes = child_nodes.sort_by {|node| (node && node.send(:title)) || ''}
+      while child_nodes.size > 0
+        node = child_nodes.pop
+        node.move_to_top
+      end
+    end
+  end
+
 end
 
