@@ -29,7 +29,7 @@ $(function() {
     // Changes the title based on the input of a file input
     $('form input:file.updater').live('change', function() {
         if ($(this).siblings('.updatable').val() == "") {
-          $(this).siblings('.updatable').val($(this).val().replace(/\.([^\.]+)$/,"").replace(/_/," "));
+          $(this).siblings('.updatable').val($(this).val().substring($(this).val().lastIndexOf("/")+1).replace(/\.([^\.]+)$/,"").replace(/_/," "));
         }
         return true;
       });
