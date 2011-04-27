@@ -478,11 +478,6 @@ nav ul {
             padding: 0 10px;
             background: url(../template/right-bg-tile.png) repeat-y;
         }
-            #secPage #product #documents #content a {
-                font-family: helvetica, arial, sans-serif;
-                font-weight: bold;
-                font-size: 12px;
-            }
             #secPage #product #documents #content h1.title {
                 font-family: helvetica, arial, sans-serif;
                 border: none;
@@ -491,7 +486,7 @@ nav ul {
                 color: #000;
             }
             #secPage #product #documents #content .productFile {
-                text-align: center;
+                padding-left: 10px;
             }
         #secPage #product #documents #bottom {
             height: 17px;

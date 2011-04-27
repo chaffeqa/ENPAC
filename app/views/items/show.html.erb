@@ -40,11 +40,11 @@
       <div class="productFiles" id="documents">
         <div id="top"> </div>
         <div id="content">
-          <h1 class="title">Product_files</h1>
+          <h1 class="title">Product Documents</h1>
           <% @item.product_files.each do |product_file| %>
             <%= content_tag_for :div, product_file do %>
-              <div class="thumb"> <%= link_to (image_tag product_file.url(:thumb), :alt => product_file.title), product_file.url(:content) %> </div>
-              <div class="title"> <%= product_file.title %> </div>
+              <span class="thumb"> <%= link_to (image_tag product_file.url(:thumb), :alt => product_file.title), product_file.url(:content) %> </span>
+              <span class="title"> <%= product_file.title %> </span>
             <% end %>
           <% end %>
         </div>
