@@ -4,13 +4,12 @@
     <label><%= link_to "Remove File", 'javascript:void(0)', :class => 'remove-new-child' %></label>
     <%= f.file_field :file, :class => "updater" %> Display Title: <%= f.text_field :title, :class => "updatable"%>
   <% else %>
-    <label>
-      <%= link_to "Remove File", 'javascript:void(0)', :class => 'remove-old-child', :style => "margin-left: 60px;" %>
-      <%= f.hidden_field :_destroy, :class => 'destroy-field', :value => '0' %>
-    </label>
-    <div class="thumb"><%= image_tag f.object.url(:thumb) %></div>
     <div class="field">
-      <%= f.label :title, "Display Title" %>
+      <label>
+        <%= link_to "Remove File", 'javascript:void(0)', :class => 'remove-old-child', :style => "margin-left: 60px;" %>
+        <%= f.hidden_field :_destroy, :class => 'destroy-field', :value => '0' %>
+      </label>
+      <span class="thumb"><%= image_tag f.object.url(:thumb) %></span>
       <%= f.text_field :title %>
     </div>
   <% end %>
