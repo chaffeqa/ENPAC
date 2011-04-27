@@ -26,14 +26,17 @@ class Category < ActiveRecord::Base
   ####################################################################
   # Validations and Callbacks
   ###########
-  before_validation :update_node
+
+  validates :title, :presence => true, :uniqueness => true
+  before_save :update_node
 
 
   def update_node
     node = self.node ? self.node : self.build_node
     node.title =  title
-    node.menu_name =   title
-    node.shortcut = title.parameterize.html_safe
+    node.menu_name = title
+    node.shortcut = title
+    node.set_safe_shortcut
     node.displayed = true
     if parent_category and parent_category_id != 0    #is a subnode
       parent_category.node.children << node

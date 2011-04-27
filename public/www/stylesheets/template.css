@@ -490,6 +490,9 @@ nav ul {
                 font-weight: bold;
                 color: #000;
             }
+            #secPage #product #documents #content .productFile {
+                text-align: center;
+            }
         #secPage #product #documents #bottom {
             height: 17px;
             background: url(../template/right-bg-bot.png) no-repeat;

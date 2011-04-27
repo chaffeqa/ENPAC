@@ -33,9 +33,16 @@ class Item < ActiveRecord::Base
   ####################################################################
   # Associations
   ###########
+
+  # ProductImages
   has_many :product_images, :limit => 10, :dependent => :destroy
   has_one :main_image, :class_name => "ProductImage", :conditions => {:primary_image => true}, :dependent => :destroy
   accepts_nested_attributes_for :product_images, :allow_destroy => true, :reject_if => proc { |attributes| attributes['image'].blank? and attributes['id'].blank? }
+
+  # ProductFiles
+  has_many :product_files, :limit => 3, :dependent => :destroy
+  accepts_nested_attributes_for :product_files, :allow_destroy => true, :reject_if => proc { |attributes| attributes['file'].blank? and attributes['id'].blank? }
+
 
   # Product Options association.  NOTE - referenced by   this.option_items
   has_many :product_options, :dependent => :destroy, :include => :option_item
@@ -79,21 +86,24 @@ class Item < ActiveRecord::Base
   ###########
 
   #Validations
-  validates_presence_of :name, :cost, :part_number
-  validates_numericality_of :cost
+  validates :name, :presence => true
+  validates :part_number, :presence => true
+  validates :cost, :presence => true, :numericality => true
+  validates :dimension_type, :inclusion => { :in => DIMENSION_TYPES }
 
   #Callbacks
-  before_validation :update_node
-  before_validation :find_group
-#  after_save        :remove_duplicate_group_links  # NOTE: for item group
+  before_save       :update_node
+  before_save       :find_group
   after_save        :cleanup_assoc_dimensions
+#  after_save        :remove_duplicate_group_links  # NOTE: for item group
 
   # updates the attributes for each node for this item
   def update_node
     node = self.node ? self.node : self.build_node
     node.title =  self.name
     node.menu_name =  self.name
-    (node.new_record? ? node.set_safe_shortcut(self.name.parameterize.html_safe, 0, 0) : node.set_safe_shortcut(self.name.parameterize.html_safe, node.id, 0))
+    node.shortcut = self.name
+    node.set_safe_shortcut
     node.displayed = self.display
     Node.items_node.children << self.node
   end
@@ -231,20 +241,32 @@ class Item < ActiveRecord::Base
      "with_handle_height" => "cm-in"
   }
 
-#protected
+
 
   ####################################################################
   # CSV construction
   ###########
 
   def self.get_csv_headers
-    self.csv_columns + self.csv_special_columns
+    self.csv_columns + self.csv_special_columns + AdjustableDimension.get_csv_headers +
+    CircularDimension.get_csv_headers + CubeDimension.get_csv_headers + DrumDimension.get_csv_headers +
+    FlexibleDimension.get_csv_headers + FunnelDimension.get_csv_headers + PoolDimension.get_csv_headers +
+    SorbentDimension.get_csv_headers + StandardDimension.get_csv_headers
   end
 
   def get_csv_row
    row = Item.csv_columns.collect {|column| csv_safe(self.try(column.to_sym)) }
    row = row << csv_safe((self.categories.collect {|c| c.title }).join(" - "))
    row = row + self.option_items.limit(3).collect {|item| csv_safe(item.part_number)}
+   row = row + (self.adjustable_dimension ? self.adjustable_dimension.get_csv_row : AdjustableDimension.empty_csv_row)
+   row = row + (self.circular_dimension ? self.circular_dimension.get_csv_row : CircularDimension.empty_csv_row)
+   row = row + (self.cube_dimension ? self.cube_dimension.get_csv_row : CubeDimension.empty_csv_row)
+   row = row + (self.drum_dimension ? self.drum_dimension.get_csv_row : DrumDimension.empty_csv_row)
+   row = row + (self.flexible_dimension ? self.flexible_dimension.get_csv_row : FlexibleDimension.empty_csv_row)
+   row = row + (self.funnel_dimension ? self.funnel_dimension.get_csv_row : FunnelDimension.empty_csv_row)
+   row = row + (self.pool_dimension ? self.pool_dimension.get_csv_row : PoolDimension.empty_csv_row)
+   row = row + (self.sorbent_dimension ? self.sorbent_dimension.get_csv_row : SorbentDimension.empty_csv_row)
+   row = row + (self.standard_dimension ? self.standard_dimension.get_csv_row : StandardDimension.empty_csv_row)
    row
   end
 

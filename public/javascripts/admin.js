@@ -1,5 +1,5 @@
 $(function() {
-	
+
     // Max width your labels
     var max = 0;
     $("label").each(function(){
@@ -7,13 +7,13 @@ $(function() {
             max = $(this).width();
     });
     $("label").width(max+10);
-	
+
     // Function for forms with inline hints
     $('input[title]').each(function() {
         if($(this).val() === '') {
             $(this).val($(this).attr('title'));
         }
-		
+
         $(this).focus(function() {
             if($(this).val() == $(this).attr('title')) {
                 $(this).val('').addClass('focused');
@@ -25,6 +25,14 @@ $(function() {
             }
         });
     });
+
+    // Changes the title based on the input of a file input
+    $('form input:file.updater').live('change', function() {
+        if ($(this).siblings('.updatable').val() == "") {
+          $(this).siblings('.updatable').val($(this).val().replace(/\.([^\.]+)$/,"").replace(/_/," "));
+        }
+        return true;
+      });
 
     // Hint Expander
     $(".expander").click(function() {
@@ -49,3 +57,4 @@ function stripTitles() {
         }
     });
 }
+

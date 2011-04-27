@@ -14,9 +14,9 @@ class Node < ActiveRecord::Base
   ###########
 
   #Validations
-  validates_presence_of :shortcut, :message => 'URL cannot be blank.'
-  validates_presence_of :title
-  validates_presence_of :menu_name
+  validates :shortcut, :presence => true
+  validates :title, :presence => true
+  validates :menu_name, :presence => true
   validate :shortcut_html_safe?
   validate :check_unique_shortcut?
   #  validate :ensure_unique_root_node
@@ -28,11 +28,11 @@ class Node < ActiveRecord::Base
   def fill_missing_fields
     unless self.title.blank?
       self.menu_name = self.title if self.menu_name.blank?
-      self.shortcut = self.title.parameterize.html_safe if self.shortcut.blank?
+      self.shortcut = parameterize(self.title) if self.shortcut.blank?
     else
       unless self.menu_name.blank?
         self.title = self.menu_name if self.title.blank?
-        self.shortcut = self.menu_name.parameterize.html_safe if self.shortcut.blank?
+        self.shortcut = parameterize(self.menu_name)if self.shortcut.blank?
       end
     end
   end
@@ -54,9 +54,9 @@ class Node < ActiveRecord::Base
 
   # Checks the shortcut to ensure the string is HTML safe.
   def shortcut_html_safe?
-    errors.add(:shortcut, "Shortcut cannot contain spaces") if shortcut.include? " "
-    errors.add(:shortcut, "Shortcut cannot contain slashes") if shortcut.include? "/"
-    errors.add(:shortcut, "Shortcut cannot contain '?'") if shortcut.include? "?"
+#    errors.add(:shortcut, "Shortcut cannot contain spaces") if shortcut.include? " "
+#    errors.add(:shortcut, "Shortcut cannot contain slashes") if shortcut.include? "/"
+    errors.add(:shortcut, "Shortcut cannot contain illegal URL characters (Legal characters: a-z, A-Z, 0-9, '-', '_')") if !shortcut.blank? and shortcut != parameterize(shortcut)
   end
 
 
@@ -166,14 +166,16 @@ class Node < ActiveRecord::Base
   # Sets this node's shortcut to the desired shortcut or closest related shortcut that will be unique in the database.  If a conflict
   # occurs than a numeric increment will be appended as a prefix and the increment number will be returned.  If no conflict occured
   # than the method will return 0 (or the passed in increment if one was passed in)
-  def set_safe_shortcut(desired_shortcut, node_id=0, increment=0)
-    prefix = increment == 0 ? "" : increment.to_s + "-"
+  def set_safe_shortcut
+    node_id = self.id || 0
+    desired_shortcut = parameterize(self.shortcut || "")
+    prefix = ""; incr = 0
     while Node.where('nodes.shortcut = ? AND nodes.id != ?', prefix + desired_shortcut, node_id).exists?
-      increment += 1
-      prefix = increment.to_s + "-"
+      incr += 1
+      prefix = incr.to_s + "-"
     end
     self.shortcut = prefix + desired_shortcut
-    return increment
+    return true
   end
 
   # Called to order the Node tree based on passed in json
@@ -194,6 +196,20 @@ class Node < ActiveRecord::Base
       end
     end
     position
+  end
+
+  # Replaces special characters in a string so that it may be used as part of a ‘pretty’ URL.
+  def parameterize(parameterized_string, sep = '-')
+    # Turn unwanted chars into the separator
+    parameterized_string.gsub!(/[^a-zA-Z0-9\-_]+/, sep)
+    unless sep.nil? || sep.empty?
+      re_sep = Regexp.escape(sep)
+      # No more than one of the separator in a row.
+      parameterized_string.gsub!(/#{re_sep}{2,}/, sep)
+      # Remove leading/trailing separator.
+      parameterized_string.gsub!(/^#{re_sep}|#{re_sep}$/, '')
+    end
+    parameterized_string.downcase
   end
 
 end

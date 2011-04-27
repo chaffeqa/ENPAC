@@ -31,8 +31,9 @@ class Admin::ItemsController < ApplicationController
     build_dynamic_type
     @item = Item.new(params[:item])
     if @item.save
-      redirect_to(admin_items_url(), :notice => 'Item was successfully created.')
+      redirect_to(shortcut_path(@item.better_url), :notice => 'Item was successfully created.')
     else
+      puts "errors? #{@item.errors.any?.to_s}"
       render :action => "new"
     end
   end
@@ -40,7 +41,7 @@ class Admin::ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update_attributes(params[:item])
-      redirect_to(admin_items_url(), :notice => 'Item was successfully updated.')
+      redirect_to(shortcut_path(@item.better_url), :notice => 'Item was successfully updated.')
     else
       render :action => "edit"
     end
@@ -63,29 +64,7 @@ class Admin::ItemsController < ApplicationController
 #    end
   end
 
-  # Page for managing Regulations, can be GET, POST, or DELETE
-  def manage_regulations
-    if request.delete? and Regulation.find(params[:regulation_id]).destroy
-      redirect_to(manage_regulations_admin_items_path(), :notice => 'Regulation was successfully destroyed.' )
-    end
-    @regulation = Regulation.new(params[:regulation])
-    if request.post? and @regulation.save
-      redirect_to(manage_regulations_admin_items_path(), :notice => 'Regulation successfully created.')
-    end
-    @regulations = Regulation.order(:name)
-  end
 
-  # Page for managing Capabilities, can be GET, POST, or DELETE
-  def manage_capabilities
-    if request.delete? and Capability.find(params[:capability_id]).destroy
-      redirect_to(manage_capabilities_admin_items_path(), :notice => 'Capability was successfully destroyed.' )
-    end
-    @capability = Capability.new(params[:capability])
-    if request.post? and @capability.save
-      redirect_to(manage_capabilities_admin_items_path(), :notice => 'Capability successfully created.')
-    end
-    @capabilities = Capability.order(:name)
-  end
 
   private
 
@@ -99,12 +78,6 @@ class Admin::ItemsController < ApplicationController
     params[:item].delete(:pool_dimension_attributes) unless params[:item][:dimension_type] == 'Pool'
     params[:item].delete(:sorbent_dimension_attributes) unless params[:item][:dimension_type] == 'Sorbent'
     params[:item].delete(:standard_dimension_attributes) unless params[:item][:dimension_type] == 'Standard'
-
-    puts params[:item].keys
-  end
-
-  def get_node
-    super
   end
 
   def sort_column
@@ -122,100 +95,12 @@ class Admin::ItemsController < ApplicationController
   # Returns an array describing the items in a FasterCSV format
   def item_csv_string
     csv_string = FasterCSV.generate(:col_sep => ",", :row_sep => "\r\n") do |csv|
-      csv << ["Items"]
-      csv << ["id", "category", "name", "cost", "for_sale", "displayed", "part_number", "short_description",
-                "long_description", "weight", "handling_capacity", "sump_capacity", "p_length",
-                "p_height", "p_width", "dimension_type", "regulations", "item_group_id"]
-      Item.order(:part_number).each do |item|
-        csv << [csv_safe(item.id), csv_safe((item.categories.collect {|c| c.title }).join(" - ")), csv_safe(item.name), csv_safe(item.cost), csv_safe(item.for_sale), csv_safe(item.display), csv_safe(item.part_number), csv_safe(item.short_description),
-                csv_safe(item.long_description), csv_safe(item.weight), csv_safe(item.handling_capacity), csv_safe(item.sump_capacity), csv_safe(item.p_length),
-                csv_safe(item.p_height), csv_safe(item.p_width), csv_safe(item.dimension_type), csv_safe(item.regulations), csv_safe(item.item_group_id)]
+      csv << Item.get_csv_headers
+      Item.all.each do |item|
+        csv << item.get_csv_row
       end
-      csv << []
-      csv << ["Adjustable Dimensions"]
-      csv << ["id", "item_id", "round_max_diameter", "round_min_diameter", "rectangular_max_length",
-              "rectangular_min_length", "rectangular_max_width", "rectangular_min_width", "overflow_rate", "capabilities"]
-      AdjustableDimension.order(:item_id).each do |dim|
-        csv << [csv_safe(dim.id), csv_safe(dim.item_id), csv_safe(dim.round_max_diameter), csv_safe(dim.round_min_diameter), csv_safe(dim.rectangular_max_length),
-                csv_safe(dim.rectangular_min_length), csv_safe(dim.rectangular_max_width), csv_safe(dim.rectangular_min_width), csv_safe(dim.overflow_rate),
-                csv_safe(dim.capabilities)]
-      end
-      csv << []
-      csv << ["Circular Dimensions"]
-      csv << ["id", "item_id", "external_diameter", "internal_diameter", "external_height","internal_height"]
-      CircularDimension.order(:item_id).each do |dim|
-        csv << [csv_safe(dim.id), csv_safe(dim.item_id), csv_safe(dim.external_diameter), csv_safe(dim.internal_diameter), csv_safe(dim.external_height),
-                csv_safe(dim.internal_height)]
-      end
-      csv << []
-      csv << ["Cube Dimensions"]
-      csv << ["id", "item_id", "external_length", "internal_length", "external_width", "internal_width", "external_height", "internal_height",
-              "door_opening_width", "door_opening_height"]
-      CubeDimension.order(:item_id).each do |dim|
-        csv << [csv_safe(dim.id), csv_safe(dim.item_id), csv_safe(dim.external_length), csv_safe(dim.internal_length), csv_safe(dim.external_width),
-                csv_safe(dim.internal_width), csv_safe(dim.external_height), csv_safe(dim.internal_height),
-                csv_safe(dim.door_opening_width), csv_safe(dim.door_opening_height)]
-      end
-      csv << []
-      csv << ["Drum Dimensions"]
-      csv << ["id", "item_id", "top_diameter_external", "top_diameter_internal", "bottem_diameter_external", "bottem_diameter_internal",
-              "height_internal", "height_external"]
-      DrumDimension.order(:item_id).each do |dim|
-        csv << [csv_safe(dim.id), csv_safe(dim.item_id), csv_safe(dim.top_diameter_external), csv_safe(dim.top_diameter_internal),
-                csv_safe(dim.bottem_diameter_external), csv_safe(dim.bottem_diameter_internal), csv_safe(dim.height_internal),
-                csv_safe(dim.height_external)]
-      end
-      csv << []
-      csv << ["Flexible Dimensions"]
-      csv << ["id", "item_id", "length", "width", "height", "absorbs"]
-      FlexibleDimension.order(:item_id).each do |dim|
-        csv << [csv_safe(dim.id), csv_safe(dim.item_id), csv_safe(dim.length), csv_safe(dim.width),
-                csv_safe(dim.height), csv_safe(dim.absorbs)]
-      end
-      csv << []
-      csv << ["Funnel Dimensions"]
-      csv << ["id", "item_id", "top_external_diameter", "top_internal_diameter", "bottem_internal_diameter",
-            "bottem_external_diameter", "internal_height", "external_height"]
-      FunnelDimension.order(:item_id).each do |dim|
-        csv << [csv_safe(dim.id), csv_safe(dim.item_id), csv_safe(dim.top_external_diameter), csv_safe(dim.top_internal_diameter),
-                csv_safe(dim.bottem_internal_diameter), csv_safe(dim.bottem_external_diameter), csv_safe(dim.internal_height),
-                csv_safe(dim.external_height)]
-      end
-      csv << []
-      csv << ["Pool Dimensions"]
-      csv << ["id", "item_id", "top_diameter", "bottem_diameter", "height"]
-      PoolDimension.order(:item_id).each do |dim|
-        csv << [csv_safe(dim.id), csv_safe(dim.item_id), csv_safe(dim.top_diameter), csv_safe(dim.bottem_diameter),
-                csv_safe(dim.height)]
-      end
-      csv << []
-      csv << ["Sorbent Dimensions"]
-      csv << ["id", "item_id", "diameter", "length", "width", "height", "class_category", "absorbs", "quantity", "capabilities", "stype"]
-      SorbentDimension.order(:item_id).each do |dim|
-        csv << [csv_safe(dim.id), csv_safe(dim.item_id), csv_safe(dim.diameter), csv_safe(dim.length), csv_safe(dim.width), csv_safe(dim.height),
-                csv_safe(dim.class_category), csv_safe(dim.absorbs), csv_safe(dim.quantity), csv_safe(dim.capabilities), csv_safe(dim.stype)]
-      end
-      csv << []
-      csv << ["Standard Dimensions"]
-      csv << ["id", "item_id", "diameter", "length", "width", "height", "with_handle_length", "with_handle_width",
-              "with_handle_height", "absorbs"]
-      StandardDimension.order(:item_id).each do |dim|
-        csv << [csv_safe(dim.id), csv_safe(dim.item_id), csv_safe(dim.length), csv_safe(dim.width), csv_safe(dim.height),
-                csv_safe(dim.with_handle_length), csv_safe(dim.with_handle_width), csv_safe(dim.with_handle_height), csv_safe(dim.absorbs)]
-      end
-      csv << []
-      csv << ["Product Options"]
-      csv << ["id", "item_id", "option_item_id", "description"]
-      ProductOption.order(:item_id).each do |dim|
-        csv << [csv_safe(dim.id), csv_safe(dim.item_id), csv_safe(dim.option_item_id), csv_safe(dim.description)]
-      end
-
     end
     csv_string
-  end
-
-  def csv_safe(str="")
-    str.blank? ? '' : '"' + str.to_s.gsub(/"/,"'") + '"' #.gsub("\r\n",'<br/>').to_s.gsub(/"/,"&quote;")
   end
 
 end

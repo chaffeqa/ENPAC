@@ -12,9 +12,9 @@
   <% end %>
 
 
-  <%= f.fields_for :node do |node_f| %>
-    <%= node_f.hidden_field :displayed, :value => true %>
-  <% end %>
+  <%#= f.fields_for :node do |node_f| %>
+    <%#= node_f.hidden_field :displayed, :value => true %>
+  <%# end %>
 
   <fieldset class="tab">
     <legend>Categorize</legend>
@@ -177,6 +177,22 @@
     <%#= new_child_fields_template(f, :similar_items)%>
     <div class="field"><label></label><%#= add_child_link "Add Similar Product", :similar_items %></div>
   </fieldset-->
+
+  <fieldset class="tab">
+    <legend>Product Files</legend>
+    <p>Manage files for this product.</p>
+    <div class="field">
+      <label></label>
+      <% f.fields_for :product_files do |file_form| %>
+        <%= render :partial => 'product_file', :locals => { :f => file_form } %>
+      <% end %>
+      <%= new_child_fields_template(f, :product_files)%>
+    </div>
+    <div class="field">
+      <label></label>
+      <%= add_child_link "Add Product File", :product_files %>
+    </div>
+  </fieldset>
 
 
   <fieldset>

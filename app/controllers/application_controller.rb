@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   def get_node
     get_home_node
     @node = @node || (Node.where(:shortcut => params[:shortcut]).first if params[:shortcut])
-    check_node_validity
+    return check_node_validity
   end
 
   #TODO Returns true or false if user is admin
@@ -48,11 +48,16 @@ class ApplicationController < ActionController::Base
   # Checks the validity of the current node as well as the basic access rights
   def check_node_validity
     # Node isn't valid
-    redirect_to(error_path(:shortcut => params[:shortcut] ))  unless @node
+    unless @node
+      redirect_to(error_path(:shortcut => params[:shortcut] ))
+      return false
+    end
     # Page not displayed and not admin
     if not @node.displayed and not admin?
       error_redirect(:message => 'We are sorry, the Item or Page you are trying to view is no longer publicly listed.')
+      return false
     end
+    return true
   end
 
 

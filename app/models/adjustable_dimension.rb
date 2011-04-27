@@ -1,21 +1,21 @@
 class AdjustableDimension < ActiveRecord::Base
   belongs_to :item
 
-  #protected
+
 
   ####################################################################
   # CSV construction
   ###########
 
   def self.get_csv_headers
-    self.csv_columns
+    self.csv_columns.collect {|column| "adjustable_dimension:" + column }
   end
 
   def get_csv_row
    AdjustableDimension.csv_columns.collect {|column| csv_safe(self.try(column.to_sym)) }
   end
 
-  def self.get_csv_row
+  def self.empty_csv_row
    self.csv_columns.collect {|column| "" }
   end
 

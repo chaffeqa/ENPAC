@@ -21,7 +21,6 @@ $(function() {
         return false;
     });
 
-    
 
     $('a.gallery').colorbox();
 
@@ -32,7 +31,7 @@ $(function() {
     preview.live('click', function() {
         admin_divs.toggleClass("admin");
     });
-    
+
     preview.live('click', function() {
         if (preview.text() == 'Preview Page') {
             preview.text('Admin View');
@@ -42,6 +41,4 @@ $(function() {
         }
     });
 });
-
-
 

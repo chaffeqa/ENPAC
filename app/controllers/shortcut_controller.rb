@@ -17,7 +17,7 @@ class ShortcutController < ApplicationController
         render("#{page_type.tableize.pluralize}/show", :layout => @node.layout)
       end
     else
-      error_redirect
+      return error_redirect
     end
   end
 
@@ -36,7 +36,7 @@ class ShortcutController < ApplicationController
         if (!@node.controller.empty? and !@node.action.empty?)
           render(@node.url)
         end
-        error_redirect
+        return error_redirect
       end
     end
   end
@@ -56,6 +56,7 @@ class ShortcutController < ApplicationController
     shortcut = params[:shortcut].blank? ? nil : params[:shortcut]
     message = shortcut != '' ? 'We are sorry, there was an internal Site error' : "We are sorry, the page you have requested either has been moved or doesn't exit."
     redirect_to(error_path(:message => message, :shortcut => shortcut))
+    return false
   end
 
 end
