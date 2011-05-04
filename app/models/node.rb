@@ -172,16 +172,16 @@ class Node < ActiveRecord::Base
   # Sets this node's shortcut to the desired shortcut or closest related shortcut that will be unique in the database.  If a conflict
   # occurs than a numeric increment will be appended as a prefix and the increment number will be returned.  If no conflict occured
   # than the method will return 0 (or the passed in increment if one was passed in)
-  def set_safe_shortcut
+  def set_safe_shortcut(shtcut=nil)
+    shtcut ||= self.shortcut || ''
     node_id = self.id || 0
-    desired_shortcut = parameterize(self.shortcut || "")
+    desired_shortcut = parameterize(shtcut.clone) # Clone since trouble with copying
     prefix = ""; incr = 0
     while Node.where('nodes.shortcut = ? AND nodes.id != ?', prefix + desired_shortcut, node_id).exists?
       incr += 1
       prefix = incr.to_s + "-"
     end
     self.shortcut = prefix + desired_shortcut
-    return true
   end
 
   # Called to order the Node tree based on passed in json

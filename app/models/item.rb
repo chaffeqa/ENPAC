@@ -94,18 +94,17 @@ class Item < ActiveRecord::Base
   #Callbacks
   before_validation :update_node
   before_save       :find_group
-  after_save       :update_item_categories
+  after_save        :update_item_categories
   after_save        :cleanup_assoc_dimensions
 #  after_save        :remove_duplicate_group_links  # NOTE: for item group
 
   # updates the attributes for each node for this item
   def update_node
     node = self.node ? self.node : self.build_node
-    unless self.name.blank?
-      node.title =  self.name
-      node.menu_name =  self.name
-      node.shortcut = self.name
-      node.set_safe_shortcut
+    unless name.blank?
+      node.title = name
+      node.menu_name =  name
+      node.set_safe_shortcut(name)
     end
     node.displayed = self.display || true
     node.parent = Node.items_node
