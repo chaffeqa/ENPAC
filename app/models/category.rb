@@ -31,6 +31,7 @@ class Category < ActiveRecord::Base
   before_validation :update_node
 
   def update_node
+    self.parent_category_id = nil if self.parent_category_id == 0 # NOTE: to fix original mistake
     node = self.node ? self.node : self.build_node
     unless self.title.blank?
       node.title =  title
@@ -38,7 +39,7 @@ class Category < ActiveRecord::Base
       node.set_safe_shortcut(title)
     end
     node.displayed = true
-    self.node.parent = (parent_category and parent_category_id != 0) ? parent_category.node : Node.categories_node
+    self.node.parent = (parent_category and !parent_category_id.blank?) ? parent_category.node : Node.categories_node
   end
 
 

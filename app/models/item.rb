@@ -13,18 +13,18 @@ class Item < ActiveRecord::Base
 #  end
 
 
-  DIMENSION_TYPES = [
-    'Adjustable',
-    'Circular',
-    'Cube',
-    'Drum',
-    'Flexible',
-    'Funnel',
-    'Pool',
-    'Sorbent',
-    'Standard',
-    'N/A'
-  ]
+  DIMENSION_TYPES = {
+    'Adjustable' => 'adjustable_dimension',
+    'Circular' => 'circular_dimension',
+    'Cube' => 'cube_dimension',
+    'Drum' => 'drum_dimension',
+    'Flexible' => 'flexible_dimension',
+    'Funnel' => 'funnel_dimension',
+    'Pool' => 'pool_dimension',
+    'Sorbent' => 'sorbent_dimension',
+    'Standard' => 'standard_dimension',
+    'N/A' => ''
+  }
 
 
 
@@ -89,7 +89,7 @@ class Item < ActiveRecord::Base
   validates :name, :presence => true
   validates :part_number, :presence => true
   validates :cost, :presence => true, :numericality => true
-  validates :dimension_type, :inclusion => { :in => DIMENSION_TYPES }
+  validates :dimension_type, :inclusion => { :in => DIMENSION_TYPES.keys }
 
   #Callbacks
   before_validation :update_node
@@ -138,6 +138,12 @@ class Item < ActiveRecord::Base
     self.pool_dimension.destroy if pool_dimension and dimension_type != 'Pool'
     self.sorbent_dimension.destroy if sorbent_dimension and dimension_type != 'Sorbent'
     self.standard_dimension.destroy if standard_dimension and dimension_type != 'Standard'
+    self.reload
+    if self.dimension_type != 'N/A' and self.try(DIMENSION_TYPES[self.dimension_type].to_sym).nil?
+      puts "Non-existent Dimension for item: #{self.id} with declared dimension_type: #{self.dimension_type}.  Setting to 'N/A'..."
+      self.dimension_type = 'N/A'
+      self.save
+    end
   end
 
 
@@ -184,7 +190,7 @@ class Item < ActiveRecord::Base
   end
 
   def self.dimension_types
-    DIMENSION_TYPES
+    DIMENSION_TYPES.keys
   end
 
   # Returns the measurement class type for the desired column

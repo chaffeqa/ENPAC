@@ -103,11 +103,22 @@ module ApplicationHelper
 
   # returns an array representing the inventory category tree.  Uses the category.node.title and category.node.id.
   # Ex. [..., ['Biblical','1'], ['...Babylon', '2'], ...]
-  def cat_options_tree_recursive(node, addition)
+  def cat_options_tree_recursive(node = Node.categories_node, addition="")
     array = []
     array << ["#{addition} #{h(node.title)}", "#{node.id}"]
     node.children.categories.each do |childnode|
       array += cat_options_tree_recursive(childnode, "#{addition}---")
+    end
+    array
+  end
+  
+  # Returns an array representing a category select.  Does not add a ROOT array entry: Ex. ['Products', nil]
+  # Ex. [..., ['Biblical','1'], ['...Babylon', '2'], ...]
+  def parent_category_select(node = Node.categories_node, addition="")
+    array = []
+    array <<  ((node.category.blank?) ? ["Products", nil] : ["#{addition} #{node.category.title}", node.category.id.to_s])
+    node.children.categories.each do |childnode|
+      array += parent_category_select(childnode, "#{addition}---")
     end
     array
   end

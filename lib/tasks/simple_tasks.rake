@@ -36,6 +36,8 @@ namespace :db do
     Item.all.each {|item| item.save }
     puts 'Updating all item_categories...'
     ItemCategory.all.each {|ic| ic.save }
+    puts 'Updating all categories...'
+    Category.all.each {|c| c.save }
     puts 'Destroying all bad nodes...'
     Node.all.each {|node| node.destroy if node.page.nil? and not node.page_type.blank?}
   end
