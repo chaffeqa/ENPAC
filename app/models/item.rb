@@ -54,7 +54,7 @@ class Item < ActiveRecord::Base
 
   # Associated Node attributes
   has_many :item_categories, :dependent => :destroy, :autosave => true
-  has_many :categories, :through => :item_categories, :uniq => true
+  has_many :categories, :through => :item_categories
   accepts_nested_attributes_for :item_categories, :allow_destroy => true, :reject_if => proc { |attr| attr['category_id'].blank?}
   has_one :node, :as => :page, :dependent => :destroy, :autosave => true
   accepts_nested_attributes_for :node
@@ -92,20 +92,28 @@ class Item < ActiveRecord::Base
   validates :dimension_type, :inclusion => { :in => DIMENSION_TYPES }
 
   #Callbacks
-  before_save       :update_node
+  before_validation :update_node
   before_save       :find_group
+  after_save       :update_item_categories
   after_save        :cleanup_assoc_dimensions
 #  after_save        :remove_duplicate_group_links  # NOTE: for item group
 
   # updates the attributes for each node for this item
   def update_node
     node = self.node ? self.node : self.build_node
-    node.title =  self.name
-    node.menu_name =  self.name
-    node.shortcut = self.name
-    node.set_safe_shortcut
-    node.displayed = self.display
-    Node.items_node.children << self.node
+    unless self.name.blank?
+      node.title =  self.name
+      node.menu_name =  self.name
+      node.shortcut = self.name
+      node.set_safe_shortcut
+    end
+    node.displayed = self.display || true
+    node.parent = Node.items_node
+  end
+  
+  # Since autosave doesn't seem to be working, this will force the item_categories to resave
+  def update_item_categories
+    (self.item_categories.each {|ic| ic.save }) if self.item_categories
   end
 
   # Sets this item's group to it's appropriate group, either already existing or new

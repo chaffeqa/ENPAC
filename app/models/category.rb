@@ -10,7 +10,7 @@ class Category < ActiveRecord::Base
 
   # Associated Node attributes
   has_one :node, :as => :page, :dependent => :destroy, :autosave => true
-  accepts_nested_attributes_for :node
+  #accepts_nested_attributes_for :node
 
   has_attached_file :image,
     :storage => :s3,
@@ -28,21 +28,18 @@ class Category < ActiveRecord::Base
   ###########
 
   validates :title, :presence => true, :uniqueness => true
-  before_save :update_node
-
+  before_validation :update_node
 
   def update_node
     node = self.node ? self.node : self.build_node
-    node.title =  title
-    node.menu_name = title
-    node.shortcut = title
-    node.set_safe_shortcut
-    node.displayed = true
-    if parent_category and parent_category_id != 0    #is a subnode
-      parent_category.node.children << node
-    else                                              #is a child of root node
-      Node.categories_node.children << node
+    unless self.title.blank?
+      node.title =  title
+      node.menu_name = title
+      node.shortcut = title
+      node.set_safe_shortcut
     end
+    node.displayed = true
+    self.node.parent = (parent_category and parent_category_id != 0) ? parent_category.node : Node.categories_node
   end
 
 

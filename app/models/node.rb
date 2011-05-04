@@ -23,6 +23,12 @@ class Node < ActiveRecord::Base
 
   #Callbacks
   before_validation :fill_missing_fields
+  after_save :reload_page
+  
+  # Callback to force this node's page to reload the node
+  def reload_page
+    self.page.reload if self.has_page?
+  end
 
   # Ensures the fields for this node are all filled, and if not, attempts to fill them
   def fill_missing_fields
