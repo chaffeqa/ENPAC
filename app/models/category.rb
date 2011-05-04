@@ -10,7 +10,7 @@ class Category < ActiveRecord::Base
 
   # Associated Node attributes
   has_one :node, :as => :page, :dependent => :destroy, :autosave => true
-  #accepts_nested_attributes_for :node
+  accepts_nested_attributes_for :node
 
   has_attached_file :image,
     :storage => :s3,
