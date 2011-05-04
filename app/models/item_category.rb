@@ -12,8 +12,7 @@ class ItemCategory < ActiveRecord::Base
     unless item.name.blank?
       node.title = item.name
       node.menu_name = item.name
-      node.shortcut = item.name
-      node.set_safe_shortcut
+      node.set_safe_shortcut(item.name)
     end
     node.displayed = item.display
     node.parent = category.node

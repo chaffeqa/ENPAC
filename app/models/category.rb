@@ -35,8 +35,7 @@ class Category < ActiveRecord::Base
     unless self.title.blank?
       node.title =  title
       node.menu_name = title
-      node.shortcut = title
-      node.set_safe_shortcut
+      node.set_safe_shortcut(title)
     end
     node.displayed = true
     self.node.parent = (parent_category and parent_category_id != 0) ? parent_category.node : Node.categories_node
