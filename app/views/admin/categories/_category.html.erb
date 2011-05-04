@@ -1,8 +1,14 @@
-<li title="<%= category.description || 'No Description' %>">
+<li title="<%= category.description.blank? ? 'No Description' :  h(category.description) %>">
   <%= link_to category.title, category.node.url %> &nbsp;
 
   <span class="right">
   <%= link_to 'Edit', edit_admin_category_path(category), :class => "btn small" %>
   <%= link_to 'Delete', admin_category_path(category), :confirm => 'Are you sure you want to delete this page?', :method => :delete, :class => "btn small" %>
   </span>
+  
+  <ul class="categoryList">
+    <% category.sub_categories.each do |sub_cat| %>
+      <%= render :partial => 'category', :locals => {:category => sub_cat} %>
+    <% end %>
+  </ul>
 </li>

@@ -4,7 +4,7 @@ class Admin::CategoriesController < ApplicationController
   before_filter :check_admin
 
   def index
-    @categories = Category.order('title')
+    @categories = Category.where(:parent_category_id => nil).order('title')
   end
 
   
