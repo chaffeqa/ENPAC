@@ -1,16 +1,16 @@
-namespace :db do
+namespace :csv do
 
   desc "load cubes dimension data from csv files"
-  task :load_cubes_data  => :environment do
+  task :load_cubes_data, :folder, :needs => :environment do |t, args|
+    if args.folder.nil?
+      puts "You must pass in a folder path!"
+      return false
+    end
     require 'fastercsv'
-
-    puts "Deleting old Cube Dimensions..."
-    ad = CubeDimension.all
-    ad.each {|a| a.destroy }
 
     puts "Creating Cube Dimensions..."
     is_first_line = true
-    FasterCSV.foreach("db/csv_files/enpac_cubes.csv") do |row|
+    FasterCSV.foreach("db/csv_files/#{args.folder.to_s}enpac_cubes.csv") do |row|
       unless is_first_line or row.to_s.blank?
         CubeDimension.create(
           :item_id => Item.where(:part_number => row[0].to_s).first.id,
@@ -25,6 +25,12 @@ namespace :db do
         )
       end
       is_first_line =  false
+    end
+    
+    dim = CubeDimension.all
+    puts "Updating corrisponding items to have dimension_typ = 'Cube' for #{dim.count} items..."
+    dim.each do |d|
+      d.item.update_attribute('dimension_type', 'Cube')
     end
 
     puts "Finished Script!"

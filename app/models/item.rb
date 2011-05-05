@@ -87,7 +87,7 @@ class Item < ActiveRecord::Base
 
   #Validations
   validates :name, :presence => true
-  validates :part_number, :presence => true
+  validates :part_number, :presence => true, :uniqueness => true
   validates :cost, :presence => true, :numericality => true
   validates :dimension_type, :inclusion => { :in => DIMENSION_TYPES.keys }
 
@@ -129,23 +129,25 @@ class Item < ActiveRecord::Base
 
   # Cleans Up any unused Associated Dimensions
   def cleanup_assoc_dimensions
-    self.adjustable_dimension.destroy if adjustable_dimension and dimension_type != 'Adjustable'
-    self.circular_dimension.destroy if circular_dimension and dimension_type != 'Circular'
-    self.cube_dimension.destroy if cube_dimension and dimension_type != 'Cube'
-    self.drum_dimension.destroy if drum_dimension and dimension_type != 'Drum'
-    self.flexible_dimension.destroy if flexible_dimension and dimension_type != 'Flexible'
-    self.funnel_dimension.destroy if funnel_dimension and dimension_type != 'Funnel'
-    self.pool_dimension.destroy if pool_dimension and dimension_type != 'Pool'
-    self.sorbent_dimension.destroy if sorbent_dimension and dimension_type != 'Sorbent'
-    self.standard_dimension.destroy if standard_dimension and dimension_type != 'Standard'
+    DIMENSION_TYPES.each do |key, assoc|
+      log_problem("#{assoc} association exists while dimension_type: '#{dimension_type}'") if !assoc.blank? and !self.try(assoc.to_sym).nil? and dimension_type != key
+    end
     self.reload
     if self.dimension_type != 'N/A' and self.try(DIMENSION_TYPES[self.dimension_type].to_sym).nil?
-      puts "Non-existent Dimension for item: #{self.id} with declared dimension_type: #{self.dimension_type}.  Setting to 'N/A'..."
+      log_problem("Non-existent Dimension with declared dimension_type: '#{dimension_type}'.  Setting to 'N/A'...")
       self.dimension_type = 'N/A'
       self.save
     end
+    #self.adjustable_dimension.destroy if adjustable_dimension and dimension_type != 'Adjustable'
+    #self.circular_dimension.destroy if circular_dimension and dimension_type != 'Circular'
+    #self.cube_dimension.destroy if cube_dimension and dimension_type != 'Cube'
+    #self.drum_dimension.destroy if drum_dimension and dimension_type != 'Drum'
+    #self.flexible_dimension.destroy if flexible_dimension and dimension_type != 'Flexible'
+    #self.funnel_dimension.destroy if funnel_dimension and dimension_type != 'Funnel'
+    #self.pool_dimension.destroy if pool_dimension and dimension_type != 'Pool'
+    #self.sorbent_dimension.destroy if sorbent_dimension and dimension_type != 'Sorbent'
+    #elf.standard_dimension.destroy if standard_dimension and dimension_type != 'Standard'
   end
-
 
 
 
@@ -295,6 +297,12 @@ private
 
   def csv_safe(str="")
     str.blank? ? '' : '"' + str.to_s.gsub(/"/,"'") + '"' #.gsub("\r\n",'<br/>').to_s.gsub(/"/,"&quote;")
+  end
+
+
+  # TODO
+  def log_problem(msg)
+    puts "WARNING! Item #{self.part_number}: #{msg}"
   end
 
 end

@@ -1,16 +1,16 @@
-namespace :db do
+namespace :csv do
 
   desc "load pools dimension data from csv files"
-  task :load_pools_data  => :environment do
+  task :load_pools_data, :folder, :needs => :environment do |t, args|
+    if args.folder.nil?
+      puts "You must pass in a folder path!"
+      return false
+    end
     require 'fastercsv'
-
-    puts "Deleting old Pool Dimensions..."
-    ad = PoolDimension.all
-    ad.each {|a| a.destroy }
 
     puts "Creating Pool Dimensions..."
     is_first_line = true
-    FasterCSV.foreach("db/csv_files/enpac_pools.csv") do |row|
+    FasterCSV.foreach("db/csv_files/#{args.folder.to_s}enpac_pools.csv") do |row|
       unless is_first_line or row.to_s.blank?
         PoolDimension.create(
           :item_id => Item.where(:part_number => row[0].to_s).first.id,
@@ -21,13 +21,11 @@ namespace :db do
       end
       is_first_line =  false
     end
-
-
-    puts "WARNING! - Fixing Pool Dimensions..."
-    sorbents = PoolDimension.all
-    puts sorbents.count
-    sorbents.each do |sorbent|
-      sorbent.item.update_attribute('dimension_type', 'Pool')
+    
+    dims = PoolDimension.all
+    puts "Updating corrisponding items to have dimension_typ = 'Pool' for #{dims.count} items..."
+    dims.each do |d|
+      d.item.update_attribute('dimension_type', 'Pool')
     end
 
     puts "Finished Script!"

@@ -1,16 +1,16 @@
-namespace :db do
+namespace :csv do
 
   desc "load adjustables dimension data from csv files"
-  task :load_adjustables_data  => :environment do
+  task :load_adjustables_data, :folder, :needs => :environment do |t, args|
+    if args.folder.nil?
+      puts "You must pass in a folder path!"
+      return false
+    end
     require 'fastercsv'
-
-    puts "Deleting old Adjustable Dimensions..."
-    ad = AdjustableDimension.all
-    ad.each {|a| a.destroy }
 
     puts "Creating Adjustable Dimensions..."
     is_first_line = true
-    FasterCSV.foreach("db/csv_files/enpac_adjustables.csv") do |row|
+    FasterCSV.foreach("db/csv_files/#{args.folder.to_s}enpac_adjustables.csv") do |row|
       unless is_first_line or row.to_s.blank?
         rmax = row[1].to_s[/^[.\d]*\/[.\d]*$/].blank? ? row[1].to_s : "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm."
         rmin = row[2].to_s[/^[.\d]*\/[.\d]*$/].blank? ? row[2].to_s : "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm."
@@ -33,12 +33,11 @@ namespace :db do
       is_first_line =  false
     end
 
-
-    puts "WARNING! - Fixing Adjustable Dimensions..."
-    sorbents = AdjustableDimension.all
-    puts sorbents.count
-    sorbents.each do |sorbent|
-      sorbent.item.update_attribute('dimension_type', 'Adjustable')
+    
+    dim = AdjustableDimension.all
+    puts "Updating corrisponding items to have dimension_type = 'Adjustable' for #{dim.count} items..."
+    dim.each do |adj|
+      adj.item.update_attribute('dimension_type', 'Adjustable')
     end
 
     puts "Finished Script!"

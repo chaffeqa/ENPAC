@@ -1,16 +1,16 @@
-namespace :db do
+namespace :csv do
 
   desc "load standards dimension data from csv files"
-  task :load_standards_data  => :environment do
+  task :load_standards_data, :folder, :needs => :environment do |t, args|
+    if args.folder.nil?
+      puts "You must pass in a folder path!"
+      return false
+    end
     require 'fastercsv'
-
-    puts "Deleting old Standard Dimensions..."
-    ad = StandardDimension.all
-    ad.each {|a| a.destroy }
 
     puts "Creating Standard Dimensions..."
     is_first_line = true
-    FasterCSV.foreach("db/csv_files/enpac_standards.csv") do |row|
+    FasterCSV.foreach("db/csv_files/#{args.folder.to_s}enpac_standards.csv") do |row|
       unless is_first_line or row.to_s.blank?
         l = row[1].to_s[/^[.\d]*\/[.\d]*$/].blank? ? row[1].to_s : "#{row[1].to_s.split('/')[0]} in. / #{row[1].to_s.split('/')[1]} cm."
         w = row[2].to_s[/^[.\d]*\/[.\d]*$/].blank? ? row[2].to_s : "#{row[2].to_s.split('/')[0]} in. / #{row[2].to_s.split('/')[1]} cm."
@@ -31,6 +31,12 @@ namespace :db do
         )
       end
       is_first_line =  false
+    end
+    
+    dims = StandardDimension.all
+    puts "Updating corrisponding items to have dimension_typ = 'Standard' for #{dims.count} items..."
+    dims.each do |d|
+      d.item.update_attribute('dimension_type', 'Standard')
     end
 
     puts "Finished Script!"
