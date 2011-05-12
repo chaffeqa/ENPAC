@@ -10,7 +10,7 @@ class ShortcutController < ApplicationController
       # Redirect to This Item's first category listing if it exists. To ensure the menus display correctly
       if @node.page_type=='Item' and @node.page.has_better_url?
         redirect_to shortcut_path(:shortcut => @node.page.better_url, :display_item => @node.page_id)
-        return
+        return false
       else
         page_type = (@node.page_type == 'ItemCategory' ? 'Item' : @node.page_type)
         @item = Item.find(params[:display_item]) unless params[:display_item].blank?

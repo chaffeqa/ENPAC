@@ -112,7 +112,7 @@ class Item < ActiveRecord::Base
   
   # Since autosave doesn't seem to be working, this will force the item_categories to resave
   def update_item_categories
-    (self.item_categories.each {|ic| ic.save }) if self.item_categories
+    (self.item_categories.each {|ic| (ic.update_node(self.name); ic.save) unless ic.marked_for_destruction? }) if self.item_categories
   end
 
   # Sets this item's group to it's appropriate group, either already existing or new
@@ -302,7 +302,7 @@ private
 
   # TODO
   def log_problem(msg)
-    puts "WARNING! Item #{self.part_number}: #{msg}"
+    logger.error "WARNING! Item #{self.part_number}: #{msg}"
   end
 
 end

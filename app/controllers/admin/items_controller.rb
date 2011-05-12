@@ -78,6 +78,7 @@ class Admin::ItemsController < ApplicationController
     params[:item].delete(:pool_dimension_attributes) unless params[:item][:dimension_type] == 'Pool'
     params[:item].delete(:sorbent_dimension_attributes) unless params[:item][:dimension_type] == 'Sorbent'
     params[:item].delete(:standard_dimension_attributes) unless params[:item][:dimension_type] == 'Standard'
+    logger.info params.to_yaml
   end
 
   def sort_column

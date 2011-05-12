@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
     @home_node ||= Node.home
   rescue ActiveRecord::RecordNotFound
     redirect_to error_path(:message => 'Site error.  Appropriate personal will be notified.')
+    return false
   end
 
   # Instantiates the current @node and the @home_node
@@ -35,6 +36,7 @@ class ApplicationController < ActionController::Base
   def check_admin
     unless admin?
       redirect_to error_path(:message => 'Unauthorized Access')
+      return false
     end
   end
 
