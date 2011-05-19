@@ -39,7 +39,7 @@
         <%= content_tag_for :li, item_node.page.item do %>
           <p class="title"><%= link_to item_node.page.item.name, shortcut_path(item_node.shortcut) %></p>
           <div class="thumbnail"> <%= link_to image_tag(item_node.page.item.thumbnail_image ? item_node.page.item.thumbnail_image : "no_image_thumb.gif"), shortcut_path(item_node.shortcut) %> </div>
-          <!--p class="cost"><%= number_to_currency(item_category.item.cost) %></p-->
+          <!--p class="cost"><%= number_to_currency(item_node.page.item.cost) %></p-->
         <% end %>
       <% end %>
     <% end %>
