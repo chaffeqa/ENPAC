@@ -62,6 +62,12 @@ namespace :csv do
     #  is_first_line =  false
     #end
     
+#5480-YE
+#ENP D710
+#13-NNX1-A
+#13-NNX5-A
+#13-NNX10-A
+    
     steel_cat = Category.where(:title => 'Steel').first
 
     puts "Creating Product Options and Categories for Items..."
