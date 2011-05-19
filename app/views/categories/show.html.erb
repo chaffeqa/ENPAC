@@ -18,25 +18,27 @@
 <p><%= @category ? @category.description : '' %></p>
 
 
-<% if @category and not @category.sub_categories.empty? %>
+<% unless @node.children.displayed.categories.empty? %>
   <ul class="categoryList">
-    <% @category.sub_categories.each do |category|%>
-      <%= content_tag_for :li, category do %>
-        <p class="title"><%= link_to category.title, shortcut_path(category.node.shortcut) %></p>
-        <div class="thumbnail"> <%= link_to image_tag(category.thumbnail_image ? category.thumbnail_image : "no_image_thumb.gif"), shortcut_path(category.node.shortcut) %> </div>
+    <% @node.children.displayed.categories.each do |category_node|%>
+      <% if category_node.category %>
+        <%= content_tag_for :li, category_node.category do %>
+          <p class="title"><%= link_to category_node.category.title, shortcut_path(category_node.shortcut) %></p>
+          <div class="thumbnail"> <%= link_to image_tag(category_node.category.thumbnail_image ? category_node.category.thumbnail_image : "no_image_thumb.gif"), shortcut_path(category_node.shortcut) %> </div>
+        <% end %>
       <% end %>
     <% end %>
   </ul>
   <hr/>
 <% end %>
 
-<% if @category and not @category.items.displayed.empty? %>
+<% unless @node.children.displayed.item_categories.empty? %>
   <ul class="itemList">
-    <% @category.item_categories.each do |item_category|%>
-      <% if item_category.item.display %>
-        <%= content_tag_for :li, item_category.item do %>
-          <p class="title"><%= link_to item_category.item.name, shortcut_path(item_category.node.shortcut) %></p>
-          <div class="thumbnail"> <%= link_to image_tag(item_category.item.thumbnail_image ? item_category.item.thumbnail_image : "no_image_thumb.gif"), shortcut_path(item_category.node.shortcut) %> </div>
+    <% @node.children.displayed.item_categories.each do |item_node|%>
+      <% if item_node.page.item %>
+        <%= content_tag_for :li, item_node.page.item do %>
+          <p class="title"><%= link_to item_node.page.item.name, shortcut_path(item_node.shortcut) %></p>
+          <div class="thumbnail"> <%= link_to image_tag(item_node.page.item.thumbnail_image ? item_node.page.item.thumbnail_image : "no_image_thumb.gif"), shortcut_path(item_node.shortcut) %> </div>
           <!--p class="cost"><%= number_to_currency(item_category.item.cost) %></p-->
         <% end %>
       <% end %>

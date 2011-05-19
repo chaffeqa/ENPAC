@@ -75,6 +75,7 @@ class Node < ActiveRecord::Base
   scope :categories, where(:page_type => 'Category')
   scope :calendars, where(:page_type => 'Calendar')
   scope :items, where("nodes.page_type = 'Item' OR nodes.page_type = 'ItemCategory'")
+  scope :item_categories, where(:page_type => 'ItemCategory')
   scope :no_items, where("nodes.page_type != 'Item' OR nodes.page_type = 'ItemCategory' OR nodes.page_type IS NULL")
 
 
