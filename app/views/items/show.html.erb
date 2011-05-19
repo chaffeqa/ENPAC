@@ -71,11 +71,13 @@
     <% unless @item.product_options.empty? %>
           <strong>Product Options:</strong>
           <% @item.product_options.each do |product_option| %>
-            <%= content_tag_for :div, product_option do %>
-              <p>
-	              <%= link_to product_option.option_item.name, shortcut_path(product_option.option_item.node.shortcut) %><br />
-                <%= product_option.description %>
-	            </p>
+            <% if product_option.option_item %>
+              <%= content_tag_for :div, product_option do %>
+                <p>
+	                <%= link_to product_option.option_item.name, shortcut_path(product_option.option_item.node.shortcut) %><br />
+                  <%= product_option.description %>
+	              </p>
+              <% end %>
             <% end %>
           <% end %>
         </div>

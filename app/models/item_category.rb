@@ -7,8 +7,8 @@ class ItemCategory < ActiveRecord::Base
 
   # updates the attributes for each node for this item
   def update_node(name=nil)
-    puts "*** calling item_category#update_node ***"
-    puts "*** passed in name: #{name.to_s} ***"
+    logger.debug "*** calling item_category#update_node ***"
+    logger.debug "*** passed in name: #{name.to_s} ***"
     name ||= self.item.name #(force_reload = true) # force reload ensures item is pulled from DB instead of memory
     node = self.node ? self.node : self.build_node
     unless name.blank?
