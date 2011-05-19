@@ -43,8 +43,8 @@ namespace :csv do
           :dimension_type => dyn,
           :regulations => row[7],
           :p_length => row[9],
-          :p_height => row[10],
-          :p_width => row[11]
+          :p_width => row[10],
+          :p_height => row[11]
         )
         puts "Error in saving #{i.part_number}: #{i.errors.full_messages}" if i.errors.any?
       end
@@ -74,10 +74,10 @@ namespace :csv do
     is_first_line = true
     FasterCSV.foreach("db/csv_files/#{args.folder.to_s}enpac_products.csv", :encoding => 'UTF-8') do |row|
       unless is_first_line or row.to_s.blank?
-        item_with_options = Item.where(:part_number => row[0].to_s).first
-        item_with_options.option_items << Item.where(:part_number => row[13].to_s).first unless row[14].nil? or !Item.exists?(:part_number => row[13].to_s)
-        item_with_options.option_items << Item.where(:part_number => row[14].to_s).first unless row[15].nil? or !Item.exists?(:part_number => row[14].to_s)
-        item_with_options.option_items << Item.where(:part_number => row[15].to_s).first unless row[16].nil? or !Item.exists?(:part_number => row[15].to_s)
+        item_with_options = Item.where(:part_number => row[2].to_s).first
+        item_with_options.option_items << Item.where(:part_number => row[13].to_s).first unless row[13].nil? or !Item.exists?(:part_number => row[13].to_s)
+        item_with_options.option_items << Item.where(:part_number => row[14].to_s).first unless row[14].nil? or !Item.exists?(:part_number => row[14].to_s)
+        item_with_options.option_items << Item.where(:part_number => row[15].to_s).first unless row[15].nil? or !Item.exists?(:part_number => row[15].to_s)
         
         # TEMPORARY
         # Add steel category if this is a 'Steel (Standard)' dimension type...
