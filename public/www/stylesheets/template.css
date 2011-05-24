@@ -73,7 +73,7 @@ nav ul {
                 display: block;
                 width: 180px;
                 padding: 6px 4px;
-				line-height: 1.143em;
+		line-height: 1.143em;
                 font-weight: normal;
             }
             nav li ul li a:hover {
@@ -361,6 +361,7 @@ nav ul {
         width: 201px;
         height: 36px;
     }
+        #secPage #productMenu #new-products > a            { background: url(../template/new-products.gif) no-repeat; }
         #secPage #productMenu #overpacks-salvage-drums > a { background: url(../template/overpacks-salvage-drums.gif) no-repeat; }
         #secPage #productMenu #spill-pallets > a           { background: url(../template/spill-pallets.gif) no-repeat; }
         #secPage #productMenu #dispensing > a              { background: url(../template/dispensing.gif) no-repeat; }
@@ -370,7 +371,10 @@ nav ul {
         #secPage #productMenu #stormwater > a              { background: url(../template/stormwater.gif) no-repeat; }
         #secPage #productMenu #spill-kits > a              { background: url(../template/spill-kits.gif) no-repeat; }
         #secPage #productMenu #sorbents > a                { background: url(../template/sorbents.gif) no-repeat; }
+        #secPage #productMenu #steel > a                   { background: url(../template/steel.gif) no-repeat; }
         #secPage #productMenu #cylinder-products > a       { background: url(../template/cylinder-products.gif) no-repeat; }
+        #secPage #productMenu #tarp-covers > a             { background: url(../template/tarp-covers.gif) no-repeat; }
+        #secPage #productMenu #eco-efficient > a           { background: url(../template/eco-efficient.gif) no-repeat; }
         #secPage #subMenu a.bChemical > a {
             display: block;
             text-indent: -9999px;
