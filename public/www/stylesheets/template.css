@@ -373,7 +373,7 @@ nav ul {
         #secPage #productMenu #sorbents > a                { background: url(../template/sorbents.gif) no-repeat; }
         #secPage #productMenu #steel > a                   { background: url(../template/steel.gif) no-repeat; }
         #secPage #productMenu #cylinder-products > a       { background: url(../template/cylinder-products.gif) no-repeat; }
-        #secPage #productMenu #tarp-covers > a             { background: url(../template/tarp-covers.gif) no-repeat; }
+        #secPage #productMenu #tarps-covers > a            { background: url(../template/tarps-covers.gif) no-repeat; }
         #secPage #productMenu #eco-efficient > a           { background: url(../template/eco-efficient.gif) no-repeat; }
         #secPage #subMenu a.bChemical > a {
             display: block;
