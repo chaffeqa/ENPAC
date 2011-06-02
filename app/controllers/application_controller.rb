@@ -26,10 +26,9 @@ class ApplicationController < ActionController::Base
     return check_node_validity
   end
 
-  #TODO Returns true or false if user is admin
+  # Returns true or false if user is admin
   def admin?
-    true
-    #    admin_signed_in?
+    admin_signed_in?
   end
 
   # Checks if User is an admin; Redirects if not
