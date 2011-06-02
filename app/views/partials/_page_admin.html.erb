@@ -5,9 +5,9 @@
     <ul class="btn large clearfix" id="admin-menu">
       <li>Content management
         <ul>
-          <% if admin_logged_in? %>
-            <li><%= link_to 'Log Out', destroy_admin_session_path() %></li>         
-          <% end %>
+          <%# if admin_logged_in? %>
+          <li><%= link_to 'Log Out', destroy_admin_session_path() %></li>         
+          <%# end %>
           <li class="expandable"><a href="#">Manage... </a>
 
             <ul class="btn medium clearfix">
