@@ -2,6 +2,8 @@
   <div id="wrapper">
 
     <%= link_to image_tag('inventure-logo.png', :alt => 'Inventure'), 'http://www.inventure.com' %>
+    
+    <%= link_to 'Log Out', destroy_admin_session_path(), :class => 'btn large' %>
     <ul class="btn large clearfix" id="admin-menu">
       <li>Content management
         <ul>
@@ -25,7 +27,6 @@
       </li>
     </ul> 
     <%= yield :page_admin_bar %>
-    <%= link_to 'Log Out', destroy_admin_session_path(), :class => 'btn large' %>
 
   </div>
 </section>
