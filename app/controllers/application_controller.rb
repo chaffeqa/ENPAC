@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
-  include UrlHelper
-  #  protect_from_forgery TODO enable this
-  helper :all
-  helper_method :get_node, :categories_for_items, :get_home_node, :admin?
+  #include UrlHelper
+  protect_from_forgery #TODO test this
+  #helper :all
+  helper_method :render_with_cache, :get_node, :categories_for_items, :get_home_node, :admin?
   include SearchHelper
   before_filter :parse_filter_params
   layout 'static_page'
@@ -61,6 +61,24 @@ class ApplicationController < ActionController::Base
     return true
   end
 
+  ########################
+  # SITE CACHING ACTIONS #
+  ########################
+
+  def render_with_cache(key = request.fullpath, options = nil)
+    body = Rails.cache.read(key)
+    if body
+      logger.debug "CACHE **************** Read Cache key: #{key.to_s} ****************"
+      render :text => body
+    else
+      yield if block_given?
+      render unless performed?
+      Rails.cache.write(key, response.body, options)
+      logger.debug "CACHE **************** Write Cache key: #{key.to_s} ****************"
+    end
+  end
+  
+  
 
 end
 

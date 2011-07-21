@@ -2,13 +2,14 @@ class InventoryController < ApplicationController
   helper_method :sort_column, :sort_direction
   before_filter :get_node
 
+  # Renders the inventory/categories template.  
+  # Renders and saves a cached version unless admin is logged in
   def categories
+    render_with_cache('node-page::'+request.fullpath+'::'+@node.cache_key) { render('inventory/categories') } unless admin?
   end
 
 
   def search
-    @items = Item.get_for_sale.displayed.scope_text(@search_params[:searchText])
-    
     # NOTE: old search
     #@search_words_array = @search_params[:searchText].split(" ")
     #item_ids=[]
@@ -16,6 +17,7 @@ class InventoryController < ApplicationController
     #  item_ids = item_ids + Item.get_for_sale.displayed.scope_text(word).collect {|item| item.id }
     #end
     #@items = Item.where(:id => item_ids)
+    @items = Item.get_for_sale.displayed.scope_text(@search_params[:searchText])
     @items = @items.paginate :page => @page, :per_page => @per_page, :order => (sort_column + " " + sort_direction)
 
     # New Hotness

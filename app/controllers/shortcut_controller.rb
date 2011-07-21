@@ -1,6 +1,5 @@
 class ShortcutController < ApplicationController
   before_filter :get_node, :only => :route
-  #caches_action :route , :unless => Proc.new { |c| admin? }, :cache_path => Proc.new { |c|c.send(:shortcut_path, @node.id)}
 
   # Routing method for all shortcut_path routes, looks for a Node for the current
   # request and renders or redirects appropriatly
@@ -14,7 +13,8 @@ class ShortcutController < ApplicationController
       else
         page_type = (@node.page_type == 'ItemCategory' ? 'Item' : @node.page_type)
         @item = Item.find(params[:display_item]) unless params[:display_item].blank?
-        render("#{page_type.tableize.pluralize}/show", :layout => @node.layout)
+        #render("#{page_type.tableize.pluralize}/show", :layout => @node.layout)
+        render_page_from_node("#{page_type.tableize.pluralize}/show", @node.layout)
       end
     else
       return error_redirect
@@ -28,10 +28,12 @@ class ShortcutController < ApplicationController
     @node = @home_node
     get_node
     if @node.page_type == 'DynamicPage'
-      render("#{@node.page_type.tableize.pluralize}/show", :layout => "dynamic")
+      render_page_from_node("#{@node.page_type.tableize.pluralize}/show", "dynamic")
+      #render("#{@node.page_type.tableize.pluralize}/show", :layout => "dynamic")
     else
-      if @node and @node.page_type
-        render("#{@node.page_type.tableize.pluralize}/show")
+      if @node and @node.page_type 
+        render_page_from_node("#{@node.page_type.tableize.pluralize}/show", "static_page")
+        #render("#{@node.page_type.tableize.pluralize}/show")
       else
         if (!@node.controller.empty? and !@node.action.empty?)
           render(@node.url)
@@ -51,6 +53,17 @@ class ShortcutController < ApplicationController
   end
 
   private
+  
+  # Renders the appropriate template based on the @node.  Displays a fresh version of the page if
+  # an admin is logged in or no cached version exists.  Renders a cached version if one exists.
+  def render_page_from_node(template_path, layout_name)
+    logger.debug "REQUEST **************** Shortcut#route action called for Node: #{@node.title}, Rendering: '#{template_path}', Layout: '#{layout_name}' **************** "
+    if admin?
+      render(template_path, :layout => layout_name)
+    else
+      render_with_cache('node-page::'+request.fullpath+'::'+@node.cache_key) { render(template_path, :layout => layout_name) }
+    end
+  end
 
   def error_redirect
     shortcut = params[:shortcut].blank? ? nil : params[:shortcut]

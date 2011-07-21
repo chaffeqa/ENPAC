@@ -24,7 +24,24 @@ class Node < ActiveRecord::Base
   #Callbacks
   before_validation :fill_missing_fields
   after_save :reload_page
+  after_save :update_cache_chain
+  before_destroy :update_cache_chain
   
+  # Global method to trigger caching updates for all objects that rely on this object's information
+  # This will be called in one of two cases:
+  #   1) This object has changed, and effected cached objects need to recache
+  #   2) An object has notified this object that it needs to recache 
+  # Clears the cache items of Node calls
+  def update_cache_chain
+    unless self.marked_for_destruction?
+      logger.debug "DB ********** Touching Node: #{title} ********** "
+      self.touch
+    end
+    if parent
+      logger.debug "DB ********** Calling update_cache_chain for Parent Node: #{parent.title} ********** "
+      self.parent.update_cache_chain
+    end
+  end
   # Callback to force this node's page to reload the node
   def reload_page
     self.page.reload if self.has_page?
