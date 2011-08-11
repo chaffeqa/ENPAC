@@ -1,15 +1,7 @@
 <nav id="navigation">
   <ul class="mainNav">
     <li><a href="http://www.enpac.com/about-us">About Us</a></li>
-    <li><a href="/inventory">Products</a>
-      <ul class="level2">
-        <% get_home_node.children.displayed.categories.each do |c_node| %>
-          <%= content_tag_for :li, c_node do %>
-            <%= link_to c_node.menu_name, shortcut_path(c_node.shortcut) %>
-          <% end %>
-        <% end %>
-      </ul>
-    </li>
+    <%= render :partial => 'partials/products_subnav' %>
     <li><a href="http://www.enpac.com/catalog">Catalog</a>
       <ul class="level2">
         <li><a href="http://www.enpaccatalog.com/flash/">View Catalog Online</a></li>
