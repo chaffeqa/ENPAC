@@ -50,18 +50,18 @@ nav ul {
     }
 
     nav li ul{
-		z-index: 899;
-		width: 200px;
-		position: absolute;
-		left: 0;
-		top: 14px;
-		margin: 11px 0 0;
-		padding: 0 0 6px;
-		display: none;
-		border: 1px solid #808980;
-		border-top: none;
-		background: #626e61;
-		-moz-border-radius: 5px; -webkit-border-radius: 5px;
+	z-index: 899;
+	width: 200px;
+	position: absolute;
+	left: 0;
+	top: 14px;
+	margin: 11px 0 0;
+	padding: 0 0 6px;
+	display: none;
+	border: 1px solid #808980;
+	border-top: none;
+	background: #626e61;
+	-moz-border-radius: 5px; -webkit-border-radius: 5px;
     }
     nav li:hover ul {display:block;}
             nav li ul li {
@@ -75,10 +75,12 @@ nav ul {
                 padding: 6px 4px;
 		line-height: 1.143em;
                 font-weight: normal;
-            }
+            } 
             nav li ul li a:hover {
                 background: #808c7f;
             }
+            nav li ul li ul.level3 {display: none; position: absolute; left: 200px; top: -6px;}
+            nav li ul li:hover ul {display: block;}
 
 
 
