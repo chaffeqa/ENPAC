@@ -14,7 +14,12 @@ SimpleNavigation::Configuration.run do |navigation|
         node_1.children.displayed.each do |node_2|
           menu_level_3.item node_2.shortcut.to_sym, node_2.menu_name, node_2.url, :class => node_2.page_type do |menu_level_4|
             node_2.children.displayed.each do |node_3|
-              menu_level_4.item node_3.shortcut.to_sym, node_3.menu_name, node_3.url, :class => node_3.page_type
+              menu_level_4.item node_3.shortcut.to_sym, node_3.menu_name, node_3.url, :class => node_3.page_type do |menu_level_5|
+
+                node_3.children.displayed.each do |node_4|
+                  menu_level_5.item node_4.shortcut.to_sym, node_4.menu_name, node_4.url, :class => node_4.page_type
+                end
+              end
             end
           end
         end
