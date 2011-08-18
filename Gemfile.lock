@@ -40,6 +40,7 @@ GEM
     ckeditor (3.4.3.pre)
       mime-types (>= 1.16)
     configuration (1.2.0)
+    dalli (1.0.4)
     devise (1.1.7)
       bcrypt-ruby (~> 2.1.2)
       warden (~> 1.0.2)
@@ -109,6 +110,7 @@ DEPENDENCIES
   aws-s3
   carmen
   ckeditor (= 3.4.3.pre)
+  dalli
   devise
   fastercsv
   heroku
