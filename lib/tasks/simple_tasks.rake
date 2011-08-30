@@ -18,7 +18,7 @@ namespace :db do
       item.categories << universal    if item.categories.empty? and (item.id ==  85 or item.short_description.downcase.include?('universal') or (!item.standard_dimension.nil? and item.standard_dimension.absorbs.downcase.include?('universal')))
       item.categories << oil          if item.categories.empty? and (item.short_description.downcase.include?('oil') or (!item.standard_dimension.nil? and item.standard_dimension.absorbs.downcase.include?('oil')))
       item.categories << aggr         if item.categories.empty? and (item.short_description.downcase.include?('aggressive') or (!item.standard_dimension.nil? and item.standard_dimension.absorbs.downcase.include?('aggressive')))
-      item.categories << ensorb       if item.categories.empty? and (item.short_description.downcase.include?('sorb®') or item.short_description.downcase.include?('ensorb') or (!item.standard_dimension.nil? and item.standard_dimension.absorbs.downcase.include?('ensorb')))
+      item.categories << ensorb       if item.categories.empty? and (item.short_description.downcase.include?('sorb') or item.short_description.downcase.include?('ensorb') or (!item.standard_dimension.nil? and item.standard_dimension.absorbs.downcase.include?('ensorb')))
       item.categories << chem         if item.categories.empty? and (item.id == 9 or item.short_description.downcase.include?('chem') or (!item.standard_dimension.nil? and item.standard_dimension.absorbs.downcase.include?('chem')))
       item.save
     end

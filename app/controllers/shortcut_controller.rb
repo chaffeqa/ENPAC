@@ -57,7 +57,7 @@ class ShortcutController < ApplicationController
   # Renders the appropriate template based on the @node.  Displays a fresh version of the page if
   # an admin is logged in or no cached version exists.  Renders a cached version if one exists.
   def render_page_from_node(template_path, layout_name)
-    logger.debug "REQUEST **************** Shortcut#route action called for Node: #{@node.title}, Rendering: '#{template_path}', Layout: '#{layout_name}' **************** "
+    logger.debug "\nREQUEST \n****************\n Shortcut#route action called for Node: #{@node.title}, Rendering: '#{template_path}', Layout: '#{layout_name}' \n****************\n\n "
     if admin?
       render(template_path, :layout => layout_name)
     else

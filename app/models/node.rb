@@ -34,11 +34,11 @@ class Node < ActiveRecord::Base
   # Clears the cache items of Node calls
   def update_cache_chain
     unless self.marked_for_destruction?
-      logger.debug "DB ********** Touching Node: #{title} ********** "
+      logger.debug "\nDB\n \n**********\n Touching Node: #{title} \n**********\n\n "
       self.touch
     end
     if parent
-      logger.debug "DB ********** Calling update_cache_chain for Parent Node: #{parent.title} ********** "
+      logger.debug "\nDB \n**********\n Calling update_cache_chain for Parent Node: #{parent.title} \n**********\n\n "
       self.parent.update_cache_chain
     end
   end
@@ -68,7 +68,7 @@ class Node < ActiveRecord::Base
   # Checks the database to ensure the Shortcut is not already taken
   def check_unique_shortcut?
     if (not new_record? and Node.where('nodes.shortcut = ? AND nodes.id != ?', shortcut, id).exists?) or (new_record? and Node.exists?(:shortcut => shortcut))
-      puts "Problem Node: (Title: #{title}, ID: #{id} URL: #{shortcut}), new_record: #{new_record?}"
+      logger.warn "\nProblem Node:\n (Title: #{title}, ID: #{id} URL: #{shortcut}), new_record: #{new_record?}\n\n"
       addition = Node.where('shortcut LIKE ?', shortcut).count
       suggested = self.shortcut + "_" + addition.to_s
       errors.add(:shortcut, "URL shortcut already exists in this site.  Suggested Shortcut: '#{suggested}'")

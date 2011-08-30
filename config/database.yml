@@ -8,8 +8,8 @@ development:
   encoding: utf8
   database: enpac
   username: root
-  password: wordmy88
-  host: localhost
+  password: 
+  host: 127.0.0.1
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -20,8 +20,8 @@ test:
   encoding: utf8
   database: enpac_test
   username: root
-  password: wordmy88
-  host: localhost
+  password: 
+  host: 127.0.0.1
   socket: /var/run/mysqld/mysqld.sock
 
 production:
@@ -29,7 +29,7 @@ production:
   encoding: utf8
   database: enpac_production
   username: root
-  password: invent0809
-  host: localhost
+  password: 
+  host: 127.0.0.1
   socket: /var/run/mysqld/mysqld.sock
 

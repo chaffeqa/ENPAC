@@ -67,14 +67,14 @@ class ApplicationController < ActionController::Base
 
   def render_with_cache(key = request.fullpath, options = nil)
     body = Rails.cache.read(key)
-    if body
-      logger.debug "CACHE **************** Read Cache key: #{key.to_s} ****************"
+    if body and false
+      logger.debug "\nCACHE \n****************\n Read Cache key: #{key.to_s} \n****************\n\n"
       render :text => body
     else
       yield if block_given?
       render unless performed?
       Rails.cache.write(key, response.body, options)
-      logger.debug "CACHE **************** Write Cache key: #{key.to_s} ****************"
+      logger.debug "CACHE \n****************\n Write Cache key: #{key.to_s} \n****************\n\n"
     end
   end
   
