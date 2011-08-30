@@ -1,5 +1,6 @@
 class ShortcutController < ApplicationController
   before_filter :get_node, :only => :route
+  
 
   # Routing method for all shortcut_path routes, looks for a Node for the current
   # request and renders or redirects appropriatly
@@ -14,8 +15,8 @@ class ShortcutController < ApplicationController
         page_type = (@node.page_type == 'ItemCategory' ? 'Item' : @node.page_type)
         @item = Item.find(params[:display_item]) unless params[:display_item].blank?
         #render("#{page_type.tableize.pluralize}/show", :layout => @node.layout)
-        render :action => "#{page_type.tableize.pluralize}/show", :layout => @node.layout
-        #render_page_from_node("#{page_type.tableize.pluralize}/show", @node.layout)
+        #render :action => "#{page_type.tableize.pluralize}/show", :layout => @node.layout
+        render_page_from_node("#{page_type.tableize.pluralize}/show", @node.layout)
       end
     else
       return error_redirect

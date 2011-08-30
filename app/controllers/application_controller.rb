@@ -41,9 +41,9 @@ class ApplicationController < ActionController::Base
 
   # Method for instantiating the search filter params
   def parse_filter_params
-    @start_time = Time.now if Rails.env.development?
+    debug_start_time = Time.now if Rails.env.development?
     parse_search_params(params)
-    logger.debug "\nparse_filter_params time:\n *************\n #{Time.now - @start_time} seconds \n*************\n\n"
+    logger.debug "\nparse_filter_params time:\n *************\n #{Time.now - debug_start_time} seconds \n*************\n\n"
   end
 
   # Checks the validity of the current node as well as the basic access rights
@@ -65,16 +65,18 @@ class ApplicationController < ActionController::Base
   # SITE CACHING ACTIONS #
   ########################
 
-  def render_with_cache(key = request.fullpath, options = nil)
+  def render_with_cache(key = request.fullpath, options = {})
+    debug_start_time = Time.now if Rails.env.development?
     body = Rails.cache.read(key)
-    if body and false
+    if body
       logger.debug "\nCACHE \n****************\n Read Cache key: #{key.to_s} \n****************\n\n"
       render :text => body
     else
       yield if block_given?
       render unless performed?
-      Rails.cache.write(key, response.body, options)
-      logger.debug "CACHE \n****************\n Write Cache key: #{key.to_s} \n****************\n\n"
+      Rails.cache.write(key, response.body, {:raw => true, :expire_in => 30.days}.merge(options))
+      logger.debug "\nCACHE \n****************\n Write Cache key: #{key.to_s} \n****************\n\n"
+      logger.debug "\nrender_with_cache:\n ****************\n Time spent: #{Time.now - debug_start_time} seconds \n*************\n\n"
     end
   end
   
