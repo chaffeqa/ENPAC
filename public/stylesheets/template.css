@@ -1,0 +1,567 @@
+/*
+
+    ~ TEMPLATE STYLES ~
+    This contains all styling for templating.
+
+*/
+
+/* this is for sites that have a designed background to keep it from pushing up under the adminbar */
+#body {
+	background: #2f261d url(../template/body-bg.png) 50% 0 no-repeat;
+}
+
+
+
+
+/* page container */
+#wrapper {
+	margin: 0 auto;
+	width: 960px;
+}
+
+/* NAVIGATION */
+nav {
+    background: url(../template/nav-bg.png) no-repeat;
+    margin: 0 -21px;
+    padding: 12px 21px 35px;
+}
+
+nav ul {
+}
+    nav ul li {
+        display: inline;
+        padding: 0 15px;
+    }
+        nav ul li a {
+            color: #fff;
+            padding-bottom: 35px;
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-family: Helvetica, arial, sans-serif;
+        }
+        nav ul li a:hover {
+            color: #fff;
+	}
+
+    /* Dropdown */
+    nav ul li, nav ul li:hover{
+        position:relative;
+    }
+
+    nav li ul{
+	z-index: 899;
+	width: 200px;
+	position: absolute;
+	left: 0;
+	top: 14px;
+	margin: 11px 0 0;
+	padding: 0 0 6px;
+	display: none;
+	border: 1px solid #808980;
+	border-top: none;
+	background: #626e61;
+	-moz-border-radius: 5px; -webkit-border-radius: 5px;
+    }
+    nav li:hover ul {display:block;}
+            nav li ul li {
+                display: block;
+                padding: 0 6px;
+            }
+            nav li ul li a {
+                text-transform: none;
+                display: block;
+                width: 180px;
+                padding: 6px 4px;
+		line-height: 1.143em;
+                font-weight: normal;
+            } 
+            nav li ul li a:hover {
+                background: #808c7f;
+            }
+            nav li ul li ul.level3 {display: none; position: absolute; left: 200px; top: -6px;}
+            nav li ul li:hover ul {display: block;}
+
+
+
+
+/* HEADER */
+#header {
+    margin-bottom: -14px;
+}
+    #header #logo {
+        float: left;
+	margin: 0;
+        padding: 4px 0 0 35px;
+    }
+    #header #tag-line {
+        float: right;
+        padding: 10px 12px 0 0;
+    }
+
+
+
+/* CONTENT AREA */
+#content {
+    background: url(../template/folder-top.png) no-repeat;
+    margin: 0 -14px 0;
+    padding: 0 14px;
+}
+
+/* column layouts */
+/* three column */
+.threeColumn #subColumn {
+    float: left;
+    width: 295px;
+}
+.threeColumn #extraColumn {
+    float: right;
+    width: 295px;
+}
+.threeColumn #mainColumn {
+    float: left;
+    width: 295px;
+}
+
+
+
+/* two column layout */
+.twoColumn #subColumn {
+    float: left;
+    width: 223px;
+}
+.twoColumn #mainColumn {
+    float: right;
+    width: 680px;
+}
+
+
+
+/* one column */
+.oneColumn #mainColumn {
+    width: 98%;
+    margin: 0 auto;
+}
+.oneColumn #subColumn {
+    display: none;
+}
+
+    /* Featured Column */
+#featuredColumn {
+    clear: both;
+    margin: 0 -14px;
+    padding: 0 14px;
+    background: url(../template/folder-tile.png) repeat-y;
+}
+#featuredBG {
+        background: url(../template/featured-bg.png) 0 100% no-repeat;
+        margin: 5px;
+        min-height: 291px;
+        height: auto !important;
+        height: 291px;
+}
+#featuredColumn #featuredSlideshow {
+    width: 415px;
+    float: left;
+}
+#featuredColumn #featuredText {
+    width: 530px;
+    float: right;
+}
+    #featuredColumn h1,
+    #featuredColumn h2,
+    #featuredColumn h3,
+    #featuredColumn h4,
+    #featuredColumn h5,
+    #featuredColumn h6 {
+        font-family: impact, arial, sans-serif;
+    }
+
+/* Content Container */
+#topBorder {
+    background: url(../template/content-bg-top.png) no-repeat;
+    clear: both;
+    margin: 0 -14px;
+    padding: 0 14px;
+    height: 11px;
+}
+#bottomBorder {
+    background: url(../template/content-bg-bot.png) no-repeat;
+    clear: both;
+    margin: 0 -14px;
+    padding: 0 14px;
+    height: 12px;
+}
+
+#contentContainer {
+    background: url(../template/content-bg-tile.png) repeat-y;
+    clear: both;
+    margin: 0 -14px;
+    padding: 0 21px;
+    min-height: 300px;
+    height: auto !important;
+    height: 300px;
+}
+    #contentContainer .contents {
+        padding: 10px;
+    }
+    .twoColumn #contentContainer #mainColumn {
+        padding: 10px 15px 10px 5px;
+    }
+    #buttonContainer {
+        clear: both;
+    }
+
+/* Main Column */
+#mainColumn {
+}
+#mainColumn h1,
+#mainColumn h2,
+#mainColumn h3,
+#mainColumn h4,
+#mainColumn h5 {
+    color: #5b665a;
+}
+
+#mainColumn a {
+    color: #5b665a;
+    text-decoration: underline;
+}
+
+#mainColumn .breadcrumb {
+    padding-bottom: 10px;
+}
+    #mainColumn .breadcrumb a {
+	color: #000;
+	text-decoration: none;
+    }
+    #mainColumn .breadcrumb a:hover {
+	text-decoration: underline;
+    }
+/* Sub Column */
+#subColumn {
+}
+#subColumn h1,
+#subColumn h2,
+#subColumn h3,
+#subColumn h4,
+#subColumn h5,
+#subColumn h6 {
+    color: #dea706;
+}
+
+/* Extra Column */
+#extraColumn {
+}
+
+
+/* HOMEPAGE MISC*/
+#homePage #mainColumn {
+}
+
+
+
+
+
+
+/* SECONDARY MISC */
+#secPage #subMenuTop {
+    background: url(../template/left-bg-top.png) no-repeat;
+    height: 11px
+}
+#secPage #subMenuBot {
+    background: url(../template/left-bg-bot.png) no-repeat;
+    height: 10px;
+}
+#secPage #subMenu {
+    background: url(../template/left-bg-tile.png) repeat-y;
+    color: #fff;
+    font-family: arial, sans-serif;
+    padding: 10px;
+}
+    #secPage #subMenu ul {
+        padding-left: 10px;
+    }
+    #secPage #subMenu ul li {
+        background: none;
+        padding: 0;
+    }
+        #secPage #subMenu ul li a {
+            color: #FFF;
+        }
+
+#secPage #subColumn #subMenu h2.secTitle {
+    font-family: arial, sans-serif;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+#secPage #products ul.categoryList li {
+    background: none;
+    padding: 16px;
+    float: left;
+    width: 154px;
+    height: 300px;
+}
+
+#secPage #products ul.itemList li {
+    background: none;
+    padding: 16px;
+    float: left;
+    width: 154px;
+    height: 300px;
+}
+
+#secPage #products {
+    width: 700px;
+    float: right;
+}
+#secPage #products.bigger {
+    width: 860px;
+    margin: 0 auto;
+    float: none;
+}
+#secPage #products.bigger a {
+    display: block;
+    float: left;
+    margin: 8px;
+}
+
+#secPage #productMenu {
+    float: left;
+    width: 220px;
+}
+    #secPage #productMenu > ul {
+	padding: 0;
+	margin: 0;
+    }
+    #secPage #productMenu > ul > li {
+	padding: 0;
+	margin: 0;
+	background: none;
+    }
+#secPage #productMenu ul ul {
+    margin: 10px 0;
+}
+    #secPage #productMenu ul ul li {
+        background: url(../template/li-bullet-black.png) 5px 8px no-repeat;
+        padding-left: 12px;
+    }
+        #secPage #productMenu ul ul li a {
+            font-family: helvetica, arial, sans-serif;
+            text-decoration: none;
+            color: #000;
+            font-size: 12px;
+        }
+        #secPage #productMenu ul ul li.selected > a {
+            background-color: #A4B8A2; /*f8bf0f */
+        }
+    #secPage #productMenu > ul > li > a {
+        display: block;
+        text-indent: -9999px;
+        width: 201px;
+        height: 36px;
+    }
+        #secPage #productMenu #new-products > a            { background: url(../template/new-products.gif) no-repeat; }
+        #secPage #productMenu #overpacks-salvage-drums > a { background: url(../template/overpacks-salvage-drums.gif) no-repeat; }
+        #secPage #productMenu #spill-pallets > a           { background: url(../template/spill-pallets.gif) no-repeat; }
+        #secPage #productMenu #dispensing > a              { background: url(../template/dispensing.gif) no-repeat; }
+        #secPage #productMenu #storage > a                 { background: url(../template/storage.gif) no-repeat; }
+        #secPage #productMenu #portable-containment > a    { background: url(../template/portable-containment.gif) no-repeat; }
+        #secPage #productMenu #funnels > a                 { background: url(../template/funnels.gif) no-repeat; }
+        #secPage #productMenu #stormwater > a              { background: url(../template/stormwater.gif) no-repeat; }
+        #secPage #productMenu #spill-kits > a              { background: url(../template/spill-kits.gif) no-repeat; }
+        #secPage #productMenu #sorbents > a                { background: url(../template/sorbents.gif) no-repeat; }
+        #secPage #productMenu #steel > a                   { background: url(../template/steel.gif) no-repeat; }
+        #secPage #productMenu #cylinder-products > a       { background: url(../template/cylinder-products.gif) no-repeat; }
+        #secPage #productMenu #tarps-covers > a            { background: url(../template/tarps-covers.gif) no-repeat; }
+        #secPage #productMenu #eco-efficient > a           { background: url(../template/eco-efficient.gif) no-repeat; }
+        #secPage #subMenu a.bChemical > a {
+            display: block;
+            text-indent: -9999px;
+            margin-left: -15px;
+            width: 201px;
+            height: 34px;
+            background: url(../template/res_chem.png) no-repeat;
+        }
+        #secPage #subMenu a.bRegulations {
+            display: block;
+            text-indent: -9999px;
+            margin-left: -15px;
+            width: 201px;
+            height: 34px;
+            background: url(../template/res_govt.png) no-repeat;
+        }
+        #secPage #subMenu a.bIndustry {
+            display: block;
+            text-indent: -9999px;
+            margin-left: -15px;
+            width: 201px;
+            height: 34px;
+            background: url(../template/res_indu.png) no-repeat;
+        }
+        #secPage #subMenu a.bChoosing {
+            display: block;
+            text-indent: -9999px;
+            margin-left: -15px;
+            width: 201px;
+            height: 34px;
+            background: url(../template/res_help.png) no-repeat;
+        }
+        #secPage #subMenu a.bInstructions {
+            display: block;
+            text-indent: -9999px;
+            margin-left: -15px;
+            width: 201px;
+            height: 34px;
+            background: url(../template/res_inst.png) no-repeat;
+        }
+        #secPage #subMenu a.bQualification {
+            display: block;
+            text-indent: -9999px;
+            margin-left: -15px;
+            width: 201px;
+            height: 34px;
+            background: url(../template/res_qual.png) no-repeat;
+        }
+
+
+
+
+#secPage #product {
+    float: right;
+    width: 697px;
+    font-family: helvetica, arial, sans-serif;
+    font-size: .9em;
+}
+    #secPage #product .left {
+        padding: 0 10px 10px;
+        float: left;
+        width: 310px;
+    }
+    #secPage #product h3 {
+        color: #000;
+        font-size: 18px;
+    }
+    #secPage #product h4 {
+        border: none;
+        font-size: 14px;
+        color: #000;
+        font-weight: bold;
+    }
+    #secPage #product #item-part-number {
+	font-weight: bold;
+    }
+    #secPage #product .item-dimensions {
+	clear: right;
+	float: right;
+	width: 367px;
+    }
+    #secPage #product .specific-dimensions {
+	clear: left;
+	float: left;
+	width: 310px;
+    }
+    #secPage #product .item-details {
+	padding: 0 0 1em;
+	clear: right;
+	float: right;
+	width: 367px;
+    }
+    #secPage #product .item-dimensions .attr-title { font-weight: bold; padding-right: 5px; display: block;}
+    #secPage #product .item-dimensions .attr-title:after { font-weight: bold; padding-right: 5px; content: ":";}
+
+    #secPage #product .specific-dimensions .attr-title { font-weight: bold; padding-right: 5px; display: block;}
+    #secPage #product .specific-dimensions .attr-title:after { font-weight: bold; padding-right: 5px; content: ":";}
+
+        #secPage #product #documents #top {
+            height: 14px;
+            background: url(../template/right-bg-top.png) no-repeat;
+        }
+        #secPage #product #documents #content {
+            margin: 0;
+            padding: 0 10px;
+            background: url(../template/right-bg-tile.png) repeat-y;
+        }
+            #secPage #product #documents #content h1.title {
+                font-family: helvetica, arial, sans-serif;
+                border: none;
+                font-size: 12px;
+                font-weight: bold;
+                color: #000;
+            }
+            #secPage #product #documents #content .product_file {
+                padding-left: 10px;
+            }
+        #secPage #product #documents #bottom {
+            height: 17px;
+            background: url(../template/right-bg-bot.png) no-repeat;
+        }
+
+/* SITE FOOTER/NAVIGATION */
+#footer {
+    font-family: helvetica, arial, sans-serif;
+    background: url(../template/folder-bot.png) no-repeat;
+    clear: both;
+    margin: 0 -14px;
+    padding: 30px 14px;
+    font-size: 11px;
+    color: #fff;
+}
+
+    #footer h5 {
+        font-family: helvetica, arial, sans-serif;
+    }
+    #footer p {
+        margin: 0 0 15px;
+    }
+    #footer a {
+        text-decoration: underline;
+        color: #ffd029;
+    }
+
+#footer ul.footerNav {
+}
+    #footer ul.footerNav li {
+    }
+        #footer ul.footerNav li a {
+        }
+
+
+    #footer #copyright{
+        height: 200px;
+        float: left;
+        width: 225px;
+        padding: 10px 10px 10px 0;
+        background: url(../template/footer-bg-left.gif) 100% 0 no-repeat;
+    }
+    #footer #siteMap {
+        height: 200px;
+        float: left;
+        width: 150px;
+        padding: 10px 10px 10px 35px;
+        background: url(../template/footer-bg-left.gif) 100% 0 no-repeat;
+    }
+    #footer #contactInformation {
+        height: 200px;
+        float: left;
+        width: 225px;
+        padding: 10px 10px 10px 35px;
+        background: url(../template/footer-bg-left.gif) 100% 0 no-repeat;
+    }
+        #footer #copyright img {
+            padding-bottom: 17px;
+        }
+
+    #footer #translationContainer {
+        padding: 10px;
+        float: left;
+        padding: 10px 10px 10px 35px;
+    }
+        #footer #translationContainer #google_translate_element {
+            background-color: #FFF;
+            border: 3px solid #EEE;
+            padding: 5px;
+        }
+

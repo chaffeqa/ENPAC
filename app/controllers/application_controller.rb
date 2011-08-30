@@ -1,7 +1,5 @@
 class ApplicationController < ActionController::Base
-  #include UrlHelper
-  protect_from_forgery #TODO test this
-  #helper :all
+  protect_from_forgery 
   helper_method :render_with_cache, :get_node, :categories_for_items, :get_home_node, :admin?
   include SearchHelper
   before_filter :parse_filter_params
@@ -28,7 +26,7 @@ class ApplicationController < ActionController::Base
 
   # Returns true or false if user is admin
   def admin?
-    admin_signed_in?
+    admin_signed_in? || Rails.env.development?
   end
 
   # Checks if User is an admin; Redirects if not
@@ -43,7 +41,9 @@ class ApplicationController < ActionController::Base
 
   # Method for instantiating the search filter params
   def parse_filter_params
+    @start_time = Time.now if Rails.env.development?
     parse_search_params(params)
+    logger.debug "\nparse_filter_params time:\n *************\n #{Time.now - @start_time} seconds \n*************\n\n"
   end
 
   # Checks the validity of the current node as well as the basic access rights

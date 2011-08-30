@@ -19,12 +19,12 @@
 
 <%= javascript_include_tag "modernizr-1.6.min.js" %>
 
-<link rel="shortcut icon" href='/<%= subdomain %>/template/favicon.ico' />
+<link rel="shortcut icon" href='/template/favicon.ico' />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 
 <%= stylesheet_link_tag("reset", "addons/colorbox",
-  "/#{subdomain}/stylesheets/contents",
-  "/#{subdomain}/stylesheets/template",
+  "contents",
+  "template",
   "phusion") %>
 
 <%= csrf_meta_tag %>

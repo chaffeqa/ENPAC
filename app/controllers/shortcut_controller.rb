@@ -14,7 +14,8 @@ class ShortcutController < ApplicationController
         page_type = (@node.page_type == 'ItemCategory' ? 'Item' : @node.page_type)
         @item = Item.find(params[:display_item]) unless params[:display_item].blank?
         #render("#{page_type.tableize.pluralize}/show", :layout => @node.layout)
-        render_page_from_node("#{page_type.tableize.pluralize}/show", @node.layout)
+        render :action => "#{page_type.tableize.pluralize}/show", :layout => @node.layout
+        #render_page_from_node("#{page_type.tableize.pluralize}/show", @node.layout)
       end
     else
       return error_redirect

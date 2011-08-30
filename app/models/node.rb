@@ -1,4 +1,7 @@
 class Node < ActiveRecord::Base
+  
+  attr_accessor :ancestor_ids, :siblings
+  
   ####################################################################
   # Associations
   ###########
@@ -127,6 +130,12 @@ class Node < ActiveRecord::Base
   rescue
     return "/#{self.shortcut}" + url_params
   end
+  
+ 
+  
+  
+  
+  
 
   # Returns this page's layout type string
   def layout
@@ -207,6 +216,56 @@ class Node < ActiveRecord::Base
     Node.update_all(['position = ?', nil])
     Node.order_helper(json)
   end
+  
+  
+  
+  
+  
+  ####################################################################
+  # Cached
+  ###########
+  
+  def cached_displayed_children
+    Rails.cache.fetch(self.cache_key + "::displayed_children", :expires_in => 20.days) {
+      self.children.displayed.collect {|n| n }
+    }
+  end
+  
+  def cached_displayed_item_children
+    Rails.cache.fetch(self.cache_key + "::displayed_item_children", :expires_in => 20.days) {
+      self.children.displayed.item_categories.collect {|n| n }
+    }
+  end
+  
+  def cached_displayed_category_children
+    Rails.cache.fetch(self.cache_key + "::displayed_category_children", :expires_in => 20.days) {
+      self.children.displayed.categories.collect {|n| n }
+    }
+  end
+
+   # Caches and returns this nodes ancestor ids
+   def node_ancestor_ids
+     logger.debug "\n******************\n Retreiving node(#{self.id})'s node_ancestor_ids \n******************\n\n"
+     return @ancestor_ids ||= (
+       logger.debug "\n******************\n Caching node(#{self.id})'s node_ancestor_ids \n******************\n\n"
+       ids = []
+       next_node = self
+       while next_node.parent do
+         ids << next_node.parent.id
+         next_node = next_node.parent
+       end
+       ids
+     )
+   end
+  
+  
+  
+  
+  
+  
+   ####################################################################
+   # Private
+   ###########
 
   private
   # Actual behind the scenes ordering of the Node tree

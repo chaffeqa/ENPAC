@@ -18,9 +18,9 @@
 <p><%= @category ? @category.description : '' %></p>
 
 
-<% unless @node.children.displayed.categories.empty? %>
+<% if @node.cached_displayed_category_children.empty? %>
   <ul class="categoryList">
-    <% @node.children.displayed.categories.each do |category_node|%>
+    <% @node.cached_displayed_category_children.each do |category_node|%>
       <% if category_node.category %>
         <%= content_tag_for :li, category_node.category do %>
           <p class="title"><%= link_to category_node.category.title, shortcut_path(category_node.shortcut) %></p>
@@ -32,9 +32,9 @@
   <hr/>
 <% end %>
 
-<% unless @node.children.displayed.item_categories.empty? %>
+<% unless @node.cached_displayed_item_children.empty? %>
   <ul class="itemList">
-    <% @node.children.displayed.item_categories.each do |item_node|%>
+    <% @node.cached_displayed_item_children.each do |item_node|%>
       <% if item_node.page.item %>
         <%= content_tag_for :li, item_node.page.item do %>
           <p class="title"><%= link_to item_node.page.item.name, shortcut_path(item_node.shortcut) %></p>

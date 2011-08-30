@@ -10,7 +10,36 @@
 
     <% if admin? %><%= render 'partials/page_admin' %><% end %>
 
-    <%= render :file => "#{Rails.root.to_s}/public/#{subdomain}/static.html.erb" %>
+    <div id="body">
+      <div id="wrapper">
+
+        <%= render 'partials/nav_menu' %>
+        <%= render 'partials/header' %>
+
+        <section id="content" class="cf">
+          <div class="search">
+          <% form_tag(search_path, :method => 'get') do %>
+            <%= label :searchText, 'Search' %>
+            <%= text_field_tag :searchText, '', :class => 'searchInput', :max_length => '255' %>
+            <%= submit_tag 'Go', :class => 'searchButton', :disable_with => '...' %>
+          <% end %>
+          </div>
+          <div id="featuredColumn">
+          </div>
+
+          <div id="topBorder"></div>
+          <div id="contentContainer" class="cf">
+            <section id="mainColumn" class="contents">
+              <%= yield :breadcrumb %>
+              <%= yield %>
+            </section>
+          </div>
+          <div id="bottomBorder"></div>
+        </section>
+
+        <%= render 'partials/footer' %>
+      </div>
+    </div>
 
     <%= render 'partials/foot' %>
   </body>

@@ -13,18 +13,18 @@ module ENPAC
     # -- all .rb files in that directory are automatically loaded.
 
     # Add additional load paths for your own custom dirs
-    config.autoload_paths += %W(#{config.root}/lib)
+    #config.autoload_paths += %W(#{config.root}/lib)
 
     # Add an additional path to check for views. (Unfortunately, still checked AFTER app/views...)
-    puts " -- Pushing site paths --"
-    paths.app.views.push("public/www")
-    paths.app.views.unshift("public/www")
+    #puts " -- Pushing site paths --"
+    #paths.app.views.push("public/www")
+    #paths.app.views.unshift("public/www")
 #    paths.app.views.push("public/kern")
 #    paths.app.views.unshift("public/kern")
 #    paths.app.views.push("public/enpac")
 #    paths.app.views.unshift("public/enpac")
-    puts paths.app.views.paths
-    puts " -- Done --"
+    #puts paths.app.views.paths
+   # puts " -- Done --"
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named

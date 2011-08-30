@@ -3,7 +3,7 @@
 -->
 <% @dynamic_page = @dynamic_page || @node.page %>
 <% @elements = @elements || @dynamic_page.elements %>
-<%= render :file => "#{Rails.root.to_s}/public/#{subdomain}/templates/_#{@node.page.underscore_template_name}.html.erb" %>
+<%= render :partial => "#{@node.page.underscore_template_name}" %>
 
 <% content_for :page_admin_bar do %>
   <%= link_to('Preview Page',  '#', :class => 'btn yellow large', :id => 'preview') %>
