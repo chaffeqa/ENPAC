@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
   def parse_filter_params
     debug_start_time = Time.now if Rails.env.development?
     parse_search_params(params)
-    logger.debug "\nparse_filter_params time:\n *************\n #{Time.now - debug_start_time} seconds \n*************\n\n"
+    logger.debug "\nparse_filter_params time:\n *************\n #{Time.now - debug_start_time} seconds \n*************\n\n" if Rails.env.development?
   end
 
   # Checks the validity of the current node as well as the basic access rights
@@ -76,7 +76,7 @@ class ApplicationController < ActionController::Base
       render unless performed?
       Rails.cache.write(key, response.body, {:raw => true, :expire_in => 30.days}.merge(options))
       logger.debug "\nCACHE \n****************\n Write Cache key: #{key.to_s} \n****************\n\n"
-      logger.debug "\nrender_with_cache:\n ****************\n Time spent: #{Time.now - debug_start_time} seconds \n*************\n\n"
+      logger.debug "\nrender_with_cache:\n ****************\n Time spent: #{Time.now - debug_start_time} seconds \n*************\n\n" if Rails.env.development?
     end
   end
   

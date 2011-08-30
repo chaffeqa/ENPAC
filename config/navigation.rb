@@ -40,7 +40,7 @@ SimpleNavigation::Configuration.run do |navigation|
       end
     #end
   end
-  logger.debug "Total time: #{Time.now - test_time} seconds\n"
+  logger.debug "Total time: #{Time.now - test_time} seconds\n" if Rails.env.development?
   logger.debug "******************\n\n"
 
 
