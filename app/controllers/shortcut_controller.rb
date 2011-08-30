@@ -63,6 +63,7 @@ class ShortcutController < ApplicationController
     if admin?
       render(template_path, :layout => layout_name)
     else
+      fresh_when(:etag => @node, :last_modified => @node.updated_at.utc, :public => true)
       render_with_cache('node-page::'+request.fullpath+'::'+@node.cache_key) { render(template_path, :layout => layout_name) }
     end
   end
