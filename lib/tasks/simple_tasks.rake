@@ -1,4 +1,13 @@
 namespace :db do
+  
+  desc "Touchs every Node, so they can all recache"
+  task :recache_nodes => :environment do
+    Node.all.each do |node|
+      puts "touching Node: title: #{node.title}"
+      node.touch
+    end
+  end
+  
   desc "Spill Kits Subcategory migration"
   task :spill_kits_subcategory_migration  => :environment do
     spill_kits = Category.where(:title => 'Spill Kits').first
