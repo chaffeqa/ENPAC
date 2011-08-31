@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery 
   helper_method :render_with_cache, :get_node, :categories_for_items, :get_home_node, :admin?
   include SearchHelper
-  before_filter :parse_filter_params
+  before_filter :parse_filter_params#, :get_home_node
   layout 'static_page'
 
   def categories_for_items(items = Item.all)
@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
 
   # Instantiates the current @node and the @home_node
   def get_node
-    get_home_node
+    #get_home_node
     @node = @node || (Node.where(:shortcut => params[:shortcut]).first if params[:shortcut])
     return check_node_validity
   end

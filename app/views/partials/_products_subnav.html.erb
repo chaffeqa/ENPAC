@@ -1,4 +1,4 @@
-<% cache("#{@home_node.cache_key}::products_subnav") do %>
+<% cache("#{get_home_node.cache_key}::products_subnav") do %>
 <li><a href="/inventory">Products</a>
   <ul class="level2">
     <% get_home_node.children.displayed.categories.each do |category_node| %>
