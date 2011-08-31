@@ -18,7 +18,7 @@
 <p><%= @category ? @category.description : '' %></p>
 
 
-<% if @node.cached_displayed_category_children.empty? %>
+<% unless @node.cached_displayed_category_children.empty? %>
   <ul class="categoryList">
     <% @node.cached_displayed_category_children.each do |category_node|%>
       <% if category_node.category %>
