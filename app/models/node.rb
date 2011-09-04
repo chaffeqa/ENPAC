@@ -229,7 +229,7 @@ class Node < ActiveRecord::Base
   
   # Creates a string of the html for a breadcrumb for this node
   def html_breadcrumb
-    (cached(:ancestors).map {|node| node.html_link } << html_link).join(" &gt; ").html_safe
+    (cached(:ancestors).reverse.map {|node| node.html_link } << html_link).join(" &gt; ").html_safe
   end
   
   # Creates a string of the html link for this node
