@@ -15,7 +15,7 @@
   <%# if content_for?(:subMenu) %>
     <%# yield :subMenu %>
   <%# else %>
-    <%= render_navigation(:level => 2..7) %>
+    <%= render "partials/side_nav" %>
   <%# end %>
 </section>
 
@@ -114,7 +114,7 @@
 
 <!-- Content_for components to insert into static_page -->
 <%= content_for :breadcrumb do %>
-  <%= render :partial => 'partials/breadcrumb' %>
+  <%= render 'partials/breadcrumb' %>
 <% end %>
 
 

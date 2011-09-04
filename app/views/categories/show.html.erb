@@ -6,11 +6,7 @@
 
 
 <section id="productMenu">
-  <% if content_for?(:subMenu) %>
-    <% yield :subMenu %>
-  <% else %>
-    <%= render_navigation(:level => 2..7) %>
-  <% end %>
+  <%= render "partials/side_nav" %>
 </section>
 
 

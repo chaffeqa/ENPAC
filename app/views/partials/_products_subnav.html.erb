@@ -1,21 +1,42 @@
-<% cache("#{get_home_node.cache_key}::products_subnav") do %>
-<li><a href="/inventory">Products</a>
-  <ul class="level2">
-    <% get_home_node.children.displayed.categories.each do |category_node| %>
-      <%= content_tag_for :li, category_node do %>
-        <%= link_to category_node.menu_name, shortcut_path(category_node.shortcut) %>
-        <% unless category_node.children.displayed.categories.empty? -%>
-          <ul class="level3">
-            <% category_node.children.displayed.categories.each do |subcategory_node| %>
-              <%= content_tag_for :li, subcategory_node do %>
-                <%= link_to subcategory_node.menu_name, shortcut_path(subcategory_node.shortcut) %>
+<% if VIEW_FRAGMENT_CACHING %>
+  <% cache("#{get_home_node.cache_key}::products_subnav") do %>
+  <li><a href="/inventory">Products</a>
+    <ul class="level2">
+      <% get_home_node.cached(:children,:displayed,:categories).each do |category_node| %>
+        <%= content_tag_for :li, category_node do %>
+          <%= link_to category_node.menu_name, shortcut_path(category_node.shortcut) %>
+          <% unless category_node.cached(:children,:displayed,:categories).empty? -%>
+            <ul class="level3">
+              <% category_node.cached(:children,:displayed,:categories).each do |subcategory_node| %>
+                <%= content_tag_for :li, subcategory_node do %>
+                  <%= link_to subcategory_node.menu_name, shortcut_path(subcategory_node.shortcut) %>
+                <% end -%>
               <% end -%>
-            <% end -%>
-          </ul>
+            </ul>
+          <% end -%>
         <% end -%>
       <% end -%>
-    <% end -%>
-  </ul>
-</li>
+    </ul>
+  </li>
+  <% end %>
+<% else %>
+  <li><a href="/inventory">Products</a>
+    <ul class="level2">
+      <% get_home_node.cached(:children,:displayed,:categories).each do |category_node| %>
+        <%= content_tag_for :li, category_node do %>
+          <%= link_to category_node.menu_name, shortcut_path(category_node.shortcut) %>
+          <% unless category_node.cached(:children,:displayed,:categories).empty? -%>
+            <ul class="level3">
+              <% category_node.cached(:children,:displayed,:categories).each do |subcategory_node| %>
+                <%= content_tag_for :li, subcategory_node do %>
+                  <%= link_to subcategory_node.menu_name, shortcut_path(subcategory_node.shortcut) %>
+                <% end -%>
+              <% end -%>
+            </ul>
+          <% end -%>
+        <% end -%>
+      <% end -%>
+    </ul>
+  </li>
 <% end %>
 

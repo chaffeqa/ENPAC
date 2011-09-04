@@ -41,9 +41,7 @@ class ApplicationController < ActionController::Base
 
   # Method for instantiating the search filter params
   def parse_filter_params
-    debug_start_time = Time.now if Rails.env.development?
     parse_search_params(params)
-    logger.debug "\nparse_filter_params time:\n *************\n #{Time.now - debug_start_time} seconds \n*************\n\n" if Rails.env.development?
   end
 
   # Checks the validity of the current node as well as the basic access rights
