@@ -85,6 +85,9 @@ class Node < ActiveRecord::Base
   end
 
 
+
+
+
   ####################################################################
   # Scopes
   ###########
@@ -96,6 +99,7 @@ class Node < ActiveRecord::Base
   scope :items, where("nodes.page_type = 'Item' OR nodes.page_type = 'ItemCategory'")
   scope :item_categories, where(:page_type => 'ItemCategory')
   scope :no_items, where("nodes.page_type != 'Item' OR nodes.page_type = 'ItemCategory' OR nodes.page_type IS NULL")
+
 
 
 
@@ -129,11 +133,6 @@ class Node < ActiveRecord::Base
   rescue
     return "/#{self.shortcut}" + url_params
   end
-  
- 
-  
-  
-  
   
 
   # Returns this page's layout type string
@@ -216,26 +215,37 @@ class Node < ActiveRecord::Base
     Node.order_helper(json)
   end
   
+  
+  
+  
+  
+  
+  
+  
+  
   ####################################################################
-  # list renderer
+  # HTML renderer
   ###########
   
+  # Creates a string of the html for a breadcrumb for this node
   def html_breadcrumb
     (cached(:ancestors).map {|node| node.html_link } << html_link).join(" &gt; ").html_safe
   end
   
+  # Creates a string of the html link for this node
   def html_link(selected=false)
     "<a#{selected ? ' class="selected"' : ''} href='#{url}'>#{menu_name}</a>"
   end
   
+  # Creates a string of the html of this node's full tree (up to the root)
   def html_ul_tree
     Node.home.children_ul_row(cached(:ancestor_ids), cached(:ancestor_ids) + [id]).html_safe
   end
   
+  # Creates a string of the html of this node's <li> element
   def li_row(expanded_node_ids, selected_node_ids)
     selected = selected_node_ids.include?(id)
-    expand = selected and not cached_displayed_children.empty?
-    #logger.debug "<li> Row for node(#{self.id})'s, selected: #{selected} expanded: #{expand} \n"
+    expand = selected and not (cached_displayed_children.nil? or cached_displayed_children.empty?)
     li_string = "<li id='#{shortcut}' class='#{page_type.to_s + (selected ? ' selected' : '')}'>"
     li_string += html_link(selected)
     li_string += children_ul_row(expanded_node_ids, selected_node_ids) if expand
@@ -243,8 +253,8 @@ class Node < ActiveRecord::Base
     li_string
   end
   
+  # Creates a string of the html of this node's children inside a <ul>
   def children_ul_row(expanded_node_ids, selected_node_ids)
-    #logger.debug "\n******************\n [Cache] Retreiving node(#{self.id})'s children_ul_row \n"
     row_string = "<ul>"
     cached_displayed_children.each do |node|
       row_string += node.li_row(expanded_node_ids, selected_node_ids)
@@ -252,6 +262,10 @@ class Node < ActiveRecord::Base
     row_string += "</ul>"
     row_string
   end
+  
+  
+  
+  
   
   
   
@@ -279,6 +293,7 @@ class Node < ActiveRecord::Base
    }
   end
   
+  # Returns a cached array of this node's displayed children
   def cached_displayed_children
    return self.children.displayed unless MODEL_CACHING
    logger.debug "\n******************\n [Cache] Retreiving node(#{self.id})'s cached_displayed_children \n******************\n\n"
@@ -288,6 +303,7 @@ class Node < ActiveRecord::Base
     }
   end
   
+  # Returns a cached array of this node's displayed category children
   def cached_displayed_item_children
    return self.children.displayed.item_categories unless MODEL_CACHING
    logger.debug "\n******************\n [Cache] Retreiving node(#{self.id})'s cached_displayed_item_children \n******************\n\n"
@@ -297,6 +313,7 @@ class Node < ActiveRecord::Base
     }
   end
   
+  # Returns a cached array of this node's displayed item children
   def cached_displayed_category_children
    return self.children.displayed.categories unless MODEL_CACHING
    logger.debug "\n******************\n [Cache] Retreiving node(#{self.id})'s cached_displayed_category_children \n******************\n\n"
@@ -305,6 +322,10 @@ class Node < ActiveRecord::Base
       self.children.displayed.categories.collect {|n| n }
     }
   end
+  
+  
+  
+  
   
   
   ####################################################################
