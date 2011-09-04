@@ -1,6 +1,5 @@
 class Node < ActiveRecord::Base
   
-  attr_accessor :ancestors, :siblings, :ancestor_ids
   
   ####################################################################
   # Associations
@@ -245,7 +244,7 @@ class Node < ActiveRecord::Base
   end
   
   def children_ul_row(expanded_node_ids, selected_node_ids)
-    #logger.debug "\n******************\n Retreiving node(#{self.id})'s children_ul_row \n"
+    #logger.debug "\n******************\n [Cache] Retreiving node(#{self.id})'s children_ul_row \n"
     row_string = "<ul>"
     cached_displayed_children.each do |node|
       row_string += node.li_row(expanded_node_ids, selected_node_ids)
@@ -260,40 +259,49 @@ class Node < ActiveRecord::Base
   # Cached Calls
   ###########
   
+  # A sick move, basically it caches any chaining of methods (for triggering if a view calls it)
+  def view_cached(*methods)
+   return result = self.send(*methods) unless VIEW_FRAGMENT_CACHING
+   logger.debug "\n******************\n [Cache] Retreiving node(#{self.id})'s view_cached_#{methods.inspect} \n******************\n\n"
+   Rails.cache.fetch(self.cache_key + "::#{methods.join('.')}", :expires_in => 20.days) {
+     logger.debug "\n******************\n [Cache] (MISSED) Caching node(#{self.id})'s view_cached_#{methods.inspect} \n******************\n\n"
+     result = self.send(*methods) # Using result to make sure the method marshels, and memcache doesnt save a SQL query string
+   }
+  end
+  
   # A sick move, basically it caches any chaining of methods
   def cached(*methods)
    return result = self.send(*methods) unless MODEL_CACHING
-   logger.debug "\n******************\n Retreiving node(#{self.id})'s cached_#{methods.inspect} \n******************\n\n"
+   logger.debug "\n******************\n [Cache] Retreiving node(#{self.id})'s cached_#{methods.inspect} \n******************\n\n"
    Rails.cache.fetch(self.cache_key + "::#{methods.join('.')}", :expires_in => 20.days) {
-     logger.debug "\n******************\n (MISSED) Caching node(#{self.id})'s cached_#{methods.inspect} \n******************\n\n"
+     logger.debug "\n******************\n [Cache] (MISSED) Caching node(#{self.id})'s cached_#{methods.inspect} \n******************\n\n"
      result = self.send(*methods) # Using result to make sure the method marshels, and memcache doesnt save a SQL query string
    }
   end
   
   def cached_displayed_children
    return self.children.displayed unless MODEL_CACHING
-   #return self.children.displayed  unless SITEWIDE_CACHING
-   logger.debug "\n******************\n Retreiving node(#{self.id})'s cached_displayed_children \n******************\n\n"
+   logger.debug "\n******************\n [Cache] Retreiving node(#{self.id})'s cached_displayed_children \n******************\n\n"
     Rails.cache.fetch(self.cache_key + "::displayed_children", :expires_in => 20.days) {
-      logger.debug "\n******************\n (MISSED) Caching node(#{self.id})'s cached_displayed_children \n******************\n\n"
+      logger.debug "\n******************\n [Cache] (MISSED) Caching node(#{self.id})'s cached_displayed_children \n******************\n\n"
       self.children.displayed.collect {|n| n }
     }
   end
   
   def cached_displayed_item_children
    return self.children.displayed.item_categories unless MODEL_CACHING
-   logger.debug "\n******************\n Retreiving node(#{self.id})'s cached_displayed_item_children \n******************\n\n"
+   logger.debug "\n******************\n [Cache] Retreiving node(#{self.id})'s cached_displayed_item_children \n******************\n\n"
     Rails.cache.fetch(self.cache_key + "::displayed_item_children", :expires_in => 20.days) {
-      logger.debug "\n******************\n (MISSED) Caching node(#{self.id})'s cached_displayed_item_children \n******************\n\n"
+      logger.debug "\n******************\n [Cache] (MISSED) Caching node(#{self.id})'s cached_displayed_item_children \n******************\n\n"
       self.children.displayed.item_categories.collect {|n| n }
     }
   end
   
   def cached_displayed_category_children
    return self.children.displayed.categories unless MODEL_CACHING
-   logger.debug "\n******************\n Retreiving node(#{self.id})'s cached_displayed_category_children \n******************\n\n"
+   logger.debug "\n******************\n [Cache] Retreiving node(#{self.id})'s cached_displayed_category_children \n******************\n\n"
    Rails.cache.fetch(self.cache_key + "::displayed_category_children", :expires_in => 20.days) {
-      logger.debug "\n******************\n (MISSED) Caching node(#{self.id})'s cached_displayed_category_children \n******************\n\n"
+      logger.debug "\n******************\n [Cache] (MISSED) Caching node(#{self.id})'s cached_displayed_category_children \n******************\n\n"
       self.children.displayed.categories.collect {|n| n }
     }
   end
@@ -305,26 +313,12 @@ class Node < ActiveRecord::Base
 
    # Caches and returns this nodes ancestor objects
    def ancestors
-     logger.debug "\n******************\n Retreiving node(#{self.id})'s ancestors \n******************\n\n"
-     return @ancestor ||= (
-       logger.debug "\n******************\n Memory Saving node(#{self.id})'s ancestors \n******************\n\n"
-       nodes = []
-       next_node = self
-       while next_node.parent do
-         nodes << next_node.parent
-         next_node = next_node.parent
-       end
-       nodes
-     )
+     (parent.nil? ? [] : [parent] + parent.cached(:ancestors))
    end
    
    # Caches and returns this nodes ancestor ids
    def ancestor_ids
-    logger.debug "\n******************\n Retreiving node(#{self.id})'s ancestor_ids \n******************\n\n"
-    return @ancestor_ids ||= (
-      logger.debug "\n******************\n Memory Saving node(#{self.id})'s ancestors_ids \n******************\n\n"
-      ancestors.collect(&:id)
-    )
+    cached(:ancestors).collect(&:id)
    end
   
   

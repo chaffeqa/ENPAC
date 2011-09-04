@@ -5,7 +5,7 @@ class AddIndexes < ActiveRecord::Migration
 
     add_index :nodes, :parent_id
     add_index :nodes, [:parent_id, :position, :displayed]
-    add_index :nodes, [:parent_id, :page_type, :position, :displayed]
+    add_index :nodes, [:parent_id, :page_type, :position, :displayed], :name => 'index_nodes_parent_page_type_pos_disp'
     add_index :nodes, [:parent_id, :position]
     add_index :nodes, :shortcut
   end
@@ -16,7 +16,7 @@ class AddIndexes < ActiveRecord::Migration
 
     remove_index :nodes, :parent_id
     remove_index :nodes, [:parent_id, :position, :displayed]
-    remove_index :nodes, [:parent_id, :page_type, :position, :displayed]
+    remove_index :nodes, :name => 'index_nodes_parent_page_type_pos_disp'
     remove_index :nodes, [:parent_id, :position]
     remove_index :nodes, :shortcut
   end

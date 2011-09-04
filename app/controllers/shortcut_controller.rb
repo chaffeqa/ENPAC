@@ -59,7 +59,7 @@ class ShortcutController < ApplicationController
   # Renders the appropriate template based on the @node.  Displays a fresh version of the page if
   # an admin is logged in or no cached version exists.  Renders a cached version if one exists.
   def render_page_from_node(template_path, layout_name)
-    logger.debug "\nREQUEST \n****************\n Shortcut#route action called for Node: #{@node.title}, Rendering: '#{template_path}', Layout: '#{layout_name}'\n Rendering from cache: #{(admin? or not PAGE_MEMCACHE_CACHING).to_s} \n****************\n\n "
+    logger.debug "\nREQUEST \n****************\n Shortcut#route action called for Node: #{@node.title}, Rendering: '#{template_path}', Layout: '#{layout_name}'\n Rendering from cache: #{(not (admin? or not PAGE_MEMCACHE_CACHING)).to_s} \n****************\n\n "
     if admin? or not PAGE_MEMCACHE_CACHING
       render(template_path, :layout => layout_name)
     else
