@@ -19,98 +19,13 @@
   <%# end %>
 </section>
 
-<article class="item">
-  <div id="product">
-    <h3 id="item-name"><%= @item.name %></h3>
-
-    <div class="left">
-      <div class="productImages">
-        <%= link_to image_tag(@item.main_image ? @item.main_image.full_size_image : "no_image_full_size.gif"), shortcut_path(@node.shortcut) %>
-        <% if @item.product_images and @item.product_images.size > 1 %>
-          <% @item.product_images.each do |product_image| %>
-            <div class="thumb">
-              <%= link_to (image_tag product_image.preview_image), product_image.original_image, :rel => 'group1', :class => 'gallery' %>
-      <%#= (product_image.id == @item.product_images[0].id) ? "Obverse" : "" %>
-      <%#= (@item.product_images[1] and (product_image.id == @item.product_images[1].id)) ? "Reverse" : "" %>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-      <% unless @item.product_files.empty? %>
-      <div class="productFiles" id="documents">
-        <div id="top"> </div>
-        <div id="content">
-          <h1 class="title">Product Documents</h1>
-          <% @item.product_files.each do |product_file| %>
-            <%= content_tag_for :div, product_file do %>
-              <!--span class="thumb"> <%= (link_to (image_tag product_file.url(:thumb), :alt => product_file.title), product_file.url(:content), :target => '_blank') unless product_file.url(:thumb).blank? %> </span-->
-              <span class="title"> <%= link_to product_file.title, product_file.url(:content), :target => '_blank' %> </span>
-            <% end %>
-          <% end %>
-        </div>
-        <div id="bottom"> </div>
-      </div>
-      <% end %>
-    </div>
-
-<!--
-    <%# if @item.for_sale %>
-      <%#= link_to 'Add To Cart', "https://KERN-Coin.foxycart.com/cart?quantity_max=1&name=#{@item.name}&price=#{@item.cost}&item-id=#{@item.name}", :class => 'foxycart add-to-cart btn large yellow' %>
-      <p><strong>To order, call (859)-269-1614</strong></p>
-    <%# else %>
-      <p><strong>Out of stock</strong></p>
-    <%# end %>
--->
-
-    <div class="item-details">
-      <% unless @item.short_description.blank? %><h4 id="item-short-description"><%=raw @item.short_description %></h4><% end %>
-      <% unless @item.long_description.blank? %><p id="item-long-description"><%=raw  @item.long_description.gsub("\r\n","<br/>") %></p><% end %>
-      <% unless @item.part_number.blank? %><p id="item-part-number">Part #: <%= @item.part_number%></p><% end %>
-      <% unless @item.regulations.blank? %><p id="item-regulations"><strong>Regulations:</strong><br /><%=raw @item.regulations.gsub("\r\n","<br/>") %></p><% end %>
-
-    <% unless @item.product_options.empty? %>
-          <strong>Product Options:</strong>
-          <% @item.product_options.each do |product_option| %>
-            <% if product_option.option_item %>
-              <%= content_tag_for :div, product_option do %>
-                <p>
-	                <%= link_to product_option.option_item.name, shortcut_path(product_option.option_item.node.shortcut) %><br />
-                  <%= product_option.description %>
-	              </p>
-              <% end %>
-            <% end %>
-          <% end %>
-        </div>
-    <% end %>
-
-
-    <hr />
-
-    <div class="item-dimensions">
-      <%= item_tag_for('item','weight',@item.weight) %>
-      <%= item_tag_for('item','handling_capacity',@item.handling_capacity) %>
-      <%= item_tag_for('item','sump_capacity',@item.sump_capacity) %>
-      <%= item_tag_for('item','length',@item.p_length) %>
-      <%= item_tag_for('item','height',@item.p_height) %>
-      <%= item_tag_for('item','width',@item.p_width) %>
-      <%# NOTE: for item categories = render :partial => 'items/item_group' %>
-    </div>
-
-      <div class="specific-dimensions">
-        <!-- Specific Dimensions -->
-        <%= render :partial => 'items/adjustable_dimension', :locals => {:dimension => @item.adjustable_dimension} if @item.dimension_type == 'Adjustable' %>
-        <%= render :partial => 'items/circular_dimension', :locals => {:dimension => @item.circular_dimension} if @item.dimension_type == 'Circular' %>
-        <%= render :partial => 'items/cube_dimension', :locals => {:dimension => @item.cube_dimension} if @item.dimension_type == 'Cube' %>
-        <%= render :partial => 'items/drum_dimension', :locals => {:dimension => @item.drum_dimension} if @item.dimension_type == 'Drum' %>
-        <%= render :partial => 'items/flexible_dimension', :locals => {:dimension => @item.flexible_dimension} if @item.dimension_type == 'Flexible' %>
-        <%= render :partial => 'items/funnel_dimension', :locals => {:dimension => @item.funnel_dimension} if @item.dimension_type == 'Funnel' %>
-        <%= render :partial => 'items/pool_dimension', :locals => {:dimension => @item.pool_dimension} if @item.dimension_type == 'Pool' %>
-        <%= render :partial => 'items/sorbent_dimension', :locals => {:dimension => @item.sorbent_dimension} if @item.dimension_type == 'Sorbent' %>
-        <%= render :partial => 'items/standard_dimension', :locals => {:dimension => @item.standard_dimension} if @item.dimension_type == 'Standard' %>
-      </div>
-
-  </div>
-</article>
+<% if VIEW_FRAGMENT_CACHING %>
+  <%= cache("#{@item.cache_key}::items/show") do %>
+    <%= render "items/item" %>
+  <% end %>
+<% else %>
+  <%= render "items/item" %>
+<% end %>
 
 <!-- Content_for components to insert into static_page -->
 <%= content_for :breadcrumb do %>
