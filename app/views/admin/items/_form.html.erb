@@ -107,7 +107,7 @@
     <legend>Specific Item Attributes.</legend>
     <div class="field">
       <label>Dimension Type</label>
-      <%= f.select :dimension_type, options_for_select(Item.dimension_types, f.object.new_record? ? 'N/A' : f.object.dimension_type), {}, :class => 'DynamicFieldsSelector' %>
+      <%= f.select :dimension_type, options_for_select(Item.dimension_types, f.object.dimension_type || 'N/A'), {}, :class => 'DynamicFieldsSelector' %>
     </div>
 
     <div class="AdjustableFields DynamicFields">

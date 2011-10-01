@@ -3,8 +3,9 @@
 
 <% if admin? %>
   <% content_for :page_admin_bar do %>
-    <%= link_to 'Delete Item', admin_item_path(@item) , :confirm => "Are you sure?", :method => :delete, :class => 'btn large' %>
-    <%= link_to 'Edit Item', edit_admin_item_path(@item), :class => 'btn large' %>
+    <%= link_to 'Delete', admin_item_path(@item) , :confirm => "Are you sure?", :method => :delete, :class => 'btn large' %>
+    <%= link_to 'Duplicate', new_admin_item_path(:dup_id => @item.id), :class => "btn large" %>
+    <%= link_to 'Edit', edit_admin_item_path(@item), :class => 'btn large' %>
   <% end %>
 <% end %>
 
