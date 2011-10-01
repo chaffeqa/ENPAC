@@ -18,7 +18,12 @@ class Admin::ItemsController < ApplicationController
 
 
   def new
-    @item = Item.new
+    if params[:dup_id].present?
+      item_to_dup = Item.find(params[:dup_id])
+      @item = Item.new(item_to_dup.attributes)
+      @item.try("build_#{item_to_dup.associated_dimension_table_name}", item_to_dup.associated_dimension.attributes.merge({:item_id => nil}))
+    end
+    @item ||= Item.new
     @item.build_node(:displayed => true)
   end
 

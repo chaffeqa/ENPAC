@@ -109,7 +109,7 @@ class Item < ActiveRecord::Base
     node.displayed = self.display || true
     node.parent = Node.items_node
   end
-  
+
   # Since autosave doesn't seem to be working, this will force the item_categories to resave
   def update_item_categories
     (self.item_categories.each {|ic| (ic.update_node(self.name); ic.save) unless ic.marked_for_destruction? }) if self.item_categories
@@ -125,6 +125,20 @@ class Item < ActiveRecord::Base
   def remove_duplicate_group_links
     group_categories = self.item_group.group_category_ids(self.id)
     self.item_categories.where(:category_id => group_categories).each {|c| c.destroy }
+  end
+
+  # Returns this items associated dimension OBJECT, nil otherwise
+  def associated_dimension
+    begin
+      return self.try(associated_dimension_table_name.to_sym)
+    rescue
+      return nil
+    end
+  end
+
+  # Returns this item's associated dimension table name
+  def associated_dimension_table_name
+    DIMENSION_TYPES[self.dimension_type]
   end
 
   # Cleans Up any unused Associated Dimensions
