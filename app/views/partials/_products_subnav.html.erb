@@ -3,6 +3,7 @@
   <li><a href="/inventory">Products</a>
     <ul class="level2">
       <% get_home_node.cached(:children,:displayed,:categories).each do |category_node| %>
+        <%  unless category_node.menu_name == "Items" %>
         <%= content_tag_for :li, category_node do %>
           <%= link_to category_node.menu_name, shortcut_path(category_node.shortcut) %>
           <% unless category_node.cached(:children,:displayed,:categories).empty? -%>
@@ -15,6 +16,7 @@
             </ul>
           <% end -%>
         <% end -%>
+        <% end -%>
       <% end -%>
     </ul>
   </li>
@@ -23,6 +25,7 @@
   <li><a href="/inventory">Products</a>
     <ul class="level2">
       <% get_home_node.cached(:children,:displayed,:categories).each do |category_node| %>
+        <%  unless category_node.menu_name == "Items" %>
         <%= content_tag_for :li, category_node do %>
           <%= link_to category_node.menu_name, shortcut_path(category_node.shortcut) %>
           <% unless category_node.cached(:children,:displayed,:categories).empty? -%>
@@ -34,6 +37,7 @@
               <% end -%>
             </ul>
           <% end -%>
+        <% end -%>
         <% end -%>
       <% end -%>
     </ul>

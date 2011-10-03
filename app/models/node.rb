@@ -1,6 +1,6 @@
 class Node < ActiveRecord::Base
-  
-  
+
+
   ####################################################################
   # Associations
   ###########
@@ -28,11 +28,11 @@ class Node < ActiveRecord::Base
   after_save :reload_page
   after_save :update_cache_chain
   before_destroy :update_cache_chain
-  
+
   # Global method to trigger caching updates for all objects that rely on this object's information
   # This will be called in one of two cases:
   #   1) This object has changed, and effected cached objects need to recache
-  #   2) An object has notified this object that it needs to recache 
+  #   2) An object has notified this object that it needs to recache
   # Clears the cache items of Node calls
   def update_cache_chain
     unless self.marked_for_destruction?
@@ -133,7 +133,7 @@ class Node < ActiveRecord::Base
   rescue
     return "/#{self.shortcut}" + url_params
   end
-  
+
 
   # Returns this page's layout type string
   def layout
@@ -214,34 +214,34 @@ class Node < ActiveRecord::Base
     Node.update_all(['position = ?', nil])
     Node.order_helper(json)
   end
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
   ####################################################################
   # HTML renderer
   ###########
-  
+
   # Creates a string of the html for a breadcrumb for this node
   def html_breadcrumb
     (cached(:ancestors).reverse.map {|node| node.html_link } << html_link).join(" &gt; ").html_safe
   end
-  
+
   # Creates a string of the html link for this node
   def html_link(selected=false)
     "<a#{selected ? ' class="selected"' : ''} href='#{url}'>#{menu_name}</a>"
   end
-  
+
   # Creates a string of the html of this node's full tree (up to the root)
   def html_ul_tree
     Node.home.children_ul_row(cached(:ancestor_ids), cached(:ancestor_ids) + [id]).html_safe
   end
-  
+
   # Creates a string of the html of this node's <li> element
   def li_row(expanded_node_ids, selected_node_ids)
     selected = selected_node_ids.include?(id)
@@ -252,7 +252,7 @@ class Node < ActiveRecord::Base
     li_string += "</li>"
     li_string
   end
-  
+
   # Creates a string of the html of this node's children inside a <ul>
   def children_ul_row(expanded_node_ids, selected_node_ids)
     row_string = "<ul>"
@@ -262,17 +262,17 @@ class Node < ActiveRecord::Base
     row_string += "</ul>"
     row_string
   end
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
   ####################################################################
   # Cached Calls
   ###########
-  
+
   # A sick move, basically it caches any chaining of methods (for triggering if a view calls it)
   def view_cached(*methods)
    return result = self.send(*methods) unless VIEW_FRAGMENT_CACHING
@@ -282,7 +282,7 @@ class Node < ActiveRecord::Base
      result = self.send(*methods) # Using result to make sure the method marshels, and memcache doesnt save a SQL query string
    }
   end
-  
+
   # A sick move, basically it caches any chaining of methods
   def cached(*methods)
    return result = self.send(*methods) unless MODEL_CACHING
@@ -292,7 +292,7 @@ class Node < ActiveRecord::Base
      result = self.send(*methods) # Using result to make sure the method marshels, and memcache doesnt save a SQL query string
    }
   end
-  
+
   # Returns a cached array of this node's displayed children
   def cached_displayed_children
    return self.children.displayed unless MODEL_CACHING
@@ -302,7 +302,7 @@ class Node < ActiveRecord::Base
       self.children.displayed.collect {|n| n }
     }
   end
-  
+
   # Returns a cached array of this node's displayed category children
   def cached_displayed_item_children
    return self.children.displayed.item_categories unless MODEL_CACHING
@@ -312,7 +312,7 @@ class Node < ActiveRecord::Base
       self.children.displayed.item_categories.collect {|n| n }
     }
   end
-  
+
   # Returns a cached array of this node's displayed item children
   def cached_displayed_category_children
    return self.children.displayed.categories unless MODEL_CACHING
@@ -322,12 +322,12 @@ class Node < ActiveRecord::Base
       self.children.displayed.categories.collect {|n| n }
     }
   end
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
   ####################################################################
   # Ancestors
   ###########
@@ -336,17 +336,17 @@ class Node < ActiveRecord::Base
    def ancestors
      (parent.nil? ? [] : [parent] + parent.cached(:ancestors))
    end
-   
+
    # Caches and returns this nodes ancestor ids
    def ancestor_ids
     cached(:ancestors).collect(&:id)
    end
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
    ####################################################################
    # Private
    ###########
