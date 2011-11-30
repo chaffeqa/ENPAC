@@ -45,6 +45,7 @@ class Admin::ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
+    @item.updated_at = Time.now unless @item.changed?
     if @item.update_attributes(params[:item])
       redirect_to(shortcut_path(@item.better_url), :notice => 'Item was successfully updated.')
     else
