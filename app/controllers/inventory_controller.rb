@@ -17,7 +17,7 @@ class InventoryController < ApplicationController
     #  item_ids = item_ids + Item.get_for_sale.displayed.scope_text(word).collect {|item| item.id }
     #end
     #@items = Item.where(:id => item_ids)
-    @items = Item.get_for_sale.displayed.scope_text(@search_params[:searchText])
+    @items = Item.displayed.scope_text(@search_params[:searchText])
     @items = @items.paginate :page => @page, :per_page => @per_page, :order => (sort_column + " " + sort_direction)
 
     # New Hotness
