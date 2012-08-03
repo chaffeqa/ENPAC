@@ -67,8 +67,14 @@
 
     <div class="item-dimensions">
       <%= item_tag_for('item','weight',@item.weight) %>
-      <%= item_tag_for('item','handling_capacity',@item.handling_capacity) %>
-      <%= item_tag_for('item','sump_capacity',@item.sump_capacity) %>
+      <p id="item-handling_capacity">
+	<span class="attr-title">Load Capacity</span>
+	<span class="attr-value"><%= @item.handling_capacity %></span>
+      </p>
+      <p id="item-sump_capacity">
+	<span class="attr-title">Spill Capacity</span>
+	<span class="attr-value"><%= @item.sump_capacity %></span>
+      </p>
       <%= item_tag_for('item','length',@item.p_length) %>
       <%= item_tag_for('item','height',@item.p_height) %>
       <%= item_tag_for('item','width',@item.p_width) %>
