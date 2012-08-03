@@ -196,7 +196,7 @@ module ApplicationHelper
     humanized_column_name = column_name.humanize.split(' ').collect {|word| word.capitalize }.join(' ')
     return content_tag(:p, :id => model_name + '-' + column_name) do
       raw(
-        content_tag(:span, humanized_column_name, :class => 'attr-title') +
+        content_tag(:span, humanized_column_name.gsub(/Handling/, 'Load').gsub(/Sump/, 'Spill').capitalize, :class => 'attr-title') +
           content_tag(:span, value.gsub(/Absorbs /, '').capitalize, :class => "attr-value" )
       )
     end
