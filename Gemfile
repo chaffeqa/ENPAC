@@ -1,5 +1,4 @@
-source 'http://rubygems.org'
-ruby '1.9.3'
+source 'https://rubygems.org'
 
 gem 'rails', '3.0.19'
 gem 'ckeditor', '3.4.3.pre'
