@@ -1,7 +1,7 @@
 namespace :csv do
 
   desc "load pools dimension data from csv files"
-  task :load_pools_data, :folder, :needs => :environment do |t, args|
+  task :load_pools_data, :folder do |t, args|
     if args.folder.nil?
       puts "You must pass in a folder path!"
       return false

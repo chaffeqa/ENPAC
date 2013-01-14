@@ -1,6 +1,6 @@
 namespace :csv do
   desc "Invoke by: --rake csv:upload_files['folder/']-- where 'folder/' corrisponds to the folder in the db/cvs_files/ where the csv files reside you want to upload to the db"
-  task :upload_files, :folder, :needs => :environment do |t, args|
+  task :upload_files, :folder do |t, args|
     if args.folder.nil?
       puts "You must pass in a folder path!"
       return false
