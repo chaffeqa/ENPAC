@@ -513,10 +513,6 @@ nav ul {
     #footer h5 {
         font-family: helvetica, arial, sans-serif;
     }
-    #footer h5.sm {
-	width: 100px;
-	float: left;
-    }
     #footer p {
         margin: 0 0 15px;
     }
@@ -527,16 +523,6 @@ nav ul {
 #footer hr {
     border: 1px solid #433b33;
 }
-#footer ul.footerNav {
-	padding: 0;
-	margin: 0 auto;
-	text-align: center;
-}
-    #footer ul.footerNav li {
-		display: inline-block;
-		padding: 0 20px;
-		margin: 0;
-    }
 
 #footer ul.footerNav {
 }
@@ -549,35 +535,40 @@ nav ul {
     #footer #copyright{
         height: 200px;
         float: left;
-        width: 225px;
+        width: 200px;
         padding: 10px 10px 10px 0;
-        background: url(../template/footer-bg-left.gif) 100% 0 no-repeat;
-    }
-    #footer #siteMap {
-        height: 200px;
-        float: left;
-        width: 170px;
-        padding: 10px 0 10px 25px;
-        background: url(../template/footer-bg-left.gif) 100% 0 no-repeat;
-    }
-       #footer #siteMap img {
-	   padding: 0 10px 0 0;
-	}
-    #footer #contactInformation {
-        height: 200px;
-        float: left;
-        width: 225px;
-        padding: 10px 10px 10px 35px;
         background: url(../template/footer-bg-left.gif) 100% 0 no-repeat;
     }
         #footer #copyright img {
             padding-bottom: 17px;
         }
+     #footer #siteMap {
+        height: 200px;
+        float: left;
+        width: 100px; 
+        padding: 10px 0 10px 25px;
+        background: url(../template/footer-bg-left.gif) 100% 0 no-repeat;
+    }
+
+    #footer #workPlace {
+        height: 200px;
+        float: left;
+        width: 60px;
+        padding: 10px 25px 10px;
+        background: url(../template/footer-bg-left.gif) 100% 0 no-repeat;
+    }
+    #footer #contactInformation {
+        height: 200px;
+        float: left;
+        width: 225px;
+        padding: 10px 10px 10px 25px;
+        background: url(../template/footer-bg-left.gif) 100% 0 no-repeat;
+    }
 
     #footer #translationContainer {
         padding: 10px;
         float: left;
-        padding: 10px 10px 10px 35px;
+        padding: 10px 10px 10px 25px;
     }
         #footer #translationContainer #google_translate_element {
             background-color: #FFF;
