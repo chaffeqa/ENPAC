@@ -132,7 +132,7 @@ DEPENDENCIES
   heroku
   jquery-rails
   mail
-  paperclip
+  paperclip (~> 3.0)
   pg
   rails (= 3.0.19)
   simple-navigation

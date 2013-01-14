@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.0.19'
 gem 'ckeditor', '3.4.3.pre'
-gem 'paperclip'
+gem 'paperclip', '~> 3.0' 
 gem 'simple-navigation'
 gem 'devise'
 gem 'acts_as_tree'
