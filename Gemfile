@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails'#, :git => "git://github.com/rails/rails.git"
+gem 'rails', '3.0.19'
 gem 'ckeditor', '3.4.3.pre'
 gem 'paperclip'
 gem 'simple-navigation'#, :git => 'git://github.com/andi/simple-navigation.git'
@@ -15,7 +15,7 @@ gem 'aws-s3'
 gem 'dalli' # For memcache
 gem 'fastercsv'
 gem 'heroku', :group => [:development, :test]
-gem 'mysql', :group => [:development, :test]
+gem 'pg', :group => [:development, :test]
 
 #gem 'sunspot_rails', '1.2'
 #gem 'nokogiri' # Required for sunspot
