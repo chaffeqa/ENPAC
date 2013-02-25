@@ -11,7 +11,7 @@ gem 'carmen'
 gem "will_paginate", "~> 3.0.pre2"
 gem 'jquery-rails'
 gem 'mail'
-gem 'aws-s3'
+gem 'aws-sdk'
 gem 'dalli' # For memcache
 gem 'fastercsv'
 gem 'pg'

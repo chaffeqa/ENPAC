@@ -30,10 +30,11 @@ GEM
     activesupport (3.0.20)
     acts_as_tree (1.2.3)
     arel (2.0.10)
-    aws-s3 (0.6.3)
-      builder
-      mime-types
-      xml-simple
+    aws-sdk (1.8.0)
+      httparty (~> 0.7)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
+      uuidtools (~> 2.1)
     bcrypt-ruby (3.0.1)
     builder (2.1.2)
     carmen (0.2.13)
@@ -51,6 +52,9 @@ GEM
     erubis (2.6.6)
       abstract (>= 1.0.0)
     fastercsv (1.5.5)
+    httparty (0.10.0)
+      multi_json (~> 1.0)
+      multi_xml
     i18n (0.5.0)
     jquery-rails (2.1.4)
       railties (>= 3.0, < 5.0)
@@ -62,6 +66,9 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.21)
+    multi_json (1.5.0)
+    multi_xml (0.5.2)
+    nokogiri (1.5.6)
     orm_adapter (0.0.7)
     paperclip (2.8.0)
       activerecord (>= 2.3.0)
@@ -99,17 +106,17 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.35)
+    uuidtools (2.1.3)
     warden (1.2.1)
       rack (>= 1.0)
     will_paginate (3.0.4)
-    xml-simple (1.1.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   acts_as_tree
-  aws-s3
+  aws-sdk
   carmen
   ckeditor (= 3.4.3.pre)
   dalli
