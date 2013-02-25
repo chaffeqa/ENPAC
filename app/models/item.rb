@@ -160,7 +160,7 @@ class Item < ActiveRecord::Base
     #self.funnel_dimension.destroy if funnel_dimension and dimension_type != 'Funnel'
     #self.pool_dimension.destroy if pool_dimension and dimension_type != 'Pool'
     #self.sorbent_dimension.destroy if sorbent_dimension and dimension_type != 'Sorbent'
-    #elf.standard_dimension.destroy if standard_dimension and dimension_type != 'Standard'
+    #self.standard_dimension.destroy if standard_dimension and dimension_type != 'Standard'
   end
 
 
