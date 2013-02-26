@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
+ruby '1.9.2'
 gem 'rails', '3.0.20'
 
 gem 'devise'
 gem 'ckeditor', '3.4.3.pre'
-gem 'paperclip', '~> 2.7' 
+gem 'paperclip', '~> 2.7'
 gem 'simple-navigation'
 gem 'acts_as_tree'
 #gem 'acts_as_list'
