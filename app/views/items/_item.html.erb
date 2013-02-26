@@ -43,8 +43,8 @@
 
     <div class="item-details">
       <% unless @item.short_description.blank? %><h4 id="item-short-description"><%=raw @item.short_description %></h4><% end %>
-      <% unless @item.long_description.blank? %><p id="item-long-description"><%=raw  @item.long_description.gsub("\r\n","<br/>") %></p><% end %>
       <% unless @item.part_number.blank? %><p id="item-part-number">Part #: <%= @item.part_number%></p><% end %>
+      <% unless @item.long_description.blank? %><p id="item-long-description"><%=raw  @item.long_description.gsub("\r\n","<br/>") %></p><% end %>
       <% unless @item.regulations.blank? %><p id="item-regulations"><strong>Regulations:</strong><br /><%=raw @item.regulations.gsub("\r\n","<br/>") %></p><% end %>
 
     <% unless @item.product_options.empty? %>
