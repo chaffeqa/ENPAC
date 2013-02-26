@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
 
   # Returns true or false if user is admin
   def admin?
-    admin_signed_in? || Rails.env.development?
+    admin_signed_in? || Rails.env == "development"
   end
 
   # Checks if User is an admin; Redirects if not
