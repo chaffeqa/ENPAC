@@ -53,7 +53,19 @@ namespace :backup do
         cmd = <<-CMD
           curl -o #{tmp_filename} `heroku pgbackups:url  --app enpac`; tar -czvf #{filename} backup/db/heroku_tmp.dump
         CMD
-        system "#{cmd}"
+        puts cmd
+        system cmd
+        cmd = <<-CMD
+          bundle exec rake db:drop && bundle exec rake db:create
+        CMD
+        puts cmd
+        system cmd
+        db_options = YAML.load_file(File.join(Rails.root, "config", "database.yml"))[Rails.env].symbolize_keys
+        cmd = <<-CMD
+          pg_restore --verbose --clean --no-acl --no-owner -h localhost -U #{db_options[:username]} -d #{db_options[:database]} backup/db/heroku_tmp.dump
+        CMD
+        puts cmd
+        system cmd
      end
   end
 end

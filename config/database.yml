@@ -1,7 +1,8 @@
 common: &common
   adapter: postgresql
-  username: macklin
-  password: Boards05
+  username: chaffeqa
+  pool: 5
+  encoding: unicode
 
 development:
   <<: *common
