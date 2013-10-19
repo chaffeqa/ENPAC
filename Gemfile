@@ -12,6 +12,7 @@ gem "will_paginate", "~> 3.0.pre2"
 gem 'jquery-rails'
 gem 'mail'
 gem 'aws-sdk'
+gem 'memcachier' # for memcache
 gem 'dalli' # For memcache
 gem 'fastercsv'
 gem 'pg'
