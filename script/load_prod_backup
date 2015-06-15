@@ -1,3 +1,4 @@
 #!/bin/bash
 curl -o latest.dump `heroku pg:backups public-url`
+rake db:create
 pg_restore --verbose --clean --no-acl --no-owner -h localhost -d enpac_dev latest.dump

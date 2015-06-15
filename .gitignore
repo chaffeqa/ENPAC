@@ -9,3 +9,5 @@ solr/data
 nbproject
 config/database.yml
 /.env
+
+*.dump
