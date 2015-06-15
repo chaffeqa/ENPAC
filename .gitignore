@@ -8,4 +8,4 @@ public/site_assets/**
 solr/data
 nbproject
 config/database.yml
-
+/.env

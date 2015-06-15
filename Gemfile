@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
+
+ruby '1.9.3'
+
 gem 'rails', '3.0.20'
 
 gem 'devise'
@@ -16,6 +19,9 @@ gem 'memcachier' # for memcache
 gem 'dalli' # For memcache
 gem 'fastercsv'
 gem 'pg'
+
+gem 'thin'
+gem 'newrelic_rpm'
 
 #gem 'sunspot_rails', '1.2'
 #gem 'nokogiri' # Required for sunspot
